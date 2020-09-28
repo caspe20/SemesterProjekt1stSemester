@@ -1,4 +1,4 @@
-package worldofzuul;
+package PackageElements;
 
 /**
  * PlayGame This is the function for the chronological order of the game. Due to
