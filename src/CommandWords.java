@@ -1,5 +1,3 @@
-package PackageElements;
-
 import java.util.HashMap;
 
 public class CommandWords {
