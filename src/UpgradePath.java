@@ -2,7 +2,11 @@ public class UpgradePath extends Upgrade {
     public Upgrade[] upgrades;
     public String pathName;
     public int currentLevel;
-    public int currentProduction;
+    private int currentProduction;
+
+    public int getCurrentProduction() {
+        return currentProduction;
+    }
 
     public void upgrade(){
 
@@ -13,10 +17,16 @@ public class UpgradePath extends Upgrade {
     }
 
     public String getUpgradeName() {
-        return Upgrade[]
+        return upgrades[currentLevel].getUpgradeName();
     }
 
     public String getNameOfNextUpgrade(){
-        return Upgrade[currentLevel+1].get
+        return upgrades[currentLevel+1].getUpgradeName();
     }
+
+    public static void main(String[] args) {
+        Upgrade[] kosmetik = new Upgrade[2];
+        kosmetik[0] = {new }
+    }
+
 }
