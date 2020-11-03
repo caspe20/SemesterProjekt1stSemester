@@ -9,7 +9,7 @@ public class UpgradePath {
     }
 
     public double getUpgradePrice(){
-        return 0;
+        return 10;
     }
     public String getNameOfNextUpgrade(){
 
