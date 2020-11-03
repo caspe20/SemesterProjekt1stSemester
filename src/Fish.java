@@ -9,7 +9,11 @@ public class Fish {
     }
 
     public boolean canAfford(double d) {
-        return Upgrade.
+        if (currentFishSouls >= d) {
+            return true;
+        }else{
+            return false;
+        }
     }
 
 }
