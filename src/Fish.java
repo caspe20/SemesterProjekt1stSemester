@@ -9,7 +9,7 @@ public class Fish {
     }
 
     public boolean canAfford(double d) {
-        return Upgrade.
+
     }
 
 }
