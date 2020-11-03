@@ -2,5 +2,14 @@ public class Fish {
     private double fishInOcean;
     private double currentFishSouls;
     private double plasticInOcean;
-    public UpgradeRoom[] upgradeRoomm;
+    public UpgradeRoom[] upgradeRoom;
+
+    public void simulateTimestep(int i) {
+
+    }
+
+    public boolean canAfford(double d) {
+        return Upgrade.
+    }
+
 }
