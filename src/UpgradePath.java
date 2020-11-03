@@ -1,4 +1,4 @@
-public class UpgradePath extends Upgrade {
+public class UpgradePath {
     public Upgrade[] upgrades;
     public String pathName;
     public int currentLevel;
