@@ -7,7 +7,6 @@ public class PlayGame {
 
     public static void main(String[] args) {
         Game g = new Game();
-        System.out.println("JC Branch");
         g.play();
     }
 }
