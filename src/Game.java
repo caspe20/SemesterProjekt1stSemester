@@ -1,6 +1,7 @@
 public class Game {
     private Parser parser;
     private Room currentRoom;
+    public TurnCounter turncounter;
 
     public Game() {
         createRooms();
@@ -8,28 +9,31 @@ public class Game {
     }
 
     private void createRooms() {
-        Room outside, theatre, pub, lab, office;
+        Room devilheadquater, matas, laundry, cardealer, dock;
+        turncounter = new TurnCounter(2000,0);
 
-        outside = new Room("outside the main entrance of the university");
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        devilheadquater = new DevilsRoom("in Devil's Headquater",turncounter);
+        matas = new Room("in Matas");
+        laundry = new Room("in the Laundry");
+        cardealer = new Room("in the car dealership");
+        dock = new Room("at the dock");
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        devilheadquater.setExit("north", matas);
+        devilheadquater.setExit("south", laundry);
 
-        theatre.setExit("west", outside);
+        matas.setExit("south",devilheadquater);
+        matas.setExit("east", cardealer);
 
-        pub.setExit("east", outside);
+        cardealer.setExit("west",matas);
+        cardealer.setExit("south",dock);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        dock.setExit("north",cardealer);
+        dock.setExit("west",laundry);
 
-        office.setExit("west", lab);
+        laundry.setExit("north",devilheadquater);
+        laundry.setExit("east",dock);
 
-        currentRoom = outside;
+        currentRoom = devilheadquater;
     }
 
     public void play() {
@@ -68,6 +72,9 @@ public class Game {
             goRoom(command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        } else if (commandWord == CommandWord.NEXTTURN) {
+            goTurn(command);
+            System.out.println(turncounter.getYear());
         }
         return wantToQuit;
     }
@@ -96,6 +103,10 @@ public class Game {
             currentRoom = nextRoom;
             System.out.println(currentRoom.getLongDescription());
         }
+    }
+
+    public void goTurn(Command command) {
+        turncounter.SimulateTurn(1);
     }
 
     private boolean quit(Command command) {

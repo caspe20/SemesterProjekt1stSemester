@@ -1,5 +1,5 @@
 public enum CommandWord {
-    GO("go"), QUIT("quit"), HELP("help"), UNKNOWN("?");
+    GO("go"), QUIT("quit"), HELP("help"),NEXTTURN("nextturn"), UNKNOWN("?");
 
     private String commandString;
 
