@@ -96,6 +96,8 @@ public class Game {
         } else if (commandWord == CommandWord.NEXTTURN) {
             goTurn(command);
             System.out.println(turncounter.getYear());
+        } else if (commandWord == CommandWord.UPGRADE){
+
         }
         return wantToQuit;
     }
