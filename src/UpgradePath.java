@@ -41,5 +41,4 @@ public class UpgradePath {
     public int getCurrentProduction() {
         return currentProduction;
     }
-
 }
