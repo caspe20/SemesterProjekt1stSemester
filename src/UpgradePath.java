@@ -7,7 +7,7 @@ public class UpgradePath {
     private int currentProduction;
 
     // Constructors
-    public void UpgradePath(Upgrade[] upgradePath, String pathName) {
+    public UpgradePath(Upgrade[] upgradePath, String pathName) {
         this.upgradePath = upgradePath;
         this.pathName = pathName;
     }

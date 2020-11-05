@@ -12,10 +12,6 @@ public class UpgradeRoom extends Room {
         this.upgradePathQuantity = upgradePathQuantity;
     }
 
-    public UpgradeRoom(String description) {
-        super(description);
-    }
-
     // Setters
     public void setCombinedProduction() {
         combinedProduction = upgradePathSpeed.getCurrentProduction() * upgradePathQuantity.getCurrentProduction();

@@ -16,6 +16,7 @@ public class Game {
         turncounter = new TurnCounter(2000, 0);
 
         devilheadquater = new DevilsRoom("in Devil's Headquater", turncounter);
+
         matas = new Room("in Matas");
         laundry = new Room("in the Laundry");
         cardealer = new Room("in the car dealership");
