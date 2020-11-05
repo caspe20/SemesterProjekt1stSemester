@@ -15,14 +15,6 @@ public class Game {
 
         outside = new UpgradeRoom("outside the main entrance of the university");
 
-        // Delete this when no longer needed. Only here to test Upgrade command
-        // Start of [delete this]
-        UpgradeRoom outsideUpgradeRoom = (UpgradeRoom) outside;
-        outsideUpgradeRoom.upgradePathQuantity = new UpgradePath();
-        Upgrade[] tests = {new Upgrade("test",10.0,10.0),new Upgrade("Test2",10.0,10.0), new Upgrade("This is an upgrade",10.0,10.0)};
-        outsideUpgradeRoom.upgradePathQuantity.upgrades = tests;
-        // End of [delete this]
-
         theatre = new Room("in a lecture theatre");
         pub = new Room("in the campus pub");
         lab = new Room("in a computing lab");
@@ -144,21 +136,21 @@ public class Game {
      */
     private void selectUpgrade(UpgradeRoom room){
         // Error Handling
-        if(room.upgradePathQuantity == null || room.upgradePathQuantity.upgrades == null){
-            System.out.println("Error: Upgrades is NULL");
-            return;
-        }
+        //if(room.upgradePathQuantity == null || room.upgradePathQuantity.upgrades == null){
+        //    System.out.println("Error: Upgrades is NULL");
+        //    return;
+        //}
 
         // find upgrades
-        Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
+        //Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
 
         //  If there are no more upgrades
-        if(upgrades.length < 1){
-            System.out.println("You and you adviser has been left to");
-            System.out.println("wander what to upgrade, and have");
-            System.out.println("decided that nothing is left.");
-            return;
-        }
+        //if(upgrades.length < 1){
+        //    System.out.println("You and you adviser has been left to");
+        //    System.out.println("wander what to upgrade, and have");
+        //    System.out.println("decided that nothing is left.");
+        //    return;
+        //}
 
         // Flavour text
         System.out.println("You decided it would be profitable to upgrade this");
@@ -169,43 +161,43 @@ public class Game {
         System.out.println();
 
         // Input loop
-        while(true){
-
-            // Print upgrade flavour text
-            System.out.println("upgrades:");
-            for(int i = 0; i < upgrades.length; i++){
-                System.out.print(" " + (i+1) +"# - ");
-                System.out.println(upgrades[i].getUpgradeName());
-            }
-
-            // Get console command
-            Command command = parser.getCommand();
-
-            // Process "UPGRADE #"
-            if(command.getCommandWord() == CommandWord.UPGRADE) {
-                // Error handling
-                if (command.hasSecondWord()) {
-                    System.out.println("Please select an upgrade");
-                    System.out.println();
-                    continue;
-                }
-
-                // Handle upgrade.
-
-            // Process "BACK"
-            }else if (command.getCommandWord() == CommandWord.BACK){
-                System.out.println(room.getLongDescription());
-                break;
-            }else{
-                System.out.println("Please select a valid command word at this time.");
-                System.out.println();
-                System.out.println("Commands:");
-                System.out.println(CommandWord.UPGRADE.toString() + " " + CommandWord.BACK.toString());
-                System.out.println();
-                continue;
-            }
-
-        }
+//        while(true){
+//
+//            // Print upgrade flavour text
+//            System.out.println("upgrades:");
+//            for(int i = 0; i < upgrades.length; i++){
+//                System.out.print(" " + (i+1) +"# - ");
+//                System.out.println(upgrades[i].getUpgradeName());
+//            }
+//
+//            // Get console command
+//            Command command = parser.getCommand();
+//
+//            // Process "UPGRADE #"
+//            if(command.getCommandWord() == CommandWord.UPGRADE) {
+//                // Error handling
+//                if (command.hasSecondWord()) {
+//                    System.out.println("Please select an upgrade");
+//                    System.out.println();
+//                    continue;
+//                }
+//
+//                // Handle upgrade.
+//
+//            // Process "BACK"
+//            }else if (command.getCommandWord() == CommandWord.BACK){
+//                System.out.println(room.getLongDescription());
+//                break;
+//            }else{
+//                System.out.println("Please select a valid command word at this time.");
+//                System.out.println();
+//                System.out.println("Commands:");
+//                System.out.println(CommandWord.UPGRADE.toString() + " " + CommandWord.BACK.toString());
+//                System.out.println();
+//                continue;
+//            }
+//
+//        }
 
     }
 
