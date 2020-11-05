@@ -30,8 +30,9 @@ public class UpgradePath {
         return upgradePath;
     }
 
-    public static void main(String[] args) {
-    // Upgrade level1 = new Upgrade();
+    public String getPathName() {
+        return pathName;
+    }
 
     public int getCurrentLevel() {
         return currentLevel;

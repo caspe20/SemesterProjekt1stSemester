@@ -1,7 +1,4 @@
 public class UpgradeRoom extends Room {
-    public UpgradePath upgradePathSpeed;
-    public UpgradePath upgradePathQuantity;
-    public int combinedProduction;
 
     // Attributes
     private UpgradePath upgradePathSpeed;
@@ -19,6 +16,7 @@ public class UpgradeRoom extends Room {
         super(description);
     }
 
+    // Setters
     public void setCombinedProduction() {
         combinedProduction = upgradePathSpeed.getCurrentProduction() * upgradePathQuantity.getCurrentProduction();
     }
