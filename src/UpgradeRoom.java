@@ -1,10 +1,9 @@
-public class UpgradeRoom extends Room{
+public class UpgradeRoom extends Room {
 
     // Attributes
     private UpgradePath upgradePathSpeed;
     private UpgradePath upgradePathQuantity;
     private double combinedProduction;
-
 
     // Constructors
     public UpgradeRoom(String description, UpgradePath upgradePathSpeed, UpgradePath upgradePathQuantity) {
