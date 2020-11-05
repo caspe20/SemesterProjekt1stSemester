@@ -1,9 +1,9 @@
 public class Upgrade {
 
     // Attributes
-    private String upgradeName;
-    private double upgradePrice;
-    private double productionSpeed;
+    public String upgradeName;
+    public double upgradePrice;
+    public double productionSpeed;
 
     // Constructors
     public Upgrade(String upgradeName, double upgradePrice, double productionSpeed) {
@@ -11,20 +11,6 @@ public class Upgrade {
         this.upgradePrice = upgradePrice;
         this.productionSpeed = productionSpeed;
     }
-
-    // Getters
-    public String getUpgradeName() {
-        return upgradeName;
-    }
-
-    public double getUpgradePrice() {
-        return upgradePrice;
-    }
-
-    public double getProductionSpeed() {
-        return productionSpeed;
-    }
-
 }
 
 

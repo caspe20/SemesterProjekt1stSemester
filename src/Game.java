@@ -1,7 +1,6 @@
 public class Game {
     private Parser parser;
     private Room currentRoom;
-    public TurnCounter turncounter;
 
     public Game() {
         createRooms();
@@ -13,10 +12,28 @@ public class Game {
      */
     private void createRooms() {
         Room devilheadquater, matas, laundry, cardealer, dock;
-        turncounter = new TurnCounter(2000, 0);
 
-        devilheadquater = new DevilsRoom("in Devil's Headquater", turncounter);
-        matas = new Room("in Matas");
+        devilheadquater = new DevilsRoom("in Devil's Headquater");
+
+        matas = new UpgradeRoom("in Matas",
+                new UpgradePath("Forbrug",
+                    new Upgrade[]{
+                            new Upgrade("Svanemærket",0.0,10.0),
+                            new Upgrade("Håndsæbe",10.0,20.0),
+                            new Upgrade("Shampoo",20.0,30.0),
+                            new Upgrade("Balsam",40.0,40.0)
+                    }
+                ),
+                new UpgradePath("Forbrug",
+                    new Upgrade[]{
+                            new Upgrade("aldrig",0.0,0.0),
+                            new Upgrade("En gang om måneden",10.0,10.0),
+                            new Upgrade("2 gange om måneden",20.0,20.0),
+                            new Upgrade("Hver uge",40.0,30.0),
+                    }
+                )
+        );
+
         laundry = new Room("in the Laundry");
         cardealer = new Room("in the car dealership");
         dock = new Room("at the dock");
@@ -69,7 +86,7 @@ public class Game {
 
     /**
      * Checks whether a valid command has been called and executes that command.
-     * 
+     *
      * @param command
      * @return true if the command "quit" has been written.
      */
@@ -95,9 +112,7 @@ public class Game {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.NEXTTURN) {
             goTurn(command);
-            System.out.println(turncounter.getYear());
-        } else if (commandWord == CommandWord.UPGRADE){
-
+            System.out.println(GameStats.getYear());
         }
         return wantToQuit;
     }
@@ -117,7 +132,7 @@ public class Game {
      * Method to go from door to door. It uses the Room class to decide whether the
      * current selected room exists. If it does sets currentRoom to be the selected
      * room.
-     * 
+     *
      * @param command Command used to go to next room.
      */
     private void goRoom(Command command) {
@@ -141,7 +156,7 @@ public class Game {
     /**
      * Method to select upgrade and uses the Parser class to record which upgrade to
      * select.
-     * 
+     *
      * @author Casper
      * @param room is current room, but is used to find current selectable upgrades.
      */
@@ -213,7 +228,7 @@ public class Game {
     }
 
     public void goTurn(Command command) {
-        turncounter.SimulateTurn(1);
+        GameStats.SimulateTurn(1);
     }
 
     private boolean quit(Command command) {
