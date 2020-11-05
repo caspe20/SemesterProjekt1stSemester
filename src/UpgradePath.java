@@ -1,34 +1,46 @@
 public class UpgradePath {
-    public Upgrade[] upgrades;
-    public String pathName;
-    public int currentLevel;
+
+    // Attributes
+    public Upgrade[] upgradePath;
+    private String pathName;
+    private int currentLevel;
     private int currentProduction;
+
+    // Constructors
+    public void UpgradePath(Upgrade[] upgradePath, String pathName) {
+        this.upgradePath = upgradePath;
+        this.pathName = pathName;
+    }
+
+    // Setters
+    public void setCurrentLevel(int currentLevel) {
+        this.currentLevel = currentLevel;
+    }
+
+    public void setCurrentProduction(int currentProduction) {
+        this.currentProduction = currentProduction;
+    }
+
+    public void setPathName(String pathName) {
+        this.pathName = pathName;
+    }
+
+
+    // Getters
+    public Upgrade[] getUpgradePath() {
+        return upgradePath;
+    }
+
+    public String getPathName() {
+        return pathName;
+    }
+
+    public int getCurrentLevel() {
+        return currentLevel;
+    }
 
     public int getCurrentProduction() {
         return currentProduction;
-    }
-
-    public void upgrade(){
-
-    }
-
-    public double getUpgradePrice(){
-        return 10;
-    }
-
-    public String getUpgradeName() {
-        return upgrades[currentLevel].getUpgradeName();
-    }
-
-    public String getNameOfNextUpgrade(){
-        return upgrades[currentLevel+1].getUpgradeName();
-    }
-
-    public static void main(String[] args) {
-        //Upgrade level1 = new Upgrade();
-
-        Upgrade[] kosmetik = new Upgrade[2];
-
     }
 
 }
