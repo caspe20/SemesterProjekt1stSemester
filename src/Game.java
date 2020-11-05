@@ -73,8 +73,12 @@ public class Game {
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.NEXTTURN) {
+<<<<<<< Updated upstream
             goTurn(command);
             System.out.println(turncounter.getYear());
+=======
+            // Simulate Next Turn
+>>>>>>> Stashed changes
         }
         return wantToQuit;
     }

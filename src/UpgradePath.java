@@ -30,6 +30,7 @@ public class UpgradePath {
     public Upgrade[] getUpgradePath() {
         return upgradePath;
     }
+<<<<<<< Updated upstream
 
     public String getPathName() {
         return pathName;
@@ -43,4 +44,6 @@ public class UpgradePath {
         return currentProduction;
     }
 
+=======
+>>>>>>> Stashed changes
 }
