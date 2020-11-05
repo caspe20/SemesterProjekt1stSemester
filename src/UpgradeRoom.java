@@ -1,10 +1,9 @@
-public class UpgradeRoom extends Room{
+public class UpgradeRoom extends Room {
 
     // Attributes
     private UpgradePath upgradePathSpeed;
     private UpgradePath upgradePathQuantity;
     private int combinedProduction;
-
 
     // Constructors
     public UpgradeRoom(String description, UpgradePath upgradePathSpeed, UpgradePath upgradePathQuantity) {
@@ -13,11 +12,14 @@ public class UpgradeRoom extends Room{
         this.upgradePathQuantity = upgradePathQuantity;
     }
 
+    public UpgradeRoom(String description) {
+        super(description);
+    }
+
     // Setters
     public void setCombinedProduction() {
         combinedProduction = upgradePathSpeed.getCurrentProduction() * upgradePathQuantity.getCurrentProduction();
     }
-
 
     // Getters
     public int getCombinedProduction() {

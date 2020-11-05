@@ -25,7 +25,6 @@ public class UpgradePath {
         this.pathName = pathName;
     }
 
-
     // Getters
     public Upgrade[] getUpgradePath() {
         return upgradePath;
