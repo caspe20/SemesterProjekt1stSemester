@@ -25,7 +25,7 @@ public class UpgradePath {
     }
 
     public static void main(String[] args) {
-        Upgrade level1 = new Upgrade();
+        //Upgrade level1 = new Upgrade();
 
         Upgrade[] kosmetik = new Upgrade[2];
 
