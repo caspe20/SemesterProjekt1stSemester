@@ -1,6 +1,7 @@
 public class Game {
     private Parser parser;
     private Room currentRoom;
+    public TurnCounter turncounter;
 
     public Game() {
         createRooms();
@@ -11,29 +12,31 @@ public class Game {
      * Creates the world in the game
      */
     private void createRooms() {
-        Room outside, theatre, pub, lab, office;
+        Room devilheadquater, matas, laundry, cardealer, dock;
+        turncounter = new TurnCounter(2000, 0);
 
-        outside = new UpgradeRoom("outside the main entrance of the university");
+        devilheadquater = new DevilsRoom("in Devil's Headquater", turncounter);
+        matas = new Room("in Matas");
+        laundry = new Room("in the Laundry");
+        cardealer = new Room("in the car dealership");
+        dock = new Room("at the dock");
 
-        theatre = new Room("in a lecture theatre");
-        pub = new Room("in the campus pub");
-        lab = new Room("in a computing lab");
-        office = new Room("in the computing admin office");
+        devilheadquater.setExit("north", matas);
+        devilheadquater.setExit("south", laundry);
 
-        outside.setExit("east", theatre);
-        outside.setExit("south", lab);
-        outside.setExit("west", pub);
+        matas.setExit("south", devilheadquater);
+        matas.setExit("east", cardealer);
 
-        theatre.setExit("west", outside);
+        cardealer.setExit("west", matas);
+        cardealer.setExit("south", dock);
 
-        pub.setExit("east", outside);
+        dock.setExit("north", cardealer);
+        dock.setExit("west", laundry);
 
-        lab.setExit("north", outside);
-        lab.setExit("east", office);
+        laundry.setExit("north", devilheadquater);
+        laundry.setExit("east", dock);
 
-        office.setExit("west", lab);
-
-        currentRoom = outside;
+        currentRoom = devilheadquater;
     }
 
     /**
@@ -65,8 +68,8 @@ public class Game {
     }
 
     /**
-     * Checks whether a valid command has been called
-     * and executes that command.
+     * Checks whether a valid command has been called and executes that command.
+     * 
      * @param command
      * @return true if the command "quit" has been written.
      */
@@ -86,10 +89,13 @@ public class Game {
             printHelp();
         } else if (commandWord == CommandWord.GO) {
             goRoom(command);
-        }else if(commandWord == CommandWord.UPGRADE && currentRoom instanceof UpgradeRoom){
+        } else if (commandWord == CommandWord.UPGRADE && currentRoom instanceof UpgradeRoom) {
             selectUpgrade((UpgradeRoom) currentRoom);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
+        } else if (commandWord == CommandWord.NEXTTURN) {
+            goTurn(command);
+            System.out.println(turncounter.getYear());
         }
         return wantToQuit;
     }
@@ -106,9 +112,10 @@ public class Game {
     }
 
     /**
-     * Method to go from door to door. It uses the Room class to
-     * decide whether the current selected room exists. If it does
-     * sets currentRoom to be the selected room.
+     * Method to go from door to door. It uses the Room class to decide whether the
+     * current selected room exists. If it does sets currentRoom to be the selected
+     * room.
+     * 
      * @param command Command used to go to next room.
      */
     private void goRoom(Command command) {
@@ -130,27 +137,30 @@ public class Game {
     }
 
     /**
-     * Method to select upgrade and uses the Parser class to record which upgrade to select.
+     * Method to select upgrade and uses the Parser class to record which upgrade to
+     * select.
+     * 
      * @author Casper
      * @param room is current room, but is used to find current selectable upgrades.
      */
-    private void selectUpgrade(UpgradeRoom room){
+    private void selectUpgrade(UpgradeRoom room) {
         // Error Handling
-        //if(room.upgradePathQuantity == null || room.upgradePathQuantity.upgrades == null){
-        //    System.out.println("Error: Upgrades is NULL");
-        //    return;
-        //}
+        // if(room.upgradePathQuantity == null || room.upgradePathQuantity.upgrades ==
+        // null){
+        // System.out.println("Error: Upgrades is NULL");
+        // return;
+        // }
 
         // find upgrades
-        //Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
+        // Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
 
-        //  If there are no more upgrades
-        //if(upgrades.length < 1){
-        //    System.out.println("You and you adviser has been left to");
-        //    System.out.println("wander what to upgrade, and have");
-        //    System.out.println("decided that nothing is left.");
-        //    return;
-        //}
+        // If there are no more upgrades
+        // if(upgrades.length < 1){
+        // System.out.println("You and you adviser has been left to");
+        // System.out.println("wander what to upgrade, and have");
+        // System.out.println("decided that nothing is left.");
+        // return;
+        // }
 
         // Flavour text
         System.out.println("You decided it would be profitable to upgrade this");
@@ -161,44 +171,47 @@ public class Game {
         System.out.println();
 
         // Input loop
-//        while(true){
-//
-//            // Print upgrade flavour text
-//            System.out.println("upgrades:");
-//            for(int i = 0; i < upgrades.length; i++){
-//                System.out.print(" " + (i+1) +"# - ");
-//                System.out.println(upgrades[i].getUpgradeName());
-//            }
-//
-//            // Get console command
-//            Command command = parser.getCommand();
-//
-//            // Process "UPGRADE #"
-//            if(command.getCommandWord() == CommandWord.UPGRADE) {
-//                // Error handling
-//                if (command.hasSecondWord()) {
-//                    System.out.println("Please select an upgrade");
-//                    System.out.println();
-//                    continue;
-//                }
-//
-//                // Handle upgrade.
-//
-//            // Process "BACK"
-//            }else if (command.getCommandWord() == CommandWord.BACK){
-//                System.out.println(room.getLongDescription());
-//                break;
-//            }else{
-//                System.out.println("Please select a valid command word at this time.");
-//                System.out.println();
-//                System.out.println("Commands:");
-//                System.out.println(CommandWord.UPGRADE.toString() + " " + CommandWord.BACK.toString());
-//                System.out.println();
-//                continue;
-//            }
-//
-//        }
+        // while(true){
+        //
+        // // Print upgrade flavour text
+        // System.out.println("upgrades:");
+        // for(int i = 0; i < upgrades.length; i++){
+        // System.out.print(" " + (i+1) +"# - ");
+        // System.out.println(upgrades[i].getUpgradeName());
+        // }
+        //
+        // // Get console command
+        // Command command = parser.getCommand();
+        //
+        // // Process "UPGRADE #"
+        // if(command.getCommandWord() == CommandWord.UPGRADE) {
+        // // Error handling
+        // if (command.hasSecondWord()) {
+        // System.out.println("Please select an upgrade");
+        // System.out.println();
+        // continue;
+        // }
+        //
+        // // Handle upgrade.
+        //
+        // // Process "BACK"
+        // }else if (command.getCommandWord() == CommandWord.BACK){
+        // System.out.println(room.getLongDescription());
+        // break;
+        // }else{
+        // System.out.println("Please select a valid command word at this time.");
+        // System.out.println();
+        // System.out.println("Commands:");
+        // System.out.println(CommandWord.UPGRADE.toString() + " " +
+        // CommandWord.BACK.toString());
+        // System.out.println();
+        // continue;
+        // }
+        //
+    }
 
+    public void goTurn(Command command) {
+        turncounter.SimulateTurn(1);
     }
 
     private boolean quit(Command command) {

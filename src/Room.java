@@ -2,7 +2,7 @@ import java.util.Set;
 import java.util.HashMap;
 
 public class Room {
-    private String description;
+    protected String description;
     private HashMap<String, Room> exits;
 
     public Room(String description) {
@@ -22,7 +22,7 @@ public class Room {
         return "You are " + description + ".\n" + getExitString();
     }
 
-    private String getExitString() {
+    protected String getExitString() {
         String returnString = "Exits:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {
