@@ -16,12 +16,21 @@ public class Game {
         devilheadquater = new DevilsRoom("in Devil's Headquater");
 
         matas = new UpgradeRoom("in Matas",
-                new UpgradePath("Forbrug",
-                        new Upgrade[] { new Upgrade("Svanemærket", 0.0, 10.0), new Upgrade("Håndsæbe", 10.0, 20.0),
-                                new Upgrade("Shampoo", 20.0, 30.0), new Upgrade("Balsam", 40.0, 40.0) }),
-                new UpgradePath("Forbrug",
-                        new Upgrade[] { new Upgrade("aldrig", 0.0, 0.0), new Upgrade("En gang om måneden", 10.0, 10.0),
-                                new Upgrade("2 gange om måneden", 20.0, 20.0), new Upgrade("Hver uge", 40.0, 30.0), }));
+                    new UpgradePath("Forbrug",
+                            new Upgrade[] { new Upgrade("Svanemærket", 0.0, 10.0),
+                                    new Upgrade("Håndsæbe", 10.0, 20.0),
+                                    new Upgrade("Shampoo", 20.0, 30.0),
+                                    new Upgrade("Balsam", 40.0, 40.0)
+                            }
+                    ),
+                    new UpgradePath("Forbrug",
+                            new Upgrade[] { new Upgrade("aldrig", 0.0, 0.0),
+                                    new Upgrade("En gang om måneden", 10.0, 10.0),
+                                    new Upgrade("2 gange om måneden", 20.0, 20.0),
+                                    new Upgrade("Hver uge", 40.0, 30.0),
+                            }
+                    )
+        );
 
         laundry = new Room("in the Laundry");
         cardealer = new Room("in the car dealership");
