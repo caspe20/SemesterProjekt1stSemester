@@ -22,7 +22,7 @@ public class UpgradePath {
     }
 
     public boolean PerformUpgrade() {
-        if (currentLevel < upgrades.length) {
+        if (currentLevel < upgrades.length - 1) {
             if (GameStats.currentFishSouls >= upgrades[currentLevel].upgradePrice) {
                 GameStats.currentFishSouls += upgrades[currentLevel].upgradePrice;
                 CalculateCurrentProduction();
