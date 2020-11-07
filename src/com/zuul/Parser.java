@@ -1,5 +1,6 @@
+package com.zuul;
+
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Parser {
     private CommandWords commands;
@@ -13,7 +14,7 @@ public class Parser {
 
     /**
      * Method to return the command that the user created for the game.
-     * @return Command with the command given by the user. E.g. "Go" "North"
+     * @return com.zuul.Command with the command given by the user. E.g. "Go" "North"
      */
     public Command getCommand() {
         //Declaration

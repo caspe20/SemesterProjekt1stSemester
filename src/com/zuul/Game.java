@@ -1,3 +1,7 @@
+package com.zuul;
+
+import com.zuul.rooms.*;
+
 public class Game {
     private Parser parser;
     private Room currentRoom;
@@ -15,7 +19,7 @@ public class Game {
 
         devilheadquater = new DevilsRoom("in Devil's Headquater");
 
-        matas = new UpgradeRoom("in Matas",
+        matas = new Matas("in Matas",
                     new UpgradePath("Forbrug",
                             new Upgrade[] { new Upgrade("Svanemærket", 0.0, 10.0),
                                     new Upgrade("Håndsæbe", 10.0, 20.0),
@@ -32,9 +36,38 @@ public class Game {
                     )
         );
 
-        laundry = new Room("in the Laundry");
-        cardealer = new Room("in the car dealership");
-        dock = new Room("at the dock");
+        laundry = new Laundry("in Laundry",
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 10.0)
+                        }
+                ),
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 0.0)
+                        }
+                )
+        );
+
+        cardealer = new CarDealer("in the car dealership",
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 10.0)
+                        }
+                ),
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 0.0)
+                        }
+                )
+        );
+
+        dock = new Dock("at the dock",
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 10.0)
+                        }
+                ),
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 0.0)
+                        }
+                )
+        );
 
         devilheadquater.setExit("north", matas);
         devilheadquater.setExit("south", laundry);
@@ -94,7 +127,7 @@ public class Game {
         CommandWord commandWord = command.getCommandWord();
 
         // If invalid command has been written.
-        // This is a note for the team. Since CommandWord.UNKNOWN
+        // This is a note for the team. Since com.zuul.CommandWord.UNKNOWN
         if (commandWord == CommandWord.UNKNOWN) {
             System.out.println("I don't know what you mean...");
             return false;
@@ -127,11 +160,11 @@ public class Game {
     }
 
     /**
-     * Method to go from door to door. It uses the Room class to decide whether the
+     * Method to go from door to door. It uses the com.zuul.rooms.Room class to decide whether the
      * current selected room exists. If it does sets currentRoom to be the selected
      * room.
      *
-     * @param command Command used to go to next room.
+     * @param command com.zuul.Command used to go to next room.
      */
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
@@ -152,7 +185,7 @@ public class Game {
     }
 
     /**
-     * Method to select upgrade and uses the Parser class to record which upgrade to
+     * Method to select upgrade and uses the com.zuul.Parser class to record which upgrade to
      * select.
      *
      * @author Casper
@@ -167,7 +200,7 @@ public class Game {
         // }
 
         // find upgrades
-        // Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
+        // com.zuul.Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
 
         // If there are no more upgrades
         // if(upgrades.length < 1){
@@ -196,10 +229,10 @@ public class Game {
         // }
         //
         // // Get console command
-        // Command command = parser.getCommand();
+        // com.zuul.Command command = parser.getCommand();
         //
         // // Process "UPGRADE #"
-        // if(command.getCommandWord() == CommandWord.UPGRADE) {
+        // if(command.getCommandWord() == com.zuul.CommandWord.UPGRADE) {
         // // Error handling
         // if (command.hasSecondWord()) {
         // System.out.println("Please select an upgrade");
@@ -210,15 +243,15 @@ public class Game {
         // // Handle upgrade.
         //
         // // Process "BACK"
-        // }else if (command.getCommandWord() == CommandWord.BACK){
+        // }else if (command.getCommandWord() == com.zuul.CommandWord.BACK){
         // System.out.println(room.getLongDescription());
         // break;
         // }else{
         // System.out.println("Please select a valid command word at this time.");
         // System.out.println();
         // System.out.println("Commands:");
-        // System.out.println(CommandWord.UPGRADE.toString() + " " +
-        // CommandWord.BACK.toString());
+        // System.out.println(com.zuul.CommandWord.UPGRADE.toString() + " " +
+        // com.zuul.CommandWord.BACK.toString());
         // System.out.println();
         // continue;
         // }

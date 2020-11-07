@@ -1,3 +1,5 @@
+package com.zuul;
+
 public enum CommandWord {
     GO("go"), QUIT("quit"), HELP("help"), UPGRADE("upgrade"),NEXTTURN("next"), BACK("back"), UNKNOWN("?");
 
