@@ -4,7 +4,7 @@ public class UpgradePath {
     public Upgrade[] upgrades;
     private String pathName;
     private int currentLevel = 0;
-    public double currentProduction;
+    public long currentProduction;
 
     // Constructors
     public UpgradePath(String pathName, Upgrade[] upgrades) {
@@ -23,8 +23,9 @@ public class UpgradePath {
 
     public boolean PerformUpgrade() {
         if (currentLevel < upgrades.length) {
-            if (GameStats.currentFishSouls >= upgrades[currentLevel + 1].upgradePrice) {
-                GameStats.currentFishSouls += upgrades[currentLevel + 1].upgradePrice;
+            if (GameStats.currentFishSouls >= upgrades[currentLevel].upgradePrice) {
+                GameStats.currentFishSouls += upgrades[currentLevel].upgradePrice;
+                CalculateCurrentProduction();
                 currentLevel++;
                 return true;
             } else {

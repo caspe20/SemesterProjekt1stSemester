@@ -1,15 +1,18 @@
+import java.util.ArrayList;
+
 public class GameStats {
     private static long fishInOcean = 3500000000l;
-    public static double currentFishSouls;
-    private static double plasticInOcean;
-    private static double plasticProduction;
-    private UpgradeRoom[] upgradeRoom;
+    public static long currentFishSouls = 0;
+    private static long plasticInOcean = 0;
+    private static long plasticProduction = 0;
+    public static ArrayList<UpgradeRoom> upgradeRoom = new ArrayList<>();
     public static int CurrentTurn = 0;
     public static final int CurrentYear = 2000;
 
     public static void SimulateTurn(int yr) {
         CurrentTurn+=yr;
         for (int y = 0; y < yr;y++) {
+            FetchPlasticProduction();
             UpdatePlastic();
             UpdateFish();
         }
@@ -19,7 +22,14 @@ public class GameStats {
     }
 
     public static void FetchPlasticProduction() {
+        for (int i = 0; i < upgradeRoom.size();i++) {
+            upgradeRoom.get(i).setCombinedProduction();
+            plasticProduction += upgradeRoom.get(i).getCombinedProduction();
+        }
+    }
 
+    public static String ShowResourceStats() {
+        return "Your Current Fish souls: "+currentFishSouls+"\nFish in ocean: "+fishInOcean+"\nPlastic in Ocean: "+plasticInOcean+"\nPlastic produced pr year: "+plasticProduction;
     }
     private static void UpdatePlastic() {
         plasticInOcean += plasticProduction;

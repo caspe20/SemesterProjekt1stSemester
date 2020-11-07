@@ -7,6 +7,7 @@ public class DevilsRoom extends Room{
     public String getLongDescription() {
         String s = "You are " + description + ".\n";
         s = s + GameStats.getYear() + ".\n";
+        s = s + GameStats.ShowResourceStats() + "\n";
         s = s + getExitString() + "\n";
         return s;
     }

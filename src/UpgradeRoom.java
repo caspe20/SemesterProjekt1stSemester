@@ -1,9 +1,9 @@
 public class UpgradeRoom extends Room {
 
     // Attributes
-    private UpgradePath upgradePathSpeed;
-    private UpgradePath upgradePathQuantity;
-    private double combinedProduction;
+    public UpgradePath upgradePathSpeed;
+    public UpgradePath upgradePathQuantity;
+    private long combinedProduction;
 
     // Constructors
     public UpgradeRoom(String description, UpgradePath upgradePathSpeed, UpgradePath upgradePathQuantity) {
@@ -13,7 +13,12 @@ public class UpgradeRoom extends Room {
     }
 
     public void setCombinedProduction() {
+        upgradePathQuantity.CalculateCurrentProduction();
+        upgradePathSpeed.CalculateCurrentProduction();
         combinedProduction = upgradePathSpeed.currentProduction * upgradePathQuantity.currentProduction;
+    }
+    public long getCombinedProduction() {
+        return combinedProduction;
     }
 
     // This functions returns what the estimated production will be if you upgrade a

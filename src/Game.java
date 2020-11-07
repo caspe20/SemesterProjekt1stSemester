@@ -1,6 +1,7 @@
 public class Game {
     private Parser parser;
     private Room currentRoom;
+    private DevilsRoom devilheadquater;
 
     public Game() {
         createRooms();
@@ -11,7 +12,8 @@ public class Game {
      * Creates the world in the game
      */
     private void createRooms() {
-        Room devilheadquater, matas, laundry, cardealer, dock;
+        UpgradeRoom matas;
+        Room laundry, cardealer, dock;
 
         devilheadquater = new DevilsRoom("in Devil's Headquater");
 
@@ -41,6 +43,7 @@ public class Game {
 
         matas.setExit("south", devilheadquater);
         matas.setExit("east", cardealer);
+        GameStats.upgradeRoom.add(matas);
 
         cardealer.setExit("west", matas);
         cardealer.setExit("south", dock);
@@ -105,12 +108,15 @@ public class Game {
         } else if (commandWord == CommandWord.GO) {
             goRoom(command);
         } else if (commandWord == CommandWord.UPGRADE && currentRoom instanceof UpgradeRoom) {
-            selectUpgrade((UpgradeRoom) currentRoom);
+            Upgrade((UpgradeRoom) currentRoom, command);
+            System.out.println(currentRoom.getLongDescription());
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.NEXTTURN) {
-            goTurn(command);
+            GameStats.SimulateTurn(1);
             System.out.println(GameStats.getYear());
+            System.out.println(devilheadquater.getLongDescription());
+            System.out.println(currentRoom.getLongDescription());
         }
         return wantToQuit;
     }
@@ -158,6 +164,7 @@ public class Game {
      * @author Casper
      * @param room is current room, but is used to find current selectable upgrades.
      */
+
     private void selectUpgrade(UpgradeRoom room) {
         // Error Handling
         // if(room.upgradePathQuantity == null || room.upgradePathQuantity.upgrades ==
@@ -225,10 +232,45 @@ public class Game {
         //
     }
 
-    public void goTurn(Command command) {
-        GameStats.SimulateTurn(1);
-    }
+    private void Upgrade(UpgradeRoom room, Command command) {
+        if (!command.hasSecondWord()) {
+            System.out.println("Which Upgrade? (1 or 2)");
+            return;
+        }
+        int UpgradeNum = 0;
+        try {
+            UpgradeNum = Integer.parseInt(command.getSecondWord());
+        }catch(NumberFormatException e) {
+            System.out.println("Not a number");
+            return;
+        }
+        UpgradeRoom castedCurrentRoom = (UpgradeRoom)currentRoom;
 
+        if (UpgradeNum == 1) {
+            if (castedCurrentRoom.upgradePathSpeed.getUpgradePrice(0) <= GameStats.currentFishSouls) {
+                if(castedCurrentRoom.upgradePathSpeed.PerformUpgrade()) {
+                    System.out.println("Upgrade Success");
+                }else{
+                    System.out.println("There was an error attempting to upgrade, no Fishies were harmed");
+                }
+            }else{
+                System.out.println(" You cannot afford this upgrade, you need "+(castedCurrentRoom.upgradePathSpeed.getUpgradePrice(0)-GameStats.currentFishSouls)+" more fish souls");
+            }
+        }
+        else if (UpgradeNum == 2) {
+            if (castedCurrentRoom.upgradePathQuantity.getUpgradePrice(0) <= GameStats.currentFishSouls) {
+                if(castedCurrentRoom.upgradePathQuantity.PerformUpgrade()) {
+                    System.out.println("Upgrade Success");
+                }else{
+                    System.out.println("There was an error attempting to upgrade, no Fishies were harmed");
+                }
+            }else{
+                System.out.println(" You cannot afford this upgrade, you need "+(castedCurrentRoom.upgradePathQuantity.getUpgradePrice(0)-GameStats.currentFishSouls)+" more fish souls");
+            }
+        }else{
+            System.out.println("The only valid numbers are 1 and 2");
+        }
+    }
     private boolean quit(Command command) {
         if (command.hasSecondWord()) {
             System.out.println("Quit what?");
