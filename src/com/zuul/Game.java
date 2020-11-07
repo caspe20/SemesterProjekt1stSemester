@@ -1,8 +1,6 @@
 package com.zuul;
 
-import com.zuul.rooms.DevilsRoom;
-import com.zuul.rooms.Room;
-import com.zuul.rooms.UpgradeRoom;
+import com.zuul.rooms.*;
 
 public class Game {
     private Parser parser;
@@ -21,7 +19,7 @@ public class Game {
 
         devilheadquater = new DevilsRoom("in Devil's Headquater");
 
-        matas = new UpgradeRoom("in Matas",
+        matas = new Matas("in Matas",
                     new UpgradePath("Forbrug",
                             new Upgrade[] { new Upgrade("Svanemærket", 0.0, 10.0),
                                     new Upgrade("Håndsæbe", 10.0, 20.0),
@@ -38,9 +36,38 @@ public class Game {
                     )
         );
 
-        laundry = new Room("in the Laundry");
-        cardealer = new Room("in the car dealership");
-        dock = new Room("at the dock");
+        laundry = new Laundry("in Laundry",
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 10.0)
+                        }
+                ),
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 0.0)
+                        }
+                )
+        );
+
+        cardealer = new CarDealer("in the car dealership",
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 10.0)
+                        }
+                ),
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 0.0)
+                        }
+                )
+        );
+
+        dock = new Dock("at the dock",
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 10.0)
+                        }
+                ),
+                new UpgradePath("Something",
+                        new Upgrade[] { new Upgrade("Something", 0.0, 0.0)
+                        }
+                )
+        );
 
         devilheadquater.setExit("north", matas);
         devilheadquater.setExit("south", laundry);

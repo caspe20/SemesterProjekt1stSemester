@@ -2,7 +2,7 @@ package com.zuul.rooms;
 
 import com.zuul.UpgradePath;
 
-public class UpgradeRoom extends Room {
+public abstract class UpgradeRoom extends Room {
 
     // Attributes
     private UpgradePath upgradePathSpeed;
@@ -20,7 +20,7 @@ public class UpgradeRoom extends Room {
         combinedProduction = upgradePathSpeed.currentProduction * upgradePathQuantity.currentProduction;
     }
 
-    // This functions returns what the estimated production will be if you upgrade a
+    // This function returns what the estimated production will be if you upgrade a
     // certain path a certain amount;
     public double estimateSpeedIfUpgrade(int speed, int quantity) {
         return upgradePathSpeed.upgrades[upgradePathSpeed.getLevel() + speed].productionSpeed
