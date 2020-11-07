@@ -30,11 +30,11 @@ public abstract class UpgradeRoom extends Room {
     @Override
     public String getLongDescription() {
         String s = "You are " + description + ".\n";
-        s = s + "--- com.zuul.Upgrade 1 --- \n";
+        s = s + "--- Upgrade 1 --- \n";
         s = s + upgradePathSpeed.getUpgradeName(0) + " --> " + upgradePathSpeed.getUpgradeName(1) + "\n";
         s = s + upgradePathSpeed.getUpgradeCoefficient(0) + " --> " + upgradePathSpeed.getUpgradeCoefficient(1) + "\n";
         s = s + upgradePathSpeed.getUpgradePrice(0) + " Fish souls\n";
-        s = s + "--- com.zuul.Upgrade 2 --- \n";
+        s = s + "--- Upgrade 2 --- \n";
         s = s + upgradePathQuantity.getUpgradeName(0) + " --> " + upgradePathQuantity.getUpgradeName(1) + "\n";
         s = s + upgradePathQuantity.getUpgradeCoefficient(0) + " --> " + upgradePathQuantity.getUpgradeCoefficient(1)
                 + "\n";
