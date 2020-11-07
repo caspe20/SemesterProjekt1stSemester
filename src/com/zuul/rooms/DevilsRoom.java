@@ -1,4 +1,8 @@
-public class DevilsRoom extends Room{
+package com.zuul.rooms;
+
+import com.zuul.GameStats;
+
+public class DevilsRoom extends Room {
 
     public DevilsRoom(String description) {
         super(description);

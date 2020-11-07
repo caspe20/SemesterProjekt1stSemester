@@ -1,3 +1,7 @@
+package com.zuul;
+
+import com.zuul.rooms.UpgradeRoom;
+
 public class GameStats {
     private static long fishInOcean = 3500000000l;
     public static double currentFishSouls;
