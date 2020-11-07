@@ -61,7 +61,7 @@ public class Game {
                         }
                 )
         );
-        //Mangler Hvad der skal vaskes
+        //Mangler Hvad der skal vaskes.
         laundry = new UpgradeRoom("At the laundrette",
                 new UpgradePath("Forbrug",
                         new Upgrade[] {
