@@ -2,7 +2,7 @@ package com.zuul.rooms;
 
 import com.zuul.UpgradePath;
 
-public abstract class UpgradeRoom extends Room {
+public class UpgradeRoom extends Room {
 
     // Attributes
     private UpgradePath upgradePathSpeed;
