@@ -22,6 +22,7 @@ public class GameStats {
     }
 
     public static void FetchPlasticProduction() {
+        plasticProduction = 0;
         for (int i = 0; i < upgradeRoom.size();i++) {
             upgradeRoom.get(i).setCombinedProduction();
             plasticProduction += upgradeRoom.get(i).getCombinedProduction();
