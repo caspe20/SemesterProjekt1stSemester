@@ -5,34 +5,41 @@ public class UpgradePath {
     // Attributes
     public Upgrade[] upgrades;
     private String pathName;
-    private int currentLevel = 0;
+    private int currentLevel;
     public double currentProduction;
 
     // Constructors
     public UpgradePath(String pathName, Upgrade[] upgrades) {
         this.upgrades = upgrades;
         this.pathName = pathName;
-        CalculateCurrentProduction();
+        calculateCurrentProduction();
+    }
+
+    public String getPathName() {
+        return pathName;
     }
 
     public int getCurrentLevel() {
         return currentLevel;
     }
 
-    public void CalculateCurrentProduction() {
+    public double calculateCurrentProduction() {
         currentProduction = upgrades[currentLevel].productionSpeed;
+        return currentProduction;
     }
 
-    public boolean PerformUpgrade() {
-        if (currentLevel < upgrades.length) {
+    public boolean performUpgrade() {
+        if (currentLevel < upgrades.length-1) {
             if (GameStats.currentFishSouls >= upgrades[currentLevel + 1].upgradePrice) {
-                GameStats.currentFishSouls += upgrades[currentLevel + 1].upgradePrice;
+                GameStats.currentFishSouls -= upgrades[currentLevel + 1].upgradePrice;
                 currentLevel++;
+                calculateCurrentProduction();
                 return true;
             } else {
                 return false;
             }
         } else {
+            System.out.println("No more available updates.");
             return false;
         }
     }
@@ -59,7 +66,7 @@ public class UpgradePath {
     }
 
     public double getUpgradePrice(int offset) {
-        if (currentLevel + offset < upgrades.length) {
+        if (currentLevel + offset < upgrades.length-1) {
             return upgrades[currentLevel + offset].upgradePrice;
         }
         return -1;

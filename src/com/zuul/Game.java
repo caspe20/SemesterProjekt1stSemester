@@ -5,6 +5,10 @@ import com.zuul.rooms.*;
 public class Game {
     private Parser parser;
     private Room currentRoom;
+    private Room devilheadquater;
+    private UpgradeRoom matas, laundry, cardealer, dock;
+    private double CurrentFishSouls = 0d;
+    private boolean wantToQuit = false;
 
     public Game() {
         createRooms();
@@ -15,12 +19,10 @@ public class Game {
      * Creates the world in the game
      */
     private void createRooms() {
-        Room devilheadquater, matas, laundry, cardealer, dock;
-
         devilheadquater = new DevilsRoom("in Devil's Headquater");
 
-        matas = new UpgradeRoom("in Matas",
-                new UpgradePath("Forbrug",
+        matas = new Matas("in Matas",
+                new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Svanemærket", 0.0, 1.0),
                                 new Upgrade("Håndsæbe", 1.0, 2.0),
@@ -62,8 +64,8 @@ public class Game {
                 )
         );
         //Mangler Hvad der skal vaskes.
-        laundry = new UpgradeRoom("At the laundrette",
-                new UpgradePath("Forbrug",
+        laundry = new Laundry("At the laundrette",
+                new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Svanemærket", 0.0, 1.0),
                                 new Upgrade("Håndsæbe", 1.0, 2.0),
@@ -105,8 +107,8 @@ public class Game {
                 )
         );
 
-        cardealer = new UpgradeRoom("At the cardealer",
-                new UpgradePath("Forbrug",
+        cardealer = new CarDealer("At the cardealer",
+                new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Bare fødder", 0.0, 1.0),
                                 new Upgrade("Sneaks", 1.0, 2.0),
@@ -145,8 +147,8 @@ public class Game {
                 )
         );
 
-        dock = new UpgradeRoom("At the dock",
-                new UpgradePath("Forbrug",
+        dock = new Dock("At the dock",
+                new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Brødkrummer", 0.0, 1.0),
                                 new Upgrade("Sugerør", 1.0, 2.0),
@@ -242,8 +244,6 @@ public class Game {
      * @return true if the command "quit" has been written.
      */
     private boolean processCommand(Command command) {
-        boolean wantToQuit = false;
-
         CommandWord commandWord = command.getCommandWord();
 
         // If invalid command has been written.
@@ -258,12 +258,14 @@ public class Game {
         } else if (commandWord == CommandWord.GO) {
             goRoom(command);
         } else if (commandWord == CommandWord.UPGRADE && currentRoom instanceof UpgradeRoom) {
-            selectUpgrade((UpgradeRoom) currentRoom);
+            selectUpgrade((UpgradeRoom) currentRoom, command);
         } else if (commandWord == CommandWord.QUIT) {
             wantToQuit = quit(command);
         } else if (commandWord == CommandWord.NEXTTURN) {
             goTurn(command);
-            System.out.println(GameStats.getYear());
+
+        } else if (commandWord == CommandWord.STATS) {
+            GameStats.printStats();
         }
         return wantToQuit;
     }
@@ -307,79 +309,62 @@ public class Game {
     /**
      * Method to select upgrade and uses the com.zuul.Parser class to record which upgrade to
      * select.
-     *
-     * @author Casper
-     * @param room is current room, but is used to find current selectable upgrades.
      */
-    private void selectUpgrade(UpgradeRoom room) {
-        // Error Handling
-        // if(room.upgradePathQuantity == null || room.upgradePathQuantity.upgrades ==
-        // null){
-        // System.out.println("Error: Upgrades is NULL");
-        // return;
-        // }
+    private void selectUpgrade(UpgradeRoom room, Command command) {
+        if((room.upgradePathProducts == null || room.upgradePathProducts.upgrades == null || room.upgradePathProducts.upgrades.length == 0) ||
+             (room.upgradePathUsage == null || room.upgradePathUsage.upgrades == null || room.upgradePathUsage.upgrades.length == 0)){
+            //throw new Exception("Error: Upgrades is NULL");
+            System.out.println("Error: Upgrades is NULL");
+        }
 
-        // find upgrades
-        // com.zuul.Upgrade[] upgrades = room.upgradePathQuantity.upgrades;
+        UpgradePath upgradePathProducts = room.upgradePathProducts;
+        UpgradePath upgradePathUsage = room.upgradePathUsage;
 
-        // If there are no more upgrades
-        // if(upgrades.length < 1){
-        // System.out.println("You and you adviser has been left to");
-        // System.out.println("wander what to upgrade, and have");
-        // System.out.println("decided that nothing is left.");
-        // return;
-        // }
+        String upgradePath = command.getSecondWord();
 
-        // Flavour text
-        System.out.println("You decided it would be profitable to upgrade this");
-        System.out.println("countries' industry.");
-        System.out.println();
-        System.out.println("You consult your adviser, which inform you that the");
-        System.out.println("following upgrades are available.");
-        System.out.println();
+        if (upgradePath == null) {
+            return;
+        }
 
-        // Input loop
-        // while(true){
-        //
-        // // Print upgrade flavour text
-        // System.out.println("upgrades:");
-        // for(int i = 0; i < upgrades.length; i++){
-        // System.out.print(" " + (i+1) +"# - ");
-        // System.out.println(upgrades[i].getUpgradeName());
-        // }
-        //
-        // // Get console command
-        // com.zuul.Command command = parser.getCommand();
-        //
-        // // Process "UPGRADE #"
-        // if(command.getCommandWord() == com.zuul.CommandWord.UPGRADE) {
-        // // Error handling
-        // if (command.hasSecondWord()) {
-        // System.out.println("Please select an upgrade");
-        // System.out.println();
-        // continue;
-        // }
-        //
-        // // Handle upgrade.
-        //
-        // // Process "BACK"
-        // }else if (command.getCommandWord() == com.zuul.CommandWord.BACK){
-        // System.out.println(room.getLongDescription());
-        // break;
-        // }else{
-        // System.out.println("Please select a valid command word at this time.");
-        // System.out.println();
-        // System.out.println("Commands:");
-        // System.out.println(com.zuul.CommandWord.UPGRADE.toString() + " " +
-        // com.zuul.CommandWord.BACK.toString());
-        // System.out.println();
-        // continue;
-        // }
-        //
+        if (upgradePath.equals("1")) {
+            if (upgradePathProducts.performUpgrade()) {
+                System.out.println("You have upgraded to level: " + upgradePathProducts.getCurrentLevel());
+                room.setCombinedProduction();
+            } else {
+                System.out.println("It was not possible to upgrade.");
+            }
+        } else if (upgradePath.equals("2")) {
+            if (upgradePathUsage.performUpgrade()) {
+                System.out.println("You have upgraded to level: " + upgradePathUsage.getCurrentLevel());
+                room.setCombinedProduction();
+            } else {
+                System.out.println("It was not possible to upgrade.");
+            }
+        } else {
+            System.out.println("No upgrade path named " + upgradePath);
+            return;
+        }
     }
 
     public void goTurn(Command command) {
-        GameStats.SimulateTurn(1);
+        matas.setCombinedProduction();
+        laundry.setCombinedProduction();
+        cardealer.setCombinedProduction();
+        dock.setCombinedProduction();
+
+        double currentTotalPlasticProduction =
+                matas.combinedProduction +
+                laundry.combinedProduction +
+                cardealer.combinedProduction +
+                dock.combinedProduction;
+
+        GameStats.SimulateTurn(1, currentTotalPlasticProduction);
+
+        if (GameStats.fishInOcean <= 0) {
+            wantToQuit = true;
+        } else {
+            GameStats.printStats();
+        }
     }
 
     private boolean quit(Command command) {
