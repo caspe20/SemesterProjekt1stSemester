@@ -5,40 +5,40 @@ import com.zuul.UpgradePath;
 public class UpgradeRoom extends Room {
 
     // Attributes
-    private UpgradePath upgradePathSpeed;
-    private UpgradePath upgradePathQuantity;
-    private double combinedProduction;
+    public UpgradePath upgradePathProducts;
+    public UpgradePath upgradePathUsage;
+    public double combinedProduction;
 
     // Constructors
-    public UpgradeRoom(String description, UpgradePath upgradePathSpeed, UpgradePath upgradePathQuantity) {
+    public UpgradeRoom(String description, UpgradePath upgradePathProducts, UpgradePath upgradePathUsage) {
         super(description);
-        this.upgradePathSpeed = upgradePathSpeed;
-        this.upgradePathQuantity = upgradePathQuantity;
+        this.upgradePathProducts = upgradePathProducts;
+        this.upgradePathUsage = upgradePathUsage;
     }
 
     public void setCombinedProduction() {
-        combinedProduction = upgradePathSpeed.currentProduction * upgradePathQuantity.currentProduction;
+        combinedProduction = upgradePathProducts.currentProduction * upgradePathUsage.currentProduction;
     }
 
     // This function returns what the estimated production will be if you upgrade a
     // certain path a certain amount;
     public double estimateSpeedIfUpgrade(int speed, int quantity) {
-        return upgradePathSpeed.upgrades[upgradePathSpeed.getLevel() + speed].productionSpeed
-                * upgradePathQuantity.upgrades[upgradePathSpeed.getLevel() + quantity].productionSpeed;
+        return upgradePathProducts.upgrades[upgradePathProducts.getLevel() + speed].productionSpeed
+                * upgradePathUsage.upgrades[upgradePathProducts.getLevel() + quantity].productionSpeed;
     }
 
     @Override
     public String getLongDescription() {
         String s = "You are " + description + ".\n";
-        s = s + "--- Upgrade 1 --- \n";
-        s = s + upgradePathSpeed.getUpgradeName(0) + " --> " + upgradePathSpeed.getUpgradeName(1) + "\n";
-        s = s + upgradePathSpeed.getUpgradeCoefficient(0) + " --> " + upgradePathSpeed.getUpgradeCoefficient(1) + "\n";
-        s = s + upgradePathSpeed.getUpgradePrice(0) + " Fish souls\n";
-        s = s + "--- Upgrade 2 --- \n";
-        s = s + upgradePathQuantity.getUpgradeName(0) + " --> " + upgradePathQuantity.getUpgradeName(1) + "\n";
-        s = s + upgradePathQuantity.getUpgradeCoefficient(0) + " --> " + upgradePathQuantity.getUpgradeCoefficient(1)
+        s = s + "--- Upgrade 1 ( " + upgradePathProducts.getPathName() + ") --- \n";
+        s = s + upgradePathProducts.getUpgradeName(0) + " --> " + upgradePathProducts.getUpgradeName(1) + "\n";
+        s = s + upgradePathProducts.getUpgradeCoefficient(0) + " --> " + upgradePathProducts.getUpgradeCoefficient(1) + "\n";
+        s = s + "Upgrade price: " + upgradePathProducts.getUpgradePrice(1) + " Fish souls\n";
+        s = s + "--- Upgrade 2 ( " + upgradePathUsage.getPathName() + ") --- \n";
+        s = s + upgradePathUsage.getUpgradeName(0) + " --> " + upgradePathUsage.getUpgradeName(1) + "\n";
+        s = s + upgradePathUsage.getUpgradeCoefficient(0) + " --> " + upgradePathUsage.getUpgradeCoefficient(1)
                 + "\n";
-        s = s + upgradePathQuantity.getUpgradePrice(0) + " Fish souls\n";
+        s = s + "Upgrade price: " + upgradePathUsage.getUpgradePrice(1) + " Fish souls\n";
         return s;
     }
 }
