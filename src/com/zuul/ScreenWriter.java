@@ -13,10 +13,6 @@ public class ScreenWriter {
         String outputString ="";
 
         do{
-            // Remove space at new line
-//            if(temp.charAt(0) == ' '){
-//                temp = temp.substring(1);
-//            }
             if(temp.substring(0,(textWidth > temp.length() ? temp.length() : textWidth)).contains("\n")){
                 outputString += temp.substring(0,temp.indexOf("\n")+1) + "\n";
                 temp = temp.substring(temp.indexOf("\n")+1);
@@ -56,6 +52,29 @@ public class ScreenWriter {
             temp = tempArr[i];
             for (int j = 0; j < (((double) screenWidth - tempArr[i].length()) / 2.0); j++) {
                 temp = " " + temp + " ";
+            }
+            outputString += temp + (tempArr.length > 1 ? "\n" : "");
+        }
+
+        System.out.println(outputString);
+    }
+
+    public static void printCenterSpecial(String screenText, char centerer){
+        String[] tempArr = write(screenText).split("\n");
+        String temp = "";
+        String outputString = "";
+        int currSpaces = 0;
+
+        for (int i = 0; i < tempArr.length; i++) {
+            if(tempArr[i].length() == 0){
+                outputString+= "\n";
+                continue;
+            }
+
+            temp = tempArr[i];
+            temp = " " + temp + " ";
+            for (int j = 0; j < (((double) screenWidth - tempArr[i].length()) / 2.0) - 1; j++) {
+                temp = centerer + temp + centerer;
             }
             outputString += temp + (tempArr.length > 1 ? "\n" : "");
         }
