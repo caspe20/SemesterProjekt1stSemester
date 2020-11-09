@@ -56,4 +56,24 @@ public class Parser {
     public String showCommands() {
         return commands.showAll();
     }
+
+    public void waitForContinue(){
+        ScreenWriter.printCenter("Skriv \"" + CommandWord.CONTINUE + "\" for at fortsætte");
+        while(true){
+            System.out.print("> ");
+            String inputline = reader.nextLine();
+            Scanner tokenizer = new Scanner(inputline);
+            String commandWord;
+            if(tokenizer.hasNext()){
+                commandWord = tokenizer.next();
+            }else{
+                ScreenWriter.printCenter("Jeg forstod ikke hvad du sagde.\nHvis du vil fortsætte, så skriv \"" + CommandWord.CONTINUE + "\"");
+                continue;
+            }
+            if(commandWord.equals(CommandWord.CONTINUE.toString())){
+                break;
+            }
+            ScreenWriter.printCenter("Jeg forstod ikke hvad du sagde.\nHvis du vil fortsætte, så skriv \"" + CommandWord.CONTINUE + "\"");
+        }
+    }
 }

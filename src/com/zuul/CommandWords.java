@@ -12,7 +12,7 @@ public class CommandWords {
     public CommandWords() {
         validCommands = new HashMap<String, CommandWord>();
         for (CommandWord command : CommandWord.values()) {
-            if (command != CommandWord.UNKNOWN && command != CommandWord.BACK) {
+            if (command != CommandWord.UNKNOWN && command != CommandWord.BACK && command != CommandWord.CONTINUE§) {
                 validCommands.put(command.toString(), command);
             }
         }
@@ -39,7 +39,7 @@ public class CommandWords {
     public String showAll() {
         String outputString ="";
         for (String command : validCommands.keySet()) {
-            outputString += "[" + command + "]" + "  ";
+            outputString += "[" + command + "], ";
         }
         return outputString;
     }

@@ -1,14 +1,15 @@
 package com.zuul;
 
 public enum CommandWord {
-    GO("go"),
-    QUIT("quit"),
-    HELP("help"),
-    UPGRADE("upgrade"),
-    NEXTTURN("next"),
-    BACK("back"),
+    GO("gå"),
+    QUIT("afslut"),
+    HELP("hjælp"),
+    UPGRADE("opgrader"),
+    NEXTTURN("næste"),
+    BACK("tilbage"),
     UNKNOWN("?"),
-    STATS("stats");
+    STATS("stats"),
+    CONTINUE("fortsæt");
 
     private String commandString;
 

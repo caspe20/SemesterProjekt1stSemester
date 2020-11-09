@@ -39,7 +39,7 @@ public class UpgradePath {
                 return false;
             }
         } else {
-            System.out.println("No more available updates.");
+            ScreenWriter.print("Der er ikke flere mulige opgraderinger!");
             return false;
         }
     }

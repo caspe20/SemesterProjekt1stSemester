@@ -9,7 +9,7 @@ public class Game {
     private UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
     private boolean wantToQuit = false;
-    private final String gameName = "Dennis' Baggård - Deluxe";
+    private final String gameName = "Hades' Manglende Fisk";
 
     public Game() {
         createRooms();
@@ -20,9 +20,9 @@ public class Game {
      * Creates the world in the game
      */
     private void createRooms() {
-        devilheadquater = new DevilsRoom("in Devil's Headquater");
+        devilheadquater = new DevilsRoom("i Djævlens' hovedkvarter");
 
-        matas = new Matas("in Matas",
+        matas = new Matas("i Matas",
                 new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Svanemærket", 0.0, 1.0),
@@ -65,7 +65,7 @@ public class Game {
                 )
         );
         //Mangler Hvad der skal vaskes.
-        laundry = new Laundry("At the laundrette",
+        laundry = new Laundry("ved Vaskeriet",
                 new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Svanemærket", 0.0, 1.0),
@@ -108,7 +108,7 @@ public class Game {
                 )
         );
 
-        cardealer = new CarDealer("At the cardealer",
+        cardealer = new CarDealer("ved Bilforhandleren",
                 new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Bare fødder", 0.0, 1.0),
@@ -148,7 +148,7 @@ public class Game {
                 )
         );
 
-        dock = new Dock("At the dock",
+        dock = new Dock("ved Molen",
                 new UpgradePath("Product",
                         new Upgrade[] {
                                 new Upgrade("Brødkrummer", 0.0, 1.0),
@@ -192,20 +192,20 @@ public class Game {
                 )
         );
 
-        devilheadquater.setExit("north", matas);
-        devilheadquater.setExit("south", laundry);
+        devilheadquater.setExit("nord", matas);
+        devilheadquater.setExit("syd", laundry);
 
-        matas.setExit("south", devilheadquater);
-        matas.setExit("east", cardealer);
+        matas.setExit("syd", devilheadquater);
+        matas.setExit("øst", cardealer);
 
-        cardealer.setExit("west", matas);
-        cardealer.setExit("south", dock);
+        cardealer.setExit("vest", matas);
+        cardealer.setExit("syd", dock);
 
-        dock.setExit("north", cardealer);
-        dock.setExit("west", laundry);
+        dock.setExit("nord", cardealer);
+        dock.setExit("vest", laundry);
 
-        laundry.setExit("north", devilheadquater);
-        laundry.setExit("east", dock);
+        laundry.setExit("nord", devilheadquater);
+        laundry.setExit("øst", dock);
 
         currentRoom = devilheadquater;
     }
@@ -232,13 +232,15 @@ public class Game {
     private void printWelcome() {
         ScreenWriter.printCenterSpecial("Velkommen til " + gameName + "!",'-');
         ScreenWriter.print("I \"" + gameName + "\" spiller du som Djævlen som prøver på at øge " +
-                "produktionen af fisk i underværdenen ved at slå fisk ihjel på jordens overflade, " +
-                "ved hjælp af plastik partikler.\nDet er derfor din opgave som djævlen i dette spil" +
+                "produktionen af fisk i underværdenen ved at slå fisk i jordens have ihjel, " +
+                "ved hjælp af plastik partikler.\n\nDet er derfor din opgave som djævlen i dette spil" +
                 "at dræbe alle fisk på jordens overflade, så demonerne i underverdenen igen kan nyde" +
                 "deres yndlings kogekunst!\n");
+        parser.waitForContinue(); // WAIT
         ScreenWriter.printCenter("Skriv '" + CommandWord.HELP + "' hvis du har brug for hjælp");
+        parser.waitForContinue();
         ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn,'-');
-        System.out.println(currentRoom.getLongDescription());
+        ScreenWriter.print(currentRoom.getLongDescription());
     }
 
     /**
@@ -253,7 +255,7 @@ public class Game {
         // If invalid command has been written.
         // This is a note for the team. Since com.zuul.CommandWord.UNKNOWN
         if (commandWord == CommandWord.UNKNOWN) {
-            System.out.println("I don't know what you mean...");
+            ScreenWriter.print("Hov, jeg forstod ikke hvad du mente...");
             return false;
         }
 
@@ -281,9 +283,12 @@ public class Game {
     private void printHelp(Command command) {
         if(!command.hasSecondWord()) {
             // Standard help messages.
-            ScreenWriter.print("Du tænker til dig selv \"Hvad er mine muligheder\", og bedst som du tænker dette, kommer din personlige rådgiver løbende med en papyrus!\n");
-            ScreenWriter.printCenterSpecial("HELP", '-');
-            ScreenWriter.print("Hvis der ønskes en yderligere forklaring på kommandoerne nedenfor, så skriv \"" + CommandWord.HELP + " [kommando]\". Disse kommandoer er tilgængelige:");
+            ScreenWriter.print("Du tænker til dig selv \"Hvad er mine muligheder\"," +
+                    " og bedst som du tænker dette, kommer din personlige rådgiver løbende med en papyrus!\n");
+            ScreenWriter.printCenterSpecial(CommandWord.HELP.toString().toUpperCase(), '-');
+            ScreenWriter.print("Hvis der ønskes en yderligere forklaring på kommandoerne" +
+                    " nedenfor, så skriv \"" + CommandWord.HELP + " [kommando]\"." +
+                    "\n\nDisse kommandoer er tilgængelige:");
             // print kommandoerne.
             ScreenWriter.printCenter(parser.showCommands());
         }else{
@@ -291,14 +296,14 @@ public class Game {
             CommandWord secondCommand = parser.fetchCommandWord(command.getSecondWord());
             if(secondCommand == CommandWord.NEXTTURN){
                 //Print header
-                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                ScreenWriter.printCenterSpecial(secondCommand.toString().toUpperCase(),'-');
                 //Print command view
                 ScreenWriter.printCenter("\""+ CommandWord.NEXTTURN + "\" : \"[]\" - " + CommandWord.NEXTTURN + " har ikke nogen sekundær kommando");
                 //print command text
-                ScreenWriter.print("\""+ CommandWord.NEXTTURN + "\" bliver brugt til at skifte til den næste tur");
+                ScreenWriter.print("\""+ CommandWord.NEXTTURN + "\" bliver brugt til at skifte til den næste tur.");
             }else if(secondCommand == CommandWord.GO){
                 //Print header
-                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                ScreenWriter.printCenterSpecial(secondCommand.toString().toUpperCase(),'-');
                 //Print command view
                 ScreenWriter.printCenter("\"" + CommandWord.GO + "\" : \"[ nord, syd, øst, vest ]\"");
                 //print command text
@@ -307,14 +312,14 @@ public class Game {
                         "fra rum til tum!");
             }else if(secondCommand == CommandWord.QUIT){
                 //Print header
-                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                ScreenWriter.printCenterSpecial(secondCommand.toString().toUpperCase(),'-');
                 //Print command view
                 ScreenWriter.printCenter("\"" + CommandWord.QUIT + "\" : \"[]\" - " + CommandWord.QUIT + " har ikke nogen sekundær kommando");
                 //print command text
                 ScreenWriter.print("\"" + CommandWord.QUIT + "\" får spilleren til at stoppe spillet.");
             }else if(secondCommand == CommandWord.STATS){
                 //Print header
-                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                ScreenWriter.printCenterSpecial(secondCommand.toString().toUpperCase(),'-');
                 //Print command view
                 ScreenWriter.printCenter("\"" + CommandWord.STATS + "\" : \"[]\" - " + CommandWord.STATS + " har ikke nogen sekundær kommando");
                 //print command text
@@ -322,14 +327,24 @@ public class Game {
                         "til skærmen.");
             }else if(secondCommand == CommandWord.UPGRADE){
                 //Print header
-                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                ScreenWriter.printCenterSpecial(secondCommand.toString().toUpperCase(),'-');
                 //Print command view
-                ScreenWriter.printCenter("\"" + CommandWord.UPGRADE + "\" : \"[]\"");
+                ScreenWriter.printCenter("\"" + CommandWord.UPGRADE + "\" : \"[ 1, 2 ]\"");
                 //print command text
-                ScreenWriter.print("\"" + CommandWord.UPGRADE + "\", Dette er bare filler tekst til jeg har fået overblik " +
-                        "over denne funktion. Stødder du på denne tekst, så fortæl mig det lige - Casper.");
+                ScreenWriter.print("\"" + CommandWord.UPGRADE + "\", lader dig vælge imellem de forskellige opgraderinger" +
+                        " til spillet. Tager tager hvad for en opgradering der ønskes som input.");
             }else if(secondCommand == CommandWord.UNKNOWN){
                 ScreenWriter.print("I like your fancy words, magic man!");
+            }else if(secondCommand == CommandWord.HELP){
+                //Print header
+                ScreenWriter.printCenterSpecial(secondCommand.toString().toUpperCase(),'-');
+                //Print command view
+                ScreenWriter.printCenter("\"" + CommandWord.HELP + "\" : \"[kommando, ]\" - tager både " +
+                        "et og ikke et sekundært input");
+                //print command text
+                ScreenWriter.print("\"" + CommandWord.HELP + "\" giver en oversigt over mulige kommandoer hvis et " +
+                        "sekundært input ikke er specificeret. Hvis et input er specificeret, giver denne kommando " +
+                        "en beskrivelse af input kommandoen.");
             }
         }
     }
@@ -343,7 +358,7 @@ public class Game {
      */
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
-            System.out.println("Go where?");
+            ScreenWriter.print("Hvor vil du hen?");
             return;
         }
 
@@ -352,10 +367,10 @@ public class Game {
         Room nextRoom = currentRoom.getExit(direction);
 
         if (nextRoom == null) {
-            System.out.println("There is no door!");
+            ScreenWriter.print("Du kunne ikke finde hvad du ledte efter, og besluttede dig for at vende tilbage til hvor du kom fra.");
         } else {
             currentRoom = nextRoom;
-            System.out.println(currentRoom.getLongDescription());
+            ScreenWriter.print(currentRoom.getLongDescription());
         }
     }
 
@@ -367,7 +382,7 @@ public class Game {
         if((room.upgradePathProducts == null || room.upgradePathProducts.upgrades == null || room.upgradePathProducts.upgrades.length == 0) ||
              (room.upgradePathUsage == null || room.upgradePathUsage.upgrades == null || room.upgradePathUsage.upgrades.length == 0)){
             //throw new Exception("Error: Upgrades is NULL");
-            System.out.println("Error: Upgrades is NULL");
+            ScreenWriter.print("Error: Upgrades is NULL");
         }
 
         UpgradePath upgradePathProducts = room.upgradePathProducts;
@@ -381,20 +396,20 @@ public class Game {
 
         if (upgradePath.equals("1")) {
             if (upgradePathProducts.performUpgrade()) {
-                System.out.println("You have upgraded to level: " + upgradePathProducts.getCurrentLevel());
+                ScreenWriter.print("Du har opgraderet til level: " + upgradePathProducts.getCurrentLevel());
                 room.setCombinedProduction();
             } else {
-                System.out.println("It was not possible to upgrade.");
+                ScreenWriter.print("Det var ikke muligt at opgradere.");
             }
         } else if (upgradePath.equals("2")) {
             if (upgradePathUsage.performUpgrade()) {
-                System.out.println("You have upgraded to level: " + upgradePathUsage.getCurrentLevel());
+                ScreenWriter.print("Du har opgraderet til level: " + upgradePathUsage.getCurrentLevel());
                 room.setCombinedProduction();
             } else {
-                System.out.println("It was not possible to upgrade.");
+                ScreenWriter.print("Det var ikke muligt at opgradere.");
             }
         } else {
-            System.out.println("No upgrade path named " + upgradePath);
+            ScreenWriter.print("Der var ikke nogle tilknyttede opgraderinger i " + upgradePath);
             return;
         }
     }
@@ -426,7 +441,7 @@ public class Game {
 
     private boolean quit(Command command) {
         if (command.hasSecondWord()) {
-            System.out.println("Quit what?");
+            ScreenWriter.print("Quit what?");
             return false;
         } else {
             return true;
