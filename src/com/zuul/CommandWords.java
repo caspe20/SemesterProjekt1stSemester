@@ -12,7 +12,7 @@ public class CommandWords {
     public CommandWords() {
         validCommands = new HashMap<String, CommandWord>();
         for (CommandWord command : CommandWord.values()) {
-            if (command != CommandWord.UNKNOWN || command != CommandWord.BACK) {
+            if (command != CommandWord.UNKNOWN && command != CommandWord.BACK) {
                 validCommands.put(command.toString(), command);
             }
         }
@@ -36,10 +36,11 @@ public class CommandWords {
     /**
      * Displays all valid command for the player
      */
-    public void showAll() {
+    public String showAll() {
+        String outputString ="";
         for (String command : validCommands.keySet()) {
-            System.out.print(command + "  ");
+            outputString += "[" + command + "]" + "  ";
         }
-        System.out.println();
+        return outputString;
     }
 }
