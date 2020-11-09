@@ -68,21 +68,21 @@ public class Game {
         laundry = new Laundry("At the laundrette",
                 new UpgradePath("Product",
                         new Upgrade[] {
-                                new Upgrade("Svanemærket", 0.0, 1.0),
-                                new Upgrade("Håndsæbe", 1.0, 2.0),
-                                new Upgrade("Shampoo", 2.0, 3.0),
-                                new Upgrade("Balsam", 3.0, 4.0),
-                                new Upgrade("Face Scrub Cream", 4.0, 5.0),
-                                new Upgrade("Barberskum", 5.0, 6.0),
-                                new Upgrade("Mascara", 6.0, 7.0),
-                                new Upgrade("Foundation", 7.0, 8.0),
-                                new Upgrade("Lip Gloss", 8.0, 9.0),
-                                new Upgrade("Clean Laundry bod", 9.0, 10.0),
-                                new Upgrade("Concealer", 10.0, 11.0),
-                                new Upgrade("Footscrub", 11.0, 12.0),
-                                new Upgrade("Self Tan Bronzing Cream", 12.0, 13.0),
-                                new Upgrade("Glimmer", 13.0, 14.0),
-                                new Upgrade("Tandpasta", 14.0, 15.0)
+                                new Upgrade("Bare fødder", 0.0, 1.0),
+                                new Upgrade("Sokker", 1.0, 2.0),
+                                new Upgrade("Underbukser", 2.0, 3.0),
+                                new Upgrade("Hue", 3.0, 4.0),
+                                new Upgrade("Vanter", 4.0, 5.0),
+                                new Upgrade("Halstørklæde", 5.0, 6.0),
+                                new Upgrade("T-shirt", 6.0, 7.0),
+                                new Upgrade("Langærmet T-shirt", 7.0, 8.0),
+                                new Upgrade("Shorts", 8.0, 9.0),
+                                new Upgrade("Lange Bukser", 9.0, 10.0),
+                                new Upgrade("Trøje", 10.0, 11.0),
+                                new Upgrade("Kostume", 11.0, 12.0),
+                                new Upgrade("Jakke", 12.0, 13.0),
+                                new Upgrade("Skibukser", 13.0, 14.0),
+                                new Upgrade("Flyverdrakt", 14.0, 15.0)
 
                         }
                 ),
@@ -233,8 +233,8 @@ public class Game {
         ScreenWriter.printCenterSpecial("Velkommen til " + gameName + "!",'-');
         ScreenWriter.print("I \"" + gameName + "\" spiller du som Djævlen som prøver på at øge " +
                 "produktionen af fisk i underværdenen ved at slå fisk ihjel på jordens overflade, " +
-                "ved hjælp af plastik partikler.\nDet er derfor din opgave som djævlen i dette spil" +
-                "at dræbe alle fisk på jordens overflade, så demonerne i underverdenen igen kan nyde" +
+                "ved hjælp af plastik partikler.\nDet er derfor din opgave som djævlen i dette spil " +
+                "at dræbe alle fisk på jordens overflade, så demonerne i underverdenen igen kan nyde " +
                 "deres yndlings kogekunst!\n");
         ScreenWriter.printCenter("Skriv '" + CommandWord.HELP + "' hvis du har brug for hjælp");
         ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn,'-');
