@@ -46,10 +46,14 @@ public class Parser {
         return new Command(commands.getCommandWord(word1), word2);
     }
 
+    public CommandWord fetchCommandWord(String word){
+        return commands.getCommandWord(word);
+    }
+
     /**
      * prints all viable commands.
      */
-    public void showCommands() {
-        commands.showAll();
+    public String showCommands() {
+        return commands.showAll();
     }
 }

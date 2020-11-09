@@ -9,6 +9,7 @@ public class Game {
     private UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
     private boolean wantToQuit = false;
+    private final String gameName = "Dennis' Baggård - Deluxe";
 
     public Game() {
         createRooms();
@@ -222,18 +223,21 @@ public class Game {
             // Process the command.
             finished = processCommand(command);
         }
-        System.out.println("Thank you for playing.  Good bye.");
+        ScreenWriter.print("Tak for at spille spillet! Vi håber du nød det :)");
     }
 
     /**
      * Prints welcome message.
      */
     private void printWelcome() {
-        System.out.println();
-        System.out.println("Welcome to the World of Zuul!");
-        System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type '" + CommandWord.HELP + "' if you need help.");
-        System.out.println();
+        ScreenWriter.printCenterSpecial("Velkommen til " + gameName + "!",'-');
+        ScreenWriter.print("I \"" + gameName + "\" spiller du som Djævlen som prøver på at øge " +
+                "produktionen af fisk i underværdenen ved at slå fisk ihjel på jordens overflade, " +
+                "ved hjælp af plastik partikler.\nDet er derfor din opgave som djævlen i dette spil" +
+                "at dræbe alle fisk på jordens overflade, så demonerne i underverdenen igen kan nyde" +
+                "deres yndlings kogekunst!\n");
+        ScreenWriter.printCenter("Skriv '" + CommandWord.HELP + "' hvis du har brug for hjælp");
+        ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn,'-');
         System.out.println(currentRoom.getLongDescription());
     }
 
@@ -254,7 +258,7 @@ public class Game {
         }
 
         if (commandWord == CommandWord.HELP) {
-            printHelp();
+            printHelp(command);
         } else if (commandWord == CommandWord.GO) {
             goRoom(command);
         } else if (commandWord == CommandWord.UPGRADE && currentRoom instanceof UpgradeRoom) {
@@ -271,14 +275,63 @@ public class Game {
     }
 
     /**
-     * Prints commands and help screen to the user.
+     * Prints commands and their information to the user.
+     * @param command Used to find the current command the user wants help with.
      */
-    private void printHelp() {
-        System.out.println("You are lost. You are alone. You wander");
-        System.out.println("around at the university.");
-        System.out.println();
-        System.out.println("Your command words are:");
-        parser.showCommands();
+    private void printHelp(Command command) {
+        if(!command.hasSecondWord()) {
+            // Standard help messages.
+            ScreenWriter.print("Du tænker til dig selv \"Hvad er mine muligheder\", og bedst som du tænker dette, kommer din personlige rådgiver løbende med en papyrus!\n");
+            ScreenWriter.printCenterSpecial("HELP", '-');
+            ScreenWriter.print("Hvis der ønskes en yderligere forklaring på kommandoerne nedenfor, så skriv \"" + CommandWord.HELP + " [kommando]\". Disse kommandoer er tilgængelige:");
+            // print kommandoerne.
+            ScreenWriter.printCenter(parser.showCommands());
+        }else{
+            // Help med kommandoer
+            CommandWord secondCommand = parser.fetchCommandWord(command.getSecondWord());
+            if(secondCommand == CommandWord.NEXTTURN){
+                //Print header
+                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                //Print command view
+                ScreenWriter.printCenter("\""+ CommandWord.NEXTTURN + "\" : \"[]\" - " + CommandWord.NEXTTURN + " har ikke nogen sekundær kommando");
+                //print command text
+                ScreenWriter.print("\""+ CommandWord.NEXTTURN + "\" bliver brugt til at skifte til den næste tur");
+            }else if(secondCommand == CommandWord.GO){
+                //Print header
+                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                //Print command view
+                ScreenWriter.printCenter("\"" + CommandWord.GO + "\" : \"[ nord, syd, øst, vest ]\"");
+                //print command text
+                ScreenWriter.print("\"" + CommandWord.GO + "\", sammen med en retning, får karakteren til at gå i den retning som er " +
+                        "specificeret efter kommandoen. Det er denne metode der får spilleren til at gå " +
+                        "fra rum til tum!");
+            }else if(secondCommand == CommandWord.QUIT){
+                //Print header
+                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                //Print command view
+                ScreenWriter.printCenter("\"" + CommandWord.QUIT + "\" : \"[]\" - " + CommandWord.QUIT + " har ikke nogen sekundær kommando");
+                //print command text
+                ScreenWriter.print("\"" + CommandWord.QUIT + "\" får spilleren til at stoppe spillet.");
+            }else if(secondCommand == CommandWord.STATS){
+                //Print header
+                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                //Print command view
+                ScreenWriter.printCenter("\"" + CommandWord.STATS + "\" : \"[]\" - " + CommandWord.STATS + " har ikke nogen sekundær kommando");
+                //print command text
+                ScreenWriter.print("\"" + CommandWord.STATS + "\", printer alle spillerens nuværende statistiske variabler" +
+                        "til skærmen.");
+            }else if(secondCommand == CommandWord.UPGRADE){
+                //Print header
+                ScreenWriter.printCenterSpecial(secondCommand.toString(),'-');
+                //Print command view
+                ScreenWriter.printCenter("\"" + CommandWord.UPGRADE + "\" : \"[]\"");
+                //print command text
+                ScreenWriter.print("\"" + CommandWord.UPGRADE + "\", Dette er bare filler tekst til jeg har fået overblik " +
+                        "over denne funktion. Stødder du på denne tekst, så fortæl mig det lige - Casper.");
+            }else if(secondCommand == CommandWord.UNKNOWN){
+                ScreenWriter.print("I like your fancy words, magic man!");
+            }
+        }
     }
 
     /**
@@ -346,6 +399,10 @@ public class Game {
         }
     }
 
+    /**
+     * Method to go to the next turn. Used to set the combined production of the different facilities into the player's score and checks whether the game ends or not.
+     * @param command Doesn't use command parameter currently.
+     */
     public void goTurn(Command command) {
         matas.setCombinedProduction();
         laundry.setCombinedProduction();
