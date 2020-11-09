@@ -1,3 +1,5 @@
+package com.zuul;
+
 public class ScreenWriter {
     private static final int screenWidth = 35;
     private static final int textWidth = 25;
