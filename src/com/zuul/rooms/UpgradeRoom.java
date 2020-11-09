@@ -1,5 +1,6 @@
 package com.zuul.rooms;
 
+import com.zuul.ScreenWriter;
 import com.zuul.UpgradePath;
 
 public class UpgradeRoom extends Room {
@@ -29,16 +30,15 @@ public class UpgradeRoom extends Room {
 
     @Override
     public String getLongDescription() {
-        String s = "You are " + description + ".\n";
-        s = s + "--- Upgrade 1 ( " + upgradePathProducts.getPathName() + ") --- \n";
-        s = s + upgradePathProducts.getUpgradeName(0) + " --> " + upgradePathProducts.getUpgradeName(1) + "\n";
-        s = s + upgradePathProducts.getUpgradeCoefficient(0) + " --> " + upgradePathProducts.getUpgradeCoefficient(1) + "\n";
-        s = s + "Upgrade price: " + upgradePathProducts.getUpgradePrice(1) + " Fish souls\n";
-        s = s + "--- Upgrade 2 ( " + upgradePathUsage.getPathName() + ") --- \n";
-        s = s + upgradePathUsage.getUpgradeName(0) + " --> " + upgradePathUsage.getUpgradeName(1) + "\n";
-        s = s + upgradePathUsage.getUpgradeCoefficient(0) + " --> " + upgradePathUsage.getUpgradeCoefficient(1)
-                + "\n";
-        s = s + "Upgrade price: " + upgradePathUsage.getUpgradePrice(1) + " Fish souls\n";
+        String s = "Du er " + description + ". Følgende muligheder er til rådighed:\n\n";
+        s = s + ScreenWriter.getCenter("Upgrade #1  [" + upgradePathProducts.getPathName() + "]\n");
+        s = s + ScreenWriter.getLeftRight(upgradePathProducts.getUpgradeName(0), " --> " + upgradePathProducts.getUpgradeName(1) + "\n");
+        s = s + ScreenWriter.getLeftRight(String.valueOf(upgradePathProducts.getUpgradeCoefficient(0)), " --> " + upgradePathProducts.getUpgradeCoefficient(1) + "\n");
+        s = s + ScreenWriter.getLeftRight("Upgrade price: ", upgradePathProducts.getUpgradePrice(1) + " Fish souls\n\n");
+        s = s + ScreenWriter.getCenter("Upgrade #2 [" + upgradePathUsage.getPathName() + "]\n");
+        s = s + ScreenWriter.getLeftRight(upgradePathUsage.getUpgradeName(0), " --> " + upgradePathUsage.getUpgradeName(1) + "\n");
+        s = s + ScreenWriter.getLeftRight(String.valueOf(upgradePathUsage.getUpgradeCoefficient(0))," --> " + upgradePathUsage.getUpgradeCoefficient(1) + "\n");
+        s = s + ScreenWriter.getLeftRight("Upgrade price: ", upgradePathUsage.getUpgradePrice(1) + " Fish souls\n");
         return s;
     }
 }

@@ -24,9 +24,11 @@ public class ScreenWriter {
 
         do{
             // If input text has a skip line in current line
-            if(temp.substring(0,(textWidth > temp.length() ? temp.length() : textWidth)).contains("\n")  && temp.length() > textWidth){
-                outputString += indentText + temp.substring(0,temp.indexOf("\n")+1) + "\n";
-                temp = temp.substring(temp.indexOf("\n")+1);
+            String testString = temp.substring(0,(Math.min(textWidth,temp.length())));
+            // If string contains a \n and an \n\n
+            if(testString.contains("\n")) {
+                outputString += indentText + temp.substring(0, temp.indexOf("\n") + 1);
+                temp = temp.substring(temp.indexOf("\n") + 1);
                 continue;
             }
 
@@ -60,10 +62,16 @@ public class ScreenWriter {
         String outputString ="";
 
         do{
-            if(temp.substring(0,(textWidth > temp.length() ? temp.length() : textWidth)).contains("\n") && temp.length() > textWidth){
-                outputString += temp.substring(0,temp.indexOf("\n")+1) + "\n";
-                temp = temp.substring(temp.indexOf("\n")+1);
+            // If input text has a skip line in current line
+            String testString = temp.substring(0,(Math.min(textWidth,temp.length())));
+            // If string contains a \n and an \n\n
+            if(testString.contains("\n") && testString.indexOf("\n") > testString.length() && temp.substring(testString.indexOf("\n"),testString.indexOf("\n") + 2).contains("\n\n")){
+                outputString += indentText + temp.substring(0,temp.indexOf("\n")+2);
+                temp = temp.substring(temp.indexOf("\n")+2);
                 continue;
+            }else if(testString.contains("\n")){
+                outputString+= "\n";
+                temp = temp.substring(temp.indexOf("\n") + 1);
             }
 
             // Search for nearest space in ScreenText within screen width.
@@ -127,5 +135,53 @@ public class ScreenWriter {
         }
 
         System.out.println(outputString);
+    }
+
+    public static String getLeftRight(String left, String right){
+        String combined = left + right;
+        String tempLeft = left;
+        String output = "";
+        if(combined.length() > textWidth){
+            if(left.length() > textWidth){
+                output += indentText + left.substring(0,(Math.min(left.length(), textWidth))) + "\n";
+                while(left.length() != 0){
+                    output += indentText + left.substring(0,(Math.min(left.length(), textWidth))) + "\n";
+                    left = left.substring((Math.min(left.length(), textWidth))) + "\n";
+                }
+                output += indentText;
+                for (int i = 0; i < textWidth - right.length(); i++) {
+                    output+= " ";
+                }
+                output += right;
+            }else{
+                output += left + "\n" + indentText;
+                for (int i = 0; i < textWidth - right.length(); i++) {
+                    output += " ";
+                }
+                output += right;
+            }
+        }else{
+            output += left;
+            for (int i = 0; i < textWidth - right.length() - left.length(); i++) {
+                output += " ";
+            }
+            output += right;
+        }
+
+        return output;
+    }
+
+    public static String getCenter(String text){
+        String output = "";
+        String temp = text;
+        while(!temp.isEmpty()){
+            String currentLine = temp.substring(0,Math.min(temp.length(), textWidth));
+            temp = temp.substring(Math.min(temp.length(), textWidth));
+            for (int i = 0; i < screenWidth/2 - currentLine.length(); i++) {
+                currentLine = " " + currentLine;
+            }
+            output += indentText + currentLine;
+        }
+        return output;
     }
 }

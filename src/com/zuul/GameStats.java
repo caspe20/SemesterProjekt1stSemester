@@ -21,15 +21,15 @@ public class GameStats {
     }
 
     public static String getYear() {
-        return "The Current year is "+(currentYear + currentTurn);
+        return "Nuværende årstal er "+(currentYear + currentTurn);
     }
 
     public static void printStats() {
-        System.out.println(getYear());
-        System.out.println("Current fish souls: " + currentFishSouls);
-        System.out.println("Current plastic in ocean: " + plasticInOcean);
-        System.out.println("Current fish in ocean: " + fishInOcean);
-        System.out.println("Current plastic production: " + plasticProduction);
+        ScreenWriter.print(getYear());
+        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende fiske sjæle:", String.valueOf(currentFishSouls)));
+        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende plastik i havet", String.valueOf(plasticInOcean)));
+        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende fisk i havet:", String.valueOf(fishInOcean)));
+        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende plastik produktion: ", String.valueOf(plasticProduction)));
     }
 
     public static void FetchPlasticProduction(double currentTotalPlasticProduction) {
@@ -45,7 +45,7 @@ public class GameStats {
         fishInOcean -= plasticInOcean;
         if (fishInOcean <= 0) {
             fishInOcean = 0;
-            System.out.println("\nYou won the game!! gg");
+            ScreenWriter.printCenter("\nDu har vundet spillet! Tusind tak for at spille med :)");
         }
     }
 }

@@ -10,7 +10,7 @@ public class DevilsRoom extends Room {
 
     @Override
     public String getLongDescription() {
-        String s = "You are " + description + ".\n";
+        String s = "Du er " + description + ".\n";
         s = s + GameStats.getYear() + ".\n";
         s = s + getExitString() + "\n";
         return s;
