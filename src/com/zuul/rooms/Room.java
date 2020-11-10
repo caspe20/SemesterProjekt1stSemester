@@ -1,13 +1,17 @@
+package com.zuul.rooms;
+
 import java.util.Set;
 import java.util.HashMap;
 
-public class Room {
+//Vi benytter en abstrakt klasse, da vi aldrig er interesseret
+// i at ville lave et objekt direkte af Room.
+public abstract class Room {
     protected String description;
     private HashMap<String, Room> exits;
 
     public Room(String description) {
         this.description = description;
-        exits = new HashMap<String, Room>();
+        exits = new HashMap<>();
     }
 
     public void setExit(String direction, Room neighbor) {
@@ -19,11 +23,11 @@ public class Room {
     }
 
     public String getLongDescription() {
-        return "You are " + description + ".\n" + getExitString();
+        return "Du er " + description + ".\n" + getExitString();
     }
 
     protected String getExitString() {
-        String returnString = "Exits:";
+        String returnString = "Udgange:";
         Set<String> keys = exits.keySet();
         for (String exit : keys) {
             returnString += " " + exit;

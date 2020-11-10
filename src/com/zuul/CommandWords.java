@@ -1,3 +1,5 @@
+package com.zuul;
+
 import java.util.HashMap;
 
 public class CommandWords {
@@ -10,7 +12,7 @@ public class CommandWords {
     public CommandWords() {
         validCommands = new HashMap<String, CommandWord>();
         for (CommandWord command : CommandWord.values()) {
-            if (command != CommandWord.UNKNOWN || command != CommandWord.BACK) {
+            if (command != CommandWord.UNKNOWN && command != CommandWord.BACK && command != CommandWord.CONTINUE) {
                 validCommands.put(command.toString(), command);
             }
         }
@@ -18,9 +20,9 @@ public class CommandWords {
 
     /**
      * Returns the command word as long as it exists in valid commands...
-     * otherwise it returns CommandWord.UNKNOWN;
+     * otherwise it returns com.zuul.CommandWord.UNKNOWN;
      * @param commandWord
-     * @return Command
+     * @return com.zuul.Command
      */
     public CommandWord getCommandWord(String commandWord) {
         CommandWord command = validCommands.get(commandWord);
@@ -34,10 +36,11 @@ public class CommandWords {
     /**
      * Displays all valid command for the player
      */
-    public void showAll() {
+    public String showAll() {
+        String outputString ="";
         for (String command : validCommands.keySet()) {
-            System.out.print(command + "  ");
+            outputString += "[" + command + "], ";
         }
-        System.out.println();
+        return outputString;
     }
 }

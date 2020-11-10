@@ -1,5 +1,7 @@
+package com.zuul;
+
 /**
- * PlayGame This is the function for the chronological order of the game. Due to
+ * com.zuul.PlayGame This is the function for the chronological order of the game. Due to
  * it being the start of the game, it also has the only main method that is
  * present in the game.
  */

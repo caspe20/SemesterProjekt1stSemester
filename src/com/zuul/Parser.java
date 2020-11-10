@@ -1,5 +1,6 @@
+package com.zuul;
+
 import java.util.Scanner;
-import java.util.StringTokenizer;
 
 public class Parser {
     private CommandWords commands;
@@ -13,7 +14,7 @@ public class Parser {
 
     /**
      * Method to return the command that the user created for the game.
-     * @return Command with the command given by the user. E.g. "Go" "North"
+     * @return com.zuul.Command with the command given by the user. E.g. "Go" "North"
      */
     public Command getCommand() {
         //Declaration
@@ -45,10 +46,34 @@ public class Parser {
         return new Command(commands.getCommandWord(word1), word2);
     }
 
+    public CommandWord fetchCommandWord(String word){
+        return commands.getCommandWord(word);
+    }
+
     /**
      * prints all viable commands.
      */
-    public void showCommands() {
-        commands.showAll();
+    public String showCommands() {
+        return commands.showAll();
+    }
+
+    public void waitForContinue(){
+        ScreenWriter.printCenter("Skriv \"" + CommandWord.CONTINUE + "\" for at fortsætte");
+        while(true){
+            System.out.print("> ");
+            String inputline = reader.nextLine();
+            Scanner tokenizer = new Scanner(inputline);
+            String commandWord;
+            if(tokenizer.hasNext()){
+                commandWord = tokenizer.next();
+            }else{
+                ScreenWriter.printCenter("Jeg forstod ikke hvad du sagde.\nHvis du vil fortsætte, så skriv \"" + CommandWord.CONTINUE + "\"");
+                continue;
+            }
+            if(commandWord.equals(CommandWord.CONTINUE.toString())){
+                break;
+            }
+            ScreenWriter.printCenter("Jeg forstod ikke hvad du sagde.\nHvis du vil fortsætte, så skriv \"" + CommandWord.CONTINUE + "\"");
+        }
     }
 }
