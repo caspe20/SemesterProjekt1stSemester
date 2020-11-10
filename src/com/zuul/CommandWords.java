@@ -12,7 +12,7 @@ public class CommandWords {
     public CommandWords() {
         validCommands = new HashMap<String, CommandWord>();
         for (CommandWord command : CommandWord.values()) {
-            if (command != CommandWord.UNKNOWN && command != CommandWord.BACK && command != CommandWord.CONTINUE§) {
+            if (command != CommandWord.UNKNOWN && command != CommandWord.BACK && command != CommandWord.CONTINUE) {
                 validCommands.put(command.toString(), command);
             }
         }
