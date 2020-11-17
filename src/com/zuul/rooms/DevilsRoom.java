@@ -12,7 +12,6 @@ public class DevilsRoom extends Room {
     public String getLongDescription() {
         String s = "Du er " + description + ".\n";
         s = s + GameStats.getYear() + ".\n";
-        s = s + GameStats.ShowResourceStats() + "\n";
         s = s + getExitString() + "\n";
         return s;
     }
