@@ -15,8 +15,6 @@ public class PlayGame extends Application {
 
     public static void main(String[] args) {
         launch(args);
-        Game g = new Game();
-        g.play();
     }
 
     @Override
@@ -25,5 +23,7 @@ public class PlayGame extends Application {
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root,300,275));
         primaryStage.show();
+        Game g = new Game();
+        //g.play();
     }
 }
