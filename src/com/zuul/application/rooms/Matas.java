@@ -1,6 +1,6 @@
-package com.zuul.rooms;
+package com.zuul.application.rooms;
 
-import com.zuul.UpgradePath;
+import com.zuul.application.UpgradePath;
 
 public class Matas extends UpgradeRoom{
 

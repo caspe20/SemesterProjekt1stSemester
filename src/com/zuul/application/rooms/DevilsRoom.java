@@ -1,6 +1,6 @@
-package com.zuul.rooms;
+package com.zuul.application.rooms;
 
-import com.zuul.GameStats;
+import com.zuul.application.GameStats;
 
 public class DevilsRoom extends Room {
 
