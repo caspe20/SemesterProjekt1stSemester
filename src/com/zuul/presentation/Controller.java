@@ -5,14 +5,17 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class Controller {
-    @FXML
-    private Button upgrade1;
-    @FXML
-    private Label time;
 
-    public void changeName(){
-        String labelName = PlayGame.getTimeStat();
-        time.setText(labelName);
+    @FXML
+    private Label year;
+    @FXML
+    private Label microplast;
+
+
+    @FXML
+    void updateYear() {
+        year.setText(PlayGame.getTimeStat());
     }
+
 
 }
