@@ -1,7 +1,7 @@
-package com.zuul.rooms;
+package com.zuul.application.rooms;
 
-import com.zuul.ScreenWriter;
-import com.zuul.UpgradePath;
+import com.zuul.application.ScreenWriter;
+import com.zuul.application.UpgradePath;
 
 public class UpgradeRoom extends Room {
 

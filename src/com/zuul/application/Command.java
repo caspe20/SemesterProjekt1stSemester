@@ -1,4 +1,4 @@
-package com.zuul;
+package com.zuul.application;
 
 public class Command {
     private CommandWord commandWord;
@@ -15,7 +15,7 @@ public class Command {
     }
 
     /**
-     * @return the com.zuul.CommandWord that is associated with the command
+     * @return the com.zuul.application.CommandWord that is associated with the command
      */
     public CommandWord getCommandWord() {
         return commandWord;

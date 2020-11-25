@@ -1,6 +1,6 @@
-package com.zuul;
+package com.zuul.application;
 
-import com.zuul.rooms.UpgradeRoom;
+import com.zuul.application.rooms.UpgradeRoom;
 
 public class GameStats {
     public static long fishInOcean = 3500l;

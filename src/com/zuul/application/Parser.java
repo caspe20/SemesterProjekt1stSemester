@@ -1,4 +1,4 @@
-package com.zuul;
+package com.zuul.application;
 
 import java.util.Scanner;
 
@@ -14,7 +14,7 @@ public class Parser {
 
     /**
      * Method to return the command that the user created for the game.
-     * @return com.zuul.Command with the command given by the user. E.g. "Go" "North"
+     * @return com.zuul.application.Command with the command given by the user. E.g. "Go" "North"
      */
     public Command getCommand() {
         //Declaration

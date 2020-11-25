@@ -1,4 +1,4 @@
-package com.zuul.rooms;
+package com.zuul.application.rooms;
 
 import java.util.Set;
 import java.util.HashMap;

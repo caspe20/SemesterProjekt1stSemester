@@ -1,6 +1,6 @@
-package com.zuul;
+package com.zuul.application;
 
-import com.zuul.rooms.*;
+import com.zuul.application.rooms.*;
 
 public class Game {
     private Parser parser;
@@ -175,7 +175,7 @@ public class Game {
         CommandWord commandWord = command.getCommandWord();
 
         // If invalid command has been written.
-        // This is a note for the team. Since com.zuul.CommandWord.UNKNOWN
+        // This is a note for the team. Since com.zuul.application.CommandWord.UNKNOWN
         if (commandWord == CommandWord.UNKNOWN) {
             ScreenWriter.print("Hov, jeg forstod ikke hvad du mente...");
             return false;
@@ -277,11 +277,11 @@ public class Game {
     }
 
     /**
-     * Method to go from door to door. It uses the com.zuul.rooms.Room class to
+     * Method to go from door to door. It uses the com.zuul.application.rooms.Room class to
      * decide whether the current selected room exists. If it does sets currentRoom
      * to be the selected room.
      *
-     * @param command com.zuul.Command used to go to next room.
+     * @param command com.zuul.application.Command used to go to next room.
      */
     private void goRoom(Command command) {
         if (!command.hasSecondWord()) {
@@ -303,7 +303,7 @@ public class Game {
     }
 
     /**
-     * Method to select upgrade and uses the com.zuul.Parser class to record which
+     * Method to select upgrade and uses the com.zuul.application.Parser class to record which
      * upgrade to select.
      */
     private void selectUpgrade(UpgradeRoom room, Command command) {

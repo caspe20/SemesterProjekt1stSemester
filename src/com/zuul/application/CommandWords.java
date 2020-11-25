@@ -1,4 +1,4 @@
-package com.zuul;
+package com.zuul.application;
 
 import java.util.HashMap;
 
@@ -20,9 +20,9 @@ public class CommandWords {
 
     /**
      * Returns the command word as long as it exists in valid commands...
-     * otherwise it returns com.zuul.CommandWord.UNKNOWN;
+     * otherwise it returns com.zuul.application.CommandWord.UNKNOWN;
      * @param commandWord
-     * @return com.zuul.Command
+     * @return com.zuul.application.Command
      */
     public CommandWord getCommandWord(String commandWord) {
         CommandWord command = validCommands.get(commandWord);
