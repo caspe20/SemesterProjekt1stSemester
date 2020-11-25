@@ -10,10 +10,13 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.Controller">
    <columnConstraints>
+      <ColumnConstraints />
       <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
@@ -22,97 +25,8 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0">
          <children>
-            <Pane layoutX="12.0" layoutY="105.0" prefHeight="632.0" prefWidth="290.0">
+            <Pane layoutX="716.0" layoutY="64.0" prefHeight="265.0" prefWidth="290.0">
                <children>
-                  <Label alignment="CENTER" layoutX="12.0" layoutY="20.0" prefHeight="42.0" prefWidth="266.0" text="Upgraderinger">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Pane layoutX="12.0" layoutY="65.0" prefHeight="195.0" prefWidth="266.0">
-                     <children>
-                        <Label layoutX="3.0" text="Balsam">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 P/år">
-                           <font>
-                              <Font name="Consolas" size="27.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="39.0" layoutY="153.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Upgrader 5 fiskesjæle">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Button>
-                        <Label layoutX="3.0" layoutY="88.0" text="Shampoo">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="3.0" layoutY="115.0" prefHeight="31.0" prefWidth="247.0" text="10 P/år">
-                           <font>
-                              <Font name="Consolas" size="27.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="89.0" layoutY="71.0" text="Upgraderes til" />
-                     </children>
-                  </Pane>
-                  <Pane layoutX="12.0" layoutY="280.0" prefHeight="195.0" prefWidth="266.0">
-                     <children>
-                        <Label layoutX="3.0" text="1 gang om år">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 P/år">
-                           <font>
-                              <Font name="Consolas" size="27.0" />
-                           </font>
-                        </Label>
-                        <Button layoutX="39.0" layoutY="153.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Upgrader 5 fiskesjæle">
-                           <font>
-                              <Font size="11.0" />
-                           </font>
-                        </Button>
-                        <Label layoutX="3.0" layoutY="88.0" text="2 gang om år">
-                           <font>
-                              <Font size="18.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="3.0" layoutY="115.0" prefHeight="31.0" prefWidth="247.0" text="10 P/år">
-                           <font>
-                              <Font name="Consolas" size="27.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="89.0" layoutY="71.0" text="Upgraderes til" />
-                     </children>
-                  </Pane>
-                  <Label alignment="CENTER" layoutX="12.0" layoutY="475.0" prefHeight="42.0" prefWidth="266.0" text="Production">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="21.0" layoutY="520.0" prefHeight="22.0" prefWidth="247.0" text="10 P/år * 10P/år">
-                     <font>
-                        <Font name="Consolas" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="22.0" layoutY="542.0" prefHeight="22.0" prefWidth="247.0" text="= 100 P/år">
-                     <font>
-                        <Font name="Consolas" size="28.0" />
-                     </font>
-                  </Label>
-               </children>
-            </Pane>
-            <Pane layoutX="734.0" layoutY="116.0" prefHeight="623.0" prefWidth="290.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="12.0" layoutY="7.0" prefHeight="42.0" prefWidth="266.0" text="Statistik">
-                     <font>
-                        <Font name="System Bold" size="30.0" />
-                     </font>
-                  </Label>
                   <Pane layoutX="14.0" layoutY="68.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
@@ -120,8 +34,8 @@
                               <Image url="@images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Current Time" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="T+ 1 år 212 dage">
+                        <Label layoutX="45.0" text="Årstal:" />
+                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="2030">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -135,8 +49,8 @@
                               <Image url="@images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Plast pr tid" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="1.2 ton/år">
+                        <Label layoutX="45.0" text="Mikroplast om året" />
+                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="1.2 tons">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -150,7 +64,7 @@
                               <Image url="@images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Plast i havet" />
+                        <Label layoutX="45.0" text="Plastik i havet" />
                         <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="45 tons">
                            <font>
                               <Font name="Consolas" size="19.0" />
@@ -166,55 +80,146 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Fiskesjæle" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="234 Souls">
+                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="234">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
+                  <Label alignment="CENTER" layoutX="12.0" layoutY="14.0" prefHeight="42.0" prefWidth="266.0" text="Statistik">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
                </children>
             </Pane>
-            <Pane layoutX="290.0" layoutY="116.0" prefHeight="623.0" prefWidth="445.0">
+            <Pane layoutX="286.0" layoutY="105.0" prefHeight="623.0" prefWidth="445.0">
                <children>
-                  <TextArea editable="false" layoutX="15.0" layoutY="14.0" prefHeight="161.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;">
+                  <TextArea editable="false" layoutX="15.0" layoutY="14.0" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextArea>
-                  <TextArea editable="false" layoutX="15.0" layoutY="185.0" prefHeight="195.0" prefWidth="416.0" text="Beskrivelse Af karakter">
+                  <TextArea editable="false" layoutX="15.0" layoutY="312.0" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;Fx børster du tænder 2 gange om dagen, etc.&#10;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextArea>
-                  <Button layoutX="194.0" layoutY="404.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠕">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="252.0" layoutY="462.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠖">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="194.0" layoutY="520.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠗">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="136.0" layoutY="462.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠔">
-                     <font>
-                        <Font size="25.0" />
-                     </font>
-                  </Button>
                </children>
             </Pane>
-            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="12.0" layoutY="6.0" prefHeight="94.0" prefWidth="1001.0" text="Rum Navn" textAlignment="RIGHT">
+            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="195.0" layoutY="14.0" prefHeight="99.0" prefWidth="634.0" text="Rum Navn" textAlignment="RIGHT">
                <font>
-                  <Font name="System Bold" size="67.0" />
+                  <Font name="Serif Bold" size="67.0" />
                </font>
             </Label>
             <ProgressBar layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42" />
+            <Pane layoutX="14.0" layoutY="14.0" prefHeight="632.0" prefWidth="290.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="62.0" prefHeight="42.0" prefWidth="266.0" text="Opgraderinger">
+                     <font>
+                        <Font name="Times New Roman Bold Italic" size="30.0" />
+                     </font>
+                  </Label>
+                  <Pane layoutX="12.0" layoutY="121.0" prefHeight="195.0" prefWidth="266.0">
+                     <children>
+                        <Label layoutX="3.0" text="Level 1 - Balsam:">
+                           <font>
+                              <Font name="Times New Roman Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                           <font>
+                              <Font name="Times New Roman Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="123.0" text="Level 2 - Shampoo">
+                           <font>
+                              <Font name="Times New Roman Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                           <font>
+                              <Font name="Times New Roman Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="122.0" layoutY="71.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
+                        <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="51.0" layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                  </Button>
+                  <Pane layoutX="14.0" layoutY="423.0" prefHeight="195.0" prefWidth="266.0">
+                     <children>
+                        <Label layoutX="3.0" text="Level 1 - 1 Gang om året:">
+                           <font>
+                              <Font name="Times New Roman Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                           <font>
+                              <Font name="Times New Roman Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="123.0" text="Level 2 - 2 Gange om året">
+                           <font>
+                              <Font name="Times New Roman Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                           <font>
+                              <Font name="Times New Roman Italic" size="20.0" />
+                           </font>
+                        </Label>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="122.0" layoutY="71.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
+                        <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                     </children>
+                  </Pane>
+                  <Button layoutX="61.0" layoutY="615.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                     <font>
+                        <Font name="Times New Roman Bold" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Label alignment="CENTER" layoutX="738.0" layoutY="342.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="748.0" layoutY="385.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast om året">
+               <font>
+                  <Font name="Times New Roman Italic" size="19.0" />
+               </font>
+            </Label>
+            <Button layoutX="832.0" layoutY="477.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠕">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="890.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠖">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="832.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠗">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Button layoutX="774.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠔">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <Label layoutX="433.0" layoutY="735.0" text="Døde fisk i havet">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
