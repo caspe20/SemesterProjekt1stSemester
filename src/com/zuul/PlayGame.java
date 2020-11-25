@@ -24,6 +24,6 @@ public class PlayGame extends Application {
         primaryStage.setScene(new Scene(root,300,275));
         primaryStage.show();
         Game g = new Game();
-        //g.play();
+        // g.play();
     }
 }
