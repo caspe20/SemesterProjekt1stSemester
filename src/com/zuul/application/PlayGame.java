@@ -25,7 +25,7 @@ public class PlayGame extends Application {
         /*
          * Game g = new Game(); g.play();
          */
-        Parent root = FXMLLoader.load(getClass().getResource(presentationLocation + "sample.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(presentationLocation + "Martins UI2.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

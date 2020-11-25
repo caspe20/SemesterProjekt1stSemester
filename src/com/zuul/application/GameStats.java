@@ -21,7 +21,7 @@ public class GameStats {
     }
 
     public static String getYear() {
-        return "Nuværende årstal er "+(currentYear + currentTurn);
+        return String.valueOf(currentYear + currentTurn);
     }
 
     public static void printStats() {

@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.presentation.Controller">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -35,7 +35,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Årstal:" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="2030">
+                        <Label fx:id="year" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="2030">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -50,7 +50,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Mikroplast om året" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="1.2 tons">
+                        <Label fx:id="microplast" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="1.2 tons">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -147,7 +147,7 @@
                         <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </Pane>
-                  <Button layoutX="51.0" layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                  <Button layoutX="51.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#updateYear" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>
