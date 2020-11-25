@@ -195,7 +195,7 @@
                   <Font name="Times New Roman Italic" size="19.0" />
                </font>
             </Label>
-            <Button fx:id="buttonUp" layoutX="832.0" layoutY="477.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠕">
+            <Button fx:id="buttonUp" layoutX="832.0" layoutY="477.0" mnemonicParsing="false" onMouseClicked="#updateRoomDiscription" prefHeight="58.0" prefWidth="58.0" text="🠕">
                <font>
                   <Font size="25.0" />
                </font>
