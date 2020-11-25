@@ -35,7 +35,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Årstal:" />
-                        <Label fx:id="year" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="2030">
+                        <Label fx:id="time" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="2050">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -44,17 +44,17 @@
                   </Pane>
                   <Pane layoutX="14.0" layoutY="113.0">
                      <children>
+                        <Label fx:id="plastPerDay" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="1.2 tons">
+                           <font>
+                              <Font name="Consolas" size="19.0" />
+                           </font>
+                        </Label>
                         <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Mikroplast om året" />
-                        <Label fx:id="microplast" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="1.2 tons">
-                           <font>
-                              <Font name="Consolas" size="19.0" />
-                           </font>
-                        </Label>
+                        <Label layoutX="45.0" text="Mikroplast per dag" />
                      </children>
                   </Pane>
                   <Pane layoutX="14.0" layoutY="158.0">
@@ -65,7 +65,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Plastik i havet" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="45 tons">
+                        <Label fx:id="plastInSea" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="45 tons">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -80,7 +80,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Fiskesjæle" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="234">
+                        <Label fx:id="fishSouls" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="234">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
@@ -96,24 +96,24 @@
             </Pane>
             <Pane layoutX="286.0" layoutY="105.0" prefHeight="623.0" prefWidth="445.0">
                <children>
-                  <TextArea fx:id="roomdiscription" editable="false" layoutX="15.0" layoutY="14.0" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
+                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="14.0" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextArea>
-                  <TextArea editable="false" layoutX="15.0" layoutY="312.0" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;Fx børster du tænder 2 gange om dagen, etc.&#10;">
+                  <TextArea fx:id="userDescription" editable="false" layoutX="15.0" layoutY="312.0" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;Fx børster du tænder 2 gange om dagen, etc.&#10;">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextArea>
                </children>
             </Pane>
-            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="195.0" layoutY="14.0" prefHeight="99.0" prefWidth="634.0" text="Rum Navn" textAlignment="RIGHT">
+            <Label fx:id="roomName" alignment="CENTER" contentDisplay="RIGHT" layoutX="195.0" layoutY="14.0" prefHeight="99.0" prefWidth="634.0" text="Rum Navn" textAlignment="RIGHT">
                <font>
                   <Font name="Serif Bold" size="67.0" />
                </font>
             </Label>
-            <ProgressBar layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42" />
+            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42" />
             <Pane layoutX="14.0" layoutY="14.0" prefHeight="632.0" prefWidth="290.0">
                <children>
                   <Label alignment="CENTER" layoutX="14.0" layoutY="62.0" prefHeight="42.0" prefWidth="266.0" text="Opgraderinger">
@@ -123,22 +123,22 @@
                   </Label>
                   <Pane layoutX="12.0" layoutY="121.0" prefHeight="195.0" prefWidth="266.0">
                      <children>
-                        <Label layoutX="3.0" text="Level 1 - Balsam:">
+                        <Label fx:id="upgrade1" layoutX="3.0" text="Level 1 - Balsam:">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                        <Label fx:id="upgrade1Amount" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="123.0" text="Level 2 - Shampoo">
+                        <Label fx:id="upgrade2" layoutX="3.0" layoutY="123.0" text="Level 2 - Shampoo">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                        <Label fx:id="upgrade2Amount" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -147,29 +147,29 @@
                         <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </Pane>
-                  <Button layoutX="51.0" layoutY="316.0" mnemonicParsing="false" onMouseClicked="#updateYear" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                  <Button fx:id="upgradeButton1" layoutX="51.0" layoutY="316.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>
                   </Button>
                   <Pane layoutX="14.0" layoutY="423.0" prefHeight="195.0" prefWidth="266.0">
                      <children>
-                        <Label layoutX="3.0" text="Level 1 - 1 Gang om året:">
+                        <Label fx:id="upgrade3" layoutX="3.0" text="Level 1 - 1 Gang om året:">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                        <Label fx:id="upgrade3Amount" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="123.0" text="Level 2 - 2 Gange om året">
+                        <Label fx:id="upgrade4" layoutX="3.0" layoutY="123.0" text="Level 2 - 2 Gange om året">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                        <Label fx:id="upgrade4Amount" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -178,7 +178,7 @@
                         <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </Pane>
-                  <Button layoutX="61.0" layoutY="615.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                  <Button fx:id="upgradeButton2" layoutX="61.0" layoutY="615.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>
@@ -190,32 +190,32 @@
                   <Font name="Times New Roman Bold Italic" size="30.0" />
                </font>
             </Label>
-            <Label layoutX="748.0" layoutY="385.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast om året">
+            <Label fx:id="production" layoutX="748.0" layoutY="385.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
                <font>
                   <Font name="Times New Roman Italic" size="19.0" />
                </font>
             </Label>
-            <Button layoutX="832.0" layoutY="477.0" mnemonicParsing="false" onAction="#updateRoomDiscription" prefHeight="58.0" prefWidth="58.0" text="🠕">
+            <Button fx:id="buttonUp" layoutX="832.0" layoutY="477.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠕">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="890.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠖">
+            <Button fx:id="buttonRight" layoutX="890.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠖">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="832.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠗">
+            <Button fx:id="buttonDown" layoutX="832.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠗">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button layoutX="774.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠔">
+            <Button fx:id="buttonLeft" layoutX="774.0" layoutY="535.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠔">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Label layoutX="433.0" layoutY="735.0" text="Døde fisk i havet">
+            <Label fx:id="deadFish" layoutX="433.0" layoutY="735.0" text="Døde fisk i havet">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
