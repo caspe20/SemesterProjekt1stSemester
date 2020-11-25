@@ -65,7 +65,7 @@ public class Controller {
 
     @FXML
     void updateRoomDiscription(){
-        roomdiscription.setText(PlayGame.getRoomDiscription());
+        roomDescription.setText(PlayGame.getRoomDiscription());
     }
 
 
