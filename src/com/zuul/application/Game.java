@@ -4,7 +4,12 @@ import com.zuul.application.rooms.*;
 
 public class Game {
     private Parser parser;
-    private Room currentRoom;
+
+    public static Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    private static Room currentRoom;
     private Room devilheadquater;
     private UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
@@ -291,14 +296,14 @@ public class Game {
 
         String direction = command.getSecondWord();
 
-        Room nextRoom = currentRoom.getExit(direction);
+        Room nextRoom = this.currentRoom.getExit(direction);
 
         if (nextRoom == null) {
             ScreenWriter.print(
                     "Du kunne ikke finde hvad du ledte efter, og besluttede dig for at vende tilbage til hvor du kom fra.");
         } else {
-            currentRoom = nextRoom;
-            ScreenWriter.print(currentRoom.getLongDescription());
+            this.currentRoom = nextRoom;
+            ScreenWriter.print(this.currentRoom.getLongDescription());
         }
     }
 
