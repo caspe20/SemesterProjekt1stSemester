@@ -96,7 +96,7 @@
             </Pane>
             <Pane layoutX="286.0" layoutY="105.0" prefHeight="623.0" prefWidth="445.0">
                <children>
-                  <TextArea editable="false" layoutX="15.0" layoutY="14.0" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
+                  <TextArea fx:id="roomdiscription" editable="false" layoutX="15.0" layoutY="14.0" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -195,7 +195,7 @@
                   <Font name="Times New Roman Italic" size="19.0" />
                </font>
             </Label>
-            <Button layoutX="832.0" layoutY="477.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="58.0" text="🠕">
+            <Button layoutX="832.0" layoutY="477.0" mnemonicParsing="false" onAction="#updateRoomDiscription" prefHeight="58.0" prefWidth="58.0" text="🠕">
                <font>
                   <Font size="25.0" />
                </font>

@@ -15,6 +15,7 @@ import com.zuul.presentation.*;
  */
 public class PlayGame extends Application {
     String presentationLocation = "../presentation/";
+    Game g = new Game();
 
     public static void main(String[] args) {
         launch(args);
@@ -33,5 +34,9 @@ public class PlayGame extends Application {
 
     public static String getTimeStat() {
         return GameStats.getYear();
+    }
+
+    public static String getRoomDiscription(){
+        return Game.getCurrentRoom().getLongDescription();
     }
 }
