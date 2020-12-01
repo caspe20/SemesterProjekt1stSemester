@@ -11,7 +11,6 @@ public class Controller {
     private Label year;
     @FXML
     private Label microplast;
-
     @FXML
     private Label plastPerDay;
     @FXML
@@ -57,14 +56,32 @@ public class Controller {
     @FXML
     private Button goToHarbour;
     @FXML
+    private Button goToDevil;
+    @FXML
     private Label deadFish;
+    @FXML
+    private Label matasLvl1;
+    @FXML
+    private Label matasLvl2;
+    @FXML
+    private Label carDealerLvl1;
+    @FXML
+    private Label getCarDealerLvl2;
+    @FXML
+    private Label laundryLvl1;
+    @FXML
+    private Label laundryLvl2;
+    @FXML
+    private Label harbourlvl1;
+    @FXML
+    private Label harbourLvl2;
     @FXML
     void updateYear() {
         year.setText(PlayGame.getTimeStat());
     }
 
     @FXML
-    void updateRoomDiscription(){
+    void updateRoomDescription(){
         roomDescription.setText(PlayGame.getRoomDiscription());
     }
 
