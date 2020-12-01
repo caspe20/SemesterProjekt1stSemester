@@ -23,9 +23,6 @@ public class PlayGame extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        /*
-         * Game g = new Game(); g.play();
-         */
         Parent root = FXMLLoader.load(getClass().getResource(presentationLocation + "Martins UI2.fxml"));
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
