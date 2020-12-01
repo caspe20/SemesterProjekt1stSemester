@@ -6,7 +6,6 @@ import javafx.scene.control.*;
 
 public class Controller {
 
-
     @FXML
     private Label year;
     @FXML
