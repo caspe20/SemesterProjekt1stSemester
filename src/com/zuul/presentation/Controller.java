@@ -49,13 +49,13 @@ public class Controller {
     @FXML
     private Label production;
     @FXML
-    private Button buttonUp;
+    private Button goToMatas;
     @FXML
-    private Button buttonDown;
+    private Button goToCarDealer;
     @FXML
-    private Button buttonRight;
+    private Button goToLaundry;
     @FXML
-    private Button buttonLeft;
+    private Button goToHarbour;
     @FXML
     private Label deadFish;
     @FXML
@@ -65,7 +65,7 @@ public class Controller {
 
     @FXML
     void updateRoomDiscription(){
-        roomdiscription.setText(PlayGame.getRoomDiscription());
+        roomDescription.setText(PlayGame.getRoomDiscription());
     }
 
 
