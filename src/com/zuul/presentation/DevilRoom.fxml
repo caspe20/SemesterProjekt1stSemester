@@ -99,16 +99,6 @@
                         <Font size="18.0" />
                      </font>
                   </TextArea>
-                  <Label alignment="CENTER" layoutX="90.0" layoutY="544.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
-                     <font>
-                        <Font name="Times New Roman Bold Italic" size="30.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="production" layoutX="100.0" layoutY="587.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
-                     <font>
-                        <Font name="Times New Roman Italic" size="19.0" />
-                     </font>
-                  </Label>
                   <TextArea fx:id="userDescription" editable="false" layoutX="16.0" layoutY="281.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;fx: Du kører 70km om måneden i din&#10;monster truck&#10;Og børster tænder 1 gang om året">
                      <font>
                         <Font size="18.0" />
@@ -223,6 +213,16 @@
                   </Label>
                </children>
             </Pane>
+            <Label alignment="CENTER" layoutX="726.0" layoutY="353.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
+               <font>
+                  <Font name="Times New Roman Bold Italic" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="production" layoutX="736.0" layoutY="396.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
+               <font>
+                  <Font name="Times New Roman Italic" size="19.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
