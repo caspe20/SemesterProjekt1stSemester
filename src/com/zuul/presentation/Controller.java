@@ -56,12 +56,27 @@ public class Controller {
     public Button goToLaundry;
     @FXML
     public Button goToHarbour;
+    @FXML    
+    private Button goToDevil;
     @FXML
     public Label deadFish;
-
     @FXML
-    public void updateRoomDiscription(){
-        Wrapper.writeRoomDescription();
-    }
+    private Label deadFish;
+    @FXML
+    private Label matasLvl1;
+    @FXML
+    private Label matasLvl2;
+    @FXML
+    private Label carDealerLvl1;
+    @FXML
+    private Label getCarDealerLvl2;
+    @FXML
+    private Label laundryLvl1;
+    @FXML
+    private Label laundryLvl2;
+    @FXML
+    private Label harbourlvl1;
+    @FXML
+    private Label harbourLvl2;
 
 }
