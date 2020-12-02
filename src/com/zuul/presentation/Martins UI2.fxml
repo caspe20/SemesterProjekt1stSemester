@@ -185,12 +185,12 @@
                   </Button>
                </children>
             </Pane>
-            <Label alignment="CENTER" layoutX="738.0" layoutY="342.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
+            <Label alignment="CENTER" layoutX="728.0" layoutY="352.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
                <font>
                   <Font name="Times New Roman Bold Italic" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="production" layoutX="748.0" layoutY="385.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
+            <Label fx:id="production" layoutX="738.0" layoutY="395.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
                <font>
                   <Font name="Times New Roman Italic" size="19.0" />
                </font>
