@@ -1,4 +1,5 @@
 package com.zuul.presentation;
+
 // Import application layer
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -56,12 +57,10 @@ public class Controller {
     public Button goToLaundry;
     @FXML
     public Button goToHarbour;
-    @FXML    
-    private Button goToDevil;
     @FXML
     public Label deadFish;
     @FXML
-    private Label deadFish;
+    private Button goToDevil;
     @FXML
     private Label matasLvl1;
     @FXML
@@ -78,5 +77,10 @@ public class Controller {
     private Label harbourlvl1;
     @FXML
     private Label harbourLvl2;
+
+    @FXML
+    void updateRoomDescription() {
+        roomDescription.setText(PlayGame.getRoomDiscription());
+    }
 
 }
