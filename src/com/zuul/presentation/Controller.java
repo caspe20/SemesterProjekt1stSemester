@@ -1,71 +1,67 @@
 package com.zuul.presentation;
 // Import application layer
-import com.zuul.application.PlayGame;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class Controller {
 
     @FXML
-    private Label year;
+    public Label year;
     @FXML
-    private Label microplast;
+    public Label microplast;
+    @FXML
+    public Label time;
 
     @FXML
-    private Label plastPerDay;
+    public Label plastPerDay;
     @FXML
-    private Label plastInSea;
+    public Label plastInSea;
     @FXML
-    private Label fishSouls;
+    public Label fishSouls;
     @FXML
-    private TextArea roomDescription;
+    public TextArea roomDescription;
     @FXML
-    private TextArea userDescription;
+    public TextArea userDescription;
     @FXML
-    private Label roomName;
+    public Label roomName;
     @FXML
-    private ProgressBar progressBar;
+    public ProgressBar progressBar;
     @FXML
-    private Label upgrade1;
+    public Label upgrade1;
     @FXML
-    private Label upgrade2;
+    public Label upgrade2;
     @FXML
-    private Label upgrade1Amount;
+    public Label upgrade1Amount;
     @FXML
-    private Label upgrade2Amount;
+    public Label upgrade2Amount;
     @FXML
-    private Button upgradeButton1;
+    public Button upgradeButton1;
     @FXML
-    private Label upgrade3;
+    public Label upgrade3;
     @FXML
-    private Label upgrade4;
+    public Label upgrade4;
     @FXML
-    private Label upgrade3Amount;
+    public Label upgrade3Amount;
     @FXML
-    private Label upgrade4Amount;
+    public Label upgrade4Amount;
     @FXML
-    private Button upgradeButton2;
+    public Button upgradeButton2;
     @FXML
-    private Label production;
+    public Label production;
     @FXML
-    private Button goToMatas;
+    public Button goToMatas;
     @FXML
-    private Button goToCarDealer;
+    public Button goToCarDealer;
     @FXML
-    private Button goToLaundry;
+    public Button goToLaundry;
     @FXML
-    private Button goToHarbour;
+    public Button goToHarbour;
     @FXML
-    private Label deadFish;
+    public Label deadFish;
+
     @FXML
-    void updateYear() {
-        year.setText(PlayGame.getTimeStat());
+    public void updateRoomDiscription(){
+        Wrapper.writeRoomDescription();
     }
-
-    @FXML
-    void updateRoomDiscription(){
-        roomDescription.setText(PlayGame.getRoomDiscription());
-    }
-
 
 }
