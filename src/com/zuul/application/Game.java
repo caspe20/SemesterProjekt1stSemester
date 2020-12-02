@@ -1,12 +1,53 @@
 package com.zuul.application;
 
 import com.zuul.application.rooms.*;
+import com.zuul.presentation.Controller;
+import com.zuul.presentation.Wrapper;
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
-public class Game {
-
-    public static Room getCurrentRoom() {
-        return currentRoom;
+public class Game extends Application {
+    String presentationLocation = "../presentation/";
+    public static void main(String[] args) {
+        launch(args);
     }
+
+    public static Controller con;
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(presentationLocation + "Martins UI2.fxml"));
+        Parent root = loader.load();
+        Wrapper.setController(((Controller)loader.getController()));
+        Wrapper.setGame(this);
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+        StartTimer();
+
+    }
+
+    public static void StartTimer() {
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(50),
+                ae -> GameTick()));
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    public static void GameTick() {
+        GameStats.SimulateTurn(50d/12000d);
+        GameStats.getPlastic();
+        Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction) + " tons",GameStats.getPlastic(), GameStats.getFish()});
+    }
+
+    // Rest of code
 
     private static Room currentRoom;
     private Room devilheadquater;
@@ -42,7 +83,7 @@ public class Game {
 
         matas = new UpgradeRoom("i Matas",
                 new UpgradePath("Product",
-                        new Upgrade[] { new Upgrade("Svanemærket", 0.0, 1.0), new Upgrade("Håndsæbe", 1.0, 2.0),
+                        new Upgrade[]{new Upgrade("Svanemærket", 0.0, 1.0), new Upgrade("Håndsæbe", 1.0, 2.0),
                                 new Upgrade("Shampoo", 2.0, 3.0), new Upgrade("Balsam", 3.0, 4.0),
                                 new Upgrade("Face Scrub Cream", 4.0, 5.0), new Upgrade("Barberskum", 5.0, 6.0),
                                 new Upgrade("Mascara", 6.0, 7.0), new Upgrade("Foundation", 7.0, 8.0),
@@ -52,7 +93,7 @@ public class Game {
                                 new Upgrade("Tandpasta", 14.0, 15.0)
 
                         }),
-                new UpgradePath("Forbrug", new Upgrade[] { new Upgrade("Aldrig", 0.0, 1.0),
+                new UpgradePath("Forbrug", new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0),
                         new Upgrade("1 gang om året", 1.0, 2.0), new Upgrade("2 gange om året", 2.0, 3.0),
                         new Upgrade("1 gang i kvartalet", 3.0, 4.0), new Upgrade("1 gang om måneden", 4.0, 5.0),
                         new Upgrade("2 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
@@ -65,7 +106,7 @@ public class Game {
         // Mangler Hvad der skal vaskes.
         laundry = new UpgradeRoom("ved Vaskeriet",
                 new UpgradePath("Product",
-                        new Upgrade[] { new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sokker", 1.0, 2.0),
+                        new Upgrade[]{new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sokker", 1.0, 2.0),
                                 new Upgrade("Underbukser", 2.0, 3.0), new Upgrade("Hue", 3.0, 4.0),
                                 new Upgrade("Vanter", 4.0, 5.0), new Upgrade("Halstørklæde", 5.0, 6.0),
                                 new Upgrade("T-shirt", 6.0, 7.0), new Upgrade("Langærmet T-shirt", 7.0, 8.0),
@@ -76,7 +117,7 @@ public class Game {
 
                         }),
                 new UpgradePath("Forbrug",
-                        new Upgrade[] { new Upgrade("Aldrig", 0.0, 1.0), new Upgrade("2 gange om året", 1.0, 2.0),
+                        new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0), new Upgrade("2 gange om året", 1.0, 2.0),
                                 new Upgrade("4 gange om året", 2.0, 3.0), new Upgrade("1 gang om måneden", 3.0, 4.0),
                                 new Upgrade("2 gange om måneden", 4.0, 5.0),
                                 new Upgrade("3 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
@@ -89,7 +130,7 @@ public class Game {
 
         cardealer = new UpgradeRoom("ved Bilforhandleren",
                 new UpgradePath("Product",
-                        new Upgrade[] { new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sneaks", 1.0, 2.0),
+                        new Upgrade[]{new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sneaks", 1.0, 2.0),
                                 new Upgrade("Skateboard", 2.0, 3.0), new Upgrade("Cykel", 3.0, 4.0),
                                 new Upgrade("Offentlig Transport", 4.0, 5.0), new Upgrade("Volkswagen UP", 5.0, 6.0),
                                 new Upgrade("Ford Focus", 6.0, 7.0), new Upgrade("Mercedes CLA", 7.0, 8.0),
@@ -98,7 +139,7 @@ public class Game {
 
                         }),
                 new UpgradePath("Forbrug",
-                        new Upgrade[] { new Upgrade("0 km om uge", 0.0, 1.0), new Upgrade("5 km om ugen", 1.0, 2.0),
+                        new Upgrade[]{new Upgrade("0 km om uge", 0.0, 1.0), new Upgrade("5 km om ugen", 1.0, 2.0),
                                 new Upgrade("10 km om ugen", 2.0, 3.0), new Upgrade("20 km om ugen", 3.0, 4.0),
                                 new Upgrade("40 km om ugen", 4.0, 5.0), new Upgrade("60 km om ugen", 5.0, 6.0),
                                 new Upgrade("80 km om ugen", 6.0, 7.0), new Upgrade("100 km om ugen", 7.0, 8.0),
@@ -111,7 +152,7 @@ public class Game {
 
         dock = new UpgradeRoom("ved Molen",
                 new UpgradePath("Product",
-                        new Upgrade[] { new Upgrade("Brødkrummer", 0.0, 1.0), new Upgrade("Sugerør", 1.0, 2.0),
+                        new Upgrade[]{new Upgrade("Brødkrummer", 0.0, 1.0), new Upgrade("Sugerør", 1.0, 2.0),
                                 new Upgrade("Slikpapir", 2.0, 3.0), new Upgrade("Plastikflaske", 3.0, 4.0),
                                 new Upgrade("Plastikpose", 4.0, 5.0), new Upgrade("Actionman", 5.0, 6.0),
                                 new Upgrade("Vandkande", 6.0, 7.0), new Upgrade("IKEA-kasse", 7.0, 8.0),
@@ -121,7 +162,7 @@ public class Game {
                                 new Upgrade("Havepool", 14.0, 15.0)
 
                         }),
-                new UpgradePath("Forbrug", new Upgrade[] { new Upgrade("Aldrig", 0.0, 1.0),
+                new UpgradePath("Forbrug", new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0),
                         new Upgrade("1 gang om året", 1.0, 2.0), new Upgrade("2 gange om året", 2.0, 3.0),
                         new Upgrade("1 gang i kvartalet", 3.0, 4.0), new Upgrade("1 gang om måneden", 4.0, 5.0),
                         new Upgrade("2 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
@@ -150,13 +191,11 @@ public class Game {
         currentRoom = devilheadquater;
     }
 
-    /**
-     * Method to go to the next turn. Used to set the combined production of the
-     * different facilities into the player's score and checks whether the game ends
-     * or not.
-     * 
-     * @param command Doesn't use command parameter currently.
-     */
+    public static String getRoomDescription() {
+        return currentRoom.getLongDescription();
+    }
+
+
 //    public void goTurn(Command command) {
 //        matas.setCombinedProduction();
 //        laundry.setCombinedProduction();
