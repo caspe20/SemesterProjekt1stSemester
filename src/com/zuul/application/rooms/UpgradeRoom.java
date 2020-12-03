@@ -34,9 +34,7 @@ public class UpgradeRoom extends Room {
 
         /* Jeg tror ikke at vi har brug for en ScreenWriter længere. Vi må sørge for at vise den
             i implementationen i 1. iteration.
-         */
 
-        /*
         s = s + ScreenWriter.getCenter("Upgrade #1  [" + upgradePathProducts.getPathName() + "]\n");
         s = s + ScreenWriter.getLeftRight(upgradePathProducts.getUpgradeName(0), " --> " + upgradePathProducts.getUpgradeName(1) + "\n");
         s = s + ScreenWriter.getLeftRight(String.valueOf(upgradePathProducts.getUpgradeCoefficient(0)), " --> " + upgradePathProducts.getUpgradeCoefficient(1) + "\n");
@@ -47,6 +45,6 @@ public class UpgradeRoom extends Room {
         s = s + ScreenWriter.getLeftRight("Upgrade price: ", upgradePathUsage.getUpgradePrice(1) + " Fish souls\n");
 
         return s;
-         */
+        */
     }
 }

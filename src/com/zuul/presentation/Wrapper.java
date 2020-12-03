@@ -1,5 +1,6 @@
 package com.zuul.presentation;
 
+import com.zuul.application.GameStats;
 import com.zuul.application.Game;
 import com.zuul.application.Upgrade;
 import com.zuul.application.rooms.UpgradeRoom;
@@ -25,34 +26,34 @@ public class Wrapper {
 
     }
 
-    // upgrades - alternatively make single method.
     public static void writeUpgradeOneToScreen(Upgrade in) {
 
     }
 
     public static void upgradeLvlUpdate1() {
-        UpgradeRoom UR = (UpgradeRoom)Game.currentRoom;
-        UR.upgradePathProducts.performUpgrade();
-        UR.setCombinedProduction();
+        if (Game.currentRoom instanceof UpgradeRoom) {
+            UpgradeRoom UR = (UpgradeRoom)Game.currentRoom;
+            UR.upgradePathProducts.performUpgrade();
+            UR.setCombinedProduction();
+            GameStats.UpdatePlasticProduction();
+        }
     }
 
     public static void writeUpgradeTwoToScreen(Upgrade in) {
 
     }
     public static void upgradeLvlUpdate2() {
-        UpgradeRoom UR = (UpgradeRoom)Game.currentRoom;
-        UR.upgradePathUsage.performUpgrade();
-        UR.setCombinedProduction();
+        if (Game.currentRoom instanceof UpgradeRoom) {
+            UpgradeRoom UR = (UpgradeRoom)Game.currentRoom;
+            UR.upgradePathUsage.performUpgrade();
+            UR.setCombinedProduction();
+            GameStats.UpdatePlasticProduction();
+        }
     }
 
     public static void writeProductionDescription(String in) {
 
     }
-
-    //////////////////////////////
-    // SIMONS ASSIGNMENTS BEGIN //
-    //////////////////////////////
-
 
     public static void writeRoomName() {
         currCon.roomName.setText(g.getRoomName());
@@ -75,11 +76,6 @@ public class Wrapper {
         g.setRoomToDock();
     }
 
-    ////////////////////////////
-    // SIMONS ASSIGNMENTS END //
-    ////////////////////////////
-
-
 
     /* [0] Årstal
      * [1] plast pr dag
@@ -95,7 +91,9 @@ public class Wrapper {
 
     public static void setProgressBar(double progress) {
         currCon.progressBar.setProgress(progress);
-
+    }
+    public static void setProgressBarText(String txt) {
+        currCon.deadFish.setText(txt);
     }
 
 }

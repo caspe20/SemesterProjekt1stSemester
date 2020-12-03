@@ -36,6 +36,10 @@ public class GameStats {
         plasticInOcean += plasticProduction * yr;
     }
 
+    public static void UpdatePlasticProduction() {
+        plasticProduction = Game.matas.combinedProduction + Game.laundry.combinedProduction + Game.cardealer.combinedProduction + Game.dock.combinedProduction;
+    }
+
     private static void UpdateFish(double yr) {
         currentFishSouls += plasticInOcean * yr;
         fishInOcean -= plasticInOcean* yr;

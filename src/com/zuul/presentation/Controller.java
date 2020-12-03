@@ -91,11 +91,13 @@ public class Controller {
     void upgradeButton1Click() {
         Wrapper.upgradeLvlUpdate1();
     }
+
     @FXML
     void upgradeButton2Click() {
         Wrapper.upgradeLvlUpdate2();
     }
-  
+
+    @FXML
     void updateRoomToCardealer() {
         Wrapper.changeRoomToCardealer();
         Wrapper.writeRoomDescription();

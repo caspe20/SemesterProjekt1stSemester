@@ -44,10 +44,7 @@ public class Game extends Application {
     public static void calculateProgress() {
         double totalProgress = (1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning));
         Wrapper.setProgressBar(totalProgress);
-        System.out.println(totalProgress);
-
-
-
+        Wrapper.setProgressBarText((long)Math.floor(GameStats.fishInOcean)+" / "+(long)Math.floor(GameStats.fishInOceanBeginning)+" Fish in ocean");
     }
 
     public static void GameTick() {
@@ -56,11 +53,12 @@ public class Game extends Application {
         calculateProgress();
     }
 
+
     // Rest of code
 
     public static Room currentRoom;
     private Room devilheadquater;
-    private UpgradeRoom matas, laundry, cardealer, dock;
+    public static UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
     private boolean wantToQuit = false;
     private final String gameName = "Hades' Manglende Fisk";
@@ -75,7 +73,6 @@ public class Game extends Application {
                 + "ved hjælp af plastik partikler.\n\nDet er derfor din opgave som djævlen i dette spil"
                 + "at dræbe alle fisk på jordens overflade, så demonerne i underverdenen igen kan nyde"
                 + "deres yndlings kogekunst!\n");
-//        ScreenWriter.printCenter("Skriv '" + CommandWord.HELP + "' hvis du har brug for hjælp");
         ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn, '-');
         ScreenWriter.print(currentRoom.getRoomDescription());
     }
@@ -199,24 +196,6 @@ public class Game extends Application {
 
                 }));
 
-        // I assume that we don't need this chunk of code anymore? :) /Simon
-        /*
-        devilheadquater.setExit("nord", matas);
-        devilheadquater.setExit("syd", laundry);
-
-        matas.setExit("syd", devilheadquater);
-        matas.setExit("øst", cardealer);
-
-        cardealer.setExit("vest", matas);
-        cardealer.setExit("syd", dock);
-
-        dock.setExit("nord", cardealer);
-        dock.setExit("vest", laundry);
-
-        laundry.setExit("nord", devilheadquater);
-        laundry.setExit("øst", dock);
-         */
-
         currentRoom = devilheadquater;
 
     }
@@ -224,10 +203,6 @@ public class Game extends Application {
     public static String getRoomDescription() {
         return currentRoom.getRoomDescription();
     }
-
-    //////////////////////////////
-    // SIMONS ASSIGNMENTS BEGIN //
-    //////////////////////////////
 
     public static String getRoomName() {
         return currentRoom.getRoomName();
@@ -249,28 +224,4 @@ public class Game extends Application {
     public void setRoomToDock() {
         currentRoom = dock;
     }
-
-
-    ////////////////////////////
-    // SIMONS ASSIGNMENTS END //
-    ////////////////////////////
-
-
-//    public void goTurn(Command command) {
-//        matas.setCombinedProduction();
-//        laundry.setCombinedProduction();
-//        cardealer.setCombinedProduction();
-//        dock.setCombinedProduction();
-//
-//        double currentTotalPlasticProduction = matas.combinedProduction + laundry.combinedProduction
-//                + cardealer.combinedProduction + dock.combinedProduction;
-//
-//        GameStats.SimulateTurn(1, currentTotalPlasticProduction);
-//
-//        if (GameStats.fishInOcean <= 0) {
-//            wantToQuit = true;
-//        } else {
-//            GameStats.printStats();
-//        }
-//    }
 }
