@@ -4,12 +4,12 @@ import com.zuul.application.GameStats;
 
 public class DevilsRoom extends Room {
 
-    public DevilsRoom(String description) {
-        super(description);
+    public DevilsRoom(String roomName, String description) {
+        super(roomName, description);
     }
 
     @Override
-    public String getLongDescription() {
+    public String getRoomDescription() {
         String s = "Du er " + description + ".\n";
         s = s + GameStats.getYear() + ".\n";
         s = s + getExitString() + "\n";

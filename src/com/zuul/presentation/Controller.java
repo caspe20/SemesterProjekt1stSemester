@@ -4,6 +4,8 @@ package com.zuul.presentation;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import static com.zuul.presentation.Wrapper.changeRoomToMatas;
+
 public class Controller {
 
     @FXML
@@ -78,9 +80,42 @@ public class Controller {
     @FXML
     private Label harbourLvl2;
 
+
+    //////////////////////////////
+    // SIMONS ASSIGNMENTS BEGIN //
+    //////////////////////////////
+
     @FXML
-    void updateRoomDescription() {
+    void updateRoomToMatas() {
+        Wrapper.changeRoomToMatas();
         Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
     }
+
+    @FXML
+    void updateRoomToCardealer() {
+        Wrapper.changeRoomToCardealer();
+        Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
+    }
+
+    @FXML
+    void updateRoomToLaundry() {
+        Wrapper.changeRoomToLaundry();
+        Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
+    }
+
+    @FXML
+    void updateRoomToDock() {
+        Wrapper.changeRoomToDock();
+        Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
+    }
+
+
+    ////////////////////////////
+    // SIMONS ASSIGNMENTS END //
+    ////////////////////////////
 
 }
