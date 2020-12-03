@@ -43,7 +43,6 @@ public class Game extends Application {
 
     public static void GameTick() {
         GameStats.SimulateTurn(50d/12000d);
-        GameStats.getPlastic();
         Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction) + " tons",GameStats.getPlastic(), GameStats.getFish()});
     }
 
