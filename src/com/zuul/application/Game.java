@@ -193,23 +193,4 @@ public class Game extends Application {
     public static String getRoomDescription() {
         return currentRoom.getLongDescription();
     }
-
-
-//    public void goTurn(Command command) {
-//        matas.setCombinedProduction();
-//        laundry.setCombinedProduction();
-//        cardealer.setCombinedProduction();
-//        dock.setCombinedProduction();
-//
-//        double currentTotalPlasticProduction = matas.combinedProduction + laundry.combinedProduction
-//                + cardealer.combinedProduction + dock.combinedProduction;
-//
-//        GameStats.SimulateTurn(1, currentTotalPlasticProduction);
-//
-//        if (GameStats.fishInOcean <= 0) {
-//            wantToQuit = true;
-//        } else {
-//            GameStats.printStats();
-//        }
-//    }
 }

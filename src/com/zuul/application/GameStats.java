@@ -47,7 +47,7 @@ public class GameStats {
     public static String getYear() {
         double date = currentYear + currentTurn;
         double day = (date % 1) * 365;
-        String out = "år " + String.format("%.0f",date) + " dag " + String.format("%.0f",day);
+        String out = "år " + String.format("%.0f",Math.floor(date)) + " dag " + String.format("%.0f",day);
         return out;
     }
 
