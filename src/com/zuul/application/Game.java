@@ -48,7 +48,7 @@ public class Game extends Application {
 
     // Rest of code
 
-    private static Room currentRoom;
+    public static Room currentRoom;
     private Room devilheadquater;
     private UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;

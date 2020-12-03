@@ -80,11 +80,6 @@ public class Controller {
     @FXML
     private Label harbourLvl2;
 
-
-    //////////////////////////////
-    // SIMONS ASSIGNMENTS BEGIN //
-    //////////////////////////////
-
     @FXML
     void updateRoomToMatas() {
         Wrapper.changeRoomToMatas();
@@ -93,6 +88,14 @@ public class Controller {
     }
 
     @FXML
+    void upgradeButton1Click() {
+        Wrapper.upgradeLvlUpdate1();
+    }
+    @FXML
+    void upgradeButton2Click() {
+        Wrapper.upgradeLvlUpdate2();
+    }
+  
     void updateRoomToCardealer() {
         Wrapper.changeRoomToCardealer();
         Wrapper.writeRoomDescription();
@@ -112,10 +115,5 @@ public class Controller {
         Wrapper.writeRoomDescription();
         Wrapper.writeRoomName();
     }
-
-
-    ////////////////////////////
-    // SIMONS ASSIGNMENTS END //
-    ////////////////////////////
 
 }
