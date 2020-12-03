@@ -17,6 +17,7 @@ public class Wrapper {
     }
 
     public static void writeRoomDescription() {
+        currCon.roomDescription.setWrapText(true);
         currCon.roomDescription.setText(g.getRoomDescription());
     }
 
@@ -47,6 +48,38 @@ public class Wrapper {
     public static void writeProductionDescription(String in) {
 
     }
+
+    //////////////////////////////
+    // SIMONS ASSIGNMENTS BEGIN //
+    //////////////////////////////
+
+
+    public static void writeRoomName() {
+        currCon.roomName.setText(g.getRoomName());
+
+    }
+
+    public static void changeRoomToMatas() {
+        g.setRoomToMatas();
+    }
+
+    public static void changeRoomToCardealer() {
+        g.setRoomToCardealer();
+    }
+
+    public static void changeRoomToLaundry() {
+        g.setRoomToLaundry();
+    }
+
+    public static void changeRoomToDock() {
+        g.setRoomToDock();
+    }
+
+    ////////////////////////////
+    // SIMONS ASSIGNMENTS END //
+    ////////////////////////////
+
+
 
     /* [0] Årstal
      * [1] plast pr dag

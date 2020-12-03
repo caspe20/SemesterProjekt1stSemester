@@ -7,10 +7,12 @@ import java.util.HashMap;
 // i at ville lave et objekt direkte af Room.
 public abstract class Room {
     protected String description;
+    protected String roomName;
     private HashMap<String, Room> exits;
 
-    public Room(String description) {
+    public Room(String roomName, String description) {
         this.description = description;
+        this.roomName = roomName;
         exits = new HashMap<>();
     }
 
@@ -22,8 +24,12 @@ public abstract class Room {
         return description;
     }
 
-    public String getLongDescription() {
-        return "Du er " + description + ".\n" + getExitString();
+    public String getRoomDescription() {
+        return description;
+    }
+
+    public String getRoomName() {
+        return roomName;
     }
 
     protected String getExitString() {

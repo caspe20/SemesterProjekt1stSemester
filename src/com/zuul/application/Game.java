@@ -67,7 +67,7 @@ public class Game extends Application {
                 + "deres yndlings kogekunst!\n");
 //        ScreenWriter.printCenter("Skriv '" + CommandWord.HELP + "' hvis du har brug for hjælp");
         ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn, '-');
-        ScreenWriter.print(currentRoom.getLongDescription());
+        ScreenWriter.print(currentRoom.getRoomDescription());
     }
 
     public Game() {
@@ -78,9 +78,13 @@ public class Game extends Application {
      * Creates the world in the game
      */
     private void createRooms() {
-        devilheadquater = new DevilsRoom("i Djævlens' hovedkvarter");
+        devilheadquater = new DevilsRoom("Djævlens Hovedkvarter",
+                                        "Velkommen i Djævlens' hovedkvarter");
 
-        matas = new UpgradeRoom("i Matas",
+        matas = new UpgradeRoom("Matas",
+                                "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
+                                            "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som " +
+                                            "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
                         new Upgrade[]{new Upgrade("Svanemærket", 0.0, 1.0), new Upgrade("Håndsæbe", 1.0, 2.0),
                                 new Upgrade("Shampoo", 2.0, 3.0), new Upgrade("Balsam", 3.0, 4.0),
@@ -103,7 +107,10 @@ public class Game extends Application {
 
                 }));
         // Mangler Hvad der skal vaskes.
-        laundry = new UpgradeRoom("ved Vaskeriet",
+        laundry = new UpgradeRoom("Vaskeriet",
+                                    "Velkommen til Vaskeriet! Find din smartphone frem og køb en masse syntetisk tøj fra " +
+                                            "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som " +
+                                            "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
                         new Upgrade[]{new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sokker", 1.0, 2.0),
                                 new Upgrade("Underbukser", 2.0, 3.0), new Upgrade("Hue", 3.0, 4.0),
@@ -127,7 +134,10 @@ public class Game extends Application {
 
                         }));
 
-        cardealer = new UpgradeRoom("ved Bilforhandleren",
+        cardealer = new UpgradeRoom("Bilforhandler",
+                                    "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt" +
+                                            "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler" +
+                                            "fra dækslitagen svæver med vinden til de store have.",
                 new UpgradePath("Product",
                         new Upgrade[]{new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sneaks", 1.0, 2.0),
                                 new Upgrade("Skateboard", 2.0, 3.0), new Upgrade("Cykel", 3.0, 4.0),
@@ -149,7 +159,10 @@ public class Game extends Application {
 
                         }));
 
-        dock = new UpgradeRoom("ved Molen",
+        dock = new UpgradeRoom("Molen",
+                                "Velkommen ved Molen! Bare smid alt dit plastikaffald direkte i vandet. Bare rolig! I havet " +
+                                        "bliver det nedbrudt meget langsomt, men når først de store plastikstykker er blevet til små partikler, vil " +
+                                        "de slå en masse fisk ihjel.",
                 new UpgradePath("Product",
                         new Upgrade[]{new Upgrade("Brødkrummer", 0.0, 1.0), new Upgrade("Sugerør", 1.0, 2.0),
                                 new Upgrade("Slikpapir", 2.0, 3.0), new Upgrade("Plastikflaske", 3.0, 4.0),
@@ -172,6 +185,8 @@ public class Game extends Application {
 
                 }));
 
+        // I assume that we don't need this chunk of code anymore? :) /Simon
+        /*
         devilheadquater.setExit("nord", matas);
         devilheadquater.setExit("syd", laundry);
 
@@ -186,13 +201,45 @@ public class Game extends Application {
 
         laundry.setExit("nord", devilheadquater);
         laundry.setExit("øst", dock);
+         */
 
         currentRoom = devilheadquater;
+
     }
 
     public static String getRoomDescription() {
-        return currentRoom.getLongDescription();
+        return currentRoom.getRoomDescription();
     }
+
+    //////////////////////////////
+    // SIMONS ASSIGNMENTS BEGIN //
+    //////////////////////////////
+
+    public static String getRoomName() {
+        return currentRoom.getRoomName();
+    }
+
+
+    public void setRoomToMatas() {
+        currentRoom = matas;
+    }
+
+    public void setRoomToCardealer() {
+        currentRoom = cardealer;
+    }
+
+    public void setRoomToLaundry() {
+        currentRoom = laundry;
+    }
+
+    public void setRoomToDock() {
+        currentRoom = dock;
+    }
+
+
+    ////////////////////////////
+    // SIMONS ASSIGNMENTS END //
+    ////////////////////////////
 
 
 //    public void goTurn(Command command) {
