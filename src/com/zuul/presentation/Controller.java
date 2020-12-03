@@ -80,7 +80,7 @@ public class Controller {
 
     @FXML
     void updateRoomDescription() {
-        roomDescription.setText(PlayGame.getRoomDiscription());
+        Wrapper.writeRoomDescription();
     }
 
 }
