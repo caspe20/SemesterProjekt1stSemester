@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.presentation.Controller">
    <columnConstraints>
       <ColumnConstraints />
    </columnConstraints>
@@ -41,7 +41,7 @@
                               <Font name="Consolas" size="27.0" />
                            </font>
                         </Label>
-                        <Button layoutX="39.0" layoutY="153.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="188.0" text="Upgrader 5 fiskesjæle">
+                        <Button fx:id="upgrade1" layoutX="39.0" layoutY="153.0" mnemonicParsing="false" onMouseClicked="#changeName" prefHeight="35.0" prefWidth="188.0" text="Upgrader 5 fiskesjæle">
                            <font>
                               <Font size="11.0" />
                            </font>
@@ -121,7 +121,7 @@
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Current Time" />
-                        <Label layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="T+ 1 år 212 dage">
+                        <Label fx:id="time" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="T+ 1 år 212 dage">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>

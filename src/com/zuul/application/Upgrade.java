@@ -1,4 +1,4 @@
-package com.zuul;
+package com.zuul.application;
 
 public class Upgrade {
 
