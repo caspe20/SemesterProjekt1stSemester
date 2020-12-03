@@ -2,6 +2,7 @@ package com.zuul.presentation;
 
 import com.zuul.application.Game;
 import com.zuul.application.Upgrade;
+import com.zuul.application.rooms.UpgradeRoom;
 
 public class Wrapper {
 
@@ -28,8 +29,19 @@ public class Wrapper {
 
     }
 
+    public static void upgradeLvlUpdate1() {
+        UpgradeRoom UR = (UpgradeRoom)Game.currentRoom;
+        UR.upgradePathProducts.performUpgrade();
+        UR.setCombinedProduction();
+    }
+
     public static void writeUpgradeTwoToScreen(Upgrade in) {
 
+    }
+    public static void upgradeLvlUpdate2() {
+        UpgradeRoom UR = (UpgradeRoom)Game.currentRoom;
+        UR.upgradePathUsage.performUpgrade();
+        UR.setCombinedProduction();
     }
 
     public static void writeProductionDescription(String in) {

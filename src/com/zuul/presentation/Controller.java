@@ -83,4 +83,14 @@ public class Controller {
         Wrapper.writeRoomDescription();
     }
 
+    @FXML
+    private void upgradeButton1Click() {
+        Wrapper.upgradeLvlUpdate1();
+    }
+    @FXML
+    private void upgradeButton2Click() {
+        Wrapper.upgradeLvlUpdate2();
+    }
+
+
 }
