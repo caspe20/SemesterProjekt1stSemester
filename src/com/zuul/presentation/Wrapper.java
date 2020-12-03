@@ -94,6 +94,7 @@ public class Wrapper {
     }
 
     public static void setProgressBar(double progress) {
+        currCon.progressBar.setProgress(progress);
 
     }
 
