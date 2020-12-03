@@ -6,6 +6,7 @@ import java.text.DecimalFormat;
 
 public class GameStats {
     public static long fishInOcean = 3500l;
+    public static long fishInOceanBeginning = fishInOcean;
     public static double currentFishSouls;
     public static double plasticInOcean;
     public static double plasticProduction = 1;

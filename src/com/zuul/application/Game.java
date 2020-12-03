@@ -41,9 +41,19 @@ public class Game extends Application {
         timeline.play();
     }
 
+    public static void calculateProgress() {
+        double totalProgress = (1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning));
+        Wrapper.setProgressBar(totalProgress);
+        System.out.println(totalProgress);
+
+
+
+    }
+
     public static void GameTick() {
         GameStats.SimulateTurn(50d/12000d);
         Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction) + " tons",GameStats.getPlastic(), GameStats.getFish()});
+        calculateProgress();
     }
 
     // Rest of code
@@ -73,6 +83,10 @@ public class Game extends Application {
     public Game() {
         createRooms();
     }
+
+
+
+
 
     /**
      * Creates the world in the game
