@@ -2,8 +2,6 @@ package com.zuul.application;
 
 import com.zuul.application.rooms.UpgradeRoom;
 
-import java.text.DecimalFormat;
-
 public class GameStats {
     public static long fishInOcean = 3500l;
     public static long fishInOceanBeginning = fishInOcean;
@@ -13,6 +11,39 @@ public class GameStats {
     private UpgradeRoom[] upgradeRoom;
     public static double currentTurn = 0;
     public static final int currentYear = 2000;
+
+    // SIMON OG PERNILLES OPGAVE //
+
+    /*
+        public static int current
+
+
+    public static int[] currentUpgradeLevelsMatas = {0,0};
+    public static int[] currentUpgradeLevelsCardealer = {0,0};
+    public static int[] currentUpgradeLevelsDock = {0,0};
+    public static int[] currentUpgradeLevelsLaundry = {0,0};
+
+
+    public static void incrementCurrentProductsUpradeLevel() {
+        currentProductsUpradeLevelMatas++;
+    }
+
+    public static void incrementCurrentUsageUpradeLevel() {
+        currentUsageUpradeLevelMatas++;
+    }
+
+    public static int getCurrentProductsUpradeLevel() {
+        return currentProductsUpradeLevelMatas;
+    }
+
+    public static int getCurrentUsageUpradeLevel() {
+        return currentUsageUpradeLevelMatas;
+    }
+     */
+
+
+
+
 
     public static void SimulateTurn(double yr) {
         currentTurn += yr;
@@ -70,4 +101,5 @@ public class GameStats {
         }
         return out;
     }
+
 }

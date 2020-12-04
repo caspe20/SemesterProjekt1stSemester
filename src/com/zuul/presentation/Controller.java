@@ -4,8 +4,6 @@ package com.zuul.presentation;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import static com.zuul.presentation.Wrapper.changeRoomToMatas;
-
 public class Controller {
 
     @FXML
@@ -30,25 +28,25 @@ public class Controller {
     @FXML
     public ProgressBar progressBar;
     @FXML
-    public Label upgrade1;
+    public Label upgradeProducts1;
     @FXML
-    public Label upgrade2;
+    public Label upgradeProducts2;
     @FXML
-    public Label upgrade1Amount;
+    public Label upgradeProducts1Pollution;
     @FXML
-    public Label upgrade2Amount;
+    public Label upgradeProducts2Pollution;
     @FXML
-    public Button upgradeButton1;
+    public Button upgradeProductsButton;
     @FXML
-    public Label upgrade3;
+    public Label upgradeUsage1;
     @FXML
-    public Label upgrade4;
+    public Label upgradeUsage2;
     @FXML
-    public Label upgrade3Amount;
+    public Label upgradeUsage1Pollution;
     @FXML
-    public Label upgrade4Amount;
+    public Label upgradeUsage2Pollution;
     @FXML
-    public Button upgradeButton2;
+    public Button upgradeUsageButton;
     @FXML
     public Label production;
     @FXML
@@ -85,16 +83,12 @@ public class Controller {
         Wrapper.changeRoomToMatas();
         Wrapper.writeRoomDescription();
         Wrapper.writeRoomName();
-    }
-
-    @FXML
-    void upgradeButton1Click() {
-        Wrapper.upgradeLvlUpdate1();
-    }
-
-    @FXML
-    void upgradeButton2Click() {
-        Wrapper.upgradeLvlUpdate2();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
@@ -102,6 +96,12 @@ public class Controller {
         Wrapper.changeRoomToCardealer();
         Wrapper.writeRoomDescription();
         Wrapper.writeRoomName();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
@@ -109,6 +109,12 @@ public class Controller {
         Wrapper.changeRoomToLaundry();
         Wrapper.writeRoomDescription();
         Wrapper.writeRoomName();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
@@ -116,6 +122,32 @@ public class Controller {
         Wrapper.changeRoomToDock();
         Wrapper.writeRoomDescription();
         Wrapper.writeRoomName();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
+    }
+
+    @FXML
+    void upgradeProductsButtonClick() {
+        Wrapper.upgradeLvlUpdate1();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.buyProductsUpgrade();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+    }
+
+    @FXML
+    void upgradeUsageButtonClick() {
+        Wrapper.upgradeLvlUpdate2();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.buyUsageUpgrade();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
     }
 
 }

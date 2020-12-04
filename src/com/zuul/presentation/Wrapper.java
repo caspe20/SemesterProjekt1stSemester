@@ -26,9 +26,7 @@ public class Wrapper {
 
     }
 
-    public static void writeUpgradeOneToScreen(Upgrade in) {
 
-    }
 
     public static void upgradeLvlUpdate1() {
         if (Game.currentRoom instanceof UpgradeRoom) {
@@ -95,5 +93,49 @@ public class Wrapper {
     public static void setProgressBarText(String txt) {
         currCon.deadFish.setText(txt);
     }
+
+
+
+    // SIMON OG PERNILLES OPGAVE //
+
+
+    public static void writeUpgradeProductsOneToScreen() {
+        currCon.upgradeProducts1.setText(g.setProductsUpgradeOneDescription());
+    }
+
+    public static void writeUpgradeProductsTwoToScreen() {
+        currCon.upgradeProducts2.setText(g.setProductsUpgradeTwoDescription());
+    }
+
+
+    public static void writeProductsUpgradePriceToButton() {
+        currCon.upgradeProductsButton.setText(g.setProductsUpgradeButtonDescription());
+    }
+
+    public static void buyProductsUpgrade() {
+        g.buyProductsUpgrade();
+    }
+
+
+    public static void writeUpgradeUsageOneToScreen() {
+        currCon.upgradeUsage1.setText(g.setUsageUpgradeOneDescription());
+    }
+
+    public static void writeUpgradeUsageTwoToScreen() {
+        currCon.upgradeUsage2.setText(g.setUsageUpgradeTwoDescription());
+    }
+
+
+    public static void writeUsageUpgradePriceToButton() {
+        currCon.upgradeUsageButton.setText(g.setUsageUpgradeButtonDescription());
+    }
+
+    public static void buyUsageUpgrade() {
+        g.buyUsageUpgrade();
+    }
+
+
+
+
 
 }

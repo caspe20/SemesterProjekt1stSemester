@@ -123,22 +123,22 @@
                   </Label>
                   <Pane layoutX="12.0" layoutY="121.0" prefHeight="195.0" prefWidth="266.0">
                      <children>
-                        <Label fx:id="upgrade1" layoutX="3.0" text="Level 1 - Balsam:">
+                        <Label fx:id="upgradeProducts1" layoutX="3.0" text="Level 1 - Balsam:">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade1Amount" alignment="TOP_LEFT" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                        <Label fx:id="upgradeProducts1Pollution" alignment="TOP_LEFT" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade2" layoutX="3.0" layoutY="123.0" text="Level 2 - Shampoo">
+                        <Label fx:id="upgradeProducts2" layoutX="3.0" layoutY="123.0" text="Level 2 - Shampoo">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade2Amount" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                        <Label fx:id="upgradeProducts2Pollution" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -147,29 +147,29 @@
                         <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </Pane>
-                  <Button fx:id="upgradeButton1" layoutX="51.0" layoutY="316.0" mnemonicParsing="false" onAction="#upgradeButton1Click" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                  <Button fx:id="upgradeProductsButton" layoutX="51.0" layoutY="316.0" mnemonicParsing="false" onAction="#upgradeProductsButtonClick" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>
                   </Button>
                   <Pane layoutX="14.0" layoutY="423.0" prefHeight="195.0" prefWidth="266.0">
                      <children>
-                        <Label fx:id="upgrade3" layoutX="3.0" text="Level 1 - 1 Gang om året:">
+                        <Label fx:id="upgradeUsage1" layoutX="3.0" text="Level 1 - 1 Gang om året:">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade3Amount" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                        <Label fx:id="upgradeUsage1Pollution" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade4" layoutX="3.0" layoutY="123.0" text="Level 2 - 2 Gange om året">
+                        <Label fx:id="upgradeUsage2" layoutX="3.0" layoutY="123.0" text="Level 2 - 2 Gange om året">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade4Amount" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                        <Label fx:id="upgradeUsage2Pollution" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -178,7 +178,7 @@
                         <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
                      </children>
                   </Pane>
-                  <Button fx:id="upgradeButton2" layoutX="61.0" layoutY="615.0" mnemonicParsing="false" onAction="#upgradeButton2Click" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
+                  <Button fx:id="upgradeUsageButton" layoutX="61.0" layoutY="615.0" mnemonicParsing="false" onAction="#upgradeUsageButtonClick" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
                      <font>
                         <Font name="Times New Roman Bold" size="14.0" />
                      </font>
