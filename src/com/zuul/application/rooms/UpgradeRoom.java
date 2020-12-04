@@ -21,12 +21,6 @@ public class UpgradeRoom extends Room {
         combinedProduction = upgradePathProducts.currentProduction * upgradePathUsage.currentProduction;
     }
 
-    // This function returns what the estimated production will be if you upgrade a
-    // certain path a certain amount;
-    public double estimateSpeedIfUpgrade(int speed, int quantity) {
-        return upgradePathProducts.upgrades[upgradePathProducts.getLevel() + speed].productionSpeed
-                * upgradePathUsage.upgrades[upgradePathProducts.getLevel() + quantity].productionSpeed;
-    }
 
     @Override
     public String getLongDescription() {

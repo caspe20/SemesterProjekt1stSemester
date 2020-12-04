@@ -33,7 +33,7 @@ public class UpgradePath {
             if (GameStats.currentFishSouls >= upgrades[currentLevel + 1].upgradePrice) {
                 GameStats.currentFishSouls -= upgrades[currentLevel + 1].upgradePrice;
                 currentLevel++;
-                calculateCurrentProduction();
+                currentProduction = upgrades[currentLevel].productionSpeed;
                 return true;
             } else {
                 return false;

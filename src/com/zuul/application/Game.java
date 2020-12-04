@@ -13,6 +13,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
+
 public class Game extends Application {
     String presentationLocation = "../presentation/";
     public static void main(String[] args) {
@@ -20,17 +22,12 @@ public class Game extends Application {
     }
 
     public static Controller con;
+    public static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(presentationLocation + "Martins UI2.fxml"));
-        Parent root = loader.load();
-        Wrapper.setController(((Controller)loader.getController()));
-        Wrapper.setGame(this);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root));
-        primaryStage.show();
+        this.primaryStage = primaryStage;
+        changeScene("Martins UI2.fxml");
         StartTimer();
-
     }
 
     public static void StartTimer() {
@@ -48,9 +45,15 @@ public class Game extends Application {
 
     // Rest of code
 
+<<<<<<< Updated upstream
     private static Room currentRoom;
     private Room devilheadquater;
     private UpgradeRoom matas, laundry, cardealer, dock;
+=======
+    public static Room currentRoom;
+    private DevilsRoom devilheadquater;
+    public static UpgradeRoom matas, laundry, cardealer, dock;
+>>>>>>> Stashed changes
     private double CurrentFishSouls = 0d;
     private boolean wantToQuit = false;
     private final String gameName = "Hades' Manglende Fisk";
@@ -82,24 +85,24 @@ public class Game extends Application {
 
         matas = new UpgradeRoom("i Matas",
                 new UpgradePath("Product",
-                        new Upgrade[]{new Upgrade("Svanemærket", 0.0, 1.0), new Upgrade("Håndsæbe", 1.0, 2.0),
-                                new Upgrade("Shampoo", 2.0, 3.0), new Upgrade("Balsam", 3.0, 4.0),
-                                new Upgrade("Face Scrub Cream", 4.0, 5.0), new Upgrade("Barberskum", 5.0, 6.0),
-                                new Upgrade("Mascara", 6.0, 7.0), new Upgrade("Foundation", 7.0, 8.0),
-                                new Upgrade("Lip Gloss", 8.0, 9.0), new Upgrade("Clean Laundry bod", 9.0, 10.0),
-                                new Upgrade("Concealer", 10.0, 11.0), new Upgrade("Footscrub", 11.0, 12.0),
-                                new Upgrade("Self Tan Bronzing Cream", 12.0, 13.0), new Upgrade("Glimmer", 13.0, 14.0),
-                                new Upgrade("Tandpasta", 14.0, 15.0)
+                        new Upgrade[]{new Upgrade("Svanemærket",    0.0, 5.0), new Upgrade("Håndsæbe",          10.0, 10.0),
+                                new Upgrade("Shampoo",              50.0, 15.0), new Upgrade("Balsam",            250.0, 25.0),
+                                new Upgrade("Face Scrub Cream",     1000.0, 35.0), new Upgrade("Barberskum",        5000.0, 50.0),
+                                new Upgrade("Mascara",              20000.0, 75.0), new Upgrade("Foundation",       75000.0, 125.0),
+                                new Upgrade("Lip Gloss",            300000.0, 200.0), new Upgrade("Clean Laundry bod", 1000000.0, 300.0),
+                                new Upgrade("Concealer",            4000000.0, 500.0), new Upgrade("Footscrub",      8000000.0, 750.0),
+                                new Upgrade("Self Tan Bronzing Cream", 20000000.0, 1500.0), new Upgrade("Glimmer",     80000000.0, 2500.0),
+                                new Upgrade("Tandpasta",            250000000.0, 4000.0)
 
                         }),
-                new UpgradePath("Forbrug", new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0),
-                        new Upgrade("1 gang om året", 1.0, 2.0), new Upgrade("2 gange om året", 2.0, 3.0),
-                        new Upgrade("1 gang i kvartalet", 3.0, 4.0), new Upgrade("1 gang om måneden", 4.0, 5.0),
-                        new Upgrade("2 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
-                        new Upgrade("2 gange om ugen", 7.0, 8.0), new Upgrade("1 gang om dagen", 8.0, 9.0),
-                        new Upgrade("2 gange om dagen", 9.0, 10.0), new Upgrade("3 gange om dagen", 10.0, 11.0),
-                        new Upgrade("4 gange om dagen", 11.0, 12.0), new Upgrade("6 gange om dagen", 12.0, 13.0),
-                        new Upgrade("1 gang i timen", 13.0, 14.0), new Upgrade("1 gang i kvarteret", 14.0, 15.0)
+                new UpgradePath("Forbrug", new Upgrade[]{new Upgrade("Aldrig", 0.0, 5.0),
+                        new Upgrade("1 gang om året",               10.0, 10.0), new Upgrade("2 gange om året",       50.0, 15.0),
+                        new Upgrade("1 gang i kvartalet",           250.0, 25.0), new Upgrade("1 gang om måneden",     100.0, 35.0),
+                        new Upgrade("2 gange om måneden",           5000.0, 50.0), new Upgrade("1 gang om ugen",        20000.0, 75.0),
+                        new Upgrade("2 gange om ugen",              75000.0, 125.0), new Upgrade("1 gang om dagen",       300000.0, 200.0),
+                        new Upgrade("2 gange om dagen",             1000000.0, 300.0), new Upgrade("3 gange om dagen",     4000000.0, 500.0),
+                        new Upgrade("4 gange om dagen",             8000000.0, 750.0), new Upgrade("6 gange om dagen",    20000000.0, 1500.0),
+                        new Upgrade("1 gang i timen",               80000000.0, 2500.0), new Upgrade("1 gang i kvarteret",  25000000.0, 5000.0)
 
                 }));
         // Mangler Hvad der skal vaskes.
@@ -181,6 +184,7 @@ public class Game extends Application {
         cardealer.setExit("vest", matas);
         cardealer.setExit("syd", dock);
 
+<<<<<<< Updated upstream
         dock.setExit("nord", cardealer);
         dock.setExit("vest", laundry);
 
@@ -192,5 +196,50 @@ public class Game extends Application {
 
     public static String getRoomDescription() {
         return currentRoom.getLongDescription();
+=======
+    public void changeScene(String fxmlpath) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(presentationLocation + fxmlpath));
+        Parent root = loader.load();
+        Wrapper.setController(((Controller)loader.getController()));
+        Wrapper.setGame(this);
+        primaryStage.setTitle("Hello World");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
+    }
+
+    public void setRoomToMatas() {
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) { }
+        currentRoom = matas;
+    }
+
+    public void setRoomToCardealer() {
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) { }
+        currentRoom = cardealer;
+    }
+
+    public void setRoomToLaundry() {
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) { }
+        currentRoom = laundry;
+    }
+
+    public void setRoomToDock() {
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) { }
+        currentRoom = dock;
+>>>>>>> Stashed changes
+    }
+
+    public void setRoomToDevil() {
+        currentRoom = devilheadquater;
+        try {
+            changeScene("DevilsRoom.fxml");
+        }catch(Exception e) { }
     }
 }

@@ -5,7 +5,12 @@ import com.zuul.application.rooms.UpgradeRoom;
 import java.text.DecimalFormat;
 
 public class GameStats {
+<<<<<<< Updated upstream
     public static long fishInOcean = 3500l;
+=======
+    public static double fishInOcean = 2000000000d;
+    public static double fishInOceanBeginning = fishInOcean;
+>>>>>>> Stashed changes
     public static double currentFishSouls;
     public static double plasticInOcean;
     public static double plasticProduction = 1;
@@ -37,7 +42,7 @@ public class GameStats {
 
     private static void UpdateFish(double yr) {
         currentFishSouls += plasticInOcean * yr;
-        fishInOcean -= plasticInOcean* yr;
+        fishInOcean -= plasticInOcean * yr;
         if (fishInOcean <= 0) {
             fishInOcean = 0;
             ScreenWriter.printCenter("\nDu har vundet spillet! Tusind tak for at spille med :)");
@@ -52,7 +57,7 @@ public class GameStats {
     }
 
     public static String getFish(){
-        String out = String.format("%.2f",(currentFishSouls)) + " sjæle";
+        String out = String.format("%.0f",Math.floor(currentFishSouls)) + " sjæle";
         return out;
     }
 
