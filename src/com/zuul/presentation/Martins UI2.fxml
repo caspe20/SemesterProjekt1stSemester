@@ -128,7 +128,7 @@
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade1Amount" alignment="TOP_LEFT" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                        <Label fx:id="upgradeProducts1Pollution" alignment="TOP_LEFT" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -138,7 +138,7 @@
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade2Amount" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                        <Label fx:id="upgradeProducts2Pollution" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -159,7 +159,7 @@
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade3Amount" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
+                        <Label fx:id="upgradeUsage1Pollution" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
@@ -169,7 +169,7 @@
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
                         </Label>
-                        <Label fx:id="upgrade4Amount" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
+                        <Label fx:id="upgradeUsage2Pollution" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år">
                            <font>
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>

@@ -95,6 +95,7 @@ public class Wrapper {
     }
 
 
+
     // SIMON OG PERNILLES OPGAVE //
 
 
@@ -103,7 +104,7 @@ public class Wrapper {
     }
 
     public static void writeUpgradeProductsTwoToScreen() {
-        currCon.upgradeProducts2.setText(g.setUsageUpgradeOneDescription());
+        currCon.upgradeProducts2.setText(g.setProductsUpgradeTwoDescription());
     }
 
 
@@ -114,6 +115,26 @@ public class Wrapper {
     public static void buyProductsUpgrade() {
         g.buyProductsUpgrade();
     }
+
+
+    public static void writeUpgradeUsageOneToScreen() {
+        currCon.upgradeUsage1.setText(g.setUsageUpgradeOneDescription());
+    }
+
+    public static void writeUpgradeUsageTwoToScreen() {
+        currCon.upgradeUsage2.setText(g.setUsageUpgradeTwoDescription());
+    }
+
+
+    public static void writeUsageUpgradePriceToButton() {
+        currCon.upgradeUsageButton.setText(g.setUsageUpgradeButtonDescription());
+    }
+
+    public static void buyUsageUpgrade() {
+        g.buyUsageUpgrade();
+    }
+
+
 
 
 

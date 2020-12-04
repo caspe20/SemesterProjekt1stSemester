@@ -32,9 +32,9 @@ public class Controller {
     @FXML
     public Label upgradeProducts2;
     @FXML
-    public Label upgrade1Amount;
+    public Label upgradeProducts1Pollution;
     @FXML
-    public Label upgrade2Amount;
+    public Label upgradeProducts2Pollution;
     @FXML
     public Button upgradeProductsButton;
     @FXML
@@ -42,9 +42,9 @@ public class Controller {
     @FXML
     public Label upgradeUsage2;
     @FXML
-    public Label upgrade3Amount;
+    public Label upgradeUsage1Pollution;
     @FXML
-    public Label upgrade4Amount;
+    public Label upgradeUsage2Pollution;
     @FXML
     public Button upgradeUsageButton;
     @FXML
@@ -86,6 +86,48 @@ public class Controller {
         Wrapper.writeUpgradeProductsOneToScreen();
         Wrapper.writeUpgradeProductsTwoToScreen();
         Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
+    }
+
+    @FXML
+    void updateRoomToCardealer() {
+        Wrapper.changeRoomToCardealer();
+        Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
+    }
+
+    @FXML
+    void updateRoomToLaundry() {
+        Wrapper.changeRoomToLaundry();
+        Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
+    }
+
+    @FXML
+    void updateRoomToDock() {
+        Wrapper.changeRoomToDock();
+        Wrapper.writeRoomDescription();
+        Wrapper.writeRoomName();
+        Wrapper.writeUpgradeProductsOneToScreen();
+        Wrapper.writeUpgradeProductsTwoToScreen();
+        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
@@ -101,36 +143,11 @@ public class Controller {
     @FXML
     void upgradeUsageButtonClick() {
         Wrapper.upgradeLvlUpdate2();
-    }
-
-    @FXML
-    void updateRoomToCardealer() {
-        Wrapper.changeRoomToCardealer();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
-    }
-
-    @FXML
-    void updateRoomToLaundry() {
-        Wrapper.changeRoomToLaundry();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
-    }
-
-    @FXML
-    void updateRoomToDock() {
-        Wrapper.changeRoomToDock();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.buyUsageUpgrade();
+        Wrapper.writeUpgradeUsageOneToScreen();
+        Wrapper.writeUpgradeUsageTwoToScreen();
+        Wrapper.writeUsageUpgradePriceToButton();
     }
 
 }

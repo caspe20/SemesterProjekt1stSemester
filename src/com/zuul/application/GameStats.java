@@ -15,6 +15,9 @@ public class GameStats {
     // SIMON OG PERNILLES OPGAVE //
 
     /*
+        public static int current
+
+
     public static int[] currentUpgradeLevelsMatas = {0,0};
     public static int[] currentUpgradeLevelsCardealer = {0,0};
     public static int[] currentUpgradeLevelsDock = {0,0};
@@ -36,9 +39,11 @@ public class GameStats {
     public static int getCurrentUsageUpradeLevel() {
         return currentUsageUpradeLevelMatas;
     }
-
-
      */
+
+
+
+
 
     public static void SimulateTurn(double yr) {
         currentTurn += yr;

@@ -20,6 +20,7 @@ public class Upgrade {
     }
 
     // SIMON OG PERNILLES OPGAVE //
+
     public String getUpgradeName() {
         return upgradeName;
     }
