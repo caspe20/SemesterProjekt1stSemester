@@ -57,6 +57,7 @@ public class Game extends Application {
     // Rest of code
 
     public static Room currentRoom;
+    public static UpgradeRoom currentUpgradeRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
@@ -75,6 +76,11 @@ public class Game extends Application {
                 + "deres yndlings kogekunst!\n");
         ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn, '-');
         ScreenWriter.print(currentRoom.getRoomDescription());
+    }
+
+    // SIMON OG PERNILLES OPGAVE //
+    public Room getCurrentRoom () {
+        return currentRoom;
     }
 
     public Game() {
@@ -201,27 +207,52 @@ public class Game extends Application {
     }
 
     public static String getRoomDescription() {
-        return currentRoom.getRoomDescription();
+        return currentUpgradeRoom.getRoomDescription();
     }
 
     public static String getRoomName() {
-        return currentRoom.getRoomName();
+        return currentUpgradeRoom.getRoomName();
     }
 
-
-    public void setRoomToMatas() {
+    public static void setRoomToMatas() {
+        currentUpgradeRoom = matas;
         currentRoom = matas;
     }
 
-    public void setRoomToCardealer() {
+    public static void setRoomToCardealer() {
+        currentUpgradeRoom = cardealer;
         currentRoom = cardealer;
     }
 
-    public void setRoomToLaundry() {
+    public static void setRoomToLaundry() {
+        currentUpgradeRoom = laundry;
         currentRoom = laundry;
     }
 
-    public void setRoomToDock() {
+    public static void setRoomToDock() {
+        currentUpgradeRoom = dock;
         currentRoom = dock;
     }
+
+
+
+    // SIMON OG PERNILLES OPGAVE //
+
+    public static String setProductsUpgradeOneDescription() {
+        return "Level " + ((GameStats.currentProductsUpradeLevelMatas)+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[GameStats.currentProductsUpradeLevelMatas].getUpgradeName();
+    }
+
+    public static String setUsageUpgradeOneDescription() {
+        return "Level " + ((GameStats.currentProductsUpradeLevelMatas)+2) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[GameStats.currentProductsUpradeLevelMatas +1].getUpgradeName();
+    }
+
+    public static String setProductsUpgradeButtonDescription() {
+        return "Opgradér for " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[GameStats.currentProductsUpradeLevelMatas +1].getUpgradePrice() + " fiskesjæle";
+    }
+
+    public void buyProductsUpgrade() {
+        GameStats.incrementCurrentProductsUpradeLevel();
+    }
+
+
 }

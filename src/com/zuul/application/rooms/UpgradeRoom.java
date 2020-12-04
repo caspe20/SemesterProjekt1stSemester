@@ -17,6 +17,11 @@ public class UpgradeRoom extends Room {
         this.upgradePathUsage = upgradePathUsage;
     }
 
+    // SIMON OG PERNILLES OPGAVE //
+    public UpgradePath getUpgradePathProducts() {
+        return upgradePathProducts;
+    }
+
     public void setCombinedProduction() {
         combinedProduction = upgradePathProducts.currentProduction * upgradePathUsage.currentProduction;
     }
