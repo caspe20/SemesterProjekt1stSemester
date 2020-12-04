@@ -19,11 +19,6 @@ public class UpgradePath {
         return pathName;
     }
 
-    // SIMON OG PERNILLES OPGAVE //
-    public Upgrade[] getUpgrades() {
-        return upgrades;
-    }
-
     public int getCurrentLevel() {
         return currentLevel;
     }

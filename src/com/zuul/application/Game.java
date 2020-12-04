@@ -57,7 +57,6 @@ public class Game extends Application {
     // Rest of code
 
     public static Room currentRoom;
-    public static UpgradeRoom currentUpgradeRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
@@ -76,11 +75,6 @@ public class Game extends Application {
                 + "deres yndlings kogekunst!\n");
         ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn, '-');
         ScreenWriter.print(currentRoom.getRoomDescription());
-    }
-
-    // SIMON OG PERNILLES OPGAVE //
-    public Room getCurrentRoom () {
-        return currentRoom;
     }
 
     public Game() {
@@ -207,72 +201,27 @@ public class Game extends Application {
     }
 
     public static String getRoomDescription() {
-        return currentUpgradeRoom.getRoomDescription();
+        return currentRoom.getRoomDescription();
     }
 
     public static String getRoomName() {
-        return currentUpgradeRoom.getRoomName();
+        return currentRoom.getRoomName();
     }
 
-    public static void setRoomToMatas() {
-        currentUpgradeRoom = matas;
+
+    public void setRoomToMatas() {
         currentRoom = matas;
     }
 
-    public static void setRoomToCardealer() {
-        currentUpgradeRoom = cardealer;
+    public void setRoomToCardealer() {
         currentRoom = cardealer;
     }
 
-    public static void setRoomToLaundry() {
-        currentUpgradeRoom = laundry;
+    public void setRoomToLaundry() {
         currentRoom = laundry;
     }
 
-    public static void setRoomToDock() {
-        currentUpgradeRoom = dock;
+    public void setRoomToDock() {
         currentRoom = dock;
     }
-
-
-
-    // SIMON OG PERNILLES OPGAVE //
-
-    public static String setProductsUpgradeOneDescription() {
-        return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
-    }
-
-    public static String setProductsUpgradeTwoDescription() {
-        return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradeName();
-    }
-
-    public static String setProductsUpgradeButtonDescription() {
-        return "Opgradér for " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
-    }
-
-    public void buyProductsUpgrade() {
-        currentUpgradeRoom.getUpgradePathProducts().performUpgrade();
-    }
-
-    public static String setUsageUpgradeOneDescription() {
-        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
-    }
-
-    public static String setUsageUpgradeTwoDescription() {
-        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradeName();
-    }
-
-    public static String setUsageUpgradeButtonDescription() {
-        return "Opgradér for " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
-    }
-
-    public void buyUsageUpgrade() {
-        currentUpgradeRoom.getUpgradePathUsage().performUpgrade();
-    }
-
-
-
-
-
-
 }
