@@ -42,9 +42,10 @@ public class Game extends Application {
     }
 
     public static void calculateProgress() {
-        double totalProgress = (1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning));
+        double totalProgress = Math.log(1+(1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
         Wrapper.setProgressBar(totalProgress);
-        Wrapper.setProgressBarText((long)Math.floor(GameStats.fishInOcean)+" / "+(long)Math.floor(GameStats.fishInOceanBeginning)+" Fish in ocean");
+        Wrapper.setProgressBarText(((long)Math.floor(totalProgress * 100))+"% Af fiskene i havet er døde");
+        //System.out.println(totalProgress);
     }
 
     public static void GameTick() {

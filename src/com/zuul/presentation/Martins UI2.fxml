@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -113,7 +114,10 @@
                   <Font name="Serif Bold" size="67.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42" />
+            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42">
+               <effect>
+                  <ColorAdjust hue="-0.98" />
+               </effect></ProgressBar>
             <Pane layoutX="14.0" layoutY="14.0" prefHeight="632.0" prefWidth="290.0">
                <children>
                   <Label alignment="CENTER" layoutX="14.0" layoutY="62.0" prefHeight="42.0" prefWidth="266.0" text="Opgraderinger">
