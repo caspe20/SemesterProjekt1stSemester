@@ -250,29 +250,16 @@ public class Game extends Application {
         return "Opgradér for " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
     }
 
-    public void buyProductsUpgrade() {
-        currentUpgradeRoom.getUpgradePathProducts().performUpgrade();
-    }
-
     public static String setUsageUpgradeOneDescription() {
-        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
+        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()].getUpgradeName();
     }
 
     public static String setUsageUpgradeTwoDescription() {
-        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradeName();
+        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradeName();
     }
 
     public static String setUsageUpgradeButtonDescription() {
         return "Opgradér for " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
     }
-
-    public void buyUsageUpgrade() {
-        currentUpgradeRoom.getUpgradePathUsage().performUpgrade();
-    }
-
-
-
-
-
-
+    
 }

@@ -81,73 +81,31 @@ public class Controller {
     @FXML
     void updateRoomToMatas() {
         Wrapper.changeRoomToMatas();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
-        Wrapper.writeUpgradeUsageOneToScreen();
-        Wrapper.writeUpgradeUsageTwoToScreen();
-        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
     void updateRoomToCardealer() {
         Wrapper.changeRoomToCardealer();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
-        Wrapper.writeUpgradeUsageOneToScreen();
-        Wrapper.writeUpgradeUsageTwoToScreen();
-        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
     void updateRoomToLaundry() {
         Wrapper.changeRoomToLaundry();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
-        Wrapper.writeUpgradeUsageOneToScreen();
-        Wrapper.writeUpgradeUsageTwoToScreen();
-        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
     void updateRoomToDock() {
         Wrapper.changeRoomToDock();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
-        Wrapper.writeUpgradeUsageOneToScreen();
-        Wrapper.writeUpgradeUsageTwoToScreen();
-        Wrapper.writeUsageUpgradePriceToButton();
     }
 
     @FXML
     void upgradeProductsButtonClick() {
         Wrapper.upgradeLvlUpdate1();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.buyProductsUpgrade();
-        Wrapper.writeUpgradeProductsOneToScreen();
-        Wrapper.writeUpgradeProductsTwoToScreen();
-        Wrapper.writeProductsUpgradePriceToButton();
     }
 
     @FXML
     void upgradeUsageButtonClick() {
         Wrapper.upgradeLvlUpdate2();
-        Wrapper.writeUpgradeUsageOneToScreen();
-        Wrapper.buyUsageUpgrade();
-        Wrapper.writeUpgradeUsageOneToScreen();
-        Wrapper.writeUpgradeUsageTwoToScreen();
-        Wrapper.writeUsageUpgradePriceToButton();
     }
 
 }
