@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -113,7 +114,10 @@
                   <Font name="Serif Bold" size="67.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42" />
+            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42">
+               <effect>
+                  <ColorAdjust contrast="0.15" hue="-1.0" />
+               </effect></ProgressBar>
             <Pane layoutX="14.0" layoutY="14.0" prefHeight="632.0" prefWidth="290.0">
                <children>
                   <Label alignment="CENTER" layoutX="14.0" layoutY="62.0" prefHeight="42.0" prefWidth="266.0" text="Opgraderinger">
@@ -185,22 +189,22 @@
                   </Button>
                </children>
             </Pane>
-            <Button fx:id="goToMatas" layoutX="763.0" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
+            <Button fx:id="goToMatas" layoutX="764.0" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToCarDealer" layoutX="763.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
+            <Button fx:id="goToCarDealer" layoutX="764.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="649.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
+            <Button fx:id="goToHarbour" layoutX="763.0" layoutY="649.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToLaundry" layoutX="763.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
+            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
                <font>
                   <Font size="25.0" />
                </font>

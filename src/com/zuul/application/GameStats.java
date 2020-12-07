@@ -5,7 +5,7 @@ import com.zuul.application.rooms.UpgradeRoom;
 import java.text.DecimalFormat;
 
 public class GameStats {
-    public static long fishInOcean = 3500l;
+    public static long fishInOcean = 35000l;
     public static long fishInOceanBeginning = fishInOcean;
     public static double currentFishSouls;
     public static double plasticInOcean;
