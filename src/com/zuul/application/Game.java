@@ -32,7 +32,7 @@ public class Game extends Application {
         Parent root = loader.load();
         Wrapper.setController(((Controller)loader.getController()));
         Wrapper.setGame(this);
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("Fisk til Hades");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
     }
@@ -68,19 +68,6 @@ public class Game extends Application {
     private boolean wantToQuit = false;
     private final String gameName = "Hades' Manglende Fisk";
 
-    /**
-     * Prints welcome message.
-     */
-    private void printWelcome() {
-        ScreenWriter.printCenterSpecial("Velkommen til " + gameName + "!", '-');
-        ScreenWriter.print("I \"" + gameName + "\" spiller du som Djævlen som prøver på at øge "
-                + "produktionen af fisk i underværdenen ved at slå fisk i jordens have ihjel, "
-                + "ved hjælp af plastik partikler.\n\nDet er derfor din opgave som djævlen i dette spil"
-                + "at dræbe alle fisk på jordens overflade, så demonerne i underverdenen igen kan nyde"
-                + "deres yndlings kogekunst!\n");
-        ScreenWriter.printCenterSpecial("Dag/uge/år/halvår/etc. " + GameStats.currentTurn, '-');
-        ScreenWriter.print(currentRoom.getRoomDescription());
-    }
 
     public Game() {
         createRooms();

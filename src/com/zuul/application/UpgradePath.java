@@ -46,7 +46,7 @@ public class UpgradePath {
                 return false;
             }
         } else {
-            ScreenWriter.print("Der er ikke flere mulige opgraderinger!");
+//            ScreenWriter.print("Der er ikke flere mulige opgraderinger!");
             return false;
         }
     }
