@@ -64,21 +64,21 @@ public class Controller {
     @FXML
     private Button goToDevil;
     @FXML
-    private Label matasLvl1;
+    private Label matasProduction;
     @FXML
-    private Label matasLvl2;
+    private Label matasUsage;
     @FXML
-    private Label carDealerLvl1;
+    private Label carDealerProduction;
     @FXML
-    private Label getCarDealerLvl2;
+    private Label getCarDealerUsage;
     @FXML
-    private Label laundryLvl1;
+    private Label laundryProduction;
     @FXML
-    private Label laundryLvl2;
+    private Label laundryUsage;
     @FXML
-    private Label harbourlvl1;
+    private Label harbourProduction;
     @FXML
-    private Label harbourLvl2;
+    private Label harbourUsage;
 
     @FXML
     void updateRoomToMatas() {
@@ -109,5 +109,8 @@ public class Controller {
     void upgradeUsageButtonClick() {
         Wrapper.upgradeLvlUpdate2();
     }
+
+    @FXML
+    void updateRoomToDevil() throws Exception{Wrapper.changeRoomToDevil();}
 
 }

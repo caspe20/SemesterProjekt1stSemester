@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -23,7 +24,7 @@
    <children>
       <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0">
          <children>
-            <Pane layoutX="714.0" layoutY="64.0" prefHeight="265.0" prefWidth="290.0">
+            <Pane layoutX="716.0" layoutY="64.0" prefHeight="265.0" prefWidth="290.0">
                <children>
                   <Pane layoutX="14.0" layoutY="68.0">
                      <children>
@@ -94,12 +95,12 @@
             </Pane>
             <Pane layoutX="286.0" layoutY="105.0" prefHeight="623.0" prefWidth="445.0">
                <children>
-                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Velkommen">
+                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="33.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Velkommen">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </TextArea>
-                  <TextArea fx:id="userDescription" editable="false" layoutX="16.0" layoutY="281.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;fx: Du kører 70km om måneden i din&#10;monster truck&#10;Og børster tænder 1 gang om året">
+                  <TextArea fx:id="userDescription" editable="false" layoutX="15.0" layoutY="312.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;fx: Du kører 70km om måneden i din&#10;monster truck&#10;Og børster tænder 1 gang om året">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -111,23 +112,26 @@
                   <Font name="Serif Bold" size="67.0" />
                </font>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42" />
-            <Button fx:id="goToMatas" layoutX="774.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#updateRoomDiscription" prefHeight="58.0" prefWidth="196.0" text="Matas">
+            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42">
+               <effect>
+                  <ColorAdjust contrast="0.15" hue="1.0" />
+               </effect></ProgressBar>
+            <Button fx:id="goToMatas" layoutX="764.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToCarDealer" layoutX="773.0" layoutY="501.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
+            <Button fx:id="goToCarDealer" layoutX="763.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToHarbour" layoutX="774.0" layoutY="646.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" text="Havnen">
+            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="646.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToLaundry" layoutX="774.0" layoutY="574.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
+            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
                <font>
                   <Font size="25.0" />
                </font>
@@ -144,12 +148,12 @@
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="matasLvl1" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
+                  <Label fx:id="matasProducton" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="matasLvl2" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
+                  <Label fx:id="matasUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -163,12 +167,12 @@
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="carDealerLvl1" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
+                  <Label fx:id="carDealerProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="carDealerLvl2" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
+                  <Label fx:id="carDealerUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -182,12 +186,12 @@
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="laundryLvl1" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
+                  <Label fx:id="laundryProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="laundryLvl2" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
+                  <Label fx:id="laundryUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -201,28 +205,18 @@
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
                   </Label>
-                  <Label fx:id="harbourLvl1" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
+                  <Label fx:id="harbourProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
                   </Label>
-                  <Label fx:id="harbourLvl2" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
+                  <Label fx:id="harbourUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
                   </Label>
                </children>
             </Pane>
-            <Label alignment="CENTER" layoutX="726.0" layoutY="353.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
-               <font>
-                  <Font name="Times New Roman Bold Italic" size="30.0" />
-               </font>
-            </Label>
-            <Label fx:id="production" layoutX="736.0" layoutY="396.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
-               <font>
-                  <Font name="Times New Roman Italic" size="19.0" />
-               </font>
-            </Label>
          </children>
       </Pane>
    </children>

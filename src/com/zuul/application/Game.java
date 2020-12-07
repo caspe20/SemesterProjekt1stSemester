@@ -24,7 +24,7 @@ public class Game extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
-        changeScene("Martins UI2.fxml");
+        changeScene("StartMenu.fxml");
         StartTimer();
     }
 
@@ -247,10 +247,13 @@ public class Game extends Application {
         }catch(Exception e) {}
     }
     public void setRoomToDevil() {
+        System.out.println("Test2");
         currentRoom = devilheadquater;
         try {
             changeScene("DevilRoom.fxml");
-        }catch(Exception e) {}
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
