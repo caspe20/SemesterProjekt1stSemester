@@ -20,7 +20,6 @@ public class UpgradePath {
     }
 
 
-
     // SIMON OG PERNILLES OPGAVE //
 
     public Upgrade[] getUpgrades() {
