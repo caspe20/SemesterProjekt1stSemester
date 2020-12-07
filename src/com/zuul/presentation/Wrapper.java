@@ -91,8 +91,6 @@ public class Wrapper {
         currCon.deadFish.setText(txt);
     }
 
-
-
     // SIMON OG PERNILLES OPGAVE //
 
     public static void updateUpgradeUI() {

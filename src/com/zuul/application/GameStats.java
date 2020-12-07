@@ -2,6 +2,8 @@ package com.zuul.application;
 
 import com.zuul.application.rooms.UpgradeRoom;
 
+import java.text.DecimalFormat;
+
 public class GameStats {
     public static long fishInOcean = 3500l;
     public static long fishInOceanBeginning = fishInOcean;
@@ -68,5 +70,4 @@ public class GameStats {
         }
         return out;
     }
-
 }
