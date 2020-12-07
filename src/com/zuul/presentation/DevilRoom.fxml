@@ -107,7 +107,7 @@
                   </TextArea>
                </children>
             </Pane>
-            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="195.0" layoutY="14.0" prefHeight="99.0" prefWidth="634.0" text="Djævlen's Kontor" textAlignment="RIGHT">
+            <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="195.0" layoutY="14.0" prefHeight="99.0" prefWidth="634.0" text="Djævlens Kontor" textAlignment="RIGHT">
                <font>
                   <Font name="Serif Bold" size="67.0" />
                </font>
@@ -116,22 +116,22 @@
                <effect>
                   <ColorAdjust contrast="0.15" hue="1.0" />
                </effect></ProgressBar>
-            <Button fx:id="goToMatas" layoutX="764.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
+            <Button fx:id="goToMatas" layoutX="764.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToCarDealer" layoutX="763.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
+            <Button fx:id="goToCarDealer" layoutX="764.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="646.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
+            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="645.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
+            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="587.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
                <font>
                   <Font size="25.0" />
                </font>
@@ -217,6 +217,11 @@
                   </Label>
                </children>
             </Pane>
+            <Button fx:id="goToDevil" layoutX="764.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Djævlens kontor">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>
