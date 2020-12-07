@@ -103,24 +103,40 @@ public class Game extends Application {
                                             "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som " +
                                             "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
-                        new Upgrade[]{new Upgrade("Svanemærket", 0.0, 1.0), new Upgrade("Håndsæbe", 1.0, 2.0),
-                                new Upgrade("Shampoo", 2.0, 3.0), new Upgrade("Balsam", 3.0, 4.0),
-                                new Upgrade("Face Scrub Cream", 4.0, 5.0), new Upgrade("Barberskum", 5.0, 6.0),
-                                new Upgrade("Mascara", 6.0, 7.0), new Upgrade("Foundation", 7.0, 8.0),
-                                new Upgrade("Lip Gloss", 8.0, 9.0), new Upgrade("Clean Laundry bod", 9.0, 10.0),
-                                new Upgrade("Concealer", 10.0, 11.0), new Upgrade("Footscrub", 11.0, 12.0),
-                                new Upgrade("Self Tan Bronzing Cream", 12.0, 13.0), new Upgrade("Glimmer", 13.0, 14.0),
-                                new Upgrade("Tandpasta", 14.0, 15.0)
+                        new Upgrade[]{
+                                new Upgrade("Svanemærket", 0.0, 5.0),
+                                new Upgrade("Håndsæbe", 10.0, 10.0),
+                                new Upgrade("Shampoo", 50.0, 15.0),
+                                new Upgrade("Balsam", 250.0, 25.0),
+                                new Upgrade("Face Scrub Cream", 1000.0, 35.0),
+                                new Upgrade("Barberskum", 5000.0, 50.0),
+                                new Upgrade("Mascara", 20000.0, 75.0),
+                                new Upgrade("Foundation", 75000.0, 125.0),
+                                new Upgrade("Lip Gloss", 300000.0, 200.0),
+                                new Upgrade("Clean Laundry bod", 1000000.0, 300.0),
+                                new Upgrade("Concealer", 4000000.0, 500.0),
+                                new Upgrade("Footscrub", 8000000.0, 750.0),
+                                new Upgrade("Self Tan Bronzing Cream", 20000000.0, 1500.0),
+                                new Upgrade("Glimmer", 50000000.0, 2500.0),
+                                new Upgrade("Tandpasta", 100000000.0, 4000.0)
 
                         }),
-                new UpgradePath("Forbrug", new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0),
-                        new Upgrade("1 gang om året", 1.0, 2.0), new Upgrade("2 gange om året", 2.0, 3.0),
-                        new Upgrade("1 gang i kvartalet", 3.0, 4.0), new Upgrade("1 gang om måneden", 4.0, 5.0),
-                        new Upgrade("2 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
-                        new Upgrade("2 gange om ugen", 7.0, 8.0), new Upgrade("1 gang om dagen", 8.0, 9.0),
-                        new Upgrade("2 gange om dagen", 9.0, 10.0), new Upgrade("3 gange om dagen", 10.0, 11.0),
-                        new Upgrade("4 gange om dagen", 11.0, 12.0), new Upgrade("6 gange om dagen", 12.0, 13.0),
-                        new Upgrade("1 gang i timen", 13.0, 14.0), new Upgrade("1 gang i kvarteret", 14.0, 15.0)
+                new UpgradePath("Forbrug", new Upgrade[]{
+                        new Upgrade("Aldrig", 0.0, 5.0),
+                        new Upgrade("1 gang om året", 10.0, 10.0),
+                        new Upgrade("2 gange om året", 50.0, 15.0),
+                        new Upgrade("1 gang i kvartalet", 250.0, 25.0),
+                        new Upgrade("1 gang om måneden", 1000.0, 35.0),
+                        new Upgrade("2 gange om måneden", 5000.0, 50.0),
+                        new Upgrade("1 gang om ugen", 20000.0, 75.0),
+                        new Upgrade("2 gange om ugen", 75000.0, 125.0),
+                        new Upgrade("1 gang om dagen", 300000.0, 200.0),
+                        new Upgrade("2 gange om dagen", 1000000.0, 300.0),
+                        new Upgrade("3 gange om dagen", 4000000.0, 500.0),
+                        new Upgrade("4 gange om dagen", 9000000.0, 800.0),
+                        new Upgrade("6 gange om dagen", 20000000.0, 1750.0),
+                        new Upgrade("1 gang i timen", 75000000.0, 3000.0),
+                        new Upgrade("1 gang i kvarteret", 250000000.0, 6000.0)
                 }));
         // Mangler Hvad der skal vaskes.
         laundry = new UpgradeRoom("Vaskeriet",
@@ -128,25 +144,41 @@ public class Game extends Application {
                                             "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som " +
                                             "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
-                        new Upgrade[]{new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sokker", 1.0, 2.0),
-                                new Upgrade("Underbukser", 2.0, 3.0), new Upgrade("Hue", 3.0, 4.0),
-                                new Upgrade("Vanter", 4.0, 5.0), new Upgrade("Halstørklæde", 5.0, 6.0),
-                                new Upgrade("T-shirt", 6.0, 7.0), new Upgrade("Langærmet T-shirt", 7.0, 8.0),
-                                new Upgrade("Shorts", 8.0, 9.0), new Upgrade("Lange Bukser", 9.0, 10.0),
-                                new Upgrade("Trøje", 10.0, 11.0), new Upgrade("Kostume", 11.0, 12.0),
-                                new Upgrade("Jakke", 12.0, 13.0), new Upgrade("Skibukser", 13.0, 14.0),
-                                new Upgrade("Flyverdrakt", 14.0, 15.0)
+                        new Upgrade[]{
+                                new Upgrade("Bare fødder", 0.0, 3.0),
+                                new Upgrade("Sokker", 10.0, 6.0),
+                                new Upgrade("Underbukser", 30.0, 12.0),
+                                new Upgrade("Hue", 90.0, 25.0),
+                                new Upgrade("Vanter", 270.0, 50.0),
+                                new Upgrade("Halstørklæde", 810.0, 100.0),
+                                new Upgrade("T-shirt", 2430.0, 150.0),
+                                new Upgrade("Langærmet T-shirt", 7290.0, 300.0),
+                                new Upgrade("Shorts", 21870.0, 500.0),
+                                new Upgrade("Lange Bukser", 65610.0, 750.0),
+                                new Upgrade("Trøje", 196830.0, 1250.0),
+                                new Upgrade("Kostume", 590490.0, 3000.0),
+                                new Upgrade("Jakke", 1771470.0, 6000.0),
+                                new Upgrade("Skibukser", 5314410.0, 10000.0),
+                                new Upgrade("Flyverdrakt", 15943230.0, 25000.0)
 
                         }),
                 new UpgradePath("Forbrug",
-                        new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0), new Upgrade("2 gange om året", 1.0, 2.0),
-                                new Upgrade("4 gange om året", 2.0, 3.0), new Upgrade("1 gang om måneden", 3.0, 4.0),
-                                new Upgrade("2 gange om måneden", 4.0, 5.0),
-                                new Upgrade("3 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
-                                new Upgrade("2 gange om ugen", 7.0, 8.0), new Upgrade("3 gange om ugen", 8.0, 9.0),
-                                new Upgrade("4 gange om ugen", 9.0, 10.0), new Upgrade("5 gange om ugen", 10.0, 11.0),
-                                new Upgrade("6 gange om ugen", 11.0, 12.0), new Upgrade("1 gang om dagen", 12.0, 13.0),
-                                new Upgrade("2 gange om dagen", 13.0, 14.0), new Upgrade("4 gange om dagen", 14.0, 15.0)
+                        new Upgrade[]{
+                                new Upgrade("Aldrig", 0.0, 0.0),
+                                new Upgrade("2 gange om året", 10.0, 5.0),
+                                new Upgrade("4 gange om året", 20.0, 10.0),
+                                new Upgrade("1 gang om måneden", 40.0, 15.0),
+                                new Upgrade("2 gange om måneden", 80.0, 20.0),
+                                new Upgrade("3 gange om måneden", 160.0, 25.0),
+                                new Upgrade("1 gang om ugen", 320.0, 30.0),
+                                new Upgrade("2 gange om ugen", 640.0, 40.0),
+                                new Upgrade("3 gange om ugen", 1280.0, 50.0),
+                                new Upgrade("4 gange om ugen", 2560.0, 75.0),
+                                new Upgrade("5 gange om ugen", 5120.0, 100.0),
+                                new Upgrade("6 gange om ugen", 10240.0, 125.0),
+                                new Upgrade("1 gang om dagen", 20480.0, 175.0),
+                                new Upgrade("2 gange om dagen", 40960.0, 250.0),
+                                new Upgrade("4 gange om dagen", 81920.0, 300.0)
 
                         }));
 
@@ -155,23 +187,38 @@ public class Game extends Application {
                                             "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler" +
                                             "fra dækslitagen svæver med vinden til de store have.",
                 new UpgradePath("Product",
-                        new Upgrade[]{new Upgrade("Bare fødder", 0.0, 1.0), new Upgrade("Sneaks", 1.0, 2.0),
-                                new Upgrade("Skateboard", 2.0, 3.0), new Upgrade("Cykel", 3.0, 4.0),
-                                new Upgrade("Offentlig Transport", 4.0, 5.0), new Upgrade("Volkswagen UP", 5.0, 6.0),
-                                new Upgrade("Ford Focus", 6.0, 7.0), new Upgrade("Mercedes CLA", 7.0, 8.0),
-                                new Upgrade("Ferrari", 8.0, 9.0), new Upgrade("Formel 1", 9.0, 10.0),
-                                new Upgrade("Lastbil", 10.0, 11.0), new Upgrade("MonsterTruck", 11.0, 12.0)
+                        new Upgrade[]{
+                                new Upgrade("Bare fødder", 0.0, 0.0),
+                                new Upgrade("Sneaks", 5.0, 10.0),
+                                new Upgrade("Skateboard", 30.0, 20.0),
+                                new Upgrade("Cykel", 150.0, 40.0),
+                                new Upgrade("Offentlig Transport", 500.0, 80.0),
+                                new Upgrade("Volkswagen UP", 2500.0, 120.0),
+                                new Upgrade("Ford Focus", 12500.0, 150.0),
+                                new Upgrade("Mercedes CLA", 50000.0, 225.0),
+                                new Upgrade("Ferrari", 300000.0, 300.0),
+                                new Upgrade("Formel 1", 1000000.0, 400.0),
+                                new Upgrade("Lastbil", 5000000.0, 500.0),
+                                new Upgrade("MonsterTruck", 2500000.0, 600.0)
 
                         }),
                 new UpgradePath("Forbrug",
-                        new Upgrade[]{new Upgrade("0 km om uge", 0.0, 1.0), new Upgrade("5 km om ugen", 1.0, 2.0),
-                                new Upgrade("10 km om ugen", 2.0, 3.0), new Upgrade("20 km om ugen", 3.0, 4.0),
-                                new Upgrade("40 km om ugen", 4.0, 5.0), new Upgrade("60 km om ugen", 5.0, 6.0),
-                                new Upgrade("80 km om ugen", 6.0, 7.0), new Upgrade("100 km om ugen", 7.0, 8.0),
-                                new Upgrade("125 km om ugen", 8.0, 9.0), new Upgrade("150 km om ugen", 9.0, 10.0),
-                                new Upgrade("175 km om ugen", 10.0, 11.0), new Upgrade("200 km om ugen", 11.0, 12.0),
-                                new Upgrade("250 km om ugen", 12.0, 13.0), new Upgrade("300 km om ugen", 13.0, 14.0),
-                                new Upgrade("400 km om ugen", 14.0, 15.0)
+                        new Upgrade[]{
+                                new Upgrade("0 km om uge", 0.0, 0.0),
+                                new Upgrade("5 km om ugen", 50.0, 10.0),
+                                new Upgrade("10 km om ugen", 200.0, 20.0),
+                                new Upgrade("20 km om ugen", 800.0, 30.0),
+                                new Upgrade("40 km om ugen", 4000.0, 50.0),
+                                new Upgrade("60 km om ugen", 20000.0, 75.0),
+                                new Upgrade("80 km om ugen", 60000.0, 100.0),
+                                new Upgrade("100 km om ugen", 300000.0, 150.0),
+                                new Upgrade("125 km om ugen", 800000.0, 250.0),
+                                new Upgrade("150 km om ugen", 2500000.0, 500.0),
+                                new Upgrade("175 km om ugen", 7500000.0, 1000.0),
+                                new Upgrade("200 km om ugen", 15000000.0, 2000.0),
+                                new Upgrade("250 km om ugen", 35000000.0, 4000.0),
+                                new Upgrade("300 km om ugen", 70000000.0, 7500.0),
+                                new Upgrade("400 km om ugen", 200000000.0, 15000.0)
 
                         }));
 
@@ -180,24 +227,40 @@ public class Game extends Application {
                                         "bliver det nedbrudt meget langsomt, men når først de store plastikstykker er blevet til små partikler, vil " +
                                         "de slå en masse fisk ihjel.",
                 new UpgradePath("Product",
-                        new Upgrade[]{new Upgrade("Brødkrummer", 0.0, 1.0), new Upgrade("Sugerør", 1.0, 2.0),
-                                new Upgrade("Slikpapir", 2.0, 3.0), new Upgrade("Plastikflaske", 3.0, 4.0),
-                                new Upgrade("Plastikpose", 4.0, 5.0), new Upgrade("Actionman", 5.0, 6.0),
-                                new Upgrade("Vandkande", 6.0, 7.0), new Upgrade("IKEA-kasse", 7.0, 8.0),
-                                new Upgrade("Badeflamingo", 8.0, 9.0), new Upgrade("Bildæk", 9.0, 10.0),
-                                new Upgrade("Presenning", 10.0, 11.0), new Upgrade("Rutchebane", 11.0, 12.0),
-                                new Upgrade("Havetrampolin", 12.0, 13.0), new Upgrade("Kayak", 13.0, 14.0),
-                                new Upgrade("Havepool", 14.0, 15.0)
+                        new Upgrade[]{
+                                new Upgrade("Brødkrummer", 0.0, 0.0),
+                                new Upgrade("Sugerør", 10.0, 20.0),
+                                new Upgrade("Slikpapir", 50.0, 80.0),
+                                new Upgrade("Plastikflaske", 300.0, 120.0),
+                                new Upgrade("Plastikpose", 1500.0, 200.0),
+                                new Upgrade("Actionman", 5000.0, 300.0),
+                                new Upgrade("Vandkande", 30000.0, 450.0),
+                                new Upgrade("IKEA-kasse", 80000.0, 600.0),
+                                new Upgrade("Badeflamingo", 400000.0, 750.0),
+                                new Upgrade("Bildæk", 2000000.0, 900.0),
+                                new Upgrade("Presenning", 10000000.0, 1200.0),
+                                new Upgrade("Rutchebane", 50000000.0, 1500.0),
+                                new Upgrade("Havetrampolin", 25000000.0, 1750.0),
+                                new Upgrade("Kayak", 100000000.0, 2000.0),
+                                new Upgrade("Havepool", 300000000.0, 2500.0)
 
                         }),
-                new UpgradePath("Forbrug", new Upgrade[]{new Upgrade("Aldrig", 0.0, 1.0),
-                        new Upgrade("1 gang om året", 1.0, 2.0), new Upgrade("2 gange om året", 2.0, 3.0),
-                        new Upgrade("1 gang i kvartalet", 3.0, 4.0), new Upgrade("1 gang om måneden", 4.0, 5.0),
-                        new Upgrade("2 gange om måneden", 5.0, 6.0), new Upgrade("1 gang om ugen", 6.0, 7.0),
-                        new Upgrade("2 gange om ugen", 7.0, 8.0), new Upgrade("1 gang om dagen", 8.0, 9.0),
-                        new Upgrade("2 gange om dagen", 9.0, 10.0), new Upgrade("3 gange om dagen", 10.0, 11.0),
-                        new Upgrade("4 gange om dagen", 11.0, 12.0), new Upgrade("6 gange om dagen", 12.0, 13.0),
-                        new Upgrade("1 gang i timen", 13.0, 14.0), new Upgrade("1 gang i kvarteret", 14.0, 15.0)
+                new UpgradePath("Forbrug", new Upgrade[]{
+                        new Upgrade("Aldrig", 0.0, 0.0),
+                        new Upgrade("1 gang om året", 50.0, 5.0),
+                        new Upgrade("2 gange om året", 250.0, 10.0),
+                        new Upgrade("1 gang i kvartalet", 1000.0, 20.0),
+                        new Upgrade("1 gang om måneden", 4000.0, 30.0),
+                        new Upgrade("2 gange om måneden", 16000.0, 40.0),
+                        new Upgrade("1 gang om ugen", 64000.0, 60.0),
+                        new Upgrade("2 gange om ugen", 256000.0, 90.0),
+                        new Upgrade("1 gang om dagen", 1000000.0, 150.0),
+                        new Upgrade("2 gange om dagen", 5000000.0, 250.0),
+                        new Upgrade("3 gange om dagen", 15000000.0, 400.0),
+                        new Upgrade("4 gange om dagen", 45000000.0, 900.0),
+                        new Upgrade("6 gange om dagen", 150000000.0, 2700.0),
+                        new Upgrade("1 gang i timen", 450000000.0, 3300.0),
+                        new Upgrade("1 gang i kvarteret", 1000000000.0, 8000.0)
 
                 }));
 
