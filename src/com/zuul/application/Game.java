@@ -255,6 +255,23 @@ public class Game extends Application {
     }
 
 
+
+    public static String[] getUpgradeDescriptions () {
+        String[] upgradeDescriptions = new String[6];
+
+        upgradeDescriptions[0] = "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
+        upgradeDescriptions[1] = "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradeName();
+        upgradeDescriptions[2] = "Opgradér for " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
+        upgradeDescriptions[3] = "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()].getUpgradeName();
+        upgradeDescriptions[4] = "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradeName();
+        upgradeDescriptions[5] = "Opgradér for " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
+
+        return upgradeDescriptions;
+
+    }
+
+    /* VI HAR LIGE GEMT DETTE KODE, HVIS VI GERNE VIL GÅ TILBAGE TIL DEN MÅDE AT GØRE DET PÅ
+
     public static String setProductsUpgradeOneDescription() {
         return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
     }
@@ -278,4 +295,6 @@ public class Game extends Application {
     public static String setUsageUpgradeButtonDescription() {
         return "Opgradér for " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
     }
+
+     */
 }
