@@ -29,9 +29,9 @@
                <children>
                   <Pane layoutX="14.0" layoutY="68.0">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../images/time.png" />
+                              <Image url="@images/time.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Årstal:" />
@@ -49,9 +49,9 @@
                               <Font name="Consolas" size="19.0" />
                            </font>
                         </Label>
-                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../images/time.png" />
+                              <Image url="@images/time.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Mikroplast per år" />
@@ -59,9 +59,9 @@
                   </Pane>
                   <Pane layoutX="14.0" layoutY="158.0">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../images/time.png" />
+                              <Image url="@images/time.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Plastik i havet" />
@@ -74,9 +74,9 @@
                   </Pane>
                   <Pane layoutX="14.0" layoutY="203.0">
                      <children>
-                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true" visible="false">
                            <image>
-                              <Image url="@../images/time.png" />
+                              <Image url="@images/time.png" />
                            </image>
                         </ImageView>
                         <Label layoutX="45.0" text="Fiskesjæle" />
@@ -185,32 +185,22 @@
                   </Button>
                </children>
             </Pane>
-            <Label alignment="CENTER" layoutX="728.0" layoutY="352.0" prefHeight="42.0" prefWidth="266.0" text="Produktion">
-               <font>
-                  <Font name="Times New Roman Bold Italic" size="30.0" />
-               </font>
-            </Label>
-            <Label fx:id="production" layoutX="738.0" layoutY="395.0" prefHeight="22.0" prefWidth="247.0" text="= 100 Tons mikroplast per dag">
-               <font>
-                  <Font name="Times New Roman Italic" size="19.0" />
-               </font>
-            </Label>
-            <Button fx:id="goToMatas" layoutX="774.0" layoutY="428.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
+            <Button fx:id="goToMatas" layoutX="763.0" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToCarDealer" layoutX="773.0" layoutY="501.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
+            <Button fx:id="goToCarDealer" layoutX="763.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToHarbour" layoutX="774.0" layoutY="646.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
+            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="649.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToLaundry" layoutX="774.0" layoutY="574.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
+            <Button fx:id="goToLaundry" layoutX="763.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
                <font>
                   <Font size="25.0" />
                </font>
@@ -220,6 +210,11 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
+            <Button fx:id="goToDevil" layoutX="763.0" layoutY="417.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" text="Djævlens kontor">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>
