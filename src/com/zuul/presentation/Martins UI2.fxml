@@ -147,8 +147,12 @@
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="122.0" layoutY="71.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
-                        <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Pane fx:id="UpgradeProductArrow" layoutX="110.0" layoutY="65.0" prefHeight="45.0" prefWidth="33.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="12.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
+                              <Polygon fill="#aeaeae" layoutX="50.0" layoutY="-12.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                   <Button fx:id="upgradeProductsButton" layoutX="51.0" layoutY="316.0" mnemonicParsing="false" onAction="#upgradeProductsButtonClick" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
@@ -158,7 +162,7 @@
                   </Button>
                   <Pane layoutX="14.0" layoutY="423.0" prefHeight="195.0" prefWidth="266.0">
                      <children>
-                        <Label fx:id="upgradeUsage1" layoutX="3.0" text="Level 1 - 1 Gang om året:">
+                        <Label fx:id="upgradeUsage1" layoutX="3.0" text="Level 1 - 1 Gang om året:" wrapText="true">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
                            </font>
@@ -178,8 +182,12 @@
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="122.0" layoutY="71.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
-                        <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Pane fx:id="UpgradeUsageArrow" layoutX="107.0" layoutY="66.0" prefHeight="45.0" prefWidth="33.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="12.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
+                              <Polygon fill="#aeaeae" layoutX="50.0" layoutY="-12.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                   <Button fx:id="upgradeUsageButton" layoutX="61.0" layoutY="615.0" mnemonicParsing="false" onAction="#upgradeUsageButtonClick" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">

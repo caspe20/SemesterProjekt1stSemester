@@ -1,8 +1,10 @@
 package com.zuul.presentation;
 
 // Import application layer
+import com.sun.glass.ui.Cursor;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 
 import static com.zuul.presentation.Wrapper.changeRoomToMatas;
 
@@ -79,6 +81,10 @@ public class Controller {
     private Label harbourProduction;
     @FXML
     private Label harbourUsage;
+    @FXML
+    public Pane UpgradeProductArrow;
+    @FXML
+    public Pane UpgradeUsageArrow;
 
     @FXML
     void updateRoomToMatas() {
