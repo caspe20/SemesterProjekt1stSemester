@@ -44,7 +44,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button layoutX="297.0" layoutY="574.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="410.0" text="Start Spil" textFill="RED">
+            <Button fx:id="goToDevil" layoutX="297.0" layoutY="574.0" mnemonicParsing="false" onAction="#updateRoomToDevil" prefHeight="80.0" prefWidth="410.0" text="Start Spil" textFill="RED">
                <font>
                   <Font name="Times New Roman Bold Italic" size="45.0" />
                </font>

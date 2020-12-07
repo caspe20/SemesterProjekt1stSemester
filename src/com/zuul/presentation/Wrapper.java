@@ -73,6 +73,11 @@ public class Wrapper {
         updateRoomUI();
     }
 
+    public static void changeRoomToDevil() throws Exception{
+
+        g.setRoomToDevil();
+    }
+
     /* [0] Årstal
      * [1] plast pr dag
      * [2] plast i havet
