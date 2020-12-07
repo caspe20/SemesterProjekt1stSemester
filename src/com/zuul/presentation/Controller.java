@@ -83,39 +83,31 @@ public class Controller {
     @FXML
     void updateRoomToMatas() {
         Wrapper.changeRoomToMatas();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
-    }
-
-    @FXML
-    void upgradeButton1Click() {
-        Wrapper.upgradeLvlUpdate1();
-    }
-
-    @FXML
-    void upgradeButton2Click() {
-        Wrapper.upgradeLvlUpdate2();
     }
 
     @FXML
     void updateRoomToCardealer() {
         Wrapper.changeRoomToCardealer();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
     }
 
     @FXML
     void updateRoomToLaundry() {
         Wrapper.changeRoomToLaundry();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
     }
 
     @FXML
     void updateRoomToDock() {
         Wrapper.changeRoomToDock();
-        Wrapper.writeRoomDescription();
-        Wrapper.writeRoomName();
+    }
+
+    @FXML
+    void upgradeProductsButtonClick() {
+        Wrapper.upgradeLvlUpdate1();
+    }
+
+    @FXML
+    void upgradeUsageButtonClick() {
+        Wrapper.upgradeLvlUpdate2();
     }
 
 }

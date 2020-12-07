@@ -224,4 +224,31 @@ public class Game extends Application {
     public void setRoomToDock() {
         currentRoom = dock;
     }
+
+
+    // SIMON OG PERNILLES OPGAVE //
+
+    public static String setProductsUpgradeOneDescription() {
+        return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
+    }
+
+    public static String setProductsUpgradeTwoDescription() {
+        return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradeName();
+    }
+
+    public static String setProductsUpgradeButtonDescription() {
+        return "Opgradér for " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
+    }
+
+    public static String setUsageUpgradeOneDescription() {
+        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()].getUpgradeName();
+    }
+
+    public static String setUsageUpgradeTwoDescription() {
+        return "Level " + (currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+2) + " - " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradeName();
+    }
+
+    public static String setUsageUpgradeButtonDescription() {
+        return "Opgradér for " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
+    }
 }
