@@ -60,6 +60,7 @@ public class Wrapper {
         updateRoomUI();
     }
 
+    
     public static void changeRoomToLaundry() {
         g.setRoomToLaundry();
         updateUpgradeUI();
