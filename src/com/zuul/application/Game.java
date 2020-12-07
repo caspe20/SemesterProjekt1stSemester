@@ -20,17 +20,22 @@ public class Game extends Application {
     }
 
     public static Controller con;
+    public static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(presentationLocation + "Martins UI2.fxml"));
+        this.primaryStage = primaryStage;
+        changeScene("Martins UI2.fxml");
+        StartTimer();
+    }
+
+    public void changeScene(String fxmlpath) throws Exception {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(presentationLocation + fxmlpath));
         Parent root = loader.load();
         Wrapper.setController(((Controller)loader.getController()));
         Wrapper.setGame(this);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
-        StartTimer();
-
     }
 
     public static void StartTimer() {
@@ -213,21 +218,39 @@ public class Game extends Application {
     public void setRoomToMatas() {
         currentRoom = matas;
         currentUpgradeRoom = matas;
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) {}
     }
 
     public void setRoomToCardealer() {
         currentRoom = cardealer;
         currentUpgradeRoom = cardealer;
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) {}
     }
 
     public void setRoomToLaundry() {
         currentRoom = laundry;
         currentUpgradeRoom = laundry;
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) {}
     }
 
     public void setRoomToDock() {
         currentRoom = dock;
         currentUpgradeRoom = dock;
+        try {
+            changeScene("Martins UI2.fxml");
+        }catch(Exception e) {}
+    }
+    public void setRoomToDevil() {
+        currentRoom = devilheadquater;
+        try {
+            changeScene("DevilRoom.fxml");
+        }catch(Exception e) {}
     }
 
 
