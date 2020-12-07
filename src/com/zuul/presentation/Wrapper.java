@@ -3,21 +3,20 @@ package com.zuul.presentation;
 import com.zuul.application.GameStats;
 import com.zuul.application.Game;
 import com.zuul.application.Upgrade;
+import com.zuul.application.rooms.DevilsRoom;
 import com.zuul.application.rooms.UpgradeRoom;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 
 public class Wrapper {
 
     private static Controller currCon;
-    private static Game g;
+    private static Game game;
 
     public static void setController(Controller con) {
         currCon = con;
     }
 
     public static void setGame(Game game) {
-        g = game;
+        Wrapper.game = game;
     }
 
     public static void writeCharacterDescription(String in) {
@@ -26,9 +25,9 @@ public class Wrapper {
 
     public static void upgradeLvlUpdate1() {
         if (Game.currentRoom instanceof UpgradeRoom) {
-            UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
-            UR.upgradePathProducts.performUpgrade();
-            UR.setCombinedProduction();
+            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
+            upgradeRoom.upgradePathProducts.performUpgrade();
+            upgradeRoom.setCombinedProduction();
             GameStats.UpdatePlasticProduction();
             updateUpgradeUI();
         }
@@ -40,9 +39,9 @@ public class Wrapper {
 
     public static void upgradeLvlUpdate2() {
         if (Game.currentRoom instanceof UpgradeRoom) {
-            UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
-            UR.upgradePathUsage.performUpgrade();
-            UR.setCombinedProduction();
+            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
+            upgradeRoom.upgradePathUsage.performUpgrade();
+            upgradeRoom.setCombinedProduction();
             GameStats.UpdatePlasticProduction();
             updateUpgradeUI();
         }
@@ -53,7 +52,7 @@ public class Wrapper {
     }
 
     public static void changeRoomToMatas() {
-        g.setRoomToMatas();
+        game.setRoomToMatas();
         resetNavigationButtons();
         currCon.goToMatas.setDisable(true);
         updateUpgradeUI();
@@ -61,7 +60,7 @@ public class Wrapper {
     }
 
     public static void changeRoomToCardealer() {
-        g.setRoomToCardealer();
+        game.setRoomToCardealer();
         resetNavigationButtons();
         currCon.goToCarDealer.setDisable(true);
         updateUpgradeUI();
@@ -70,7 +69,7 @@ public class Wrapper {
 
 
     public static void changeRoomToLaundry() {
-        g.setRoomToLaundry();
+        game.setRoomToLaundry();
         resetNavigationButtons();
         currCon.goToLaundry.setDisable(true);
         updateUpgradeUI();
@@ -78,7 +77,7 @@ public class Wrapper {
     }
 
     public static void changeRoomToDock() {
-        g.setRoomToDock();
+        game.setRoomToDock();
         resetNavigationButtons();
         currCon.goToHarbour.setDisable(true);
         updateUpgradeUI();
@@ -86,7 +85,7 @@ public class Wrapper {
     }
 
     public static void changeRoomToDevil() throws Exception {
-        g.setRoomToDevil();
+        game.setRoomToDevil();
         resetNavigationButtons();
         currCon.goToDevil.setDisable(true);
     }
@@ -125,7 +124,7 @@ public class Wrapper {
             currCon.UpgradeProductArrow.setVisible(false);
             // Labels
             // current
-            currCon.upgradeProducts1.setText(g.setProductsUpgradeOneDescription());
+            currCon.upgradeProducts1.setText(game.setProductsUpgradeOneDescription());
             currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
             currCon.upgradeProducts2.setText("Max opgradering nået!");
@@ -139,10 +138,10 @@ public class Wrapper {
             currCon.UpgradeProductArrow.setVisible(true);
             // Labels
             // current
-            currCon.upgradeProducts1.setText(g.setProductsUpgradeOneDescription());
+            currCon.upgradeProducts1.setText(game.setProductsUpgradeOneDescription());
             currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
-            currCon.upgradeProducts2.setText(g.setProductsUpgradeTwoDescription());
+            currCon.upgradeProducts2.setText(game.setProductsUpgradeTwoDescription());
             currCon.upgradeProducts2Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // Button
             currCon.upgradeProductsButton.setDisable(false);
@@ -156,7 +155,7 @@ public class Wrapper {
             currCon.UpgradeUsageArrow.setVisible(false);
             // Labels
             // current
-            currCon.upgradeUsage1.setText(g.setUsageUpgradeOneDescription());
+            currCon.upgradeUsage1.setText(game.setUsageUpgradeOneDescription());
             currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
             currCon.upgradeUsage2.setText("Max opgradering nået!");
@@ -170,21 +169,21 @@ public class Wrapper {
             currCon.UpgradeUsageArrow.setVisible(true);
             // Labels
             // current
-            currCon.upgradeUsage1.setText(g.setUsageUpgradeOneDescription());
+            currCon.upgradeUsage1.setText(game.setUsageUpgradeOneDescription());
             currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
-            currCon.upgradeUsage2.setText(g.setUsageUpgradeTwoDescription());
+            currCon.upgradeUsage2.setText(game.setUsageUpgradeTwoDescription());
             currCon.upgradeUsage2Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade + 1].productionSpeed) + " Tons pr. år");
             // Button
             currCon.upgradeUsageButton.setDisable(false);
-            currCon.upgradeUsageButton.setText(g.setUsageUpgradeButtonDescription());
+            currCon.upgradeUsageButton.setText(game.setUsageUpgradeButtonDescription());
         }
     }
 
     public static void updateRoomUI() {
         currCon.roomDescription.setWrapText(true);
-        currCon.roomDescription.setText(g.getRoomDescription());
-        currCon.roomName.setText(g.getRoomName());
+        currCon.roomDescription.setText(game.getRoomDescription());
+        currCon.roomName.setText(game.getRoomName());
     }
 
     public static void resetNavigationButtons(){
@@ -199,7 +198,7 @@ public class Wrapper {
      * Starts the game and starts the game timer.
      */
     public static void startGame() {
-        g.setRoomToDevil();
+        game.setRoomToDevil();
         currCon.goToDevil.setDisable(true);
         Game.StartTimer();
     }
