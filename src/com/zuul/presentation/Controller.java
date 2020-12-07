@@ -64,7 +64,7 @@ public class Controller {
     @FXML
     public Label deadFish;
     @FXML
-    private Button goToDevil;
+    public Button goToDevil;
     @FXML
     private Label matasProduction;
     @FXML
@@ -118,5 +118,10 @@ public class Controller {
 
     @FXML
     void updateRoomToDevil() throws Exception{Wrapper.changeRoomToDevil();}
+
+    @FXML
+    void startGame(){
+        Wrapper.startGame();
+    }
 
 }

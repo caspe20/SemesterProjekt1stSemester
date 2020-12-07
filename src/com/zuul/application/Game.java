@@ -25,7 +25,6 @@ public class Game extends Application {
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
         changeScene("StartMenu.fxml");
-        StartTimer();
     }
 
     public void changeScene(String fxmlpath) throws Exception {
@@ -247,7 +246,6 @@ public class Game extends Application {
         }catch(Exception e) {}
     }
     public void setRoomToDevil() {
-        System.out.println("Test2");
         currentRoom = devilheadquater;
         try {
             changeScene("DevilRoom.fxml");

@@ -4,6 +4,8 @@ import com.zuul.application.GameStats;
 import com.zuul.application.Game;
 import com.zuul.application.Upgrade;
 import com.zuul.application.rooms.UpgradeRoom;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class Wrapper {
 
@@ -52,12 +54,16 @@ public class Wrapper {
 
     public static void changeRoomToMatas() {
         g.setRoomToMatas();
+        resetNavigationButtons();
+        currCon.goToMatas.setDisable(true);
         updateUpgradeUI();
         updateRoomUI();
     }
 
     public static void changeRoomToCardealer() {
         g.setRoomToCardealer();
+        resetNavigationButtons();
+        currCon.goToCarDealer.setDisable(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -65,19 +71,24 @@ public class Wrapper {
 
     public static void changeRoomToLaundry() {
         g.setRoomToLaundry();
+        resetNavigationButtons();
+        currCon.goToLaundry.setDisable(true);
         updateUpgradeUI();
         updateRoomUI();
     }
 
     public static void changeRoomToDock() {
         g.setRoomToDock();
+        resetNavigationButtons();
+        currCon.goToHarbour.setDisable(true);
         updateUpgradeUI();
         updateRoomUI();
     }
 
-    public static void changeRoomToDevil() throws Exception{
-
+    public static void changeRoomToDevil() throws Exception {
         g.setRoomToDevil();
+        resetNavigationButtons();
+        currCon.goToDevil.setDisable(true);
     }
 
     /* [0] Årstal
@@ -174,5 +185,22 @@ public class Wrapper {
         currCon.roomDescription.setWrapText(true);
         currCon.roomDescription.setText(g.getRoomDescription());
         currCon.roomName.setText(g.getRoomName());
+    }
+
+    public static void resetNavigationButtons(){
+        currCon.goToCarDealer.setDisable(false);
+        currCon.goToHarbour.setDisable(false);
+        currCon.goToLaundry.setDisable(false);
+        currCon.goToMatas.setDisable(false);
+        currCon.goToDevil.setDisable(false);
+    }
+
+    /**
+     * Starts the game and starts the game timer.
+     */
+    public static void startGame() {
+        g.setRoomToDevil();
+        currCon.goToDevil.setDisable(true);
+        Game.StartTimer();
     }
 }
