@@ -17,6 +17,14 @@ public class UpgradeRoom extends Room {
         this.upgradePathUsage = upgradePathUsage;
     }
 
+    public UpgradePath getUpgradePathProducts() {
+        return upgradePathProducts;
+    }
+
+    public UpgradePath getUpgradePathUsage() {
+        return upgradePathUsage;
+    }
+
     public void setCombinedProduction() {
         combinedProduction = upgradePathProducts.currentProduction * upgradePathUsage.currentProduction;
     }

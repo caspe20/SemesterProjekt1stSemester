@@ -18,6 +18,16 @@ public class Upgrade {
         this.upgradePrice = (long)upgradePrice;
         this.productionSpeed = (long)productionSpeed;
     }
+
+    public String getUpgradeName() {
+        return upgradeName;
+    }
+
+    public long getUpgradePrice() {
+        return upgradePrice;
+    }
+
+
 }
 
 

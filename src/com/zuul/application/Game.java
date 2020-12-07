@@ -57,6 +57,7 @@ public class Game extends Application {
     // Rest of code
 
     public static Room currentRoom;
+    public static UpgradeRoom currentUpgradeRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
@@ -206,27 +207,30 @@ public class Game extends Application {
 
     public static String getRoomName() {
         return currentRoom.getRoomName();
+
     }
 
 
     public void setRoomToMatas() {
         currentRoom = matas;
+        currentUpgradeRoom = matas;
     }
 
     public void setRoomToCardealer() {
         currentRoom = cardealer;
+        currentUpgradeRoom = cardealer;
     }
 
     public void setRoomToLaundry() {
         currentRoom = laundry;
+        currentUpgradeRoom = laundry;
     }
 
     public void setRoomToDock() {
         currentRoom = dock;
+        currentUpgradeRoom = dock;
     }
 
-
-    // SIMON OG PERNILLES OPGAVE //
 
     public static String setProductsUpgradeOneDescription() {
         return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
