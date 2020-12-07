@@ -42,9 +42,9 @@ public class Game extends Application {
     }
 
     public static void calculateProgress() {
-        double totalProgress = (1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning));
+        double totalProgress = 1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning);
         Wrapper.setProgressBar(totalProgress);
-        Wrapper.setProgressBarText((long)Math.floor(GameStats.fishInOcean)+" / "+(long)Math.floor(GameStats.fishInOceanBeginning)+" Fish in ocean");
+        Wrapper.setProgressBarText(((long)Math.floor(totalProgress * 100))+"% Af fiskene i havet er døde");
     }
 
     public static void GameTick() {
@@ -116,7 +116,6 @@ public class Game extends Application {
                         new Upgrade("2 gange om dagen", 9.0, 10.0), new Upgrade("3 gange om dagen", 10.0, 11.0),
                         new Upgrade("4 gange om dagen", 11.0, 12.0), new Upgrade("6 gange om dagen", 12.0, 13.0),
                         new Upgrade("1 gang i timen", 13.0, 14.0), new Upgrade("1 gang i kvarteret", 14.0, 15.0)
-
                 }));
         // Mangler Hvad der skal vaskes.
         laundry = new UpgradeRoom("Vaskeriet",
