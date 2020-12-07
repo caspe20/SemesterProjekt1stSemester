@@ -92,8 +92,6 @@ public class Wrapper {
         currCon.deadFish.setText(txt);
     }
 
-    // SIMON OG PERNILLES OPGAVE //
-
     public static void updateUpgradeUI() {
         currCon.upgradeProducts1.setText(g.setProductsUpgradeOneDescription());
         currCon.upgradeProducts2.setText(g.setProductsUpgradeTwoDescription());

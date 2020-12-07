@@ -42,10 +42,9 @@ public class Game extends Application {
     }
 
     public static void calculateProgress() {
-        double totalProgress = Math.log(1+(1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
+        double totalProgress = 1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning);
         Wrapper.setProgressBar(totalProgress);
         Wrapper.setProgressBarText(((long)Math.floor(totalProgress * 100))+"% Af fiskene i havet er døde");
-        //System.out.println(totalProgress);
     }
 
     public static void GameTick() {
@@ -58,6 +57,7 @@ public class Game extends Application {
     // Rest of code
 
     public static Room currentRoom;
+    public static UpgradeRoom currentUpgradeRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
     private double CurrentFishSouls = 0d;
@@ -116,7 +116,6 @@ public class Game extends Application {
                         new Upgrade("2 gange om dagen", 9.0, 10.0), new Upgrade("3 gange om dagen", 10.0, 11.0),
                         new Upgrade("4 gange om dagen", 11.0, 12.0), new Upgrade("6 gange om dagen", 12.0, 13.0),
                         new Upgrade("1 gang i timen", 13.0, 14.0), new Upgrade("1 gang i kvarteret", 14.0, 15.0)
-
                 }));
         // Mangler Hvad der skal vaskes.
         laundry = new UpgradeRoom("Vaskeriet",
@@ -207,27 +206,30 @@ public class Game extends Application {
 
     public static String getRoomName() {
         return currentRoom.getRoomName();
+
     }
 
-
+    // TESTESTEST
     public void setRoomToMatas() {
         currentRoom = matas;
+        currentUpgradeRoom = matas;
     }
 
     public void setRoomToCardealer() {
         currentRoom = cardealer;
+        currentUpgradeRoom = cardealer;
     }
 
     public void setRoomToLaundry() {
         currentRoom = laundry;
+        currentUpgradeRoom = laundry;
     }
 
     public void setRoomToDock() {
         currentRoom = dock;
+        currentUpgradeRoom = dock;
     }
 
-
-    // SIMON OG PERNILLES OPGAVE //
 
     public static String setProductsUpgradeOneDescription() {
         return "Level " + (currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()+1) + " - " + currentUpgradeRoom.getUpgradePathProducts().getUpgrades()[currentUpgradeRoom.getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
