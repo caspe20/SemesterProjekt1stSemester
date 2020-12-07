@@ -17,16 +17,7 @@ public class Wrapper {
         g = game;
     }
 
-    public static void writeRoomDescription() {
-        currCon.roomDescription.setWrapText(true);
-        currCon.roomDescription.setText(g.getRoomDescription());
-    }
-
     public static void writeCharacterDescription(String in) {
-
-    }
-
-    public static void writeUpgradeOneToScreen(Upgrade in) {
 
     }
 
@@ -36,6 +27,7 @@ public class Wrapper {
             UR.upgradePathProducts.performUpgrade();
             UR.setCombinedProduction();
             GameStats.UpdatePlasticProduction();
+            updateUpgradeUI();
         }
     }
 
@@ -48,6 +40,7 @@ public class Wrapper {
             UR.upgradePathUsage.performUpgrade();
             UR.setCombinedProduction();
             GameStats.UpdatePlasticProduction();
+            updateUpgradeUI();
         }
     }
 
@@ -55,27 +48,29 @@ public class Wrapper {
 
     }
 
-    public static void writeRoomName() {
-        currCon.roomName.setText(g.getRoomName());
-
-    }
-
     public static void changeRoomToMatas() {
         g.setRoomToMatas();
+        updateUpgradeUI();
+        updateRoomUI();
     }
 
     public static void changeRoomToCardealer() {
         g.setRoomToCardealer();
+        updateUpgradeUI();
+        updateRoomUI();
     }
 
     public static void changeRoomToLaundry() {
         g.setRoomToLaundry();
+        updateUpgradeUI();
+        updateRoomUI();
     }
 
     public static void changeRoomToDock() {
         g.setRoomToDock();
+        updateUpgradeUI();
+        updateRoomUI();
     }
-
 
     /* [0] Årstal
      * [1] plast pr dag
@@ -96,4 +91,20 @@ public class Wrapper {
         currCon.deadFish.setText(txt);
     }
 
+    // SIMON OG PERNILLES OPGAVE //
+
+    public static void updateUpgradeUI() {
+        currCon.upgradeProducts1.setText(g.setProductsUpgradeOneDescription());
+        currCon.upgradeProducts2.setText(g.setProductsUpgradeTwoDescription());
+        currCon.upgradeProductsButton.setText(g.setProductsUpgradeButtonDescription());
+        currCon.upgradeUsage1.setText(g.setUsageUpgradeOneDescription());
+        currCon.upgradeUsage2.setText(g.setUsageUpgradeTwoDescription());
+        currCon.upgradeUsageButton.setText(g.setUsageUpgradeButtonDescription());
+    }
+
+    public static void updateRoomUI() {
+        currCon.roomDescription.setWrapText(true);
+        currCon.roomDescription.setText(g.getRoomDescription());
+        currCon.roomName.setText(g.getRoomName());
+    }
 }
