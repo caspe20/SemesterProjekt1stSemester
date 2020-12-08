@@ -20,7 +20,7 @@ public class Game extends Application {
     public static UpgradeRoomController con;
     public static Stage primaryStage;
     public FXMLLoader loader;
-    public static String changeScene;
+    public static String currentSceneName;
 
     public static void main(String[] args) {
         devilsRoomController = new DevilsRoomController();
@@ -34,9 +34,18 @@ public class Game extends Application {
     }
 
     public void changeScene(String fxmlpath) throws Exception {
+        currentSceneName = fxmlpath;
+        System.out.println(presentationLocation + fxmlpath);
         loader = new FXMLLoader(getClass().getResource(presentationLocation + fxmlpath));
         Parent root = loader.load();
-        Wrapper.setController(loader.getController());
+        if (loader.getController() instanceof UpgradeRoomController) {
+            Wrapper.setUpgradeController(loader.getController());
+        }
+        // if you want to make more controller references Make copy of below
+        else if (loader.getController() instanceof DevilsRoomController) {
+            Wrapper.setDevilController(loader.getController());
+        }
+        // end copy
         Wrapper.setGame(this);
         primaryStage.setTitle("Fisk til Hades");
         primaryStage.setScene(new Scene(root));
@@ -70,15 +79,20 @@ public class Game extends Application {
         if (100 == (int)(totalProgress*100)) {
             Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
         }
-        Wrapper.setStats();
     }
 
 
     public static void GameTick() {
         GameStats.SimulateTurn(50d/12000d);
-        Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction)
-                + " tons",GameStats.getPlastic(), GameStats.getFish()});
-        calculateProgress();
+        if (currentSceneName.equals("Martins UI2.fxml")) {
+            Wrapper.writeUpgradeRoomStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction)
+                    + " tons",GameStats.getPlastic(), GameStats.getFish()});
+            Wrapper.setStats();
+            calculateProgress();
+        }else if (currentSceneName.equals("DevilRoom.fxml")) {
+            Wrapper.writeDevilRoomStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction)
+                    + " tons",GameStats.getPlastic(), GameStats.getFish()});
+        }
     }
 
 
@@ -321,9 +335,9 @@ public class Game extends Application {
     }
     public void setRoomToDevil() {
         currentRoom = devilheadquater;
+        System.out.println("Maybe i'm the devil");
         try {
             changeScene("DevilRoom.fxml");
-            Wrapper.setController(loader.getController());
         }catch(Exception e) {
             e.printStackTrace();
         }

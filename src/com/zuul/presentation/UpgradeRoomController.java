@@ -1,7 +1,6 @@
 package com.zuul.presentation;
 
 // Import application layer
-import com.sun.glass.ui.Cursor;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;

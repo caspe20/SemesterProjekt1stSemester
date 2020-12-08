@@ -12,10 +12,14 @@ public class Wrapper {
     private static DevilsRoomController devilsRoomController;
     private static Game game;
 
-    public static void setController(UpgradeRoomController con) {
+    public static void setUpgradeController(UpgradeRoomController con) {
         upgradeRoomController = con;
     }
-
+    // make copy aswell
+    public static void setDevilController(DevilsRoomController con) {
+        devilsRoomController = con;
+    }
+    // end copy
     public static void setGame(Game game) {
         Wrapper.game = game;
     }
@@ -96,14 +100,19 @@ public class Wrapper {
      * [2] plast i havet
      * [3] fiske sjæle
      */
-    public static void writeStatistics(String[] stats) {
+    public static void writeUpgradeRoomStatistics(String[] stats) {
         upgradeRoomController.time.setText(stats[0]);
         upgradeRoomController.plastPerDay.setText(stats[1]);
         upgradeRoomController.plastInSea.setText(stats[2]);
         upgradeRoomController.fishSouls.setText(stats[3]);
-
-
     }
+    public static void writeDevilRoomStatistics(String[] stats) {
+        devilsRoomController.time.setText(stats[0]);
+        devilsRoomController.plastPerDay.setText(stats[1]);
+        devilsRoomController.plastInSea.setText(stats[2]);
+        devilsRoomController.fishSouls.setText(stats[3]);
+    }
+
 
     public static void setProgressBar(double progress) {
         upgradeRoomController.progressBar.setProgress(progress);
