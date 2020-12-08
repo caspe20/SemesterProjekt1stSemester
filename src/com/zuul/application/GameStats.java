@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class GameStats {
     public static long fishInOcean = 2000000000l;
     public static long fishInOceanBeginning = fishInOcean;
-    public static double currentFishSouls = 20000;
+    public static double currentFishSouls = 20000000;
     public static double plasticInOcean;
     public static double plasticProduction = 1;
     public static String gameProgress;

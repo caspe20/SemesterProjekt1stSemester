@@ -23,8 +23,8 @@ public class Game extends Application {
     String presentationLocation = "../presentation/";
     // Scene variables
     public static Stage primaryStage;
-    public HashMap<String,Scene> scenes = new HashMap<>();
-    public HashMap<String,Object> controllers = new HashMap<>();
+    public HashMap<String, Scene> scenes = new HashMap<>();
+    public HashMap<String, Object> controllers = new HashMap<>();
     // Room structure variables
     public static Room currentRoom;
     public static UpgradeRoom currentUpgradeRoom;
@@ -53,7 +53,8 @@ public class Game extends Application {
     /**
      * Overwrites the standard start function for JavaFXML
      * Make the game window and load its assets (scenes and controllers)
-     * @param primaryStage
+     *
+     * @param primaryStage FXML application calls start on startup with primarystage as argument.
      * @throws Exception
      */
     @Override
@@ -62,6 +63,7 @@ public class Game extends Application {
         this.primaryStage = primaryStage;
         primaryStage.setTitle("Fisk til Hades");
         primaryStage.show();
+        primaryStage.setResizable(false);
         // update wrapper
         Wrapper.setGame(this);
         // Get loaders for each room
@@ -111,6 +113,7 @@ public class Game extends Application {
 
     /**
      * Changes the current scene
+     *
      * @param scene String that denotes the scene and controller to change to
      * @throws Exception
      */
@@ -140,7 +143,6 @@ public class Game extends Application {
         }
         devilsRoomController.setStats();
     }
-
 
 
     /**
@@ -374,5 +376,51 @@ public class Game extends Application {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static String[] getupdateUpgradeUIInfo() {
+        UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
+        double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
+        double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
+        double usageCurrent = UR.getUpgradePathUsage().getCurrentProduction();
+        double usageUpgrade = UR.getUpgradePathUsage().getUpgradeProduction();
+
+        // production text
+        String product1 = "[" + productCurrent + "]" + " * " + usageCurrent + " = " + (productCurrent * usageCurrent);
+        String usage1 = productCurrent + " * " + "[" + usageCurrent + "]" + " = " + (productCurrent * usageCurrent);
+        String product2 = "", usage2 = "";
+
+        // Check whether upgrade is available for either upgrade path
+        if (productUpgrade > 0) {
+            product2 = "[" + productUpgrade + " ] " + " * " + usageCurrent + " = " + (productUpgrade * usageCurrent);
+        }
+
+        if (usageUpgrade > 0) {
+            usage2 = productCurrent + " * " + "[" + usageUpgrade + "]" + " = " + (productCurrent * usageUpgrade);
+        }
+
+        // [0] : 1st Upgrade Button Description
+        // [1] : 2nd Upgrade Button Description
+        // [2] : 1st Upgrade one description
+        // [3] : 1st Upgrade two description
+        // [4] : 1st upgrade label1 description
+        // [5] : 1st upgrade label2 description
+        // [6] : 2nd Upgrade one description
+        // [7] : 2nd Upgrade two description
+        // [8] : 2nd upgrade label description
+        // [9] : 2nd upgrade label2 description
+        String[] out = new String[]{
+                UR.getUpgradePathProducts().getUpgradeButtonDescription(),  // 0
+                UR.getUpgradePathUsage().getUpgradeButtonDescription(),     // 1
+                UR.getUpgradePathProducts().getUpgradeOneDescription(),     // 2
+                UR.getUpgradePathProducts().getUpgradeTwoDescription(),     // 3
+                product1,                                                   // 4
+                product2,                                                   // 5
+                UR.getUpgradePathUsage().getUpgradeOneDescription(),        // 6
+                UR.getUpgradePathUsage().getUpgradeTwoDescription(),        // 7
+                usage1,                                                     // 8
+                usage2,                                                     // 9
+        };
+        return out;
     }
 }

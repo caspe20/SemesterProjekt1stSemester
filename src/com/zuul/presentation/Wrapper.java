@@ -116,73 +116,35 @@ public class Wrapper {
 
 
     public static void updateUpgradeUI() {
-        UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
-        Upgrade[] upgradeProduct = UR.upgradePathProducts.getUpgrades();
-        Upgrade[] upgradeUsage = UR.upgradePathUsage.getUpgrades();
-        int currProductUpgrade = UR.upgradePathProducts.getCurrentLevel();
-        int currUsageUpgrade = UR.upgradePathUsage.getCurrentLevel();
+        String[] info = Game.getupdateUpgradeUIInfo();
+        // [0] : 1st Upgrade Button Description
+        // [1] : 2nd Upgrade Button Description
+        // [2] : 1st Upgrade one description
+        // [3] : 1st Upgrade two description
+        // [4] : 1st upgrade label1 description
+        // [5] : 1st upgrade label2 description
+        // [6] : 2nd Upgrade one description
+        // [7] : 2nd Upgrade two description
+        // [8] : 2nd upgrade label description
+        // [9] : 2nd upgrade label2 description
 
-        // upgrade prduction panel
-        if (upgradeProduct.length - 1 <= UR.upgradePathProducts.getCurrentLevel()) {
-            // If upgrade is unavailable
-            // Arrow
-            currCon.UpgradeProductArrow.setVisible(false);
-            // Labels
-            // current
-            currCon.upgradeProducts1.setText(UR.getProductsUpgradeOneDescription());
-            currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeProducts2.setText("Max opgradering nået!");
-            currCon.upgradeProducts2Pollution.setText("");
-            // Button
-            currCon.upgradeProductsButton.setText("opgradering utilgængelig");
-            currCon.upgradeProductsButton.setDisable(true);
-        } else {
-            // If ugrade is available
-            // Arrow
-            currCon.UpgradeProductArrow.setVisible(true);
-            // Labels
-            // current
-            currCon.upgradeProducts1.setText(UR.getProductsUpgradeOneDescription());
-            currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeProducts2.setText(UR.getProductsUpgradeTwoDescription());
-            currCon.upgradeProducts2Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // Button
-            currCon.upgradeProductsButton.setDisable(false);
-            currCon.upgradeProductsButton.setText(UR.getProductsUpgradeButtonDescription());
-        }
+        // Formatting buttons
+        currCon.upgradeProductsButton.setDisable((info[0].equals("opgradering utilgængelig")));
+        currCon.upgradeUsageButton.setDisable((info[1].equals("opgradering utilgængelig")));
 
-        // upgrade usage panel
-        if (upgradeUsage.length - 1 <= UR.upgradePathUsage.getCurrentLevel()) {
-            // If upgrade is unavailable
-            // Arrow
-            currCon.UpgradeUsageArrow.setVisible(false);
-            // Labels
-            // current
-            currCon.upgradeUsage1.setText(UR.getUsageUpgradeOneDescription());
-            currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeUsage2.setText("Max opgradering nået!");
-            currCon.upgradeUsage2Pollution.setText("");
-            // Button
-            currCon.upgradeUsageButton.setText("opgradering utilgængelig");
-            currCon.upgradeUsageButton.setDisable(true);
-        } else {
-            // If ugrade is available
-            // Arrow
-            currCon.UpgradeUsageArrow.setVisible(true);
-            // Labels
-            // current
-            currCon.upgradeUsage1.setText(UR.getUsageUpgradeOneDescription());
-            currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeUsage2.setText(UR.getUsageUpgradeTwoDescription());
-            currCon.upgradeUsage2Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade + 1].productionSpeed) + " Tons pr. år");
-            // Button
-            currCon.upgradeUsageButton.setDisable(false);
-            currCon.upgradeUsageButton.setText(UR.getUsageUpgradeButtonDescription());
-        }
+        // Update button text
+        currCon.upgradeProductsButton.setText(info[0]);
+        currCon.upgradeUsageButton.setText(info[1]);
+
+        // Update upgrades text
+        currCon.upgradeProducts1.setText(info[2]);
+        currCon.upgradeProducts2.setText(info[3]);
+        currCon.upgradeProducts1Pollution.setText(info[4]);
+        currCon.upgradeProducts2Pollution.setText(info[5]);
+        currCon.upgradeUsage1.setText(info[6]);
+        currCon.upgradeUsage2.setText(info[7]);
+        currCon.upgradeUsage1Pollution.setText(info[8]);
+        currCon.upgradeUsage2Pollution.setText(info[9]);
     }
 
     public static void updateRoomUI() {
