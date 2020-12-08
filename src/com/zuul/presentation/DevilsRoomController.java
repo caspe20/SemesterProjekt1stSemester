@@ -109,6 +109,13 @@ public class DevilsRoomController {
         Wrapper.changeRoomToDock();
     }
 
+
+    @FXML
+    void updateRoomToDevil() throws Exception {
+        Wrapper.changeRoomToDevil();
+    }
+
+
     @FXML
     void upgradeProductsButtonClick() {
         Wrapper.upgradeLvlUpdate1();
@@ -117,11 +124,6 @@ public class DevilsRoomController {
     @FXML
     void upgradeUsageButtonClick() {
         Wrapper.upgradeLvlUpdate2();
-    }
-
-    @FXML
-    void updateRoomToDevil() throws Exception {
-        Wrapper.changeRoomToDevil();
     }
 
     @FXML

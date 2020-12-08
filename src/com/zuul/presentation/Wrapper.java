@@ -6,6 +6,8 @@ import com.zuul.application.Upgrade;
 import com.zuul.application.rooms.DevilsRoom;
 import com.zuul.application.rooms.UpgradeRoom;
 
+import java.sql.SQLOutput;
+
 public class Wrapper {
 
     private static UpgradeRoomController upgradeRoomController;
@@ -92,7 +94,8 @@ public class Wrapper {
     public static void changeRoomToDevil() throws Exception {
         game.setRoomToDevil();
         resetNavigationButtons();
-        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        devilsRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        updateDevilsRoomUI();
     }
 
     /* [0] Årstal
@@ -203,6 +206,10 @@ public class Wrapper {
         upgradeRoomController.roomName.setText(game.getRoomName());
     }
 
+    public static void updateDevilsRoomUI() {
+        setStats();
+    }
+
     public static void resetNavigationButtons(){
         upgradeRoomController.goToCarDealer.setDisable(false);
         upgradeRoomController.goToHarbour.setDisable(false);
@@ -222,7 +229,8 @@ public class Wrapper {
 
     public static void setStats() {
         if (Game.currentRoom instanceof DevilsRoom) {
-            DevilsRoomController.matasProduction.setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
+            /*
+            devilsRoomController.matasProduction.setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
             devilsRoomController.matasUsage.setText("Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1));
             devilsRoomController.carDealerProduction.setText("Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1));
             devilsRoomController.carDealerUsage.setText("Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1));
@@ -230,6 +238,10 @@ public class Wrapper {
             devilsRoomController.laundryUsage.setText("Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1));
             devilsRoomController.harbourProduction.setText("Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1));
             devilsRoomController.harbourUsage.setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
+             */
+
+            System.out.println("hej");
+            DevilsRoomController.matasProduction.setText("Production level: ");
         }
     }
 }

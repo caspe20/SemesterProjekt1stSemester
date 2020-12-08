@@ -87,7 +87,6 @@ public class Game extends Application {
         if (currentSceneName.equals("Martins UI2.fxml")) {
             Wrapper.writeUpgradeRoomStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction)
                     + " tons",GameStats.getPlastic(), GameStats.getFish()});
-            Wrapper.setStats();
             calculateProgress();
         }else if (currentSceneName.equals("DevilRoom.fxml")) {
             Wrapper.writeDevilRoomStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction)
