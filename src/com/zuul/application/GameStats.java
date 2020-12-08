@@ -10,7 +10,7 @@ public class GameStats {
     public static long fishInOceanBeginning = fishInOcean;
     public static double currentFishSouls = 20000;
     public static double plasticInOcean;
-    public static double plasticProduction = 1;
+    public static double plasticProduction = 0;
     public static String gameProgress;
     private UpgradeRoom[] upgradeRoom;
     public static double currentTurn = 0;
@@ -49,23 +49,23 @@ public class GameStats {
     }
 
     public static String getYear() {
-        double date = currentYear + currentTurn;
-        double day = (date % 1) * 365;
-        String out = "år " + String.format("%.0f",date) + " dag " + String.format("%.0f",day);
+        double year = currentYear + currentTurn;
+        double day = (year % 1) * 365;
+        String out = "år " + (int)Math.floor(year) + " dag " + String.format("%.0f",day);
         return out;
     }
 
     public static String getFish(){
-        String out = String.format("%.2f",(currentFishSouls)) + " sjæle";
+        String out = String.format("%,.2f",(currentFishSouls)) + " sjæle";
         return out;
     }
 
     public static String getPlastic(){
         String out = "";
         if(plasticInOcean < 0.9){
-            out = String.format("%.2f",plasticInOcean*1000) + " Kilo";
+            out = String.format("%,.2f",plasticInOcean*1000) + " Kilo";
         }else {
-            out = String.format("%.2f",plasticInOcean) + " Tons";
+            out = String.format("%,.2f",plasticInOcean) + " Tons";
         }
         return out;
     }
