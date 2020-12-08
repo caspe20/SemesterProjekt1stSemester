@@ -129,7 +129,7 @@ public class Wrapper {
             currCon.UpgradeProductArrow.setVisible(false);
             // Labels
             // current
-            currCon.upgradeProducts1.setText(game.setProductsUpgradeOneDescription());
+            currCon.upgradeProducts1.setText(UR.getProductsUpgradeOneDescription());
             currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
             currCon.upgradeProducts2.setText("Max opgradering nået!");
@@ -143,14 +143,14 @@ public class Wrapper {
             currCon.UpgradeProductArrow.setVisible(true);
             // Labels
             // current
-            currCon.upgradeProducts1.setText(game.setProductsUpgradeOneDescription());
+            currCon.upgradeProducts1.setText(UR.getProductsUpgradeOneDescription());
             currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
-            currCon.upgradeProducts2.setText(game.setProductsUpgradeTwoDescription());
+            currCon.upgradeProducts2.setText(UR.getProductsUpgradeTwoDescription());
             currCon.upgradeProducts2Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // Button
             currCon.upgradeProductsButton.setDisable(false);
-            currCon.upgradeProductsButton.setText(Game.setProductsUpgradeButtonDescription());
+            currCon.upgradeProductsButton.setText(UR.getProductsUpgradeButtonDescription());
         }
 
         // upgrade usage panel
@@ -160,7 +160,7 @@ public class Wrapper {
             currCon.UpgradeUsageArrow.setVisible(false);
             // Labels
             // current
-            currCon.upgradeUsage1.setText(game.setUsageUpgradeOneDescription());
+            currCon.upgradeUsage1.setText(UR.getUsageUpgradeOneDescription());
             currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
             currCon.upgradeUsage2.setText("Max opgradering nået!");
@@ -174,14 +174,14 @@ public class Wrapper {
             currCon.UpgradeUsageArrow.setVisible(true);
             // Labels
             // current
-            currCon.upgradeUsage1.setText(game.setUsageUpgradeOneDescription());
+            currCon.upgradeUsage1.setText(UR.getUsageUpgradeOneDescription());
             currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
             // next
-            currCon.upgradeUsage2.setText(game.setUsageUpgradeTwoDescription());
+            currCon.upgradeUsage2.setText(UR.getUsageUpgradeTwoDescription());
             currCon.upgradeUsage2Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade + 1].productionSpeed) + " Tons pr. år");
             // Button
             currCon.upgradeUsageButton.setDisable(false);
-            currCon.upgradeUsageButton.setText(game.setUsageUpgradeButtonDescription());
+            currCon.upgradeUsageButton.setText(UR.getUsageUpgradeButtonDescription());
         }
     }
 
