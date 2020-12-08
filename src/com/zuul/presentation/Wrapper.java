@@ -55,6 +55,7 @@ public class Wrapper {
         game.setRoomToMatas();
         resetNavigationButtons();
         currCon.goToMatas.setStyle("-fx-background-color: #17B831;");
+        currCon.goToMatas.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -63,6 +64,7 @@ public class Wrapper {
         game.setRoomToCardealer();
         resetNavigationButtons();
         currCon.goToCarDealer.setStyle("-fx-background-color: #17B831;");
+        currCon.goToCarDealer.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -72,6 +74,7 @@ public class Wrapper {
         game.setRoomToLaundry();
         resetNavigationButtons();
         currCon.goToLaundry.setStyle("-fx-background-color: #17B831;");
+        currCon.goToLaundry.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -80,6 +83,7 @@ public class Wrapper {
         game.setRoomToDock();
         resetNavigationButtons();
         currCon.goToHarbour.setStyle("-fx-background-color: #17B831;");
+        currCon.goToHarbour.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -88,6 +92,7 @@ public class Wrapper {
         game.setRoomToDevil();
         resetNavigationButtons();
         currCon.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        currCon.goToDevil.setMouseTransparent(true);
     }
 
     /* [0] Årstal
@@ -192,11 +197,11 @@ public class Wrapper {
     }
 
     public static void resetNavigationButtons(){
-        currCon.goToCarDealer.setDisable(false);
-        currCon.goToHarbour.setDisable(false);
-        currCon.goToLaundry.setDisable(false);
-        currCon.goToMatas.setDisable(false);
-        currCon.goToDevil.setDisable(false);
+        currCon.goToCarDealer.setMouseTransparent(false);
+        currCon.goToHarbour.setMouseTransparent(false);
+        currCon.goToLaundry.setMouseTransparent(false);
+        currCon.goToMatas.setMouseTransparent(false);
+        currCon.goToDevil.setMouseTransparent(false);
     }
 
     /**
