@@ -2,6 +2,7 @@ package com.zuul.application;
 
 import com.zuul.application.rooms.*;
 import com.zuul.presentation.Controller;
+import com.zuul.presentation.DevilsRoomController;
 import com.zuul.presentation.Wrapper;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -14,13 +15,17 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class Game extends Application {
+    private static DevilsRoomController devilsRoomController;
     String presentationLocation = "../presentation/";
+    public static Controller con;
+    public static Stage primaryStage;
+    public FXMLLoader loader;
+
     public static void main(String[] args) {
+        devilsRoomController = new DevilsRoomController();
         launch(args);
     }
 
-    public static Controller con;
-    public static Stage primaryStage;
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
@@ -28,9 +33,9 @@ public class Game extends Application {
     }
 
     public void changeScene(String fxmlpath) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(presentationLocation + fxmlpath));
+        loader = new FXMLLoader(getClass().getResource(presentationLocation + fxmlpath));
         Parent root = loader.load();
-        Wrapper.setController(((Controller)loader.getController()));
+        Wrapper.setController(loader.getController());
         Wrapper.setGame(this);
         primaryStage.setTitle("Fisk til Hades");
         primaryStage.setScene(new Scene(root));
@@ -49,6 +54,7 @@ public class Game extends Application {
         double totalProgress = 1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning);
         Wrapper.setProgressBar(totalProgress);
         Wrapper.setProgressBarText(((long)Math.floor(totalProgress * 100))+"% Af fiskene i havet er døde");
+        devilsRoomController.setStats();
     }
 
     public static void GameTick() {
@@ -299,6 +305,7 @@ public class Game extends Application {
         currentRoom = devilheadquater;
         try {
             changeScene("DevilRoom.fxml");
+            devilsRoomController.setController(loader.getController());
         }catch(Exception e) {
             e.printStackTrace();
         }
@@ -328,4 +335,5 @@ public class Game extends Application {
     public static String setUsageUpgradeButtonDescription() {
         return "Opgradér for " + currentUpgradeRoom.getUpgradePathUsage().getUpgrades()[currentUpgradeRoom.getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
     }
+
 }

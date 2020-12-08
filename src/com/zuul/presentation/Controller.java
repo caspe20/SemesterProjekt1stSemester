@@ -66,21 +66,21 @@ public class Controller {
     @FXML
     public Button goToDevil;
     @FXML
-    private Label matasProduction;
+    public Label matasProduction;
     @FXML
-    private Label matasUsage;
+    public Label matasUsage;
     @FXML
-    private Label carDealerProduction;
+    public Label carDealerProduction;
     @FXML
-    private Label getCarDealerUsage;
+    public Label carDealerUsage;
     @FXML
-    private Label laundryProduction;
+    public Label laundryProduction;
     @FXML
-    private Label laundryUsage;
+    public Label laundryUsage;
     @FXML
-    private Label harbourProduction;
+    public Label harbourProduction;
     @FXML
-    private Label harbourUsage;
+    public Label harbourUsage;
     @FXML
     public Pane UpgradeProductArrow;
     @FXML
@@ -117,7 +117,9 @@ public class Controller {
     }
 
     @FXML
-    void updateRoomToDevil() throws Exception{Wrapper.changeRoomToDevil();}
+    void updateRoomToDevil() throws Exception {
+        Wrapper.changeRoomToDevil();
+    }
 
     @FXML
     void startGame(){
