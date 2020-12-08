@@ -45,39 +45,4 @@ public class UpgradePath {
         }
         return false;
     }
-
-    public String getUpgradeInfo() {
-        if (currentLevel < upgrades.length) {
-            String upgradeInfo = upgrades[currentLevel].upgradeName + " >>> " + upgrades[currentLevel + 1].upgradeName + "\n";
-            upgradeInfo = upgradeInfo + "Price " + upgrades[currentLevel].upgradePrice + " Fish Souls \n";
-            upgradeInfo = upgradeInfo + upgrades[currentLevel].productionSpeed + " plastic/yr >>> "
-                    + upgrades[currentLevel + 1].productionSpeed + " plastic/yr\n";
-            return upgradeInfo;
-        } else {
-            String upgradeInfo = upgrades[currentLevel].upgradeName + "\n" + upgrades[currentLevel].productionSpeed
-                    + " plastic/yr";
-            return upgradeInfo;
-        }
-    }
-
-    public String getUpgradeName(int offset) {
-        if (currentLevel + offset < upgrades.length) {
-            return upgrades[currentLevel + offset].upgradeName;
-        }
-        return "";
-    }
-
-    public double getUpgradePrice(int offset) {
-        if (currentLevel + offset < upgrades.length-1) {
-            return upgrades[currentLevel + offset].upgradePrice;
-        }
-        return -1;
-    }
-
-    public double getUpgradeCoefficient(int offset) {
-        if (currentLevel + offset < upgrades.length) {
-            return upgrades[currentLevel + offset].productionSpeed;
-        }
-        return -1;
-    }
 }
