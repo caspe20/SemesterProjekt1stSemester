@@ -26,7 +26,7 @@ public class GameStats {
         this.gameProgress = gameProgress;
         return gameProgress;
     }
-    
+
     public static void FetchPlasticProduction(double currentTotalPlasticProduction) {
         plasticProduction = currentTotalPlasticProduction;
     }
@@ -41,7 +41,7 @@ public class GameStats {
 
     private static void UpdateFish(double yr) {
         currentFishSouls += plasticInOcean * yr;
-        fishInOcean -= plasticInOcean* yr;
+        fishInOcean -= plasticInOcean * yr;
         if (fishInOcean <= 0) {
             fishInOcean = 0;
             // [*INSERT YOU WIN FUNCTION HERE*]
@@ -51,21 +51,34 @@ public class GameStats {
     public static String getYear() {
         double date = currentYear + currentTurn;
         double day = (date % 1) * 365;
-        String out = "år " + String.format("%.0f",date) + " dag " + String.format("%.0f",day);
+        String out = "år " + String.valueOf(((int)date)) + " dag " + String.format("%.0f", day);
         return out;
     }
 
-    public static String getFish(){
-        String out = String.format("%.2f",(currentFishSouls)) + " sjæle";
-        return out;
+    public static String getFish() {
+        return convertToVerbal(currentFishSouls) + " sjæle";
     }
 
-    public static String getPlastic(){
+    public static String getPlasticProduction(){
+        return convertToVerbal(plasticProduction) + " Tons";
+    }
+
+    public static String convertToVerbal(double count) {
+        if (count < 1000) {
+            return String.format("%.2f", count);
+        } else if (count < 1000000) {
+            return String.format("%.2f", count / 1000) + "t";
+        } else {
+            return String.format("%.2f", count/1000000) + "M";
+        }
+    }
+
+    public static String getPlastic() {
         String out = "";
-        if(plasticInOcean < 0.9){
-            out = String.format("%.2f",plasticInOcean*1000) + " Kilo";
-        }else {
-            out = String.format("%.2f",plasticInOcean) + " Tons";
+        if (plasticInOcean < 1) {
+            out = String.format("%.2f", plasticInOcean * 1000) + " Kilo";
+        } else{
+            out = convertToVerbal(plasticInOcean) + " Tons";
         }
         return out;
     }
