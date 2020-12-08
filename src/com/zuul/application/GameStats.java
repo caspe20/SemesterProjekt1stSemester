@@ -6,9 +6,9 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class GameStats {
-    public static long fishInOcean = 35000l;
+    public static long fishInOcean = 2000000000l;
     public static long fishInOceanBeginning = fishInOcean;
-    public static double currentFishSouls;
+    public static double currentFishSouls = 20000;
     public static double plasticInOcean;
     public static double plasticProduction = 1;
     public static String gameProgress;
@@ -53,7 +53,7 @@ public class GameStats {
         fishInOcean -= plasticInOcean* yr;
         if (fishInOcean <= 0) {
             fishInOcean = 0;
-            ScreenWriter.printCenter("\nDu har vundet spillet! Tusind tak for at spille med :)");
+            // [*INSERT YOU WIN FUNCTION HERE*]
         }
     }
 

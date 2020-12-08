@@ -1,6 +1,5 @@
 package com.zuul.application.rooms;
 
-import com.zuul.application.ScreenWriter;
 import com.zuul.application.UpgradePath;
 
 public class UpgradeRoom extends Room {
@@ -32,8 +31,8 @@ public class UpgradeRoom extends Room {
     // This function returns what the estimated production will be if you upgrade a
     // certain path a certain amount;
     public double estimateSpeedIfUpgrade(int speed, int quantity) {
-        return upgradePathProducts.upgrades[upgradePathProducts.getLevel() + speed].productionSpeed
-                * upgradePathUsage.upgrades[upgradePathProducts.getLevel() + quantity].productionSpeed;
+        return upgradePathProducts.upgrades[upgradePathProducts.getCurrentLevel() + speed].productionSpeed
+                * upgradePathUsage.upgrades[upgradePathProducts.getCurrentLevel() + quantity].productionSpeed;
     }
 
     @Override

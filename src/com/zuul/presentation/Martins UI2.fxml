@@ -97,7 +97,7 @@
             </Pane>
             <Pane layoutX="286.0" layoutY="105.0" prefHeight="623.0" prefWidth="445.0">
                <children>
-                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="14.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
+                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="32.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Information omkring nuværende rum&#10;Hvor er du og hvad kan du i rummet?&#10;&#10;">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -147,8 +147,12 @@
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="122.0" layoutY="71.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
-                        <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Pane fx:id="UpgradeProductArrow" layoutX="110.0" layoutY="64.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="12.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
+                              <Polygon fill="#aeaeae" layoutX="50.0" layoutY="-6.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                   <Button fx:id="upgradeProductsButton" layoutX="51.0" layoutY="316.0" mnemonicParsing="false" onAction="#upgradeProductsButtonClick" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
@@ -178,8 +182,12 @@
                               <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                         </Label>
-                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="122.0" layoutY="71.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
-                        <Polygon fill="#aeaeae" layoutX="160.0" layoutY="58.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                        <Pane fx:id="UpgradeUsageArrow" layoutX="107.0" layoutY="65.0">
+                           <children>
+                              <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="12.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
+                              <Polygon fill="#aeaeae" layoutX="50.0" layoutY="-6.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                           </children>
+                        </Pane>
                      </children>
                   </Pane>
                   <Button fx:id="upgradeUsageButton" layoutX="61.0" layoutY="615.0" mnemonicParsing="false" onAction="#upgradeUsageButtonClick" prefHeight="35.0" prefWidth="188.0" text="Opgrader for 5 Sjæle">
@@ -189,22 +197,22 @@
                   </Button>
                </children>
             </Pane>
-            <Button fx:id="goToMatas" layoutX="764.0" layoutY="475.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
+            <Button fx:id="goToMatas" layoutX="764.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToCarDealer" layoutX="764.0" layoutY="533.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
+            <Button fx:id="goToCarDealer" layoutX="764.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToHarbour" layoutX="763.0" layoutY="649.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
+            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="645.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
                <font>
                   <Font size="25.0" />
                </font>
             </Button>
-            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="591.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
+            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="587.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
                <font>
                   <Font size="25.0" />
                </font>
@@ -214,7 +222,7 @@
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Button fx:id="goToDevil" layoutX="763.0" layoutY="417.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" text="Djævlens kontor">
+            <Button fx:id="goToDevil" layoutX="764.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDevil" prefHeight="58.0" prefWidth="196.0" text="Djævlens kontor">
                <font>
                   <Font size="21.0" />
                </font>

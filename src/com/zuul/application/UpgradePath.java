@@ -19,9 +19,6 @@ public class UpgradePath {
         return pathName;
     }
 
-
-    // SIMON OG PERNILLES OPGAVE //
-
     public Upgrade[] getUpgrades() {
         return upgrades;
     }
@@ -45,23 +42,21 @@ public class UpgradePath {
             } else {
                 return false;
             }
-        } else {
-            ScreenWriter.print("Der er ikke flere mulige opgraderinger!");
-            return false;
         }
+        return false;
     }
 
     public String getUpgradeInfo() {
         if (currentLevel < upgrades.length) {
-            String s = upgrades[currentLevel].upgradeName + " >>> " + upgrades[currentLevel + 1].upgradeName + "\n";
-            s = s + "Price " + upgrades[currentLevel].upgradePrice + " Fish Souls \n";
-            s = s + upgrades[currentLevel].productionSpeed + " plastic/yr >>> "
+            String upgradeInfo = upgrades[currentLevel].upgradeName + " >>> " + upgrades[currentLevel + 1].upgradeName + "\n";
+            upgradeInfo = upgradeInfo + "Price " + upgrades[currentLevel].upgradePrice + " Fish Souls \n";
+            upgradeInfo = upgradeInfo + upgrades[currentLevel].productionSpeed + " plastic/yr >>> "
                     + upgrades[currentLevel + 1].productionSpeed + " plastic/yr\n";
-            return s;
+            return upgradeInfo;
         } else {
-            String s = upgrades[currentLevel].upgradeName + "\n" + upgrades[currentLevel].productionSpeed
+            String upgradeInfo = upgrades[currentLevel].upgradeName + "\n" + upgrades[currentLevel].productionSpeed
                     + " plastic/yr";
-            return s;
+            return upgradeInfo;
         }
     }
 
@@ -85,9 +80,4 @@ public class UpgradePath {
         }
         return -1;
     }
-
-    public int getLevel() {
-        return currentLevel;
-    }
-
 }
