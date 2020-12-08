@@ -3,6 +3,7 @@ package com.zuul.application;
 import com.zuul.application.rooms.UpgradeRoom;
 
 import java.text.DecimalFormat;
+import java.util.HashMap;
 
 public class GameStats {
     public static long fishInOcean = 35000l;
@@ -10,6 +11,7 @@ public class GameStats {
     public static double currentFishSouls;
     public static double plasticInOcean;
     public static double plasticProduction = 1;
+    public static String gameProgress;
     private UpgradeRoom[] upgradeRoom;
     public static double currentTurn = 0;
     public static final int currentYear = 2000;
@@ -19,6 +21,12 @@ public class GameStats {
         UpdatePlastic(yr);
         UpdateFish(yr);
     }
+
+    public String ProgressUpdate(String gameProgress) {
+        this.gameProgress = gameProgress;
+        return gameProgress;
+    }
+
 
     public static void printStats() {
         ScreenWriter.print(getYear());
