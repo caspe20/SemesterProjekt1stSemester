@@ -109,6 +109,11 @@ public class Wrapper {
     public static void setProgressBarText(String txt) {
         currCon.deadFish.setText(txt);
     }
+    public static void setUserDescription(String txt) {
+        currCon.userDescription.setWrapText(true);
+        currCon.userDescription.setText(txt);
+    }
+
 
     public static void updateUpgradeUI() {
         UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;

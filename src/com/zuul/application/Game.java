@@ -54,8 +54,24 @@ public class Game extends Application {
         double totalProgress = 1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning);
         Wrapper.setProgressBar(totalProgress);
         Wrapper.setProgressBarText(((long)Math.floor(totalProgress * 100))+"% Af fiskene i havet er døde");
+        if (10 == (int)(totalProgress*100)) {
+            Wrapper.setUserDescription("You are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work!");
+        }
+        if (25 == (int)(totalProgress*100)) {
+            Wrapper.setUserDescription("Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
+        }
+        if (50 == (int)(totalProgress*100)) {
+            Wrapper.setUserDescription("Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
+        }
+        if (75 == (int)(totalProgress*100)) {
+            Wrapper.setUserDescription("This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
+        }
+        if (100 == (int)(totalProgress*100)) {
+            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
+        }
         devilsRoomController.setStats();
     }
+
 
     public static void GameTick() {
         GameStats.SimulateTurn(50d/12000d);
