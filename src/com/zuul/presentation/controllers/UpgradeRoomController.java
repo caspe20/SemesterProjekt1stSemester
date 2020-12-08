@@ -1,13 +1,12 @@
-package com.zuul.presentation;
+package com.zuul.presentation.controllers;
 
 // Import application layer
+import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
-import static com.zuul.presentation.Wrapper.changeRoomToMatas;
-
-public class Controller {
+public class UpgradeRoomController extends Controller {
 
     @FXML
     public Label year;
@@ -65,22 +64,6 @@ public class Controller {
     @FXML
     public Button goToDevil;
     @FXML
-    public Label matasProduction;
-    @FXML
-    public Label matasUsage;
-    @FXML
-    public Label carDealerProduction;
-    @FXML
-    public Label carDealerUsage;
-    @FXML
-    public Label laundryProduction;
-    @FXML
-    public Label laundryUsage;
-    @FXML
-    public Label harbourProduction;
-    @FXML
-    public Label harbourUsage;
-    @FXML
     public Pane UpgradeProductArrow;
     @FXML
     public Pane UpgradeUsageArrow;
@@ -119,10 +102,4 @@ public class Controller {
     void updateRoomToDevil() throws Exception {
         Wrapper.changeRoomToDevil();
     }
-
-    @FXML
-    void startGame(){
-        Wrapper.startGame();
-    }
-
 }
