@@ -10,7 +10,7 @@ public class GameStats {
     public static long fishInOceanBeginning = fishInOcean;
     public static double currentFishSouls = 20000000;
     public static double plasticInOcean;
-    public static double plasticProduction = 1;
+    public static double plasticProduction = 0;
     public static String gameProgress;
     private UpgradeRoom[] upgradeRoom;
     public static double currentTurn = 0;
@@ -49,9 +49,9 @@ public class GameStats {
     }
 
     public static String getYear() {
-        double date = currentYear + currentTurn;
-        double day = (date % 1) * 365;
-        String out = "år " + String.valueOf(((int)date)) + " dag " + String.format("%.0f", day);
+        double year = currentYear + currentTurn;
+        double day = (year % 1) * 365;
+        String out = "år " + (int)Math.floor(year) + " dag " + String.format("%.0f",day);
         return out;
     }
 

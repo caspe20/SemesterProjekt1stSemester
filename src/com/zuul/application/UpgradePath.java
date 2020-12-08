@@ -59,7 +59,8 @@ public class UpgradePath {
 
     public String getUpgradeInfo() {
         if (currentLevel < upgrades.length) {
-            String upgradeInfo = upgrades[currentLevel].upgradeName + " >>> " + upgrades[currentLevel + 1].upgradeName + "\n";
+            String upgradeInfo = upgrades[currentLevel].upgradeName + " >>> " + upgrades[currentLevel + 1].upgradeName
+                    + "\n";
             upgradeInfo = upgradeInfo + "Price " + upgrades[currentLevel].upgradePrice + " Fish Souls \n";
             upgradeInfo = upgradeInfo + upgrades[currentLevel].productionSpeed + " plastic/yr >>> "
                     + upgrades[currentLevel + 1].productionSpeed + " plastic/yr\n";
@@ -94,7 +95,8 @@ public class UpgradePath {
 
     public String getUpgradeButtonDescription() {
         if (currentLevel < upgrades.length - 1) {
-            return "Opgradér for " + GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice()) + " fiskesjæle";
+            return "Opgradér for " + GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice())
+                    + " fiskesjæle";
         }
         return "opgradering utilgængelig";
     }
