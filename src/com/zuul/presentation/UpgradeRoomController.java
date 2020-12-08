@@ -8,15 +8,10 @@ import javafx.scene.layout.Pane;
 
 import static com.zuul.presentation.Wrapper.changeRoomToMatas;
 
-public class Controller {
+public class UpgradeRoomController {
 
-    @FXML
-    public Label year;
-    @FXML
-    public Label microplast;
     @FXML
     public Label time;
-
     @FXML
     public Label plastPerDay;
     @FXML
@@ -65,22 +60,6 @@ public class Controller {
     public Label deadFish;
     @FXML
     public Button goToDevil;
-    @FXML
-    public Label matasProduction;
-    @FXML
-    public Label matasUsage;
-    @FXML
-    public Label carDealerProduction;
-    @FXML
-    public Label carDealerUsage;
-    @FXML
-    public Label laundryProduction;
-    @FXML
-    public Label laundryUsage;
-    @FXML
-    public Label harbourProduction;
-    @FXML
-    public Label harbourUsage;
     @FXML
     public Pane UpgradeProductArrow;
     @FXML

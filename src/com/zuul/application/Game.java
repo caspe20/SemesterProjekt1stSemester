@@ -1,7 +1,7 @@
 package com.zuul.application;
 
 import com.zuul.application.rooms.*;
-import com.zuul.presentation.Controller;
+import com.zuul.presentation.UpgradeRoomController;
 import com.zuul.presentation.DevilsRoomController;
 import com.zuul.presentation.Wrapper;
 import javafx.animation.Animation;
@@ -17,9 +17,10 @@ import javafx.util.Duration;
 public class Game extends Application {
     private static DevilsRoomController devilsRoomController;
     String presentationLocation = "../presentation/";
-    public static Controller con;
+    public static UpgradeRoomController con;
     public static Stage primaryStage;
     public FXMLLoader loader;
+    public static String changeScene;
 
     public static void main(String[] args) {
         devilsRoomController = new DevilsRoomController();
@@ -69,13 +70,14 @@ public class Game extends Application {
         if (100 == (int)(totalProgress*100)) {
             Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
         }
-        devilsRoomController.setStats();
+        Wrapper.setStats();
     }
 
 
     public static void GameTick() {
         GameStats.SimulateTurn(50d/12000d);
-        Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction) + " tons",GameStats.getPlastic(), GameStats.getFish()});
+        Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction)
+                + " tons",GameStats.getPlastic(), GameStats.getFish()});
         calculateProgress();
     }
 
@@ -321,11 +323,9 @@ public class Game extends Application {
         currentRoom = devilheadquater;
         try {
             changeScene("DevilRoom.fxml");
-            devilsRoomController.setController(loader.getController());
+            Wrapper.setController(loader.getController());
         }catch(Exception e) {
             e.printStackTrace();
         }
     }
-
-
 }
