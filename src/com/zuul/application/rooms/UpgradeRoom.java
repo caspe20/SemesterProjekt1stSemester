@@ -35,6 +35,32 @@ public class UpgradeRoom extends Room {
                 * upgradePathUsage.upgrades[upgradePathProducts.getCurrentLevel() + quantity].productionSpeed;
     }
 
+
+    public String getProductsUpgradeOneDescription() {
+        return "Level " + (getUpgradePathProducts().getCurrentLevel()+1) + " - " + getUpgradePathProducts().getUpgrades()[getUpgradePathProducts().getCurrentLevel()].getUpgradeName();
+    }
+
+    public String getProductsUpgradeTwoDescription() {
+        return "Level " + (getUpgradePathProducts().getCurrentLevel()+2) + " - " + getUpgradePathProducts().getUpgrades()[getUpgradePathProducts().getCurrentLevel()+1].getUpgradeName();
+    }
+
+    public String getProductsUpgradeButtonDescription() {
+        return "Opgradér for " + getUpgradePathProducts().getUpgrades()[getUpgradePathProducts().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
+    }
+
+    public String getUsageUpgradeOneDescription() {
+        return "Level " + (getUpgradePathUsage().getCurrentLevel()+1) + " - " + getUpgradePathUsage().getUpgrades()[getUpgradePathUsage().getCurrentLevel()].getUpgradeName();
+    }
+
+    public String getUsageUpgradeTwoDescription() {
+        return "Level " + (getUpgradePathUsage().getCurrentLevel()+2) + " - " + getUpgradePathUsage().getUpgrades()[getUpgradePathUsage().getCurrentLevel()+1].getUpgradeName();
+    }
+
+    public String getUsageUpgradeButtonDescription() {
+        return "Opgradér for " + getUpgradePathUsage().getUpgrades()[getUpgradePathUsage().getCurrentLevel()+1].getUpgradePrice() + " fiskesjæle";
+    }
+
+
     @Override
     public String getRoomDescription() {
         return description;
