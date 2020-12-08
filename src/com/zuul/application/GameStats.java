@@ -26,16 +26,7 @@ public class GameStats {
         this.gameProgress = gameProgress;
         return gameProgress;
     }
-
-
-    public static void printStats() {
-        ScreenWriter.print(getYear());
-        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende fiske sjæle:", String.valueOf(currentFishSouls)));
-        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende plastik i havet", String.valueOf(plasticInOcean)));
-        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende fisk i havet:", String.valueOf(fishInOcean)));
-        ScreenWriter.print(ScreenWriter.getLeftRight("Nuværende plastik produktion: ", String.valueOf(plasticProduction)));
-    }
-
+    
     public static void FetchPlasticProduction(double currentTotalPlasticProduction) {
         plasticProduction = currentTotalPlasticProduction;
     }
