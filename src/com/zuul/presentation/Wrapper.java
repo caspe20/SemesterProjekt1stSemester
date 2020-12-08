@@ -54,7 +54,7 @@ public class Wrapper {
     public static void changeRoomToMatas() {
         game.setRoomToMatas();
         resetNavigationButtons();
-        currCon.goToMatas.setDisable(true);
+        currCon.goToMatas.setStyle("-fx-background-color: #17B831;");
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -62,7 +62,7 @@ public class Wrapper {
     public static void changeRoomToCardealer() {
         game.setRoomToCardealer();
         resetNavigationButtons();
-        currCon.goToCarDealer.setDisable(true);
+        currCon.goToCarDealer.setStyle("-fx-background-color: #17B831;");
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -71,7 +71,7 @@ public class Wrapper {
     public static void changeRoomToLaundry() {
         game.setRoomToLaundry();
         resetNavigationButtons();
-        currCon.goToLaundry.setDisable(true);
+        currCon.goToLaundry.setStyle("-fx-background-color: #17B831;");
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -79,7 +79,7 @@ public class Wrapper {
     public static void changeRoomToDock() {
         game.setRoomToDock();
         resetNavigationButtons();
-        currCon.goToHarbour.setDisable(true);
+        currCon.goToHarbour.setStyle("-fx-background-color: #17B831;");
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -87,7 +87,7 @@ public class Wrapper {
     public static void changeRoomToDevil() throws Exception {
         game.setRoomToDevil();
         resetNavigationButtons();
-        currCon.goToDevil.setDisable(true);
+        currCon.goToDevil.setStyle("-fx-background-color: #9F1515;");
     }
 
     /* [0] Årstal
