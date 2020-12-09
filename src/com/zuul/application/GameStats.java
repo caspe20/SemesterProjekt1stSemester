@@ -67,7 +67,7 @@ public class GameStats {
         if (count < 1000) {
             return String.format("%.2f", count);
         } else if (count < 1000000) {
-            return String.format("%.2f", count / 1000) + "t";
+            return String.format("%.2f", count / 1000) + "K";
         } else {
             return String.format("%.2f", count/1000000) + "M";
         }
