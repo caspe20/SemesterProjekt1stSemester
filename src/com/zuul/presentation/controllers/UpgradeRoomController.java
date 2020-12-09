@@ -8,7 +8,6 @@ import javafx.scene.layout.Pane;
 
 public class UpgradeRoomController extends Controller {
 
-
     @FXML
     public Label time;
     @FXML
@@ -78,7 +77,6 @@ public class UpgradeRoomController extends Controller {
         Wrapper.changeRoomToDevil();
     }
 
-
     @FXML
     void updateRoomToDock() {
         Wrapper.changeRoomToDock();
@@ -93,6 +91,5 @@ public class UpgradeRoomController extends Controller {
     void upgradeUsageButtonClick() {
         Wrapper.upgradeLvlUpdate2();
     }
-
 
 }

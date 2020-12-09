@@ -16,114 +16,76 @@ public class Wrapper {
     private static DevilsRoomController devilsRoomController;
     private static Game game;
 
+    /**
+     * Set variables
+     */
+
+    /**
+     * Stores the upgrade room controller as a static object for referencing
+     * 
+     * @param con controller to set as upgrade room controller
+     */
     public static void setUpgradeRoomController(UpgradeRoomController con) {
         upgradeRoomController = con;
     }
 
+    /**
+     * Stores the start menu controller as a static object for referencing
+     * 
+     * @param con controller to set as start menu controller
+     */
     public static void setStartMenuController(StartMenuController con) {
         startMenuController = con;
     }
 
+    /**
+     * Stores the devil room controller as a static object for referencing
+     * 
+     * @param con controller to set as devil room controller
+     */
     public static void setDevilsRoomController(DevilsRoomController con) {
         devilsRoomController = con;
     }
 
+    /**
+     * Updates the static variable for the wrapper class for referencing.
+     * 
+     * @param game the game to be stored
+     */
     public static void setGame(Game game) {
         Wrapper.game = game;
     }
 
-    public static void writeCharacterDescription(String in) {
-
-    }
-
-    public static void upgradeLvlUpdate1() {
-        if (Game.currentRoom instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
-            upgradeRoom.upgradePathProducts.performUpgrade();
-            upgradeRoom.setCombinedProduction();
-            GameStats.UpdatePlasticProduction();
-            updateUpgradeUI();
-        }
-    }
-
-    public static void writeUpgradeTwoToScreen(Upgrade in) {
-
-    }
-
-    public static void upgradeLvlUpdate2() {
-        if (Game.currentRoom instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
-            upgradeRoom.upgradePathUsage.performUpgrade();
-            upgradeRoom.setCombinedProduction();
-            GameStats.UpdatePlasticProduction();
-            updateUpgradeUI();
-        }
-    }
-
-    public static void writeProductionDescription(String in) {
-
-    }
-
-    public static void changeRoomToMatas() {
-        game.setRoomToMatas();
-        resetNavigationButtons();
-        upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
-        upgradeRoomController.goToMatas.setMouseTransparent(true);
-        updateUpgradeUI();
-        updateRoomUI();
-    }
-
-    public static void changeRoomToCardealer() {
-        game.setRoomToCardealer();
-        resetNavigationButtons();
-        upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #17B831;");
-        upgradeRoomController.goToCarDealer.setMouseTransparent(true);
-        updateUpgradeUI();
-        updateRoomUI();
-    }
-
-    public static void changeRoomToLaundry() {
-        game.setRoomToLaundry();
-        resetNavigationButtons();
-        upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #17B831;");
-        upgradeRoomController.goToLaundry.setMouseTransparent(true);
-        updateUpgradeUI();
-        updateRoomUI();
-    }
-
-    public static void changeRoomToDock() {
-        game.setRoomToDock();
-        resetNavigationButtons();
-        upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #17B831;");
-        upgradeRoomController.goToHarbour.setMouseTransparent(true);
-        updateUpgradeUI();
-        updateRoomUI();
-    }
-
-    public static void changeRoomToDevil() throws Exception {
-        game.setRoomToDevil();
-        resetNavigationButtons();
-        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
-        upgradeRoomController.goToDevil.setMouseTransparent(true);
-        setDevilsRoomUpgradeStats();
-        setDevilsRoomUserDescription();
-    }
-
-    /*
-     * [0] Årstal [1] plast pr dag [2] plast i havet [3] fiske sjæle
+    /**
+     * update UI
      */
-    public static void writeStatistics(String[] stats) {
-        upgradeRoomController.time.setText(stats[0]);
-        upgradeRoomController.plastPerDay.setText(stats[1]);
-        upgradeRoomController.plastInSea.setText(stats[2]);
-        upgradeRoomController.fishSouls.setText(stats[3]);
 
-        devilsRoomController.time.setText(stats[0]);
-        devilsRoomController.plastPerDay.setText(stats[1]);
-        devilsRoomController.plastInSea.setText(stats[2]);
-        devilsRoomController.fishSouls.setText(stats[3]);
+    /**
+     * Writes year, plastic production, plastic in ocean, and fish souls to screen
+     * 
+     * @param year         Formatted string for displaying year
+     * @param plast        Formatted string for displaying plastic production
+     * @param plastInOcean Formatted string for displaying plastic in ocean
+     * @param fishSouls    Formatted string for displaying fish souls
+     */
+    public static void writeStatistics(String year, String plast, String plastInOcean, String fishSouls) {
+        upgradeRoomController.time.setText(year);
+        upgradeRoomController.plastPerDay.setText(plast);
+        upgradeRoomController.plastInSea.setText(plastInOcean);
+        upgradeRoomController.fishSouls.setText(fishSouls);
+
+        devilsRoomController.time.setText(year);
+        devilsRoomController.plastPerDay.setText(plast);
+        devilsRoomController.plastInSea.setText(plastInOcean);
+        devilsRoomController.fishSouls.setText(fishSouls);
     }
 
+    /**
+     * Updates the progress bar in the upgradeRoom- and devilRoom scene, and cuts
+     * decimals off based on progress
+     * 
+     * @param progress Progress in percent [0.0 .. 1.0]
+     */
     public static void setProgressBar(double progress) {
         upgradeRoomController.progressBar.setProgress(progress);
         devilsRoomController.progressBar.setProgress(progress);
@@ -148,21 +110,34 @@ public class Wrapper {
         }
     }
 
+    /**
+     * Function setting the description of the users of the current room
+     * 
+     * @param txt text to display in the user description
+     */
     public static void setUserDescription(String txt) {
         upgradeRoomController.userDescription.setWrapText(true);
         upgradeRoomController.userDescription.setText(txt);
     }
 
+    /**
+     * updates the upgrade UI for the current scene.
+     */
     public static void updateUpgradeUI() {
-        String[] info = Game.getUpdateUpgradeUIInfo();
-        // [0] : Description for button "upgradeProductsButton"
-        // [1] : Description for button "upgradeUsageButton"
-        // [2] : Description for label "upgradeProducts1"
-        // [3] : Description for label "upgradeProducts2"
-        // [4] : Description for label "upgradeProducts2Pollution"
-        // [5] : Description for label "upgradeUsage1"
-        // [6] : Description for label "upgradeUsage2"
-        // [7] : Description for label "upgradeUsage2Pollution"
+        String[] info = Game.getupdateUpgradeUIInfo();
+        /*
+         * array indexes and values: 
+         * [0] : 1st Upgrade Button Description 
+         * [1] : 2nd Upgrade Button Description 
+         * [2] : 1st Upgrade one description 
+         * [3] : 1st Upgrade two description 
+         * [4] : 1st upgrade label1 description 
+         * [5] : 1st upgrade label2 description 
+         * [6] : 2nd Upgrade one description 
+         * [7] : 2nd Upgrade two description 
+         * [8] : 2nd upgrade label description 
+         * [9] : 2nd upgrade label2 description
+         */
 
         // Formatting buttons
         upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("Opgradering utilgængelig")));
@@ -183,45 +158,20 @@ public class Wrapper {
         upgradeRoomController.upgradeUsage2Pollution.setText(info[7]);
     }
 
-    public static void updateRoomUI() {
+    /**
+     * Updates the scene's UI, such that it reflects the games' current room
+     */
+    private static void updateRoomUI() {
         upgradeRoomController.roomDescription.setWrapText(true);
         upgradeRoomController.roomDescription.setText(game.getRoomDescription());
         upgradeRoomController.roomName.setText(game.getRoomName());
-
+        updateUpgradeUI();
     }
-
-    public static void resetNavigationButtons() {
-        upgradeRoomController.goToCarDealer.setMouseTransparent(false);
-        //upgradeRoomController.goToCarDealer.setDisable(false);
-        upgradeRoomController.goToHarbour.setMouseTransparent(false);
-        //upgradeRoomController.goToHarbour.setDisable(false);
-        upgradeRoomController.goToLaundry.setMouseTransparent(false);
-        //upgradeRoomController.goToLaundry.setDisable(false);
-        upgradeRoomController.goToMatas.setMouseTransparent(false);
-        //upgradeRoomController.goToMatas.setDisable(false);
-        upgradeRoomController.goToDevil.setMouseTransparent(false);
-        //upgradeRoomController.goToDevil.setDisable(false);
-
-        upgradeRoomController.goToCarDealer.setStyle(null);
-        upgradeRoomController.goToHarbour.setStyle(null);
-        upgradeRoomController.goToLaundry.setStyle(null);
-        upgradeRoomController.goToMatas.setStyle(null);
-        upgradeRoomController.goToDevil.setStyle(null);
-    }
-
-
 
     /**
-     * Starts the game and starts the game timer.
+     * Sets and updates the UI in devils room
      */
-    public static void startGame() {
-        game.changeScene("UpgradeRoom");
-        game.setRoomToDevil();
-        // upgradeRoomController.goToDevil.setDisable(true);
-        Game.StartTimer();
-    }
-
-    public static void setDevilsRoomUpgradeStats() {
+    public static void setDevilsRoomStats() {
         if (Game.currentRoom instanceof DevilsRoom) {
             devilsRoomController.matasProduction
                     .setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
@@ -242,33 +192,127 @@ public class Wrapper {
         }
     }
 
-    public static void setDevilsRoomUserDescription() {
-        if (Game.currentRoom instanceof DevilsRoom) {
+    /**
+     * Resets all navigation buttons once they've been pressed
+     */
+    private static void resetNavigationButtons() {
+        upgradeRoomController.goToCarDealer.setMouseTransparent(false);
+        // upgradeRoomController.goToCarDealer.setDisable(false);
+        upgradeRoomController.goToHarbour.setMouseTransparent(false);
+        // upgradeRoomController.goToHarbour.setDisable(false);
+        upgradeRoomController.goToLaundry.setMouseTransparent(false);
+        // upgradeRoomController.goToLaundry.setDisable(false);
+        upgradeRoomController.goToMatas.setMouseTransparent(false);
+        // upgradeRoomController.goToMatas.setDisable(false);
+        upgradeRoomController.goToDevil.setMouseTransparent(false);
+        // upgradeRoomController.goToDevil.setDisable(false);
 
-            devilsRoomController.userDescription.setWrapText(true);
+        upgradeRoomController.goToCarDealer.setStyle(null);
+        upgradeRoomController.goToHarbour.setStyle(null);
+        upgradeRoomController.goToLaundry.setStyle(null);
+        upgradeRoomController.goToMatas.setStyle(null);
+        upgradeRoomController.goToDevil.setStyle(null);
+        setDevilsRoomStats();
+    }
 
-            String currentProductMatas = (Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
-            String currentProductCardealer = (Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
-            String currentProductLaundry = (Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
-            String currentProductDock = (Game.dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
+    /**
+     * Game button functions
+     */
 
-            String currentUsageMatas = (Game.matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
-            String currentUsageCardealer = (Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
-            String currentUsageLaundry = (Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
-            String currentUsageDock = (Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
+    /**
+     * Starts the game and starts the game timer.
+     */
+    public static void startGame() {
+        game.changeScene("UpgradeRoom");
+        game.setRoomToDevil();
+        // upgradeRoomController.goToDevil.setDisable(true);
+        Game.StartTimer();
+    }
 
-            devilsRoomController.userDescription.
-                    setText("➼ Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                            "➼ Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                            "➼ Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                            "➼ Du " + currentProductDock + " " + currentUsageDock);
-
-
+    /**
+     * Upgrades the first upgradable item in the current room and updates the UI to
+     * reflect this
+     */
+    public static void upgradeLvlUpdate1() {
+        if (Game.currentRoom instanceof UpgradeRoom) {
+            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
+            upgradeRoom.upgradePathProducts.performUpgrade();
+            upgradeRoom.setCombinedProduction();
+            GameStats.UpdatePlasticProduction();
+            updateUpgradeUI();
         }
     }
 
+    /**
+     * upgrade the second upgradable item in the current room and updates the UI to
+     * reflect this
+     */
+    public static void upgradeLvlUpdate2() {
+        if (Game.currentRoom instanceof UpgradeRoom) {
+            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
+            upgradeRoom.upgradePathUsage.performUpgrade();
+            upgradeRoom.setCombinedProduction();
+            GameStats.UpdatePlasticProduction();
+            updateUpgradeUI();
+        }
+    }
 
+    /**
+     * Changes the current room to Matas, such that upgrades and other items are
+     * available for that room
+     */
+    public static void changeRoomToMatas() {
+        game.setRoomToMatas();
+        resetNavigationButtons();
+        upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToMatas.setMouseTransparent(true);
+        updateRoomUI();
+    }
 
+    /**
+     * Changes the current room to car dealer, such that upgrades and other items
+     * are available for that room
+     */
+    public static void changeRoomToCardealer() {
+        game.setRoomToCardealer();
+        resetNavigationButtons();
+        upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToCarDealer.setMouseTransparent(true);
+        updateRoomUI();
+    }
 
+    /**
+     * Changes the current room to laundry mat, such that upgrades and other items
+     * are available for that room
+     */
+    public static void changeRoomToLaundry() {
+        game.setRoomToLaundry();
+        resetNavigationButtons();
+        upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToLaundry.setMouseTransparent(true);
+        updateRoomUI();
+    }
 
+    /**
+     * Changes the current room to dock, such that upgrades and other items are
+     * available for that room
+     */
+    public static void changeRoomToDock() {
+        game.setRoomToDock();
+        resetNavigationButtons();
+        upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToHarbour.setMouseTransparent(true);
+        updateRoomUI();
+    }
+
+    /**
+     * Changes the current room to devil room, such that upgrades and other items
+     * are available for that room
+     */
+    public static void changeRoomToDevil() {
+        game.setRoomToDevil();
+        resetNavigationButtons();
+        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        upgradeRoomController.goToDevil.setMouseTransparent(true);
+    }
 }
