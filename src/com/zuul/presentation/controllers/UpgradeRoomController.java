@@ -8,13 +8,9 @@ import javafx.scene.layout.Pane;
 
 public class UpgradeRoomController extends Controller {
 
-    @FXML
-    public Label year;
-    @FXML
-    public Label microplast;
+
     @FXML
     public Label time;
-
     @FXML
     public Label plastPerDay;
     @FXML
@@ -49,8 +45,6 @@ public class UpgradeRoomController extends Controller {
     public Label upgradeUsage2Pollution;
     @FXML
     public Button upgradeUsageButton;
-    @FXML
-    public Label production;
     @FXML
     public Button goToMatas;
     @FXML
