@@ -303,7 +303,6 @@ public class Game extends Application {
             Wrapper.setUserDescription(
                     "That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats, the world is now a dead place!");
         }
-        Wrapper.setDevilsRoomStats();
     }
 
     /**
@@ -414,5 +413,21 @@ public class Game extends Application {
 
         Wrapper.setUpdateUpgradeUI(button1, button2, label1, label2, label3, label4, label5, label6);
     }
+
+
+    public static void updateDevilsRoomStats() {
+        String label1 = "Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1);
+        String label2 = "Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1);
+        String label3 = "Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1);
+        String label4 = "Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1);
+        String label5 = "Production level: " + (Game.laundry.upgradePathProducts.getCurrentLevel() + 1);
+        String label6 = "Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1);
+        String label7 = "Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1);
+        String label8 = "Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1);
+
+        Wrapper.setDevilsRoomStats(label1, label2, label3, label4, label5, label6, label7, label8);
+    }
+
+
 
 }
