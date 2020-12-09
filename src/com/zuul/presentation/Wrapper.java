@@ -118,10 +118,16 @@ public class Wrapper {
         upgradeRoomController.plastPerDay.setText(stats[1]);
         upgradeRoomController.plastInSea.setText(stats[2]);
         upgradeRoomController.fishSouls.setText(stats[3]);
+
+        devilsRoomController.time.setText(stats[0]);
+        devilsRoomController.plastPerDay.setText(stats[1]);
+        devilsRoomController.plastInSea.setText(stats[2]);
+        devilsRoomController.fishSouls.setText(stats[3]);
     }
 
     public static void setProgressBar(double progress) {
         upgradeRoomController.progressBar.setProgress(progress);
+        devilsRoomController.progressBar.setProgress(progress);
     }
 
     public static void setProgressBarText(String txt) {
