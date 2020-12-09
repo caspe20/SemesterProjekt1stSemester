@@ -122,11 +122,21 @@ public class Wrapper {
 
     public static void setProgressBar(double progress) {
         upgradeRoomController.progressBar.setProgress(progress);
+        if(progress*100 < 0.001){
+            upgradeRoomController.deadFish.setText(String.format("%.6f", progress * 100) + "% af fiskene er døde.");
+        }else if(progress*100 < 0.01) {
+            upgradeRoomController.deadFish.setText(String.format("%.4f", progress * 100) + "% af fiskene er døde.");
+        }else if(progress*100 < 0.1){
+            upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+        }else if(progress*100 < 1){
+            upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+        }else if(progress*100 < 10){
+            upgradeRoomController.deadFish.setText(String.format("%.2f", progress * 100) + "% af fiskene er døde.");
+        }else{
+            upgradeRoomController.deadFish.setText(String.format("%.1f", progress * 100) + "% af fiskene er døde.");
+        }
     }
 
-    public static void setProgressBarText(String txt) {
-        upgradeRoomController.deadFish.setText(txt);
-    }
     public static void setUserDescription(String txt) {
         upgradeRoomController.userDescription.setWrapText(true);
         upgradeRoomController.userDescription.setText(txt);
@@ -173,10 +183,15 @@ public class Wrapper {
 
     public static void resetNavigationButtons(){
         upgradeRoomController.goToCarDealer.setMouseTransparent(false);
+        upgradeRoomController.goToCarDealer.setDisable(false);
         upgradeRoomController.goToHarbour.setMouseTransparent(false);
+        upgradeRoomController.goToHarbour.setDisable(false);
         upgradeRoomController.goToLaundry.setMouseTransparent(false);
+        upgradeRoomController.goToLaundry.setDisable(false);
         upgradeRoomController.goToMatas.setMouseTransparent(false);
+        upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
+        upgradeRoomController.goToDevil.setDisable(false);
     }
 
     /**

@@ -10,7 +10,7 @@ public class GameStats {
     public static long fishInOceanBeginning = fishInOcean;
     public static double currentFishSouls = 20000000;
     public static double plasticInOcean;
-    public static double plasticProduction = 0;
+    public static double plasticProduction = 5;
     public static String gameProgress;
     private UpgradeRoom[] upgradeRoom;
     public static double currentTurn = 0;
@@ -36,7 +36,7 @@ public class GameStats {
     }
 
     public static void UpdatePlasticProduction() {
-        plasticProduction = Game.matas.combinedProduction + Game.laundry.combinedProduction + Game.cardealer.combinedProduction + Game.dock.combinedProduction;
+        plasticProduction = Game.matas.combinedProduction + Game.laundry.combinedProduction + Game.cardealer.combinedProduction + Game.dock.combinedProduction + 5;
     }
 
     private static void UpdateFish(double yr) {
