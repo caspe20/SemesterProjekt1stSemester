@@ -26,6 +26,7 @@ public class UpgradePath {
         return 0;
     }
 
+
     public String getPathName() {
         return pathName;
     }
@@ -111,4 +112,7 @@ public class UpgradePath {
         }
         return "Max Opgradering Nået";
     }
+
+
+
 }
