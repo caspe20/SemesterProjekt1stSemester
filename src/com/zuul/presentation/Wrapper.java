@@ -155,16 +155,14 @@ public class Wrapper {
 
     public static void updateUpgradeUI() {
         String[] info = Game.getUpdateUpgradeUIInfo();
-        // [0] : 1st Upgrade Button Description
-        // [1] : 2nd Upgrade Button Description
-        // [2] : 1st Upgrade one description
-        // [3] : 1st Upgrade two description
-        // [4] : 1st upgrade label1 description
-        // [5] : 1st upgrade label2 description
-        // [6] : 2nd Upgrade one description
-        // [7] : 2nd Upgrade two description
-        // [8] : 2nd upgrade label description
-        // [9] : 2nd upgrade label2 description
+        // [0] : Description for button "upgradeProductsButton"
+        // [1] : Description for button "upgradeUsageButton"
+        // [2] : Description for label "upgradeProducts1"
+        // [3] : Description for label "upgradeProducts2"
+        // [4] : Description for label "upgradeProducts2Pollution"
+        // [5] : Description for label "upgradeUsage1"
+        // [6] : Description for label "upgradeUsage2"
+        // [7] : Description for label "upgradeUsage2Pollution"
 
         // Formatting buttons
         upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("Opgradering utilgængelig")));
@@ -177,12 +175,12 @@ public class Wrapper {
         // Update upgrades text
         upgradeRoomController.upgradeProducts1.setText(info[2]);
         upgradeRoomController.upgradeProducts2.setText(info[3]);
-        upgradeRoomController.upgradeProducts1Pollution.setText(info[4]);
-        upgradeRoomController.upgradeProducts2Pollution.setText(info[5]);
-        upgradeRoomController.upgradeUsage1.setText(info[6]);
-        upgradeRoomController.upgradeUsage2.setText(info[7]);
-        upgradeRoomController.upgradeUsage1Pollution.setText(info[8]);
-        upgradeRoomController.upgradeUsage2Pollution.setText(info[9]);
+        //upgradeRoomController.upgradeProducts1Pollution.setText(info[4]);
+        upgradeRoomController.upgradeProducts2Pollution.setText(info[4]);
+        upgradeRoomController.upgradeUsage1.setText(info[5]);
+        upgradeRoomController.upgradeUsage2.setText(info[6]);
+        //upgradeRoomController.upgradeUsage1Pollution.setText(info[8]);
+        upgradeRoomController.upgradeUsage2Pollution.setText(info[7]);
     }
 
     public static void updateRoomUI() {
