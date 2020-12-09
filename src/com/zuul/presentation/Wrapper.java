@@ -167,8 +167,8 @@ public class Wrapper {
         // [9] : 2nd upgrade label2 description
 
         // Formatting buttons
-        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("opgradering utilgængelig")));
-        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("opgradering utilgængelig")));
+        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("Opgradering utilgængelig")));
+        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("Opgradering utilgængelig")));
 
         // Update button text
         upgradeRoomController.upgradeProductsButton.setText(info[0]);
@@ -260,10 +260,10 @@ public class Wrapper {
             String currentUsageDock = (Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
 
             devilsRoomController.userDescription.
-                    setText("Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                            "Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                            "Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                            "Du " + currentProductDock + " " + currentUsageDock);
+                    setText("➼ Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                            "➼ Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                            "➼ Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                            "➼ Du " + currentProductDock + " " + currentUsageDock);
 
 
         }
