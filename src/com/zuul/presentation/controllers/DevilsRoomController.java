@@ -67,18 +67,4 @@ public class DevilsRoomController extends Controller {
         Wrapper.changeRoomToDock();
     }
 
-    @FXML
-    void upgradeProductsButtonClick() {
-        Wrapper.upgradeLvlUpdate1();
-    }
-
-    @FXML
-    void upgradeUsageButtonClick() {
-        Wrapper.upgradeLvlUpdate2();
-    }
-
-    @FXML
-    void updateRoomToDevil() {
-
-    }
 }
