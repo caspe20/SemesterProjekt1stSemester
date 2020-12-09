@@ -392,36 +392,27 @@ public class Game extends Application {
         double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
         double usageCurrent = UR.getUpgradePathUsage().getCurrentProduction();
         double usageUpgrade = UR.getUpgradePathUsage().getUpgradeProduction();
-
-        // production text
-        //String product1 = String.format("%.0f", productCurrent * usageCurrent) + " tons mikroplastik";
-        //String usage1 = String.format("%.0f", productCurrent * usageCurrent) + " tons mikroplastik";
-        String Products2Pollution = "";
-        String Usage2Pollution = "";
+        String upgradeProductsPollution = "";
+        String upgradeUsagePollution = "";
 
         // Check whether upgrade is available for either upgrade path
-
         if (productUpgrade > 0) {
-            Products2Pollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent)-(productCurrent * usageCurrent)) + " tons mikroplastik";
+            upgradeProductsPollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent)-(productCurrent * usageCurrent)) + " tons mikroplastik";
         }
-
         if (usageUpgrade > 0) {
-            Usage2Pollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade)-(productCurrent * usageCurrent)) + " tons mikroplastik";
+            upgradeUsagePollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade)-(productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
-        String upgradeProductsButton = UR.getUpgradePathProducts().getUpgradeButtonDescription();
-        String upgradeUsageButton = UR.getUpgradePathUsage().getUpgradeButtonDescription();
-        String upgradeProducts1 = UR.getUpgradePathProducts().getUpgradeOneDescription();
-        String upgradeProducts2 = UR.getUpgradePathProducts().getUpgradeTwoDescription();
-        String upgradeProducts2Pollution = Products2Pollution;
-        String upgradeUsage1 = UR.getUpgradePathUsage().getUpgradeOneDescription();
-        String upgradeUsage2 = UR.getUpgradePathUsage().getUpgradeTwoDescription();
-        String upgradeUsage2Pollution = Usage2Pollution;
+        String button1 = UR.getUpgradePathProducts().getUpgradeButtonDescription();
+        String button2 = UR.getUpgradePathUsage().getUpgradeButtonDescription();
+        String label1 = UR.getUpgradePathProducts().getUpgradeOneDescription();
+        String label2 = UR.getUpgradePathProducts().getUpgradeTwoDescription();
+        String label3 = upgradeProductsPollution;
+        String label4 = UR.getUpgradePathUsage().getUpgradeOneDescription();
+        String label5 = UR.getUpgradePathUsage().getUpgradeTwoDescription();
+        String label6 = upgradeUsagePollution;
 
-        Wrapper.setUpdateUpgradeUI(upgradeProductsButton, upgradeUsageButton, upgradeProducts1, upgradeProducts2,
-                upgradeProducts2Pollution, upgradeUsage1, upgradeUsage2, upgradeUsage2Pollution);
-
-
+        Wrapper.setUpdateUpgradeUI(button1, button2, label1, label2, label3, label4, label5, label6);
     }
 
 }
