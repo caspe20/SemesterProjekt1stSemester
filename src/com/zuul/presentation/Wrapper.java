@@ -154,40 +154,34 @@ public class Wrapper {
     }
 
     public static void updateUpgradeUI() {
-        String[] info = Game.getUpdateUpgradeUIInfo();
-        // [0] : Description for button "upgradeProductsButton"
-        // [1] : Description for button "upgradeUsageButton"
-        // [2] : Description for label "upgradeProducts1"
-        // [3] : Description for label "upgradeProducts2"
-        // [4] : Description for label "upgradeProducts2Pollution"
-        // [5] : Description for label "upgradeUsage1"
-        // [6] : Description for label "upgradeUsage2"
-        // [7] : Description for label "upgradeUsage2Pollution"
+        Game.updateUpgradeUI();
+    }
+
+
+    public static void setUpdateUpgradeUI(String button1, String button2, String label1, String label2,
+                                          String label3, String label4, String label5, String label6) {
 
         // Formatting buttons
-        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("Opgradering utilgængelig")));
-        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("Opgradering utilgængelig")));
+        upgradeRoomController.upgradeProductsButton.setDisable((button1.equals("Opgradering utilgængelig")));
+        upgradeRoomController.upgradeUsageButton.setDisable((button2.equals("Opgradering utilgængelig")));
 
         // Update button text
-        upgradeRoomController.upgradeProductsButton.setText(info[0]);
-        upgradeRoomController.upgradeUsageButton.setText(info[1]);
+        upgradeRoomController.upgradeProductsButton.setText(button1);
+        upgradeRoomController.upgradeUsageButton.setText(button2);
 
         // Update upgrades text
-        upgradeRoomController.upgradeProducts1.setText(info[2]);
-        upgradeRoomController.upgradeProducts2.setText(info[3]);
-        //upgradeRoomController.upgradeProducts1Pollution.setText(info[4]);
-        upgradeRoomController.upgradeProducts2Pollution.setText(info[4]);
-        upgradeRoomController.upgradeUsage1.setText(info[5]);
-        upgradeRoomController.upgradeUsage2.setText(info[6]);
-        //upgradeRoomController.upgradeUsage1Pollution.setText(info[8]);
-        upgradeRoomController.upgradeUsage2Pollution.setText(info[7]);
+        upgradeRoomController.upgradeProducts1.setText(label1);
+        upgradeRoomController.upgradeProducts2.setText(label2);
+        upgradeRoomController.upgradeProducts2Pollution.setText(label3);
+        upgradeRoomController.upgradeUsage1.setText(label4);
+        upgradeRoomController.upgradeUsage2.setText(label5);
+        upgradeRoomController.upgradeUsage2Pollution.setText(label6);
     }
 
     public static void updateRoomUI() {
         upgradeRoomController.roomDescription.setWrapText(true);
         upgradeRoomController.roomDescription.setText(game.getRoomDescription());
         upgradeRoomController.roomName.setText(game.getRoomName());
-
     }
 
     public static void resetNavigationButtons() {

@@ -394,7 +394,8 @@ public class Game extends Application {
         }
     }
 
-    public static String[] getUpdateUpgradeUIInfo() {
+
+    public static void updateUpgradeUI() {
         UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
         double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
@@ -404,40 +405,32 @@ public class Game extends Application {
         // production text
         //String product1 = String.format("%.0f", productCurrent * usageCurrent) + " tons mikroplastik";
         //String usage1 = String.format("%.0f", productCurrent * usageCurrent) + " tons mikroplastik";
-        String product2 = "";
-        String usage2 = "";
+        String Products2Pollution = "";
+        String Usage2Pollution = "";
 
         // Check whether upgrade is available for either upgrade path
 
         if (productUpgrade > 0) {
-            product2 = "+ " + String.format("%.0f", (productUpgrade * usageCurrent)-(productCurrent * usageCurrent)) + " tons mikroplastik";
+            Products2Pollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent)-(productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
         if (usageUpgrade > 0) {
-            usage2 = "+ " + String.format("%.0f", (productCurrent * usageUpgrade)-(productCurrent * usageCurrent)) + " tons mikroplastik";
+            Usage2Pollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade)-(productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
-        // [0] : Description for button "upgradeProductsButton"
-        // [1] : Description for button "upgradeUsageButton"
-        // [2] : Description for label "upgradeProducts1"
-        // [3] : Description for label "upgradeProducts2"
-        // [4] : Description for label "upgradeProducts2Pollution"
-        // [5] : Description for label "upgradeUsage1"
-        // [6] : Description for label "upgradeUsage2"
-        // [7] : Description for label "upgradeUsage2Pollution"
+        String upgradeProductsButton = UR.getUpgradePathProducts().getUpgradeButtonDescription();
+        String upgradeUsageButton = UR.getUpgradePathUsage().getUpgradeButtonDescription();
+        String upgradeProducts1 = UR.getUpgradePathProducts().getUpgradeOneDescription();
+        String upgradeProducts2 = UR.getUpgradePathProducts().getUpgradeTwoDescription();
+        String upgradeProducts2Pollution = Products2Pollution;
+        String upgradeUsage1 = UR.getUpgradePathUsage().getUpgradeOneDescription();
+        String upgradeUsage2 = UR.getUpgradePathUsage().getUpgradeTwoDescription();
+        String upgradeUsage2Pollution = Usage2Pollution;
 
-        String[] out = new String[]{
-                UR.getUpgradePathProducts().getUpgradeButtonDescription(),  // 0
-                UR.getUpgradePathUsage().getUpgradeButtonDescription(),     // 1
-                UR.getUpgradePathProducts().getUpgradeOneDescription(),     // 2
-                UR.getUpgradePathProducts().getUpgradeTwoDescription(),     // 3
-                product2,                                                   // 4
-                UR.getUpgradePathUsage().getUpgradeOneDescription(),        // 5
-                UR.getUpgradePathUsage().getUpgradeTwoDescription(),        // 6
-                usage2,                                                     // 7
-        };
+        Wrapper.setUpdateUpgradeUI(upgradeProductsButton, upgradeUsageButton, upgradeProducts1, upgradeProducts2,
+                upgradeProducts2Pollution, upgradeUsage1, upgradeUsage2, upgradeUsage2Pollution);
 
-        return out;
+
     }
 
 
