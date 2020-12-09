@@ -17,7 +17,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="center" prefHeight="768.0" prefWidth="1020.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.presentation.Controller">
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.presentation.controllers.DevilsRoomController">
    <columnConstraints>
       <ColumnConstraints />
       <ColumnConstraints />
@@ -476,7 +476,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="goToDevil" layoutX="764.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDevil" prefHeight="58.0" prefWidth="196.0" text="Djævlens kontor" textAlignment="CENTER">
+            <Button fx:id="goToDevil" layoutX="764.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
                <font>
                   <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>

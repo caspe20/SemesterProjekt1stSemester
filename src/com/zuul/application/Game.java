@@ -1,102 +1,157 @@
 package com.zuul.application;
 
 import com.zuul.application.rooms.*;
-import com.zuul.presentation.Controller;
-import com.zuul.presentation.DevilsRoomController;
+import com.zuul.presentation.controllers.Controller;
+import com.zuul.presentation.controllers.StartMenuController;
+import com.zuul.presentation.controllers.UpgradeRoomController;
+import com.zuul.presentation.controllers.DevilsRoomController;
 import com.zuul.presentation.Wrapper;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.util.HashMap;
+
 public class Game extends Application {
     private static DevilsRoomController devilsRoomController;
+    // Presentation layer's location
     String presentationLocation = "../presentation/";
-    public static Controller con;
+    // Scene variables
     public static Stage primaryStage;
-    public FXMLLoader loader;
+    public HashMap<String, Scene> scenes = new HashMap<>();
+    public HashMap<String, Object> controllers = new HashMap<>();
+    // Room structure variables
+    public static Room currentRoom;
+    public static UpgradeRoom currentUpgradeRoom;
+    private Room devilheadquater;
+    public static UpgradeRoom matas, laundry, cardealer, dock;
+    // Name of the game
+    private final String gameName = "Hades' Manglende Fisk";
 
+    /**
+     * Creates rooms and makes the game ready to play
+     */
+    public Game() {
+        createRooms();
+    }
+
+    /**
+     * Makes the game ready to play. Invokes the launch function from JavaFXM
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         devilsRoomController = new DevilsRoomController();
         launch(args);
     }
 
+    /**
+     * Overwrites the standard start function for JavaFXML
+     * Make the game window and load its assets (scenes and controllers)
+     *
+     * @param primaryStage FXML application calls start on startup with primarystage as argument.
+     * @throws Exception
+     */
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // Make window
         this.primaryStage = primaryStage;
-        changeScene("StartMenu.fxml");
-    }
-
-    public void changeScene(String fxmlpath) throws Exception {
-        loader = new FXMLLoader(getClass().getResource(presentationLocation + fxmlpath));
-        Parent root = loader.load();
-        Wrapper.setController(loader.getController());
-        Wrapper.setGame(this);
         primaryStage.setTitle("Fisk til Hades");
-        primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
+        // update wrapper
+        Wrapper.setGame(this);
+        // Get loaders for each room
+        FXMLLoader[] loader = new FXMLLoader[]{
+                new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
+                new FXMLLoader(getClass().getResource(presentationLocation + "DevilRoom.fxml")),
+                new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml"))
+        };
+
+        // Load controllers and scenes
+        // scenes["startMenu"]: scene(startmenu)
+        // scenes["DevilRoom"]: scene(devilsroom)
+        // scenes["Martins UI2"]: scene(martinUI)
+        scenes.put("StartMenu", new Scene(loader[0].load()));
+        scenes.put("DevilRoom", new Scene(loader[1].load()));
+        scenes.put("UpgradeRoom", new Scene(loader[2].load()));
+        // controller["startMenu"]: controller(startmenu)
+        // controller["DevilRoom"]: controller(devilsroom)
+        // controller["Martins UI2"]: controller(martinUI)
+        controllers.put("StartMenu", loader[0].getController());
+        controllers.put("DevilRoom", loader[1].getController());
+        controllers.put("UpgradeRoom", loader[2].getController());
+
+        // Change scene to scene 1
+        changeScene("StartMenu");
     }
 
+    /**
+     * Function for a game timer, such that the program can run with real-time screeb updates
+     */
     public static void StartTimer() {
         Timeline timeline = new Timeline(new KeyFrame(
                 Duration.millis(50),
-                ae -> GameTick()));
+                ae -> GameTick())); // Creates tick every 50 miliseconds or ca. 20 ticks a second
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
 
-    public static void calculateProgress() {
-        double totalProgress = 1 - ((double)GameStats.fishInOcean / GameStats.fishInOceanBeginning);
-        Wrapper.setProgressBar(totalProgress);
-        Wrapper.setProgressBarText(((long)Math.floor(totalProgress * 100))+"% Af fiskene i havet er døde");
-        if (10 == (int)(totalProgress*100)) {
-            Wrapper.setUserDescription("You are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work!");
-        }
-        if (25 == (int)(totalProgress*100)) {
-            Wrapper.setUserDescription("Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
-        }
-        if (50 == (int)(totalProgress*100)) {
-            Wrapper.setUserDescription("Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
-        }
-        if (75 == (int)(totalProgress*100)) {
-            Wrapper.setUserDescription("This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
-        }
-        if (100 == (int)(totalProgress*100)) {
-            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
-        }
-        devilsRoomController.setStats();
-    }
-
-
+    /**
+     * Calls this function every game tick.
+     */
     public static void GameTick() {
-        GameStats.SimulateTurn(50d/12000d);
-        Wrapper.writeStatistics(new String[]{GameStats.getYear(), String.valueOf(GameStats.plasticProduction) + " tons",GameStats.getPlastic(), GameStats.getFish()});
+        GameStats.SimulateTurn(50d / 12000d);
+        Wrapper.writeStatistics(new String[]{GameStats.getYear(), GameStats.getPlasticProduction(), GameStats.getPlastic(), GameStats.getFish()});
         calculateProgress();
     }
 
+    /**
+     * Changes the current scene
+     *
+     * @param scene String that denotes the scene and controller to change to
+     * @throws Exception
+     */
+    public void changeScene(String scene) {
+        Controller controller = (Controller) controllers.get(scene);
 
-    // Rest of code
-
-    public static Room currentRoom;
-    public static UpgradeRoom currentUpgradeRoom;
-    private Room devilheadquater;
-    public static UpgradeRoom matas, laundry, cardealer, dock;
-    private double CurrentFishSouls = 0d;
-    private boolean wantToQuit = false;
-    private final String gameName = "Hades' Manglende Fisk";
-
-
-    public Game() {
-        createRooms();
+        // Change controllers to the valid type
+        if (controller instanceof StartMenuController) {
+            Wrapper.setStartMenuController((StartMenuController) controller);
+        } else if (controller instanceof DevilsRoomController) {
+            Wrapper.setDevilsRoomController((DevilsRoomController) controller);
+        } else {
+            Wrapper.setUpgradeRoomController((UpgradeRoomController) controller);
+        }
+        primaryStage.setScene(scenes.get(scene));
     }
 
+    public static void calculateProgress() {
+        double totalProgress = Math.sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
+        Wrapper.setProgressBar(totalProgress);
 
-
+        if (10 == (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("You are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work!");
+        }
+        if (25 == (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
+        }
+        if (50 == (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
+        }
+        if (75 == (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
+        }
+        if (100 == (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
+        }
+        Wrapper.setDevilsRoomStats();
+    }
 
 
     /**
@@ -104,12 +159,12 @@ public class Game extends Application {
      */
     private void createRooms() {
         devilheadquater = new DevilsRoom("Djævlens Hovedkvarter",
-                                        "Velkommen i Djævlens' hovedkvarter");
+                "Velkommen i Djævlens' hovedkvarter");
 
         matas = new UpgradeRoom("Matas",
-                                "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
-                                            "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som " +
-                                            "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
+                "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
+                        "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som " +
+                        "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
                         new Upgrade[]{
                                 new Upgrade("Svanemærket", 0.0, 5.0),
@@ -148,9 +203,9 @@ public class Game extends Application {
                 }));
         // Mangler Hvad der skal vaskes.
         laundry = new UpgradeRoom("Vaskeriet",
-                                    "Velkommen til Vaskeriet! Find din smartphone frem og køb en masse syntetisk tøj fra " +
-                                            "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som " +
-                                            "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
+                "Velkommen til Vaskeriet! Find din smartphone frem og køb en masse syntetisk tøj fra " +
+                        "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som " +
+                        "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
                         new Upgrade[]{
                                 new Upgrade("Bare fødder", 0.0, 3.0),
@@ -191,9 +246,9 @@ public class Game extends Application {
                         }));
 
         cardealer = new UpgradeRoom("Bilforhandler",
-                                    "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt" +
-                                            "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler" +
-                                            "fra dækslitagen svæver med vinden til de store have.",
+                "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt" +
+                        "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler" +
+                        "fra dækslitagen svæver med vinden til de store have.",
                 new UpgradePath("Product",
                         new Upgrade[]{
                                 new Upgrade("Bare fødder", 0.0, 0.0),
@@ -231,9 +286,9 @@ public class Game extends Application {
                         }));
 
         dock = new UpgradeRoom("Molen",
-                                "Velkommen ved Molen! Bare smid alt dit plastikaffald direkte i vandet. Bare rolig! I havet " +
-                                        "bliver det nedbrudt meget langsomt, men når først de store plastikstykker er blevet til små partikler, vil " +
-                                        "de slå en masse fisk ihjel.",
+                "Velkommen ved Molen! Bare smid alt dit plastikaffald direkte i vandet. Bare rolig! I havet " +
+                        "bliver det nedbrudt meget langsomt, men når først de store plastikstykker er blevet til små partikler, vil " +
+                        "de slå en masse fisk ihjel.",
                 new UpgradePath("Product",
                         new Upgrade[]{
                                 new Upgrade("Brødkrummer", 0.0, 0.0),
@@ -290,42 +345,90 @@ public class Game extends Application {
         currentRoom = matas;
         currentUpgradeRoom = matas;
         try {
-            changeScene("Martins UI2.fxml");
-        }catch(Exception e) {}
+            changeScene("UpgradeRoom");
+        } catch (Exception e) {
+        }
     }
 
     public void setRoomToCardealer() {
         currentRoom = cardealer;
         currentUpgradeRoom = cardealer;
         try {
-            changeScene("Martins UI2.fxml");
-        }catch(Exception e) {}
+            changeScene("UpgradeRoom");
+        } catch (Exception e) {
+        }
     }
 
     public void setRoomToLaundry() {
         currentRoom = laundry;
         currentUpgradeRoom = laundry;
         try {
-            changeScene("Martins UI2.fxml");
-        }catch(Exception e) {}
+            changeScene("UpgradeRoom");
+        } catch (Exception e) {
+        }
     }
 
     public void setRoomToDock() {
         currentRoom = dock;
         currentUpgradeRoom = dock;
         try {
-            changeScene("Martins UI2.fxml");
-        }catch(Exception e) {}
+            changeScene("UpgradeRoom");
+        } catch (Exception e) {
+        }
     }
+
     public void setRoomToDevil() {
         currentRoom = devilheadquater;
         try {
-            changeScene("DevilRoom.fxml");
-            devilsRoomController.setController(loader.getController());
-        }catch(Exception e) {
+            changeScene("DevilRoom");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    public static String[] getupdateUpgradeUIInfo() {
+        UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
+        double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
+        double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
+        double usageCurrent = UR.getUpgradePathUsage().getCurrentProduction();
+        double usageUpgrade = UR.getUpgradePathUsage().getUpgradeProduction();
 
+        // production text
+        String product1 = "[" + productCurrent + "]" + " * " + usageCurrent + " = " + (productCurrent * usageCurrent);
+        String usage1 = productCurrent + " * " + "[" + usageCurrent + "]" + " = " + (productCurrent * usageCurrent);
+        String product2 = "", usage2 = "";
+
+        // Check whether upgrade is available for either upgrade path
+        if (productUpgrade > 0) {
+            product2 = "[" + productUpgrade + " ] " + " * " + usageCurrent + " = " + (productUpgrade * usageCurrent);
+        }
+
+        if (usageUpgrade > 0) {
+            usage2 = productCurrent + " * " + "[" + usageUpgrade + "]" + " = " + (productCurrent * usageUpgrade);
+        }
+
+        // [0] : 1st Upgrade Button Description
+        // [1] : 2nd Upgrade Button Description
+        // [2] : 1st Upgrade one description
+        // [3] : 1st Upgrade two description
+        // [4] : 1st upgrade label1 description
+        // [5] : 1st upgrade label2 description
+        // [6] : 2nd Upgrade one description
+        // [7] : 2nd Upgrade two description
+        // [8] : 2nd upgrade label description
+        // [9] : 2nd upgrade label2 description
+        String[] out = new String[]{
+                UR.getUpgradePathProducts().getUpgradeButtonDescription(),  // 0
+                UR.getUpgradePathUsage().getUpgradeButtonDescription(),     // 1
+                UR.getUpgradePathProducts().getUpgradeOneDescription(),     // 2
+                UR.getUpgradePathProducts().getUpgradeTwoDescription(),     // 3
+                product1,                                                   // 4
+                product2,                                                   // 5
+                UR.getUpgradePathUsage().getUpgradeOneDescription(),        // 6
+                UR.getUpgradePathUsage().getUpgradeTwoDescription(),        // 7
+                usage1,                                                     // 8
+                usage2,                                                     // 9
+        };
+        return out;
+    }
 }

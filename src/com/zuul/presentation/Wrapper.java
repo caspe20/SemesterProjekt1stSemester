@@ -5,14 +5,27 @@ import com.zuul.application.Game;
 import com.zuul.application.Upgrade;
 import com.zuul.application.rooms.DevilsRoom;
 import com.zuul.application.rooms.UpgradeRoom;
+import com.zuul.presentation.controllers.DevilsRoomController;
+import com.zuul.presentation.controllers.StartMenuController;
+import com.zuul.presentation.controllers.UpgradeRoomController;
 
 public class Wrapper {
 
-    private static Controller currCon;
+    private static UpgradeRoomController upgradeRoomController;
+    private static StartMenuController startMenuController;
+    private static DevilsRoomController devilsRoomController;
     private static Game game;
 
-    public static void setController(Controller con) {
-        currCon = con;
+    public static void setUpgradeRoomController(UpgradeRoomController con) {
+        upgradeRoomController = con;
+    }
+
+    public static void setStartMenuController(StartMenuController con) {
+        startMenuController = con;
+    }
+
+    public static void setDevilsRoomController(DevilsRoomController con) {
+        devilsRoomController = con;
     }
 
     public static void setGame(Game game) {
@@ -54,7 +67,8 @@ public class Wrapper {
     public static void changeRoomToMatas() {
         game.setRoomToMatas();
         resetNavigationButtons();
-        currCon.goToMatas.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToMatas.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -62,16 +76,17 @@ public class Wrapper {
     public static void changeRoomToCardealer() {
         game.setRoomToCardealer();
         resetNavigationButtons();
-        currCon.goToCarDealer.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToCarDealer.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
 
-
     public static void changeRoomToLaundry() {
         game.setRoomToLaundry();
         resetNavigationButtons();
-        currCon.goToLaundry.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToLaundry.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -79,7 +94,8 @@ public class Wrapper {
     public static void changeRoomToDock() {
         game.setRoomToDock();
         resetNavigationButtons();
-        currCon.goToHarbour.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToHarbour.setMouseTransparent(true);
         updateUpgradeUI();
         updateRoomUI();
     }
@@ -87,124 +103,131 @@ public class Wrapper {
     public static void changeRoomToDevil() throws Exception {
         game.setRoomToDevil();
         resetNavigationButtons();
-        currCon.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        upgradeRoomController.goToDevil.setMouseTransparent(true);
     }
 
-    /* [0] Årstal
-     * [1] plast pr dag
-     * [2] plast i havet
-     * [3] fiske sjæle
+    /*
+     * [0] Årstal [1] plast pr dag [2] plast i havet [3] fiske sjæle
      */
     public static void writeStatistics(String[] stats) {
-        currCon.time.setText(stats[0]);
-        currCon.plastPerDay.setText(stats[1]);
-        currCon.plastInSea.setText(stats[2]);
-        currCon.fishSouls.setText(stats[3]);
+        upgradeRoomController.time.setText(stats[0]);
+        upgradeRoomController.plastPerDay.setText(stats[1]);
+        upgradeRoomController.plastInSea.setText(stats[2]);
+        upgradeRoomController.fishSouls.setText(stats[3]);
+
+        devilsRoomController.time.setText(stats[0]);
+        devilsRoomController.plastPerDay.setText(stats[1]);
+        devilsRoomController.plastInSea.setText(stats[2]);
+        devilsRoomController.fishSouls.setText(stats[3]);
     }
 
     public static void setProgressBar(double progress) {
-        currCon.progressBar.setProgress(progress);
+        upgradeRoomController.progressBar.setProgress(progress);
+        if (progress * 100 < 0.001) {
+            upgradeRoomController.deadFish.setText(String.format("%.6f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 0.01) {
+            upgradeRoomController.deadFish.setText(String.format("%.4f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 0.1) {
+            upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 1) {
+            upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 10) {
+            upgradeRoomController.deadFish.setText(String.format("%.2f", progress * 100) + "% af fiskene er døde.");
+        } else {
+            upgradeRoomController.deadFish.setText(String.format("%.1f", progress * 100) + "% af fiskene er døde.");
+        }
     }
 
-    public static void setProgressBarText(String txt) {
-        currCon.deadFish.setText(txt);
-    }
     public static void setUserDescription(String txt) {
-        currCon.userDescription.setWrapText(true);
-        currCon.userDescription.setText(txt);
+        upgradeRoomController.userDescription.setWrapText(true);
+        upgradeRoomController.userDescription.setText(txt);
     }
-
 
     public static void updateUpgradeUI() {
-        UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
-        Upgrade[] upgradeProduct = UR.upgradePathProducts.getUpgrades();
-        Upgrade[] upgradeUsage = UR.upgradePathUsage.getUpgrades();
-        int currProductUpgrade = UR.upgradePathProducts.getCurrentLevel();
-        int currUsageUpgrade = UR.upgradePathUsage.getCurrentLevel();
+        String[] info = Game.getupdateUpgradeUIInfo();
+        // [0] : 1st Upgrade Button Description
+        // [1] : 2nd Upgrade Button Description
+        // [2] : 1st Upgrade one description
+        // [3] : 1st Upgrade two description
+        // [4] : 1st upgrade label1 description
+        // [5] : 1st upgrade label2 description
+        // [6] : 2nd Upgrade one description
+        // [7] : 2nd Upgrade two description
+        // [8] : 2nd upgrade label description
+        // [9] : 2nd upgrade label2 description
 
-        // upgrade prduction panel
-        if (upgradeProduct.length - 1 <= UR.upgradePathProducts.getCurrentLevel()) {
-            // If upgrade is unavailable
-            // Arrow
-            currCon.UpgradeProductArrow.setVisible(false);
-            // Labels
-            // current
-            currCon.upgradeProducts1.setText(UR.getProductsUpgradeOneDescription());
-            currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeProducts2.setText("Max opgradering nået!");
-            currCon.upgradeProducts2Pollution.setText("");
-            // Button
-            currCon.upgradeProductsButton.setText("opgradering utilgængelig");
-            currCon.upgradeProductsButton.setDisable(true);
-        } else {
-            // If ugrade is available
-            // Arrow
-            currCon.UpgradeProductArrow.setVisible(true);
-            // Labels
-            // current
-            currCon.upgradeProducts1.setText(UR.getProductsUpgradeOneDescription());
-            currCon.upgradeProducts1Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeProducts2.setText(UR.getProductsUpgradeTwoDescription());
-            currCon.upgradeProducts2Pollution.setText("[" + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade + 1].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // Button
-            currCon.upgradeProductsButton.setDisable(false);
-            currCon.upgradeProductsButton.setText(UR.getProductsUpgradeButtonDescription());
-        }
+        // Formatting buttons
+        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("opgradering utilgængelig")));
+        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("opgradering utilgængelig")));
 
-        // upgrade usage panel
-        if (upgradeUsage.length - 1 <= UR.upgradePathUsage.getCurrentLevel()) {
-            // If upgrade is unavailable
-            // Arrow
-            currCon.UpgradeUsageArrow.setVisible(false);
-            // Labels
-            // current
-            currCon.upgradeUsage1.setText(UR.getUsageUpgradeOneDescription());
-            currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeUsage2.setText("Max opgradering nået!");
-            currCon.upgradeUsage2Pollution.setText("");
-            // Button
-            currCon.upgradeUsageButton.setText("opgradering utilgængelig");
-            currCon.upgradeUsageButton.setDisable(true);
-        } else {
-            // If ugrade is available
-            // Arrow
-            currCon.UpgradeUsageArrow.setVisible(true);
-            // Labels
-            // current
-            currCon.upgradeUsage1.setText(UR.getUsageUpgradeOneDescription());
-            currCon.upgradeUsage1Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade].productionSpeed) + " Tons pr. år");
-            // next
-            currCon.upgradeUsage2.setText(UR.getUsageUpgradeTwoDescription());
-            currCon.upgradeUsage2Pollution.setText("[" + String.valueOf(upgradeUsage[currUsageUpgrade + 1].productionSpeed) + "] * " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed) + " = " + String.valueOf(upgradeProduct[currProductUpgrade].productionSpeed * upgradeUsage[currUsageUpgrade + 1].productionSpeed) + " Tons pr. år");
-            // Button
-            currCon.upgradeUsageButton.setDisable(false);
-            currCon.upgradeUsageButton.setText(UR.getUsageUpgradeButtonDescription());
-        }
+        // Update button text
+        upgradeRoomController.upgradeProductsButton.setText(info[0]);
+        upgradeRoomController.upgradeUsageButton.setText(info[1]);
+
+        // Update upgrades text
+        upgradeRoomController.upgradeProducts1.setText(info[2]);
+        upgradeRoomController.upgradeProducts2.setText(info[3]);
+        upgradeRoomController.upgradeProducts1Pollution.setText(info[4]);
+        upgradeRoomController.upgradeProducts2Pollution.setText(info[5]);
+        upgradeRoomController.upgradeUsage1.setText(info[6]);
+        upgradeRoomController.upgradeUsage2.setText(info[7]);
+        upgradeRoomController.upgradeUsage1Pollution.setText(info[8]);
+        upgradeRoomController.upgradeUsage2Pollution.setText(info[9]);
     }
 
     public static void updateRoomUI() {
-        currCon.roomDescription.setWrapText(true);
-        currCon.roomDescription.setText(game.getRoomDescription());
-        currCon.roomName.setText(game.getRoomName());
+        upgradeRoomController.roomDescription.setWrapText(true);
+        upgradeRoomController.roomDescription.setText(game.getRoomDescription());
+        upgradeRoomController.roomName.setText(game.getRoomName());
     }
 
-    public static void resetNavigationButtons(){
-        currCon.goToCarDealer.setDisable(false);
-        currCon.goToHarbour.setDisable(false);
-        currCon.goToLaundry.setDisable(false);
-        currCon.goToMatas.setDisable(false);
-        currCon.goToDevil.setDisable(false);
+    public static void resetNavigationButtons() {
+        upgradeRoomController.goToCarDealer.setMouseTransparent(false);
+        upgradeRoomController.goToCarDealer.setDisable(false);
+        upgradeRoomController.goToHarbour.setMouseTransparent(false);
+        upgradeRoomController.goToHarbour.setDisable(false);
+        upgradeRoomController.goToLaundry.setMouseTransparent(false);
+        upgradeRoomController.goToLaundry.setDisable(false);
+        upgradeRoomController.goToMatas.setMouseTransparent(false);
+        upgradeRoomController.goToMatas.setDisable(false);
+        upgradeRoomController.goToDevil.setMouseTransparent(false);
+        upgradeRoomController.goToDevil.setDisable(false);
+        upgradeRoomController.goToCarDealer.setStyle(null);
+        upgradeRoomController.goToHarbour.setStyle(null);
+        upgradeRoomController.goToLaundry.setStyle(null);
+        upgradeRoomController.goToMatas.setStyle(null);
+        upgradeRoomController.goToDevil.setStyle(null);
     }
 
     /**
      * Starts the game and starts the game timer.
      */
     public static void startGame() {
+        game.changeScene("UpgradeRoom");
         game.setRoomToDevil();
-        currCon.goToDevil.setDisable(true);
+        // upgradeRoomController.goToDevil.setDisable(true);
         Game.StartTimer();
+    }
+
+    public static void setDevilsRoomStats() {
+        if (Game.currentRoom instanceof DevilsRoom) {
+            devilsRoomController.matasProduction
+                    .setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.matasUsage
+                    .setText("Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.carDealerProduction
+                    .setText("Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.carDealerUsage
+                    .setText("Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.laundryProduction
+                    .setText("Production level: " + (Game.laundry.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.laundryUsage
+                    .setText("Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.harbourProduction
+                    .setText("Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.harbourUsage
+                    .setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
+        }
     }
 }

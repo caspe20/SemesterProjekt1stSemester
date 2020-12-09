@@ -1,22 +1,16 @@
-package com.zuul.presentation;
+package com.zuul.presentation.controllers;
 
 // Import application layer
-import com.sun.glass.ui.Cursor;
+import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
-import static com.zuul.presentation.Wrapper.changeRoomToMatas;
+public class UpgradeRoomController extends Controller {
 
-public class Controller {
 
-    @FXML
-    public Label year;
-    @FXML
-    public Label microplast;
     @FXML
     public Label time;
-
     @FXML
     public Label plastPerDay;
     @FXML
@@ -52,8 +46,6 @@ public class Controller {
     @FXML
     public Button upgradeUsageButton;
     @FXML
-    public Label production;
-    @FXML
     public Button goToMatas;
     @FXML
     public Button goToCarDealer;
@@ -65,22 +57,6 @@ public class Controller {
     public Label deadFish;
     @FXML
     public Button goToDevil;
-    @FXML
-    public Label matasProduction;
-    @FXML
-    public Label matasUsage;
-    @FXML
-    public Label carDealerProduction;
-    @FXML
-    public Label carDealerUsage;
-    @FXML
-    public Label laundryProduction;
-    @FXML
-    public Label laundryUsage;
-    @FXML
-    public Label harbourProduction;
-    @FXML
-    public Label harbourUsage;
     @FXML
     public Pane UpgradeProductArrow;
     @FXML
@@ -120,10 +96,4 @@ public class Controller {
     void updateRoomToDevil() throws Exception {
         Wrapper.changeRoomToDevil();
     }
-
-    @FXML
-    void startGame(){
-        Wrapper.startGame();
-    }
-
 }
