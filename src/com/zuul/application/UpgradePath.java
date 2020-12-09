@@ -26,6 +26,7 @@ public class UpgradePath {
         return 0;
     }
 
+
     public String getPathName() {
         return pathName;
     }
@@ -98,7 +99,7 @@ public class UpgradePath {
             return GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice())
                     + " fiskesjæle";
         }
-        return "opgradering utilgængelig";
+        return "Opgradering utilgængelig";
     }
 
     public String getUpgradeOneDescription() {
@@ -109,6 +110,9 @@ public class UpgradePath {
         if (currentLevel < upgrades.length - 1) {
             return "Level " + (currentLevel + 2) + " - " + upgrades[currentLevel + 1].getUpgradeName();
         }
-        return "Max Opgradering Nået";
+        return "Max opgradering nået";
     }
+
+
+
 }

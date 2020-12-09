@@ -328,7 +328,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="matasProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -340,7 +342,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="matasUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -368,7 +372,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="carDealerProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -380,7 +386,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="carDealerUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -408,7 +416,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="laundryProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -420,7 +430,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="laundryUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -448,7 +460,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="harbourProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -460,7 +474,9 @@
                         </ColorAdjust>
                      </effect>
                   </Label>
+
                   <Label fx:id="harbourUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -474,7 +490,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="goToDevil" layoutX="764.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
+            <Button fx:id="goToDevil" layoutX="764.0" layoutY="350.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
                <font>
                   <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>

@@ -105,6 +105,8 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
         upgradeRoomController.goToDevil.setMouseTransparent(true);
+        setDevilsRoomStats();
+        setDevilsRoomUserDescription();
     }
 
     /*
@@ -124,18 +126,25 @@ public class Wrapper {
 
     public static void setProgressBar(double progress) {
         upgradeRoomController.progressBar.setProgress(progress);
+        devilsRoomController.progressBar.setProgress(progress);
         if (progress * 100 < 0.001) {
             upgradeRoomController.deadFish.setText(String.format("%.6f", progress * 100) + "% af fiskene er døde.");
+            devilsRoomController.deadFish.setText(String.format("%.6f", progress * 100) + "% af fiskene er døde.");
         } else if (progress * 100 < 0.01) {
             upgradeRoomController.deadFish.setText(String.format("%.4f", progress * 100) + "% af fiskene er døde.");
+            devilsRoomController.deadFish.setText(String.format("%.4f", progress * 100) + "% af fiskene er døde.");
         } else if (progress * 100 < 0.1) {
             upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+            devilsRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
         } else if (progress * 100 < 1) {
             upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+            devilsRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
         } else if (progress * 100 < 10) {
             upgradeRoomController.deadFish.setText(String.format("%.2f", progress * 100) + "% af fiskene er døde.");
+            devilsRoomController.deadFish.setText(String.format("%.2f", progress * 100) + "% af fiskene er døde.");
         } else {
             upgradeRoomController.deadFish.setText(String.format("%.1f", progress * 100) + "% af fiskene er døde.");
+            devilsRoomController.deadFish.setText(String.format("%.1f", progress * 100) + "% af fiskene er døde.");
         }
     }
 
@@ -145,7 +154,7 @@ public class Wrapper {
     }
 
     public static void updateUpgradeUI() {
-        String[] info = Game.getupdateUpgradeUIInfo();
+        String[] info = Game.getUpdateUpgradeUIInfo();
         // [0] : 1st Upgrade Button Description
         // [1] : 2nd Upgrade Button Description
         // [2] : 1st Upgrade one description
@@ -158,8 +167,8 @@ public class Wrapper {
         // [9] : 2nd upgrade label2 description
 
         // Formatting buttons
-        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("opgradering utilgængelig")));
-        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("opgradering utilgængelig")));
+        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("Opgradering utilgængelig")));
+        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("Opgradering utilgængelig")));
 
         // Update button text
         upgradeRoomController.upgradeProductsButton.setText(info[0]);
@@ -180,25 +189,28 @@ public class Wrapper {
         upgradeRoomController.roomDescription.setWrapText(true);
         upgradeRoomController.roomDescription.setText(game.getRoomDescription());
         upgradeRoomController.roomName.setText(game.getRoomName());
+
     }
 
     public static void resetNavigationButtons() {
         upgradeRoomController.goToCarDealer.setMouseTransparent(false);
-        upgradeRoomController.goToCarDealer.setDisable(false);
+        //upgradeRoomController.goToCarDealer.setDisable(false);
         upgradeRoomController.goToHarbour.setMouseTransparent(false);
-        upgradeRoomController.goToHarbour.setDisable(false);
+        //upgradeRoomController.goToHarbour.setDisable(false);
         upgradeRoomController.goToLaundry.setMouseTransparent(false);
-        upgradeRoomController.goToLaundry.setDisable(false);
+        //upgradeRoomController.goToLaundry.setDisable(false);
         upgradeRoomController.goToMatas.setMouseTransparent(false);
-        upgradeRoomController.goToMatas.setDisable(false);
+        //upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
-        upgradeRoomController.goToDevil.setDisable(false);
+        //upgradeRoomController.goToDevil.setDisable(false);
         upgradeRoomController.goToCarDealer.setStyle(null);
         upgradeRoomController.goToHarbour.setStyle(null);
         upgradeRoomController.goToLaundry.setStyle(null);
         upgradeRoomController.goToMatas.setStyle(null);
         upgradeRoomController.goToDevil.setStyle(null);
     }
+
+
 
     /**
      * Starts the game and starts the game timer.
@@ -230,4 +242,35 @@ public class Wrapper {
                     .setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
         }
     }
+
+
+    public static void setDevilsRoomUserDescription() {
+        if (Game.currentRoom instanceof DevilsRoom) {
+
+            devilsRoomController.userDescription.setWrapText(true);
+
+            String currentProductMatas = (Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
+            String currentProductCardealer = (Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
+            String currentProductLaundry = (Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
+            String currentProductDock = (Game.dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()]).getUpgradeName();
+
+            String currentUsageMatas = (Game.matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
+            String currentUsageCardealer = (Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
+            String currentUsageLaundry = (Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
+            String currentUsageDock = (Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()]).getUpgradeName();
+
+            devilsRoomController.userDescription.
+                    setText("➼ Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                            "➼ Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                            "➼ Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                            "➼ Du " + currentProductDock + " " + currentUsageDock);
+
+
+        }
+    }
+
+
+
+
+
 }
