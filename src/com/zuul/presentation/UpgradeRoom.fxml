@@ -21,18 +21,14 @@
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.presentation.controllers.UpgradeRoomController">
    <columnConstraints>
-      <ColumnConstraints maxWidth="1020.0" minWidth="1010.0" prefWidth="1020.0" />
-      <ColumnConstraints maxWidth="340.0" minWidth="0.0" prefWidth="0.0" />
+      <ColumnConstraints />
+      <ColumnConstraints />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints />
-      <RowConstraints />
-      <RowConstraints />
-      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
-      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
    </rowConstraints>
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="769.0" prefWidth="1017.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1017.0">
          <children>
             <Pane layoutX="716.0" layoutY="64.0" prefHeight="265.0" prefWidth="290.0">
                <children>
@@ -210,7 +206,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="34.0" prefWidth="1014.0" progress="0.42">
+            <ProgressBar fx:id="progressBar" layoutX="-4.0" layoutY="735.0" prefHeight="34.0" prefWidth="1034.0" progress="0.42">
                <effect>
                   <ColorAdjust contrast="0.65" hue="0.9" saturation="0.3" />
                </effect></ProgressBar>

@@ -26,7 +26,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1020.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1017.0">
          <children>
             <Pane layoutX="716.0" layoutY="64.0" prefHeight="265.0" prefWidth="290.0">
                <children>
@@ -162,7 +162,7 @@
             </Pane>
             <Pane layoutX="286.0" layoutY="105.0" prefHeight="623.0" prefWidth="445.0">
                <children>
-                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="33.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Velkommen">
+                  <TextArea fx:id="roomDescription" editable="false" layoutX="15.0" layoutY="32.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Velkommen">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -204,7 +204,7 @@
                   </LinearGradient>
                </textFill>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="34.0" prefWidth="1014.0" progress="0.42">
+            <ProgressBar fx:id="progressBar" layoutX="-4.0" layoutY="735.0" prefHeight="34.0" prefWidth="1034.0" progress="0.42">
                <effect>
                   <ColorAdjust contrast="0.65" hue="0.9" saturation="0.3" />
                </effect></ProgressBar>
@@ -476,7 +476,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="goToDevil" layoutX="764.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
+            <Button fx:id="goToDevil" layoutX="764.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
                <font>
                   <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
