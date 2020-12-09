@@ -193,6 +193,11 @@ public class Wrapper {
         upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
         upgradeRoomController.goToDevil.setDisable(false);
+        upgradeRoomController.goToCarDealer.setStyle(null);
+        upgradeRoomController.goToHarbour.setStyle(null);
+        upgradeRoomController.goToLaundry.setStyle(null);
+        upgradeRoomController.goToMatas.setStyle(null);
+        upgradeRoomController.goToDevil.setStyle(null);
     }
 
     /**
