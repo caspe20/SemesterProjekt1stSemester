@@ -18,7 +18,6 @@ import javafx.util.Duration;
 import java.util.HashMap;
 
 public class Game extends Application {
-    private static DevilsRoomController devilsRoomController;
     // Presentation layer's location
     String presentationLocation = "../presentation/";
     // Scene variables
@@ -46,7 +45,6 @@ public class Game extends Application {
      * @param args
      */
     public static void main(String[] args) {
-        devilsRoomController = new DevilsRoomController();
         launch(args);
     }
 
@@ -404,41 +402,41 @@ public class Game extends Application {
         double usageUpgrade = UR.getUpgradePathUsage().getUpgradeProduction();
 
         // production text
-        String product1 = "[" + productCurrent + "]" + " * " + usageCurrent + " = " + (productCurrent * usageCurrent);
-        String usage1 = productCurrent + " * " + "[" + usageCurrent + "]" + " = " + (productCurrent * usageCurrent);
-        String product2 = "", usage2 = "";
+        //String product1 = String.format("%.0f", productCurrent * usageCurrent) + " tons mikroplastik";
+        //String usage1 = String.format("%.0f", productCurrent * usageCurrent) + " tons mikroplastik";
+        String product2 = "";
+        String usage2 = "";
 
         // Check whether upgrade is available for either upgrade path
+
         if (productUpgrade > 0) {
-            product2 = "[" + productUpgrade + " ] " + " * " + usageCurrent + " = " + (productUpgrade * usageCurrent);
+            product2 = "+ " + String.format("%.0f", (productUpgrade * usageCurrent)-(productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
         if (usageUpgrade > 0) {
-            usage2 = productCurrent + " * " + "[" + usageUpgrade + "]" + " = " + (productCurrent * usageUpgrade);
+            usage2 = "+ " + String.format("%.0f", (productCurrent * usageUpgrade)-(productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
-        // [0] : 1st Upgrade Button Description
-        // [1] : 2nd Upgrade Button Description
-        // [2] : 1st Upgrade one description
-        // [3] : 1st Upgrade two description
-        // [4] : 1st upgrade label1 description
-        // [5] : 1st upgrade label2 description
-        // [6] : 2nd Upgrade one description
-        // [7] : 2nd Upgrade two description
-        // [8] : 2nd upgrade label description
-        // [9] : 2nd upgrade label2 description
+        // [0] : Description for button "upgradeProductsButton"
+        // [1] : Description for button "upgradeUsageButton"
+        // [2] : Description for label "upgradeProducts1"
+        // [3] : Description for label "upgradeProducts2"
+        // [4] : Description for label "upgradeProducts2Pollution"
+        // [5] : Description for label "upgradeUsage1"
+        // [6] : Description for label "upgradeUsage2"
+        // [7] : Description for label "upgradeUsage2Pollution"
+
         String[] out = new String[]{
                 UR.getUpgradePathProducts().getUpgradeButtonDescription(),  // 0
                 UR.getUpgradePathUsage().getUpgradeButtonDescription(),     // 1
                 UR.getUpgradePathProducts().getUpgradeOneDescription(),     // 2
                 UR.getUpgradePathProducts().getUpgradeTwoDescription(),     // 3
-                product1,                                                   // 4
-                product2,                                                   // 5
-                UR.getUpgradePathUsage().getUpgradeOneDescription(),        // 6
-                UR.getUpgradePathUsage().getUpgradeTwoDescription(),        // 7
-                usage1,                                                     // 8
-                usage2,                                                     // 9
+                product2,                                                   // 4
+                UR.getUpgradePathUsage().getUpgradeOneDescription(),        // 5
+                UR.getUpgradePathUsage().getUpgradeTwoDescription(),        // 6
+                usage2,                                                     // 7
         };
+
         return out;
     }
 
