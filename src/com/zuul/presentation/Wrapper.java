@@ -22,7 +22,7 @@ public class Wrapper {
 
     /**
      * Stores the upgrade room controller as a static object for referencing
-     * 
+     *
      * @param con controller to set as upgrade room controller
      */
     public static void setUpgradeRoomController(UpgradeRoomController con) {
@@ -31,7 +31,7 @@ public class Wrapper {
 
     /**
      * Stores the start menu controller as a static object for referencing
-     * 
+     *
      * @param con controller to set as start menu controller
      */
     public static void setStartMenuController(StartMenuController con) {
@@ -40,7 +40,7 @@ public class Wrapper {
 
     /**
      * Stores the devil room controller as a static object for referencing
-     * 
+     *
      * @param con controller to set as devil room controller
      */
     public static void setDevilsRoomController(DevilsRoomController con) {
@@ -49,7 +49,7 @@ public class Wrapper {
 
     /**
      * Updates the static variable for the wrapper class for referencing.
-     * 
+     *
      * @param game the game to be stored
      */
     public static void setGame(Game game) {
@@ -62,7 +62,7 @@ public class Wrapper {
 
     /**
      * Writes year, plastic production, plastic in ocean, and fish souls to screen
-     * 
+     *
      * @param year         Formatted string for displaying year
      * @param plast        Formatted string for displaying plastic production
      * @param plastInOcean Formatted string for displaying plastic in ocean
@@ -83,7 +83,7 @@ public class Wrapper {
     /**
      * Updates the progress bar in the upgradeRoom- and devilRoom scene, and cuts
      * decimals off based on progress
-     * 
+     *
      * @param progress Progress in percent [0.0 .. 1.0]
      */
     public static void setProgressBar(double progress) {
@@ -112,7 +112,7 @@ public class Wrapper {
 
     /**
      * Function setting the description of the users of the current room
-     * 
+     *
      * @param txt text to display in the user description
      */
     public static void setUserDescription(String txt) {
@@ -124,38 +124,28 @@ public class Wrapper {
      * updates the upgrade UI for the current scene.
      */
     public static void updateUpgradeUI() {
-        String[] info = Game.getupdateUpgradeUIInfo();
-        /*
-         * array indexes and values: 
-         * [0] : 1st Upgrade Button Description 
-         * [1] : 2nd Upgrade Button Description 
-         * [2] : 1st Upgrade one description 
-         * [3] : 1st Upgrade two description 
-         * [4] : 1st upgrade label1 description 
-         * [5] : 1st upgrade label2 description 
-         * [6] : 2nd Upgrade one description 
-         * [7] : 2nd Upgrade two description 
-         * [8] : 2nd upgrade label description 
-         * [9] : 2nd upgrade label2 description
-         */
+        Game.updateUpgradeUI();
+    }
+
+
+    public static void setUpdateUpgradeUI(String button1, String button2, String label1, String label2,
+                                          String label3, String label4, String label5, String label6) {
 
         // Formatting buttons
-        upgradeRoomController.upgradeProductsButton.setDisable((info[0].equals("Opgradering utilgængelig")));
-        upgradeRoomController.upgradeUsageButton.setDisable((info[1].equals("Opgradering utilgængelig")));
+        upgradeRoomController.upgradeProductsButton.setDisable((button1.equals("Opgradering utilgængelig")));
+        upgradeRoomController.upgradeUsageButton.setDisable((button2.equals("Opgradering utilgængelig")));
 
         // Update button text
-        upgradeRoomController.upgradeProductsButton.setText(info[0]);
-        upgradeRoomController.upgradeUsageButton.setText(info[1]);
+        upgradeRoomController.upgradeProductsButton.setText(button1);
+        upgradeRoomController.upgradeUsageButton.setText(button2);
 
         // Update upgrades text
-        upgradeRoomController.upgradeProducts1.setText(info[2]);
-        upgradeRoomController.upgradeProducts2.setText(info[3]);
-        //upgradeRoomController.upgradeProducts1Pollution.setText(info[4]);
-        upgradeRoomController.upgradeProducts2Pollution.setText(info[4]);
-        upgradeRoomController.upgradeUsage1.setText(info[5]);
-        upgradeRoomController.upgradeUsage2.setText(info[6]);
-        //upgradeRoomController.upgradeUsage1Pollution.setText(info[8]);
-        upgradeRoomController.upgradeUsage2Pollution.setText(info[7]);
+        upgradeRoomController.upgradeProducts1.setText(label1);
+        upgradeRoomController.upgradeProducts2.setText(label2);
+        upgradeRoomController.upgradeProducts2Pollution.setText(label3);
+        upgradeRoomController.upgradeUsage1.setText(label4);
+        upgradeRoomController.upgradeUsage2.setText(label5);
+        upgradeRoomController.upgradeUsage2Pollution.setText(label6);
     }
 
     /**
