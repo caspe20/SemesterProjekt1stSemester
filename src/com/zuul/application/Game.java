@@ -34,140 +34,15 @@ public class Game extends Application {
     private final String gameName = "Hades' Manglende Fisk";
 
     /**
+     * Game creation
+     */
+
+    /**
      * Creates rooms and makes the game ready to play
      */
     public Game() {
         createRooms();
     }
-
-    /**
-     * Makes the game ready to play. Invokes the launch function from JavaFXM
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        devilsRoomController = new DevilsRoomController();
-        launch(args);
-    }
-
-    /**
-     * Overwrites the standard start function for JavaFXML
-     * Make the game window and load its assets (scenes and controllers)
-     *
-     * @param primaryStage FXML application calls start on startup with primarystage as argument.
-     * @throws Exception
-     */
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        // Make window
-        this.primaryStage = primaryStage;
-        primaryStage.setTitle("Fisk til Hades");
-        primaryStage.show();
-        primaryStage.setResizable(false);
-        // update wrapper
-        Wrapper.setGame(this);
-        // Get loaders for each room
-        FXMLLoader[] loader = new FXMLLoader[]{
-                new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
-                new FXMLLoader(getClass().getResource(presentationLocation + "DevilRoom.fxml")),
-                new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml"))
-        };
-
-        // Load controllers and scenes
-        // scenes["startMenu"]: scene(startmenu)
-        // scenes["DevilRoom"]: scene(devilsroom)
-        // scenes["Martins UI2"]: scene(martinUI)
-        scenes.put("StartMenu", new Scene(loader[0].load()));
-        scenes.put("DevilRoom", new Scene(loader[1].load()));
-        scenes.put("UpgradeRoom", new Scene(loader[2].load()));
-        // controller["startMenu"]: controller(startmenu)
-        // controller["DevilRoom"]: controller(devilsroom)
-        // controller["Martins UI2"]: controller(martinUI)
-        controllers.put("StartMenu", loader[0].getController());
-        controllers.put("DevilRoom", loader[1].getController());
-        controllers.put("UpgradeRoom", loader[2].getController());
-
-        // Change scene to scene 1
-        changeScene("StartMenu");
-    }
-
-    /**
-     * Function for a game timer, such that the program can run with real-time screeb updates
-     */
-    public static void StartTimer() {
-        Timeline timeline = new Timeline(new KeyFrame(
-                Duration.millis(50),
-                ae -> GameTick())); // Creates tick every 50 miliseconds or ca. 20 ticks a second
-        timeline.setCycleCount(Animation.INDEFINITE);
-        timeline.play();
-    }
-
-    /**
-     * Calls this function every game tick.
-     */
-    public static void GameTick() {
-        GameStats.SimulateTurn(50d / 12000d);
-        Wrapper.writeStatistics(new String[]{GameStats.getYear(), GameStats.getPlasticProduction(), GameStats.getPlastic(), GameStats.getFish()});
-        calculateProgress();
-    }
-
-    /**
-     * Changes the current scene
-     *
-     * @param scene String that denotes the scene and controller to change to
-     * @throws Exception
-     */
-    public void changeScene(String scene) {
-        Controller controller = (Controller) controllers.get(scene);
-
-        // Change controllers to the valid type
-        if (controller instanceof StartMenuController) {
-            Wrapper.setStartMenuController((StartMenuController) controller);
-        } else if (controller instanceof DevilsRoomController) {
-            Wrapper.setDevilsRoomController((DevilsRoomController) controller);
-        } else {
-            Wrapper.setUpgradeRoomController((UpgradeRoomController) controller);
-        }
-        primaryStage.setScene(scenes.get(scene));
-    }
-
-    public static void calculateProgress() {
-        double totalProgress = Math.sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
-        Wrapper.setProgressBar(totalProgress);
-        System.out.println(100 * totalProgress);
-        if (0.001 > (totalProgress * 100)) {
-            Wrapper.setUserDescription("Well, what do we have here? Fresh new meat that wishes to serve the master of the underworld? Well then, welcome to my domain, my faithful servant! I do not tolerate failure, now go get me the fish souls I need to end the world!");
-        }
-        else if (0.01 > (totalProgress * 100)) {
-            Wrapper.setUserDescription("You think you are good because you threw candy wrapper in the harbor once a year? Think again, pewny servant. You're just an amateur like everyone else! Come back when I see some proper progress. You disappoint me.");
-        }
-        else if (1 > (totalProgress * 100)) {
-            Wrapper.setUserDescription("I can see you have ambition in you, servant. Do you also vision the world as a dead place? Now, that's enough positive feedback. Waste more microplastics, you imbecill!");
-        }
-        else if (10 > (totalProgress * 100)) {
-            Wrapper.setUserDescription("So you are actually making an effort killing all the fish? Hmm.. Yes.. This is good. Yes. Keep it up, I need more souls in my collection. Give me floating mountains of microplastics! I will not settle for less.");
-        }
-        else if (25 > (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("I can see you are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work, my servant!");
-        }
-        else if (35 > (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("I suppose you're asking for a raise at this point? As long as you don't unionize with the other polluters, I'll give you a 0.1% raise and a goat? You deserve it! Do we have a deal? *spits in hand and goes for a shake*");
-        }
-        else if (50 > (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
-        }
-        else if (75 > (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
-        }
-        else if (100 > (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
-        }
-        else {
-            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats, the world is now a dead place!");
-        }
-        Wrapper.setDevilsRoomStats();
-    }
-
 
     /**
      * Creates the world in the game
@@ -346,16 +221,160 @@ public class Game extends Application {
 
     }
 
+    /**
+     * Makes the game ready to play. Invokes the launch function from JavaFXM
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        devilsRoomController = new DevilsRoomController();
+        launch(args);
+    }
+
+    /**
+     * Overwrites the standard start function for JavaFXML
+     * Make the game window and load its assets (scenes and controllers)
+     *
+     * @param primaryStage FXML application calls start on startup with primarystage as argument.
+     * @throws Exception
+     */
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        // Make window
+        this.primaryStage = primaryStage;
+        primaryStage.setTitle("Fisk til Hades");
+        primaryStage.show();
+        primaryStage.setResizable(false);
+        // update wrapper
+        Wrapper.setGame(this);
+        // Get loaders for each room
+        FXMLLoader[] loader = new FXMLLoader[]{
+                new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
+                new FXMLLoader(getClass().getResource(presentationLocation + "DevilRoom.fxml")),
+                new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml"))
+        };
+
+        // Load controllers and scenes
+        // scenes["startMenu"]: scene(startmenu)
+        // scenes["DevilRoom"]: scene(devilsroom)
+        // scenes["Martins UI2"]: scene(martinUI)
+        scenes.put("StartMenu", new Scene(loader[0].load()));
+        scenes.put("DevilRoom", new Scene(loader[1].load()));
+        scenes.put("UpgradeRoom", new Scene(loader[2].load()));
+        // controller["startMenu"]: controller(startmenu)
+        // controller["DevilRoom"]: controller(devilsroom)
+        // controller["Martins UI2"]: controller(martinUI)
+        controllers.put("StartMenu", loader[0].getController());
+        controllers.put("DevilRoom", loader[1].getController());
+        controllers.put("UpgradeRoom", loader[2].getController());
+
+        // Change scene to scene 1
+        changeScene("StartMenu");
+    }
+
+    /**
+     * Function for a game timer, such that the program can run with real-time screeb updates
+     */
+    public static void StartTimer() {
+        Timeline timeline = new Timeline(new KeyFrame(
+                Duration.millis(50),
+                ae -> GameTick())); // Creates tick every 50 miliseconds or ca. 20 ticks a second
+        timeline.setCycleCount(Animation.INDEFINITE);
+        timeline.play();
+    }
+
+    /**
+     * Calls this function every game tick.
+     */
+    public static void GameTick() {
+        GameStats.SimulateTurn(50d / 12000d);
+        Wrapper.writeStatistics(GameStats.getYear(), GameStats.getPlasticProduction(), GameStats.getPlastic(), GameStats.getFish());
+        calculateProgress();
+    }
+
+    /**
+     * Changes the current scene
+     *
+     * @param scene String that denotes the scene and controller to change to
+     */
+    public void changeScene(String scene) {
+        Controller controller = (Controller) controllers.get(scene);
+
+        // Change controllers to the valid type
+        if (controller instanceof StartMenuController) {
+            Wrapper.setStartMenuController((StartMenuController) controller);
+        } else if (controller instanceof DevilsRoomController) {
+            Wrapper.setDevilsRoomController((DevilsRoomController) controller);
+        } else {
+            Wrapper.setUpgradeRoomController((UpgradeRoomController) controller);
+        }
+        primaryStage.setScene(scenes.get(scene));
+    }
+
+    /**
+     * UI section
+     */
+
+    /**
+     * Calculates the progressbar and sends the information to the view
+     */
+    public static void calculateProgress() {
+        double totalProgress = Math.sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
+        Wrapper.setProgressBar(totalProgress);
+        System.out.println(100 * totalProgress);
+        if (0.001 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("Well, what do we have here? Fresh new meat that wishes to serve the master of the underworld? Well then, welcome to my domain, my faithful servant! I do not tolerate failure, now go get me the fish souls I need to end the world!");
+        }
+        else if (0.01 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("You think you are good because you threw candy wrapper in the harbor once a year? Think again, pewny servant. You're just an amateur like everyone else! Come back when I see some proper progress. You disappoint me.");
+        }
+        else if (1 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("I can see you have ambition in you, servant. Do you also vision the world as a dead place? Now, that's enough positive feedback. Waste more microplastics, you imbecill!");
+        }
+        else if (10 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("So you are actually making an effort killing all the fish? Hmm.. Yes.. This is good. Yes. Keep it up, I need more souls in my collection. Give me floating mountains of microplastics! I will not settle for less.");
+        }
+        else if (25 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("I can see you are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work, my servant!");
+        }
+        else if (35 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("I suppose you're asking for a raise at this point? As long as you don't unionize with the other polluters, I'll give you a 0.1% raise and a goat? You deserve it! Do we have a deal? *spits in hand and goes for a shake*");
+        }
+        else if (50 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
+        }
+        else if (75 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
+        }
+        else if (100 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
+        }
+        else {
+            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats, the world is now a dead place!");
+        }
+        Wrapper.setDevilsRoomStats();
+    }
+
+    /**
+     * Gets the description of the current room
+     * @return current room description
+     */
     public static String getRoomDescription() {
         return currentRoom.getRoomDescription();
     }
 
+    /**
+     * gets the room name of the current room
+     * @return current room name
+     */
     public static String getRoomName() {
         return currentRoom.getRoomName();
 
     }
 
-    // TESTESTEST
+    /**
+     * Sets the current room to matas and updates rooms to reflect it
+     */
     public void setRoomToMatas() {
         currentRoom = matas;
         currentUpgradeRoom = matas;
@@ -365,6 +384,9 @@ public class Game extends Application {
         }
     }
 
+    /**
+     * Sets the current room to car dealer and updates rooms to reflect it
+     */
     public void setRoomToCardealer() {
         currentRoom = cardealer;
         currentUpgradeRoom = cardealer;
@@ -374,6 +396,9 @@ public class Game extends Application {
         }
     }
 
+    /**
+     * Sets the current room to laundry and updates rooms to reflect it
+     */
     public void setRoomToLaundry() {
         currentRoom = laundry;
         currentUpgradeRoom = laundry;
@@ -383,6 +408,9 @@ public class Game extends Application {
         }
     }
 
+    /**
+     * Sets the current room to dock and updates rooms to reflect it
+     */
     public void setRoomToDock() {
         currentRoom = dock;
         currentUpgradeRoom = dock;
@@ -392,6 +420,9 @@ public class Game extends Application {
         }
     }
 
+    /**
+     * Sets the current room to devil and updates rooms to reflect it
+     */
     public void setRoomToDevil() {
         currentRoom = devilheadquater;
         try {
@@ -401,6 +432,10 @@ public class Game extends Application {
         }
     }
 
+    /**
+     * Method to get the information for the upgrade UI.
+     * @return String array with all
+     */
     public static String[] getupdateUpgradeUIInfo() {
         UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();

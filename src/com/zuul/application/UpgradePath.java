@@ -15,10 +15,34 @@ public class UpgradePath {
         calculateCurrentProduction();
     }
 
+    /**
+     * getters and setters
+     */
+
+    public Upgrade[] getUpgrades() {
+        return upgrades;
+    }
+
+    /**
+     * gets path name of the current upgrade path
+     * @return path name
+     */
+    public String getPathName(){
+        return pathName;
+    }
+
+    /**
+     * gets the current plastic production for the upgrade path
+     * @return returns current plastic production
+     */
     public double getCurrentProduction() {
         return currentProduction;
     }
 
+    /**
+     * gets the plastic production if the upgrade path was upgraded
+     * @return returns upgraded plastic production
+     */
     public double getUpgradeProduction() {
         if (currentLevel < upgrades.length - 1) {
             return upgrades[currentLevel + 1].productionSpeed;
@@ -26,71 +50,21 @@ public class UpgradePath {
         return 0;
     }
 
-    public String getPathName() {
-        return pathName;
-    }
-
-    public Upgrade[] getUpgrades() {
-        return upgrades;
-    }
-
+    /**
+     * gets the current upgrade level that the path is on
+     * @return current upgrade level
+     */
     public int getCurrentLevel() {
         return currentLevel;
     }
 
+    /**
+     * funct
+     * @return
+     */
     public double calculateCurrentProduction() {
         currentProduction = upgrades[currentLevel].productionSpeed;
         return currentProduction;
-    }
-
-    public boolean performUpgrade() {
-        if (currentLevel < upgrades.length - 1) {
-            if (GameStats.currentFishSouls >= upgrades[currentLevel + 1].upgradePrice) {
-                GameStats.currentFishSouls -= upgrades[currentLevel + 1].upgradePrice;
-                currentLevel++;
-                calculateCurrentProduction();
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return false;
-    }
-
-    public String getUpgradeInfo() {
-        if (currentLevel < upgrades.length) {
-            String upgradeInfo = upgrades[currentLevel].upgradeName + " >>> " + upgrades[currentLevel + 1].upgradeName
-                    + "\n";
-            upgradeInfo = upgradeInfo + "Price " + upgrades[currentLevel].upgradePrice + " Fish Souls \n";
-            upgradeInfo = upgradeInfo + upgrades[currentLevel].productionSpeed + " plastic/yr >>> "
-                    + upgrades[currentLevel + 1].productionSpeed + " plastic/yr\n";
-            return upgradeInfo;
-        } else {
-            String upgradeInfo = upgrades[currentLevel].upgradeName + "\n" + upgrades[currentLevel].productionSpeed
-                    + " plastic/yr";
-            return upgradeInfo;
-        }
-    }
-
-    public String getUpgradeName(int offset) {
-        if (currentLevel + offset < upgrades.length) {
-            return upgrades[currentLevel + offset].upgradeName;
-        }
-        return "";
-    }
-
-    public double getUpgradePrice(int offset) {
-        if (currentLevel + offset < upgrades.length - 1) {
-            return upgrades[currentLevel + offset].upgradePrice;
-        }
-        return -1;
-    }
-
-    public double getUpgradeCoefficient(int offset) {
-        if (currentLevel + offset < upgrades.length) {
-            return upgrades[currentLevel + offset].productionSpeed;
-        }
-        return -1;
     }
 
     public String getUpgradeButtonDescription() {
@@ -110,5 +84,19 @@ public class UpgradePath {
             return "Level " + (currentLevel + 2) + " - " + upgrades[currentLevel + 1].getUpgradeName();
         }
         return "Max Opgradering Nået";
+    }
+
+    public boolean performUpgrade() {
+        if (currentLevel < upgrades.length - 1) {
+            if (GameStats.currentFishSouls >= upgrades[currentLevel + 1].upgradePrice) {
+                GameStats.currentFishSouls -= upgrades[currentLevel + 1].upgradePrice;
+                currentLevel++;
+                calculateCurrentProduction();
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
     }
 }
