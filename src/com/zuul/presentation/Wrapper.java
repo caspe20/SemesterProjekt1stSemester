@@ -2,7 +2,6 @@ package com.zuul.presentation;
 
 import com.zuul.application.GameStats;
 import com.zuul.application.Game;
-import com.zuul.application.Upgrade;
 import com.zuul.application.rooms.DevilsRoom;
 import com.zuul.application.rooms.UpgradeRoom;
 import com.zuul.presentation.controllers.DevilsRoomController;
@@ -149,14 +148,26 @@ public class Wrapper {
     }
 
     /**
-     * Updates the scene's UI, such that it reflects the games' current room
+     * Updates the scene's UI, such that it reflects the games' current upgrade room
      */
-    private static void updateRoomUI() {
+    private static void updateUpgradeRoomUI() {
         upgradeRoomController.roomDescription.setWrapText(true);
         upgradeRoomController.roomDescription.setText(game.getRoomDescription());
         upgradeRoomController.roomName.setText(game.getRoomName());
         updateUpgradeUI();
     }
+
+    /**
+     * Updates the scene's UI, such that it reflects the games' devil's room
+     */
+
+    private static void updateDevilsRoomUI() {
+        devilsRoomController.roomDescription.setWrapText(true);
+        devilsRoomController.userDescription.setWrapText(true);
+        updateDevilsRoomUserDescription();
+        updateDevilsRoomStats();
+    }
+
 
     /**
      * Sets and updates the UI in devils room
@@ -180,6 +191,22 @@ public class Wrapper {
             devilsRoomController.harbourUsage.setText(label8);
         }
     }
+
+    public static void updateDevilsRoomUserDescription() {
+        Game.updateDevilsRoomUserDescription();
+    }
+
+    public static void setDevilsRoomUserDescription(String userDescription) {
+        if (Game.currentRoom instanceof DevilsRoom) {
+            devilsRoomController.userDescription.setText(userDescription);
+        }
+    }
+
+
+
+
+
+
 
     /**
      * Resets all navigation buttons once they've been pressed
@@ -214,6 +241,7 @@ public class Wrapper {
     public static void startGame() {
         game.changeScene("UpgradeRoom");
         game.setRoomToDevil();
+        Wrapper.changeRoomToDevil();
         // upgradeRoomController.goToDevil.setDisable(true);
         Game.StartTimer();
     }
@@ -255,7 +283,7 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
         upgradeRoomController.goToMatas.setMouseTransparent(true);
-        updateRoomUI();
+        updateUpgradeRoomUI();
     }
 
     /**
@@ -267,7 +295,7 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #17B831;");
         upgradeRoomController.goToCarDealer.setMouseTransparent(true);
-        updateRoomUI();
+        updateUpgradeRoomUI();
     }
 
     /**
@@ -279,7 +307,7 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #17B831;");
         upgradeRoomController.goToLaundry.setMouseTransparent(true);
-        updateRoomUI();
+        updateUpgradeRoomUI();
     }
 
     /**
@@ -291,7 +319,7 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #17B831;");
         upgradeRoomController.goToHarbour.setMouseTransparent(true);
-        updateRoomUI();
+        updateUpgradeRoomUI();
     }
 
     /**
@@ -303,6 +331,6 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
         upgradeRoomController.goToDevil.setMouseTransparent(true);
-        updateDevilsRoomStats();
+        updateDevilsRoomUI();
     }
 }
