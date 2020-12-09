@@ -95,7 +95,7 @@ public class UpgradePath {
 
     public String getUpgradeButtonDescription() {
         if (currentLevel < upgrades.length - 1) {
-            return "Opgradér for " + GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice())
+            return GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice())
                     + " fiskesjæle";
         }
         return "opgradering utilgængelig";
