@@ -429,5 +429,24 @@ public class Game extends Application {
     }
 
 
+    public static void updateDevilsRoomUserDescription() {
+        String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductLaundry = Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductDock = Game.dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+
+        String currentUsageMatas = Game.matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageCardealer = Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+
+        String userDescription = ("➼ Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                                    "➼ Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                                    "➼ Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                                    "➼ Du " + currentProductDock + " " + currentUsageDock);
+
+        Wrapper.setDevilsRoomUserDescription(userDescription);
+
+    }
 
 }
