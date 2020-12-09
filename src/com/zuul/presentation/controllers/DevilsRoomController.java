@@ -4,6 +4,7 @@ import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.TextArea;
 
 public class DevilsRoomController extends Controller {
 
@@ -20,6 +21,14 @@ public class DevilsRoomController extends Controller {
 
     @FXML
     public ProgressBar progressBar;
+
+
+    @FXML
+    public Label deadFish;
+
+    @FXML
+    public TextArea userDescription;
+
 
     @FXML
     public Label matasProduction;
@@ -58,18 +67,4 @@ public class DevilsRoomController extends Controller {
         Wrapper.changeRoomToDock();
     }
 
-    @FXML
-    void upgradeProductsButtonClick() {
-        Wrapper.upgradeLvlUpdate1();
-    }
-
-    @FXML
-    void upgradeUsageButtonClick() {
-        Wrapper.upgradeLvlUpdate2();
-    }
-
-    @FXML
-    void updateRoomToDevil() {
-
-    }
 }

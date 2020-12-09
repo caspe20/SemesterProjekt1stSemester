@@ -25,14 +25,16 @@ public class UpgradePath {
 
     /**
      * gets path name of the current upgrade path
+     * 
      * @return path name
      */
-    public String getPathName(){
+    public String getPathName() {
         return pathName;
     }
 
     /**
      * gets the current plastic production for the upgrade path
+     * 
      * @return returns current plastic production
      */
     public double getCurrentProduction() {
@@ -41,6 +43,7 @@ public class UpgradePath {
 
     /**
      * gets the plastic production if the upgrade path was upgraded
+     * 
      * @return returns upgraded plastic production
      */
     public double getUpgradeProduction() {
@@ -52,27 +55,18 @@ public class UpgradePath {
 
     /**
      * gets the current upgrade level that the path is on
+     * 
      * @return current upgrade level
      */
     public int getCurrentLevel() {
         return currentLevel;
     }
 
-    /**
-     * funct
-     * @return
-     */
-    public double calculateCurrentProduction() {
-        currentProduction = upgrades[currentLevel].productionSpeed;
-        return currentProduction;
-    }
-
     public String getUpgradeButtonDescription() {
         if (currentLevel < upgrades.length - 1) {
-            return GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice())
-                    + " fiskesjæle";
+            return GameStats.convertToVerbal(upgrades[currentLevel + 1].getUpgradePrice()) + " fiskesjæle";
         }
-        return "opgradering utilgængelig";
+        return "Opgradering utilgængelig";
     }
 
     public String getUpgradeOneDescription() {
@@ -83,7 +77,16 @@ public class UpgradePath {
         if (currentLevel < upgrades.length - 1) {
             return "Level " + (currentLevel + 2) + " - " + upgrades[currentLevel + 1].getUpgradeName();
         }
-        return "Max Opgradering Nået";
+        return "Max opgradering nået";
+    }
+
+    /**
+     * functional members
+     */
+
+    public double calculateCurrentProduction() {
+        currentProduction = upgrades[currentLevel].productionSpeed;
+        return currentProduction;
     }
 
     public boolean performUpgrade() {
