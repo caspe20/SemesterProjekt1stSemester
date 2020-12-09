@@ -5,12 +5,16 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.zuul.presentation.controllers.DevilsRoomController">
@@ -22,7 +26,7 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0">
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1020.0">
          <children>
             <Pane layoutX="716.0" layoutY="64.0" prefHeight="265.0" prefWidth="290.0">
                <children>
@@ -33,11 +37,25 @@
                               <Image url="@../images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Årstal:" />
+                        <Label layoutX="45.0" text="Årstal:">
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect></Label>
                         <Label fx:id="time" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="2050">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect>
                         </Label>
                      </children>
                   </Pane>
@@ -47,13 +65,27 @@
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect>
                         </Label>
                         <ImageView fitHeight="45.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Mikroplast per dag" />
+                        <Label layoutX="45.0" text="Mikroplast per dag">
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect></Label>
                      </children>
                   </Pane>
                   <Pane layoutX="14.0" layoutY="158.0">
@@ -63,11 +95,25 @@
                               <Image url="@../images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Plastik i havet" />
+                        <Label layoutX="45.0" text="Plastik i havet">
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect></Label>
                         <Label fx:id="plastInSea" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="45 tons">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect>
                         </Label>
                      </children>
                   </Pane>
@@ -78,11 +124,25 @@
                               <Image url="@../images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Fiskesjæle" />
+                        <Label layoutX="45.0" text="Fiskesjæle">
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect></Label>
                         <Label fx:id="fishSouls" layoutX="45.0" layoutY="17.0" prefHeight="22.0" prefWidth="222.0" text="234">
                            <font>
                               <Font name="Consolas" size="19.0" />
                            </font>
+                           <effect>
+                              <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                                 <input>
+                                    <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                                 </input>
+                              </ColorAdjust>
+                           </effect>
                         </Label>
                      </children>
                   </Pane>
@@ -90,6 +150,13 @@
                      <font>
                         <Font name="Times New Roman Bold Italic" size="30.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.5" contrast="-0.3" hue="0.16" saturation="0.81">
+                           <input>
+                              <InnerShadow blurType="ONE_PASS_BOX" color="#00ff4b" height="0.0" radius="1.0" width="6.0" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                </children>
             </Pane>
@@ -99,47 +166,155 @@
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust hue="0.17" saturation="0.07">
+                           <input>
+                              <InnerShadow blurType="GAUSSIAN" choke="0.45" color="#40ff00" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </TextArea>
                   <TextArea fx:id="userDescription" editable="false" layoutX="15.0" layoutY="312.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="228.0" prefWidth="416.0" text="Hvad gør du?&#10;fx: Du kører 70km om måneden i din&#10;monster truck&#10;Og børster tænder 1 gang om året">
                      <font>
                         <Font size="18.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust hue="0.17" saturation="0.07">
+                           <input>
+                              <InnerShadow blurType="GAUSSIAN" choke="0.42" color="#40ff00" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </TextArea>
                </children>
+               <effect>
+                  <InnerShadow color="#08ffe7" />
+               </effect>
             </Pane>
             <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="195.0" layoutY="14.0" prefHeight="99.0" prefWidth="634.0" text="Djævlens Kontor" textAlignment="RIGHT">
                <font>
                   <Font name="Serif Bold" size="67.0" />
                </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.11904761904761904">
+                     <stops>
+                        <Stop color="#00ffaf" />
+                        <Stop color="RED" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Label>
-            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="28.0" prefWidth="1010.0" progress="0.42">
+            <ProgressBar fx:id="progressBar" layoutX="3.0" layoutY="735.0" prefHeight="34.0" prefWidth="1014.0" progress="0.42">
                <effect>
-                  <ColorAdjust contrast="0.15" hue="1.0" />
+                  <ColorAdjust contrast="0.65" hue="0.9" saturation="0.3" />
                </effect></ProgressBar>
-            <Button fx:id="goToMatas" layoutX="764.0" layoutY="471.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas">
+            <Button fx:id="goToMatas" layoutX="764.0" layoutY="420.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" text="Matas" textAlignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
+               <effect>
+                  <ColorAdjust contrast="1.0" hue="0.41" saturation="0.01">
+                     <input>
+                        <InnerShadow color="#acff00" height="5.0" radius="2.0" width="5.0">
+                           <input>
+                              <DropShadow color="RED" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </InnerShadow>
+                     </input>
+                  </ColorAdjust>
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.4142857142857142">
+                     <stops>
+                        <Stop color="#ffbc00" />
+                        <Stop color="#b300ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button fx:id="goToCarDealer" layoutX="764.0" layoutY="529.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler">
+            <Button fx:id="goToCarDealer" layoutX="764.0" layoutY="490.0" mnemonicParsing="false" onMouseClicked="#updateRoomToCardealer" prefHeight="58.0" prefWidth="196.0" text="Bilforhandler" textAlignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
+               <effect>
+                  <ColorAdjust contrast="1.0" hue="0.41" saturation="0.01">
+                     <input>
+                        <InnerShadow color="#acff00" height="5.0" radius="2.0" width="5.0">
+                           <input>
+                              <DropShadow color="RED" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </InnerShadow>
+                     </input>
+                  </ColorAdjust>
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.4142857142857142">
+                     <stops>
+                        <Stop color="#ffbc00" />
+                        <Stop color="#b300ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="645.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen">
+            <Button fx:id="goToHarbour" layoutX="764.0" layoutY="630.0" mnemonicParsing="false" onMouseClicked="#updateRoomToDock" prefHeight="58.0" prefWidth="196.0" text="Havnen" textAlignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
+               <effect>
+                  <ColorAdjust contrast="1.0" hue="0.41" saturation="0.01">
+                     <input>
+                        <InnerShadow color="#acff00" height="5.0" radius="2.0" width="5.0">
+                           <input>
+                              <DropShadow color="RED" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </InnerShadow>
+                     </input>
+                  </ColorAdjust>
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.4142857142857142">
+                     <stops>
+                        <Stop color="#ffbc00" />
+                        <Stop color="#b300ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="587.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet">
+            <Button fx:id="goToLaundry" layoutX="764.0" layoutY="560.0" mnemonicParsing="false" onMouseClicked="#updateRoomToLaundry" prefHeight="58.0" prefWidth="196.0" text="Vaskeriet" textAlignment="CENTER">
                <font>
-                  <Font size="25.0" />
+                  <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
+               <effect>
+                  <ColorAdjust contrast="1.0" hue="0.41" saturation="0.01">
+                     <input>
+                        <InnerShadow color="#acff00" height="5.0" radius="2.0" width="5.0">
+                           <input>
+                              <DropShadow color="RED" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </InnerShadow>
+                     </input>
+                  </ColorAdjust>
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.4142857142857142">
+                     <stops>
+                        <Stop color="#ffbc00" />
+                        <Stop color="#b300ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
-            <Label fx:id="deadFish" layoutX="433.0" layoutY="735.0" text="Døde fisk i havet">
+            <Label fx:id="deadFish" layoutX="364.0" layoutY="738.0" prefHeight="28.0" prefWidth="290.0" text="0% Af fiskene i havet er døde">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
+               <effect>
+                  <ColorAdjust brightness="0.35" contrast="-0.6" hue="0.7" saturation="0.6">
+                     <input>
+                        <InnerShadow choke="0.3" color="#001fff" height="3.0" radius="1.0" width="3.0" />
+                     </input>
+                  </ColorAdjust>
+               </effect>
             </Label>
             <Pane layoutX="13.2265625" layoutY="139.0">
                <children>
@@ -147,16 +322,37 @@
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="matasProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="matasUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                </children>
             </Pane>
@@ -166,16 +362,37 @@
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="carDealerProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="carDealerUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                </children>
             </Pane>
@@ -185,16 +402,37 @@
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="laundryProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="laundryUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                </children>
             </Pane>
@@ -204,25 +442,72 @@
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="harbourProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                   <Label fx:id="harbourUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
+                     <effect>
+                        <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
+                           <input>
+                              <InnerShadow />
+                           </input>
+                        </ColorAdjust>
+                     </effect>
                   </Label>
                </children>
             </Pane>
             <Button fx:id="goToDevil" layoutX="764.0" layoutY="413.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
                <font>
-                  <Font size="21.0" />
+                  <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
+               <effect>
+                  <ColorAdjust contrast="1.0" hue="0.41" saturation="0.01">
+                     <input>
+                        <InnerShadow color="#acff00" height="5.0" radius="2.0" width="5.0">
+                           <input>
+                              <DropShadow color="RED" height="10.0" radius="4.5" width="10.0" />
+                           </input>
+                        </InnerShadow>
+                     </input>
+                  </ColorAdjust>
+               </effect>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0" startX="1.0" startY="0.4142857142857142">
+                     <stops>
+                        <Stop color="#ffbc00" />
+                        <Stop color="#b300ff" offset="1.0" />
+                     </stops>
+                  </LinearGradient>
+               </textFill>
             </Button>
          </children>
       </Pane>
    </children>
+   <effect>
+      <ColorAdjust hue="1.0" saturation="0.14">
+         <input>
+            <InnerShadow color="#00ff72" height="10.0" radius="4.5" width="10.0" />
+         </input>
+      </ColorAdjust>
+   </effect>
 </GridPane>
