@@ -29,8 +29,6 @@ public class UpgradeRoomController extends Controller {
     @FXML
     public Label upgradeProducts2;
     @FXML
-    public Label upgradeProducts1Pollution;
-    @FXML
     public Label upgradeProducts2Pollution;
     @FXML
     public Button upgradeProductsButton;
@@ -38,8 +36,6 @@ public class UpgradeRoomController extends Controller {
     public Label upgradeUsage1;
     @FXML
     public Label upgradeUsage2;
-    @FXML
-    public Label upgradeUsage1Pollution;
     @FXML
     public Label upgradeUsage2Pollution;
     @FXML

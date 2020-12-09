@@ -316,7 +316,7 @@
             </Label>
             <Pane layoutX="13.2265625" layoutY="139.0">
                <children>
-                  <Label layoutX="0.7734375" prefHeight="42.0" prefWidth="196.0" text="Matas Level:" textFill="#ff8c00fc">
+                  <Label layoutX="1.0" prefHeight="42.0" prefWidth="266.0" text="Matas Level:" textFill="#ff8c00fc">
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
@@ -329,7 +329,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="matasProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+                  <Label fx:id="matasProduction" layoutX="1.0" layoutY="37.0" prefHeight="45.0" prefWidth="266.0" text="Level: 1" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -343,7 +343,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="matasUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+                  <Label fx:id="matasUsage" layoutX="1.0" layoutY="70.0" prefHeight="42.0" prefWidth="267.0" text="Level: 5" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -373,7 +373,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="carDealerProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+                  <Label fx:id="carDealerProduction" layoutX="1.0" layoutY="37.0" prefHeight="45.0" prefWidth="266.0" text="Level: 1" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -387,7 +387,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="carDealerUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+                  <Label fx:id="carDealerUsage" layoutX="1.0" layoutY="70.0" prefHeight="42.0" prefWidth="266.0" text="Level: 5" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -404,7 +404,7 @@
             </Pane>
             <Pane layoutX="13.2265625" layoutY="410.0">
                <children>
-                  <Label layoutX="0.7734375" prefHeight="42.0" prefWidth="196.0" text="Vaskeri Level:" textFill="#ff8c00fc">
+                  <Label layoutX="1.0" prefHeight="42.0" prefWidth="268.0" text="Vaskeri Level:" textFill="#ff8c00fc">
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
@@ -417,7 +417,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="laundryProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+                  <Label fx:id="laundryProduction" layoutX="1.0" layoutY="37.0" prefHeight="45.0" prefWidth="266.0" text="Level: 1" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -431,7 +431,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="laundryUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+                  <Label fx:id="laundryUsage" layoutX="1.0" layoutY="70.0" prefHeight="42.0" prefWidth="266.0" text="Level: 5" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -448,7 +448,7 @@
             </Pane>
             <Pane layoutX="13.2265625" layoutY="547.0">
                <children>
-                  <Label layoutX="0.7734375" prefHeight="42.0" prefWidth="196.0" text="Havnen Level:" textFill="#ff8c00fc">
+                  <Label layoutX="1.0" prefHeight="42.0" prefWidth="266.0" text="Havnen Level:" textFill="#ff8c00fc">
                      <font>
                         <Font name="Times New Roman Bold" size="30.0" />
                      </font>
@@ -461,7 +461,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="harbourProduction" layoutX="0.7734375" layoutY="37.0" prefHeight="45.0" prefWidth="196.0" text="Level: 1" textFill="#ff8c00fc">
+                  <Label fx:id="harbourProduction" layoutX="1.0" layoutY="37.0" prefHeight="45.0" prefWidth="266.0" text="Level: 1" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
@@ -475,7 +475,7 @@
                      </effect>
                   </Label>
 
-                  <Label fx:id="harbourUsage" layoutX="0.7734375" layoutY="70.0" prefHeight="42.0" prefWidth="196.0" text="Level: 5" textFill="#ff8c00fc">
+                  <Label fx:id="harbourUsage" layoutX="1.0" layoutY="70.0" prefHeight="42.0" prefWidth="266.0" text="Level: 5" textFill="#ff8c00fc">
 
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
