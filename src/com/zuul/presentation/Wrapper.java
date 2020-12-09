@@ -161,24 +161,23 @@ public class Wrapper {
     /**
      * Sets and updates the UI in devils room
      */
-    public static void setDevilsRoomStats() {
+
+    public static void updateDevilsRoomStats() {
+        Game.updateDevilsRoomStats();
+    }
+
+    public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
+                                          String label5, String label6, String label7, String label8) {
+
         if (Game.currentRoom instanceof DevilsRoom) {
-            devilsRoomController.matasProduction
-                    .setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.matasUsage
-                    .setText("Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1));
-            devilsRoomController.carDealerProduction
-                    .setText("Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.carDealerUsage
-                    .setText("Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1));
-            devilsRoomController.laundryProduction
-                    .setText("Production level: " + (Game.laundry.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.laundryUsage
-                    .setText("Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1));
-            devilsRoomController.harbourProduction
-                    .setText("Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.harbourUsage
-                    .setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.matasProduction.setText(label1);
+            devilsRoomController.matasUsage.setText(label2);
+            devilsRoomController.carDealerProduction.setText(label3);
+            devilsRoomController.carDealerUsage.setText(label4);
+            devilsRoomController.laundryProduction.setText(label5);
+            devilsRoomController.laundryUsage.setText(label6);
+            devilsRoomController.harbourProduction.setText(label7);
+            devilsRoomController.harbourUsage.setText(label8);
         }
     }
 
@@ -202,7 +201,7 @@ public class Wrapper {
         upgradeRoomController.goToLaundry.setStyle(null);
         upgradeRoomController.goToMatas.setStyle(null);
         upgradeRoomController.goToDevil.setStyle(null);
-        setDevilsRoomStats();
+
     }
 
     /**
@@ -304,5 +303,6 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
         upgradeRoomController.goToDevil.setMouseTransparent(true);
+        updateDevilsRoomStats();
     }
 }
