@@ -1,21 +1,21 @@
 package com.zuul.application;
 
 import com.zuul.application.rooms.*;
-import com.zuul.presentation.Controller;
-import com.zuul.presentation.DevilsRoomController;
+import com.zuul.presentation.controllers.Controller;
+import com.zuul.presentation.controllers.StartMenuController;
+import com.zuul.presentation.controllers.UpgradeRoomController;
+import com.zuul.presentation.controllers.DevilsRoomController;
 import com.zuul.presentation.Wrapper;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Game extends Application {
     private static DevilsRoomController devilsRoomController;
@@ -70,7 +70,7 @@ public class Game extends Application {
         FXMLLoader[] loader = new FXMLLoader[]{
                 new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
                 new FXMLLoader(getClass().getResource(presentationLocation + "DevilRoom.fxml")),
-                new FXMLLoader(getClass().getResource(presentationLocation + "Martins UI2.fxml"))
+                new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml"))
         };
 
         // Load controllers and scenes
@@ -79,13 +79,13 @@ public class Game extends Application {
         // scenes["Martins UI2"]: scene(martinUI)
         scenes.put("StartMenu", new Scene(loader[0].load()));
         scenes.put("DevilRoom", new Scene(loader[1].load()));
-        scenes.put("Martins UI2", new Scene(loader[2].load()));
+        scenes.put("UpgradeRoom", new Scene(loader[2].load()));
         // controller["startMenu"]: controller(startmenu)
         // controller["DevilRoom"]: controller(devilsroom)
         // controller["Martins UI2"]: controller(martinUI)
         controllers.put("StartMenu", loader[0].getController());
         controllers.put("DevilRoom", loader[1].getController());
-        controllers.put("Martins UI2", loader[2].getController());
+        controllers.put("UpgradeRoom", loader[2].getController());
 
         // Change scene to scene 1
         changeScene("StartMenu");
@@ -117,8 +117,16 @@ public class Game extends Application {
      * @param scene String that denotes the scene and controller to change to
      * @throws Exception
      */
-    public void changeScene(String scene) throws Exception {
-        Wrapper.setController((Controller) controllers.get(scene));
+    public void changeScene(String scene) {
+        Controller controller = (Controller) controllers.get(scene);
+
+        if (controller instanceof StartMenuController) {
+            Wrapper.setStartMenuController((StartMenuController) controller);
+        } else if (controller instanceof DevilsRoomController) {
+            Wrapper.setDevilsRoomController((DevilsRoomController) controller);
+        } else {
+            Wrapper.setUpgradeRoomController((UpgradeRoomController) controller);
+        }
         primaryStage.setScene(scenes.get(scene));
     }
 
@@ -141,7 +149,7 @@ public class Game extends Application {
         if (100 == (int) (totalProgress * 100)) {
             Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
         }
-        devilsRoomController.setStats();
+        Wrapper.setDevilsRoomStats();
     }
 
 
@@ -336,7 +344,7 @@ public class Game extends Application {
         currentRoom = matas;
         currentUpgradeRoom = matas;
         try {
-            changeScene("Martins UI2");
+            changeScene("UpgradeRoom");
         } catch (Exception e) {
         }
     }
@@ -345,7 +353,7 @@ public class Game extends Application {
         currentRoom = cardealer;
         currentUpgradeRoom = cardealer;
         try {
-            changeScene("Martins UI2");
+            changeScene("UpgradeRoom");
         } catch (Exception e) {
         }
     }
@@ -354,7 +362,7 @@ public class Game extends Application {
         currentRoom = laundry;
         currentUpgradeRoom = laundry;
         try {
-            changeScene("Martins UI2");
+            changeScene("UpgradeRoom");
         } catch (Exception e) {
         }
     }
@@ -363,7 +371,7 @@ public class Game extends Application {
         currentRoom = dock;
         currentUpgradeRoom = dock;
         try {
-            changeScene("Martins UI2");
+            changeScene("UpgradeRoom");
         } catch (Exception e) {
         }
     }
@@ -372,7 +380,6 @@ public class Game extends Application {
         currentRoom = devilheadquater;
         try {
             changeScene("DevilRoom");
-            devilsRoomController.setController((Controller) controllers.get("DevilRoom"));
         } catch (Exception e) {
             e.printStackTrace();
         }
