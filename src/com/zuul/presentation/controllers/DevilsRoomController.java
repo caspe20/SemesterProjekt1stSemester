@@ -3,8 +3,24 @@ package com.zuul.presentation.controllers;
 import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 
 public class DevilsRoomController extends Controller {
+
+
+
+    @FXML
+    public Label time;
+    @FXML
+    public Label plastPerDay;
+    @FXML
+    public Label plastInSea;
+    @FXML
+    public Label fishSouls;
+
+    @FXML
+    public ProgressBar progressBar;
+
     @FXML
     public Label matasProduction;
     @FXML
