@@ -240,8 +240,7 @@ public class Wrapper {
      */
     public static void startGame() {
         game.changeScene("UpgradeRoom");
-        game.setRoomToDevil();
-        Wrapper.changeRoomToDevil();
+        changeRoomToDevil();
         // upgradeRoomController.goToDevil.setDisable(true);
         Game.StartTimer();
     }
@@ -282,7 +281,7 @@ public class Wrapper {
         game.setRoomToMatas();
         resetNavigationButtons();
         upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
-        upgradeRoomController.goToMatas.setMouseTransparent(true);
+        //upgradeRoomController.goToMatas.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
 
