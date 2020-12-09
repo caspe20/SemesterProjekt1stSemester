@@ -105,7 +105,7 @@ public class Wrapper {
         resetNavigationButtons();
         upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
         upgradeRoomController.goToDevil.setMouseTransparent(true);
-        setDevilsRoomStats();
+        setDevilsRoomUpgradeStats();
         setDevilsRoomUserDescription();
     }
 
@@ -223,7 +223,7 @@ public class Wrapper {
         Game.StartTimer();
     }
 
-    public static void setDevilsRoomStats() {
+    public static void setDevilsRoomUpgradeStats() {
         if (Game.currentRoom instanceof DevilsRoom) {
             devilsRoomController.matasProduction
                     .setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
@@ -243,7 +243,6 @@ public class Wrapper {
                     .setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
         }
     }
-
 
     public static void setDevilsRoomUserDescription() {
         if (Game.currentRoom instanceof DevilsRoom) {
