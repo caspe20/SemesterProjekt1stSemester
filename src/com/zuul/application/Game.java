@@ -233,7 +233,7 @@ public class Game extends Application {
                                 new Upgrade("kører Ferrari", 300000.0, 300.0),
                                 new Upgrade("kører Lamborghini", 1000000.0, 400.0),
                                 new Upgrade("kører lastbil", 5000000.0, 500.0),
-                                new Upgrade("kører monsterTruck", 2500000.0, 600.0)
+                                new Upgrade("kører monstertruck", 2500000.0, 600.0)
                         }),
                 new UpgradePath("Forbrug",
                         new Upgrade[]{
