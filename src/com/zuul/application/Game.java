@@ -350,10 +350,10 @@ public class Game extends Application {
 
     }
 
-    // TESTESTEST
+
     public void setRoomToMatas() {
         currentRoom = matas;
-        currentUpgradeRoom = matas;
+        //currentUpgradeRoom = matas;
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
@@ -362,7 +362,7 @@ public class Game extends Application {
 
     public void setRoomToCardealer() {
         currentRoom = cardealer;
-        currentUpgradeRoom = cardealer;
+        //currentUpgradeRoom = cardealer;
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
@@ -371,7 +371,7 @@ public class Game extends Application {
 
     public void setRoomToLaundry() {
         currentRoom = laundry;
-        currentUpgradeRoom = laundry;
+        //currentUpgradeRoom = laundry;
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
@@ -380,7 +380,7 @@ public class Game extends Application {
 
     public void setRoomToDock() {
         currentRoom = dock;
-        currentUpgradeRoom = dock;
+        //currentUpgradeRoom = dock;
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {

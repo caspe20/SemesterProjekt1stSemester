@@ -194,15 +194,15 @@ public class Wrapper {
 
     public static void resetNavigationButtons() {
         upgradeRoomController.goToCarDealer.setMouseTransparent(false);
-        upgradeRoomController.goToCarDealer.setDisable(false);
+        //upgradeRoomController.goToCarDealer.setDisable(false);
         upgradeRoomController.goToHarbour.setMouseTransparent(false);
-        upgradeRoomController.goToHarbour.setDisable(false);
+        //upgradeRoomController.goToHarbour.setDisable(false);
         upgradeRoomController.goToLaundry.setMouseTransparent(false);
-        upgradeRoomController.goToLaundry.setDisable(false);
+        //upgradeRoomController.goToLaundry.setDisable(false);
         upgradeRoomController.goToMatas.setMouseTransparent(false);
-        upgradeRoomController.goToMatas.setDisable(false);
+        //upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
-        upgradeRoomController.goToDevil.setDisable(false);
+        //upgradeRoomController.goToDevil.setDisable(false);
         upgradeRoomController.goToCarDealer.setStyle(null);
         upgradeRoomController.goToHarbour.setStyle(null);
         upgradeRoomController.goToLaundry.setStyle(null);

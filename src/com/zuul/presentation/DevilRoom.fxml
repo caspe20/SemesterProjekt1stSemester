@@ -476,7 +476,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="goToDevil" layoutX="764.0" layoutY="350.0" mnemonicParsing="false" onMouseClicked="#updateRoomToMatas" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
+            <Button fx:id="goToDevil" layoutX="764.0" layoutY="350.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="196.0" style="-fx-background-color: #9F1515;" text="Djævlens kontor">
                <font>
                   <Font name="Times New Roman Bold Italic" size="23.0" />
                </font>
