@@ -120,6 +120,7 @@ public class Game extends Application {
     public void changeScene(String scene) {
         Controller controller = (Controller) controllers.get(scene);
 
+        // Change controllers to the valid type
         if (controller instanceof StartMenuController) {
             Wrapper.setStartMenuController((StartMenuController) controller);
         } else if (controller instanceof DevilsRoomController) {
@@ -131,9 +132,9 @@ public class Game extends Application {
     }
 
     public static void calculateProgress() {
-        double totalProgress = 1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning);
+        double totalProgress = Math.sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
         Wrapper.setProgressBar(totalProgress);
-        Wrapper.setProgressBarText(((long) Math.floor(totalProgress * 100)) + "% Af fiskene i havet er døde");
+
         if (10 == (int) (totalProgress * 100)) {
             Wrapper.setUserDescription("You are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work!");
         }

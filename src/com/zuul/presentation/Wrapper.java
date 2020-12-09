@@ -82,7 +82,6 @@ public class Wrapper {
         updateRoomUI();
     }
 
-
     public static void changeRoomToLaundry() {
         game.setRoomToLaundry();
         resetNavigationButtons();
@@ -108,10 +107,8 @@ public class Wrapper {
         upgradeRoomController.goToDevil.setMouseTransparent(true);
     }
 
-    /* [0] Årstal
-     * [1] plast pr dag
-     * [2] plast i havet
-     * [3] fiske sjæle
+    /*
+     * [0] Årstal [1] plast pr dag [2] plast i havet [3] fiske sjæle
      */
     public static void writeStatistics(String[] stats) {
         upgradeRoomController.time.setText(stats[0]);
@@ -127,17 +124,25 @@ public class Wrapper {
 
     public static void setProgressBar(double progress) {
         upgradeRoomController.progressBar.setProgress(progress);
-        devilsRoomController.progressBar.setProgress(progress);
+        if (progress * 100 < 0.001) {
+            upgradeRoomController.deadFish.setText(String.format("%.6f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 0.01) {
+            upgradeRoomController.deadFish.setText(String.format("%.4f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 0.1) {
+            upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 1) {
+            upgradeRoomController.deadFish.setText(String.format("%.3f", progress * 100) + "% af fiskene er døde.");
+        } else if (progress * 100 < 10) {
+            upgradeRoomController.deadFish.setText(String.format("%.2f", progress * 100) + "% af fiskene er døde.");
+        } else {
+            upgradeRoomController.deadFish.setText(String.format("%.1f", progress * 100) + "% af fiskene er døde.");
+        }
     }
 
-    public static void setProgressBarText(String txt) {
-        upgradeRoomController.deadFish.setText(txt);
-    }
     public static void setUserDescription(String txt) {
         upgradeRoomController.userDescription.setWrapText(true);
         upgradeRoomController.userDescription.setText(txt);
     }
-
 
     public static void updateUpgradeUI() {
         String[] info = Game.getupdateUpgradeUIInfo();
@@ -177,12 +182,17 @@ public class Wrapper {
         upgradeRoomController.roomName.setText(game.getRoomName());
     }
 
-    public static void resetNavigationButtons(){
+    public static void resetNavigationButtons() {
         upgradeRoomController.goToCarDealer.setMouseTransparent(false);
+        upgradeRoomController.goToCarDealer.setDisable(false);
         upgradeRoomController.goToHarbour.setMouseTransparent(false);
+        upgradeRoomController.goToHarbour.setDisable(false);
         upgradeRoomController.goToLaundry.setMouseTransparent(false);
+        upgradeRoomController.goToLaundry.setDisable(false);
         upgradeRoomController.goToMatas.setMouseTransparent(false);
+        upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
+        upgradeRoomController.goToDevil.setDisable(false);
     }
 
     /**
@@ -191,20 +201,28 @@ public class Wrapper {
     public static void startGame() {
         game.changeScene("UpgradeRoom");
         game.setRoomToDevil();
-        //upgradeRoomController.goToDevil.setDisable(true);
+        // upgradeRoomController.goToDevil.setDisable(true);
         Game.StartTimer();
     }
 
     public static void setDevilsRoomStats() {
         if (Game.currentRoom instanceof DevilsRoom) {
-            devilsRoomController.matasProduction.setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.matasUsage.setText("Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1));
-            devilsRoomController.carDealerProduction.setText("Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.carDealerUsage.setText("Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1));
-            devilsRoomController.laundryProduction.setText("Production level: " + (Game.laundry.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.laundryUsage.setText("Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1));
-            devilsRoomController.harbourProduction.setText("Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1));
-            devilsRoomController.harbourUsage.setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.matasProduction
+                    .setText("Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.matasUsage
+                    .setText("Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.carDealerProduction
+                    .setText("Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.carDealerUsage
+                    .setText("Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.laundryProduction
+                    .setText("Production level: " + (Game.laundry.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.laundryUsage
+                    .setText("Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1));
+            devilsRoomController.harbourProduction
+                    .setText("Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1));
+            devilsRoomController.harbourUsage
+                    .setText("Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1));
         }
     }
 }
