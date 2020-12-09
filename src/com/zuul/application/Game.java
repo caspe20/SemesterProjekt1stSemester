@@ -134,21 +134,36 @@ public class Game extends Application {
     public static void calculateProgress() {
         double totalProgress = Math.sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
         Wrapper.setProgressBar(totalProgress);
-
-        if (10 == (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("You are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work!");
+        System.out.println(100 * totalProgress);
+        if (0.001 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("Well, what do we have here? Fresh new meat that wishes to serve the master of the underworld? Well then, welcome to my domain, my faithful servant! I do not tolerate failure, now go get me the fish souls I need to end the world!");
         }
-        if (25 == (int) (totalProgress * 100)) {
+        else if (0.01 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("You think you are good because you threw candy wrapper in the harbor once a year? Think again, pewny servant. You're just an amateur like everyone else! Come back when I see some proper progress. You disappoint me.");
+        }
+        else if (1 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("I can see you have ambition in you, servant. Do you also vision the world as a dead place? Now, that's enough positive feedback. Waste more microplastics, you imbecill!");
+        }
+        else if (10 > (totalProgress * 100)) {
+            Wrapper.setUserDescription("So you are actually making an effort killing all the fish? Hmm.. Yes.. This is good. Yes. Keep it up, I need more souls in my collection. Give me floating mountains of microplastics! I will not settle for less.");
+        }
+        else if (25 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("I can see you are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work, my servant!");
+        }
+        else if (35 > (int) (totalProgress * 100)) {
+            Wrapper.setUserDescription("I suppose you're asking for a raise at this point? As long as you don't unionize with the other polluters, I'll give you a 0.1% raise and a goat? You deserve it! Do we have a deal? *spits in hand and goes for a shake*");
+        }
+        else if (50 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription("Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
         }
-        if (50 == (int) (totalProgress * 100)) {
+        else if (75 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription("Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
         }
-        if (75 == (int) (totalProgress * 100)) {
+        else if (100 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription("This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
         }
-        if (100 == (int) (totalProgress * 100)) {
-            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats!");
+        else {
+            Wrapper.setUserDescription("That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats, the world is now a dead place!");
         }
         Wrapper.setDevilsRoomStats();
     }
