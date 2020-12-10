@@ -27,6 +27,9 @@ public class DevilsRoomController extends Controller {
     public Label deadFish;
 
     @FXML
+    public TextArea roomDescription;
+
+    @FXML
     public TextArea userDescription;
 
 
