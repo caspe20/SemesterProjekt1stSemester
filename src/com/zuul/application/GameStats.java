@@ -13,10 +13,10 @@ public class GameStats {
     private static double currentTurn = 0;
     private static final int currentYear = 2000;
 
-    public static void SimulateTurn(double yr) {
+    public static void simulateTurn(double yr) {
         setCurrentTurn(getCurrentTurn() + yr);
-        UpdatePlastic(yr);
-        UpdateFish(yr);
+        updatePlastic(yr);
+        updateFish(yr);
     }
 
     public static long getFishInOcean() {
@@ -72,19 +72,19 @@ public class GameStats {
         return gameProgress;
     }
 
-    public static void FetchPlasticProduction(double currentTotalPlasticProduction) {
+    public static void fetchPlasticProduction(double currentTotalPlasticProduction) {
         plasticProduction = currentTotalPlasticProduction;
     }
 
-    private static void UpdatePlastic(double yr) {
+    private static void updatePlastic(double yr) {
         setPlasticInOcean(getPlasticInOcean() + plasticProduction * yr);
     }
 
-    public static void UpdatePlasticProduction() {
+    public static void updatePlasticProduction() {
         plasticProduction = Game.matas.combinedProduction + Game.laundry.combinedProduction + Game.cardealer.combinedProduction + Game.dock.combinedProduction + 5;
     }
 
-    private static void UpdateFish(double yr) {
+    private static void updateFish(double yr) {
         setCurrentFishSouls(getCurrentFishSouls() + getPlasticInOcean() * yr);
         setFishInOcean((long)getFishInOcean() - (long)getPlasticInOcean() * (long)yr);
         if (getFishInOcean() <= 0) {

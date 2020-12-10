@@ -102,7 +102,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="EndGameButton" layoutX="312.0" layoutY="647.0" mnemonicParsing="false" onMousePressed="#EndGame" prefHeight="80.0" prefWidth="410.0" text="Afslut Spillet">
+            <Button fx:id="EndGameButton" layoutX="312.0" layoutY="647.0" mnemonicParsing="false" onMousePressed="#endGame" prefHeight="80.0" prefWidth="410.0" text="Afslut Spillet">
                <font>
                   <Font name="Times New Roman Bold Italic" size="45.0" />
                </font>
