@@ -190,6 +190,13 @@ public class Wrapper {
         }
     }
 
+    public static void updateEndScreenUI(String userDescription) {
+        endScreenController.userDescription.setWrapText(true);
+        endScreenController.userDescription.setText(userDescription);
+    }
+
+
+
     /**
      * Resets all navigation buttons once they've been pressed
      */
@@ -219,7 +226,7 @@ public class Wrapper {
         game.changeScene("UpgradeRoom");
         changeRoomToDevil();
         // upgradeRoomController.goToDevil.setDisable(true);
-        Game.StartTimer();
+        Game.startTimer();
     }
 
     /**

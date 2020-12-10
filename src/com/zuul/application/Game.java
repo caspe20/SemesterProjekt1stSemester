@@ -24,6 +24,7 @@ public class Game extends Application {
     private static Room currentRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
+    public static Timeline timeline;
 
     /*
      * Game creation
@@ -105,20 +106,25 @@ public class Game extends Application {
      * Function for a game timer, such that the program can run with real-time
      * screeb updates
      */
-    public static void StartTimer() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> GameTick())); // Creates tick every 50
+    public static void startTimer() {
+        timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> gameTick())); // Creates tick every 50
                                                                                                // miliseconds or ca. 20
                                                                                                // ticks a second
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
 
+    public static void endTimer() {
+        timeline.stop();
+    }
+
+
     /**
      * Calls this function every game tick.
      */
-    public static void GameTick() {
+    public static void gameTick() {
         GameStats.SimulateTurn(50d / 12000d);
-        Wrapper.writeStatistics(GameStats.getYear(), GameStats.getPlasticProduction(), GameStats.getPlastic(),
+        Wrapper.writeStatistics(GameStats.getTime(), GameStats.getPlasticProduction(), GameStats.getPlastic(),
                 GameStats.getFish());
         calculateProgress();
     }
@@ -171,9 +177,9 @@ public class Game extends Application {
             Wrapper.setUserDescription(
                     "This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
         } else {
-            Wrapper.setUserDescription(
-                    "That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats, the world is now a dead place!");
+            endTimer();
             changeScene("EndScreen");
+            updateEndScreenUI();
         }
     }
 
@@ -273,21 +279,21 @@ public class Game extends Application {
                         "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
                 new UpgradePath("Product",
                         new Upgrade[]{
-                                new Upgrade("vasker dine fødder", 0.0, 3.0),
-                                new Upgrade("vasker dine sokker", 10.0, 6.0),
-                                new Upgrade("vasker dine underbukser", 30.0, 12.0),
-                                new Upgrade("vasker din hue", 90.0, 25.0),
-                                new Upgrade("vasker dine vanter", 270.0, 50.0),
-                                new Upgrade("vasker dit halstørklæde", 810.0, 100.0),
-                                new Upgrade("vasker din T-shirt", 2430.0, 150.0),
-                                new Upgrade("vasker dine langærmet T-shirt", 7290.0, 300.0),
-                                new Upgrade("vasker dine shorts", 21870.0, 500.0),
-                                new Upgrade("vasker dine lange bukser", 65610.0, 750.0),
-                                new Upgrade("vasker din trøje", 196830.0, 1250.0),
-                                new Upgrade("vasker dit kostume", 590490.0, 3000.0),
-                                new Upgrade("vasker din jakke", 1771470.0, 5000.0),
-                                new Upgrade("vasker dine skibukser", 5314410.0, 9000.0),
-                                new Upgrade("vasker din flyverdragt", 15943230.0, 13500.0)
+                                new Upgrade("vasker fødder", 0.0, 3.0),
+                                new Upgrade("vasker sokker", 10.0, 6.0),
+                                new Upgrade("vasker underbukser", 30.0, 12.0),
+                                new Upgrade("vasker hue", 90.0, 25.0),
+                                new Upgrade("vasker vanter", 270.0, 50.0),
+                                new Upgrade("vasker halstørklæde", 810.0, 100.0),
+                                new Upgrade("vasker T-shirt", 2430.0, 150.0),
+                                new Upgrade("vasker langærmet T-shirt", 7290.0, 300.0),
+                                new Upgrade("vasker shorts", 21870.0, 500.0),
+                                new Upgrade("vasker lange bukser", 65610.0, 750.0),
+                                new Upgrade("vasker trøje", 196830.0, 1250.0),
+                                new Upgrade("vasker kostume", 590490.0, 3000.0),
+                                new Upgrade("vasker jakke", 1771470.0, 5000.0),
+                                new Upgrade("vasker skibukser", 5314410.0, 9000.0),
+                                new Upgrade("vasker flyverdragt", 15943230.0, 13500.0)
                         }),
                 new UpgradePath("Forbrug",
                         new Upgrade[]{
@@ -490,15 +496,38 @@ public class Game extends Application {
         String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         
-        String userDescription = ("➼ Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                                    "➼ Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                                    "➼ Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                                    "➼ Du " + currentProductDock + " " + currentUsageDock);
+        String userDescription = ("➼ Vi bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                                    "➼ Vi " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                                    "➼ Vi " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                                    "➼ Vi " + currentProductDock + " " + currentUsageDock);
 
         Wrapper.setDevilsRoomUserDescription(userDescription);
     }
 
 
+    public static void updateEndScreenUI() {
 
+        String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductLaundry = Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductDock = Game.dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()].getUpgradeName();
 
+        String currentUsageMatas = Game.matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageCardealer = Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+
+        int yearsPlayed = GameStats.getYearsPlayed();
+        int daysPlayed = GameStats.getDaysPlayed();
+
+        String userDescription = ("Tillykke! Vi brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
+                "på at slå alle fiskene ihjel med vores mikroplast" + "\n\n" +
+                "Alle os mennesker på jorden... " + "\n" +
+                "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                "... " + currentProductDock + " " + currentUsageDock);
+
+        Wrapper.updateEndScreenUI(userDescription);
+    }
 }
