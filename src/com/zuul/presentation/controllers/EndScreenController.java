@@ -10,7 +10,7 @@ public class EndScreenController extends Controller {
     public TextArea userDescription;
 
     @FXML
-    public void EndGame(){
+    public void endGame(){
         Platform.exit();
         System.exit(0);
     }

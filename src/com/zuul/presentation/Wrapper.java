@@ -238,7 +238,7 @@ public class Wrapper {
             UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
             upgradeRoom.upgradePathProducts.performUpgrade();
             upgradeRoom.setCombinedProduction();
-            GameStats.UpdatePlasticProduction();
+            GameStats.updatePlasticProduction();
             updateUpgradeUI();
         }
     }
@@ -252,7 +252,7 @@ public class Wrapper {
             UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
             upgradeRoom.upgradePathUsage.performUpgrade();
             upgradeRoom.setCombinedProduction();
-            GameStats.UpdatePlasticProduction();
+            GameStats.updatePlasticProduction();
             updateUpgradeUI();
         }
     }

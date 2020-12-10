@@ -123,7 +123,7 @@ public class Game extends Application {
      * Calls this function every game tick.
      */
     public static void gameTick() {
-        GameStats.SimulateTurn(50d / 12000d);
+        GameStats.simulateTurn(50d / 12000d);
         Wrapper.writeStatistics(GameStats.getTime(), GameStats.getPlasticProduction(), GameStats.getPlastic(),
                 GameStats.getFish());
         calculateProgress();
