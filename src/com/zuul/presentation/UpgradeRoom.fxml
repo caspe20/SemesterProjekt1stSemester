@@ -238,18 +238,6 @@
                               </ColorAdjust>
                            </effect>
                         </Label>
-                        <Label fx:id="upgradeProducts1Pollution" alignment="TOP_LEFT" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
-                           <font>
-                              <Font name="Times New Roman Italic" size="20.0" />
-                           </font>
-                           <effect>
-                              <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
-                                 <input>
-                                    <InnerShadow choke="0.27" color="#cf17c6" height="68.44" radius="28.5325" width="47.69" />
-                                 </input>
-                              </ColorAdjust>
-                           </effect>
-                        </Label>
                         <Label fx:id="upgradeProducts2" layoutX="3.0" layoutY="123.0" text="Level 2 - Shampoo">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
@@ -274,7 +262,7 @@
                               </ColorAdjust>
                            </effect>
                         </Label>
-                        <Pane fx:id="UpgradeProductArrow" layoutX="110.0" layoutY="64.0">
+                        <Pane fx:id="UpgradeProductArrow" layoutX="110.0" layoutY="64.0" prefWidth="33.0">
                            <children>
                               <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#aeaeae" height="35.0" layoutX="12.0" stroke="#ffffff00" strokeType="INSIDE" width="9.0" />
                               <Polygon fill="#aeaeae" layoutX="50.0" layoutY="-6.0" points="-50.0, 40.0, -17.0, 40.0, -33.0, 55.0" stroke="TRANSPARENT" strokeType="INSIDE" />
@@ -307,18 +295,6 @@
                         <Label fx:id="upgradeUsage1" layoutX="3.0" text="Level 1 - 1 Gang om året:">
                            <font>
                               <Font name="Times New Roman Bold" size="22.0" />
-                           </font>
-                           <effect>
-                              <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
-                                 <input>
-                                    <InnerShadow choke="0.27" color="#cf17c6" height="68.44" radius="28.5325" width="47.69" />
-                                 </input>
-                              </ColorAdjust>
-                           </effect>
-                        </Label>
-                        <Label fx:id="upgradeUsage1Pollution" layoutX="3.0" layoutY="27.0" prefHeight="31.0" prefWidth="247.0" text="5 Tons plastik/år">
-                           <font>
-                              <Font name="Times New Roman Italic" size="20.0" />
                            </font>
                            <effect>
                               <ColorAdjust brightness="0.2" contrast="-1.0" hue="0.6" saturation="0.4">
