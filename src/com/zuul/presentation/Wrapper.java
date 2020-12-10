@@ -162,7 +162,6 @@ public class Wrapper {
      */
 
     private static void updateDevilsRoomUI() {
-        devilsRoomController.roomDescription.setWrapText(true);
         devilsRoomController.userDescription.setWrapText(true);
         updateDevilsRoomUserDescription();
         updateDevilsRoomStats();
@@ -202,12 +201,6 @@ public class Wrapper {
         }
     }
 
-
-
-
-
-
-
     /**
      * Resets all navigation buttons once they've been pressed
      */
@@ -222,7 +215,6 @@ public class Wrapper {
         // upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
         // upgradeRoomController.goToDevil.setDisable(false);
-
         upgradeRoomController.goToCarDealer.setStyle(null);
         upgradeRoomController.goToHarbour.setStyle(null);
         upgradeRoomController.goToLaundry.setStyle(null);
@@ -332,4 +324,10 @@ public class Wrapper {
         upgradeRoomController.goToDevil.setMouseTransparent(true);
         updateDevilsRoomUI();
     }
+
+
+    
+
+
+
 }

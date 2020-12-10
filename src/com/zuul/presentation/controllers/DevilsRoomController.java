@@ -22,7 +22,6 @@ public class DevilsRoomController extends Controller {
     @FXML
     public ProgressBar progressBar;
 
-
     @FXML
     public Label deadFish;
 
