@@ -11,7 +11,7 @@ public class DevilsRoom extends Room {
     @Override
     public String getRoomDescription() {
         String s = "Du er " + description + ".\n";
-        s = s + GameStats.getYear() + ".\n";
+        s = s + GameStats.getTime() + ".\n";
         s = s + getExitString() + "\n";
         return s;
     }

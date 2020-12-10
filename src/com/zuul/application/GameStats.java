@@ -47,12 +47,24 @@ public class GameStats {
         }
     }
 
-    public static String getYear() {
+    public static String getTime() {
         double year = currentYear + currentTurn;
         double day = (year % 1) * 365;
         String out = "år " + (int)Math.floor(year) + " dag " + String.format("%.0f",day);
         return out;
     }
+
+    public static int getYearsPlayed() {
+        return (int)currentTurn;
+    }
+
+    public static int getDaysPlayed() {
+        double year = currentYear + currentTurn;
+        double day = (year % 1) * 365;
+        return (int)day;
+    }
+
+
 
     public static String getFish() {
         return convertToVerbal(currentFishSouls) + " sjæle";

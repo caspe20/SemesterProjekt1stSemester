@@ -1,10 +1,6 @@
 package com.zuul.application;
 
 import com.zuul.application.rooms.*;
-import com.zuul.presentation.controllers.Controller;
-import com.zuul.presentation.controllers.StartMenuController;
-import com.zuul.presentation.controllers.UpgradeRoomController;
-import com.zuul.presentation.controllers.DevilsRoomController;
 import com.zuul.presentation.Wrapper;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -28,6 +24,7 @@ public class Game extends Application {
     public static Room currentRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
+    public static Timeline timeline;
 
     /*
      * Game creation
@@ -93,20 +90,25 @@ public class Game extends Application {
      * Function for a game timer, such that the program can run with real-time
      * screeb updates
      */
-    public static void StartTimer() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> GameTick())); // Creates tick every 50
+    public static void startTimer() {
+        timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> gameTick())); // Creates tick every 50
                                                                                                // miliseconds or ca. 20
                                                                                                // ticks a second
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
 
+    public static void endTimer() {
+        timeline.stop();
+    }
+
+
     /**
      * Calls this function every game tick.
      */
-    public static void GameTick() {
+    public static void gameTick() {
         GameStats.SimulateTurn(50d / 12000d);
-        Wrapper.writeStatistics(GameStats.getYear(), GameStats.getPlasticProduction(), GameStats.getPlastic(),
+        Wrapper.writeStatistics(GameStats.getTime(), GameStats.getPlasticProduction(), GameStats.getPlastic(),
                 GameStats.getFish());
         calculateProgress();
     }
@@ -159,9 +161,9 @@ public class Game extends Application {
             Wrapper.setUserDescription(
                     "This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
         } else {
+            endTimer();
             changeScene("EndScreen");
-            updateEndScreenUserDescription();
-
+            updateEndScreenUI();
         }
     }
 
@@ -487,7 +489,7 @@ public class Game extends Application {
     }
 
 
-    public static void updateEndScreenUserDescription() {
+    public static void updateEndScreenUI() {
 
         String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
         String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
@@ -499,15 +501,17 @@ public class Game extends Application {
         String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
 
-        String userDescription = ("Tillykke! Du brugte " +
-                "Alle fiskene i" +
-                " havet er døde som følge af mikroplastforurening." + "\n\n" +
+        int yearsPlayed = GameStats.getYearsPlayed();
+        int daysPlayed = GameStats.getDaysPlayed();
+
+        String userDescription = ("Tillykke! Vi brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
+                "på at slå alle fiskene ihjel med vores mikroplast" + "\n\n" +
                 "Alle os mennesker på jorden... " + "\n" +
                 "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
                 "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
                 "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
                 "... " + currentProductDock + " " + currentUsageDock);
 
-        Wrapper.setEndScreenUserDescription(userDescription);
+        Wrapper.updateEndScreenUI(userDescription);
     }
 }
