@@ -22,8 +22,8 @@ public class Game extends Application {
     String presentationLocation = "../presentation/";
     // Scene variables
     public static Stage primaryStage;
-    public HashMap<String, Scene> scenes = new HashMap<>();
-    public HashMap<String, Object> controllers = new HashMap<>();
+    public static HashMap<String, Scene> scenes = new HashMap<>();
+    public static HashMap<String, Object> controllers = new HashMap<>();
     // Room structure variables
     public static Room currentRoom;
     private Room devilheadquater;
@@ -116,7 +116,7 @@ public class Game extends Application {
      *
      * @param scene String that denotes the scene and controller to change to
      */
-    public void changeScene(String scene) {
+    public static void changeScene(String scene) {
         primaryStage.setScene(scenes.get(scene));
     }
 
@@ -161,6 +161,7 @@ public class Game extends Application {
         } else {
             Wrapper.setUserDescription(
                     "That's it. You've officially killed all the fish in the ocean with your microplastics. No more souls for me, and no more fish for you! Are you happy now? That's a win, I suppose. Congrats, the world is now a dead place!");
+            changeScene("EndScreen");
         }
     }
 

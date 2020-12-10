@@ -44,7 +44,6 @@ public class GameStats {
         fishInOcean -= plasticInOcean * yr;
         if (fishInOcean <= 0) {
             fishInOcean = 0;
-            // [*INSERT YOU WIN FUNCTION HERE*]
         }
     }
 
