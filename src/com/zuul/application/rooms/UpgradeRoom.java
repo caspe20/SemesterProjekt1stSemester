@@ -28,15 +28,4 @@ public class UpgradeRoom extends Room {
         combinedProduction = upgradePathProducts.getCurrentProduction() * upgradePathUsage.getCurrentProduction();
     }
 
-
-
-
-
-    // This function returns what the estimated production will be if you upgrade a
-    // certain path a certain amount;
-
-    @Override
-    public String getRoomDescription() {
-        return description;
-    }
 }
