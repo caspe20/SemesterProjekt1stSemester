@@ -44,132 +44,6 @@ public class Game extends Application {
     }
 
     /**
-     * Creates the world in the game
-     */
-    private void createRooms() {
-        devilheadquater = new DevilsRoom("Djævlens Hovedkvarter", "Velkommen i Djævlens' hovedkvarter");
-
-        matas = new UpgradeRoom("Matas",
-                "Velkommen til Matas! Her kan du købe en masse forskellige produkter "
-                        + "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som "
-                        + "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
-                new UpgradePath("Product", new Upgrade[] { new Upgrade("svanemærkede produkter", 0.0, 5.0),
-                        new Upgrade("håndsæbe", 10.0, 10.0), new Upgrade("shampoo", 50.0, 15.0),
-                        new Upgrade("balsam", 250.0, 25.0), new Upgrade("face scrub cream", 1000.0, 35.0),
-                        new Upgrade("barberskum", 5000.0, 50.0), new Upgrade("mascara", 20000.0, 75.0),
-                        new Upgrade("foundation", 75000.0, 125.0), new Upgrade("lip gloss", 300000.0, 200.0),
-                        new Upgrade("clean laundry bod", 1000000.0, 300.0), new Upgrade("concealer", 4000000.0, 500.0),
-                        new Upgrade("footscrub", 8000000.0, 750.0),
-                        new Upgrade("self tan bronzing cream", 20000000.0, 1500.0),
-                        new Upgrade("glimmer", 50000000.0, 2500.0), new Upgrade("tandpasta", 100000000.0, 4000.0) }),
-                new UpgradePath("Forbrug", new Upgrade[] { new Upgrade("1 gang om året", 10.0, 10.0),
-                        new Upgrade("2 gange om året", 50.0, 15.0), new Upgrade("1 gang i kvartalet", 250.0, 25.0),
-                        new Upgrade("1 gang om måneden", 1000.0, 35.0), new Upgrade("2 gange om måneden", 5000.0, 50.0),
-                        new Upgrade("1 gang om ugen", 20000.0, 75.0), new Upgrade("2 gange om ugen", 75000.0, 125.0),
-                        new Upgrade("1 gang om dagen", 300000.0, 200.0),
-                        new Upgrade("2 gange om dagen", 1000000.0, 300.0),
-                        new Upgrade("3 gange om dagen", 4000000.0, 500.0),
-                        new Upgrade("4 gange om dagen", 9000000.0, 800.0),
-                        new Upgrade("6 gange om dagen", 20000000.0, 1750.0),
-                        new Upgrade("1 gang i timen", 75000000.0, 3000.0),
-                        new Upgrade("1 gang i kvarteret", 250000000.0, 6000.0), new Upgrade("hele tiden", 0.0, 5.0) }));
-
-        cardealer = new UpgradeRoom("Bilforhandler",
-                "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt"
-                        + "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler"
-                        + "fra dækslitagen svæver med vinden til de store have.",
-                new UpgradePath("Product",
-                        new Upgrade[] { new Upgrade("går på bare fødder", 0.0, 0.0),
-                                new Upgrade("går i sneaks", 5.0, 10.0), new Upgrade("kører på skateboard", 30.0, 20.0),
-                                new Upgrade("kører på cykel", 150.0, 40.0),
-                                new Upgrade("bruger offentlig transport", 500.0, 80.0),
-                                new Upgrade("kører Volkswagen UP", 2500.0, 120.0),
-                                new Upgrade("kører Ford Focus", 12500.0, 150.0),
-                                new Upgrade("kører Mercedes CLA", 50000.0, 225.0),
-                                new Upgrade("kører Ferrari", 300000.0, 300.0),
-                                new Upgrade("kører Lamborghini", 1000000.0, 400.0),
-                                new Upgrade("kører lastbil", 5000000.0, 500.0),
-                                new Upgrade("kører monstertruck", 2500000.0, 600.0) }),
-                new UpgradePath("Forbrug", new Upgrade[] { new Upgrade("0 km om uge", 0.0, 0.0),
-                        new Upgrade("5 km om ugen", 50.0, 10.0), new Upgrade("10 km om ugen", 200.0, 20.0),
-                        new Upgrade("20 km om ugen", 800.0, 30.0), new Upgrade("40 km om ugen", 4000.0, 50.0),
-                        new Upgrade("60 km om ugen", 20000.0, 75.0), new Upgrade("80 km om ugen", 60000.0, 100.0),
-                        new Upgrade("100 km om ugen", 300000.0, 150.0), new Upgrade("125 km om ugen", 800000.0, 250.0),
-                        new Upgrade("150 km om ugen", 2500000.0, 500.0),
-                        new Upgrade("175 km om ugen", 7500000.0, 1000.0),
-                        new Upgrade("200 km om ugen", 15000000.0, 2000.0),
-                        new Upgrade("250 km om ugen", 35000000.0, 4000.0),
-                        new Upgrade("300 km om ugen", 70000000.0, 7500.0),
-                        new Upgrade("400 km om ugen", 200000000.0, 15000.0) }));
-
-        // Mangler Hvad der skal vaskes.
-        laundry = new UpgradeRoom("Vaskeriet",
-                "Velkommen til Vaskeriet! Find din smartphone frem og køb en masse syntetisk tøj fra "
-                        + "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som "
-                        + "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
-                new UpgradePath("Product", new Upgrade[] { new Upgrade("vasker dine fødder", 0.0, 3.0),
-                        new Upgrade("vasker dine sokker", 10.0, 6.0),
-                        new Upgrade("vasker dine underbukser", 30.0, 12.0), new Upgrade("vasker din hue", 90.0, 25.0),
-                        new Upgrade("vasker dine vanter", 270.0, 50.0),
-                        new Upgrade("vasker dit halstørklæde", 810.0, 100.0),
-                        new Upgrade("vasker din T-shirt", 2430.0, 150.0),
-                        new Upgrade("vasker dine langærmet T-shirt", 7290.0, 300.0),
-                        new Upgrade("vasker dine shorts", 21870.0, 500.0),
-                        new Upgrade("vasker dine lange bukser", 65610.0, 750.0),
-                        new Upgrade("vasker din trøje", 196830.0, 1250.0),
-                        new Upgrade("vasker dit kostume", 590490.0, 3000.0),
-                        new Upgrade("vasker din jakke", 1771470.0, 6000.0),
-                        new Upgrade("vasker dine skibukser", 5314410.0, 10000.0),
-                        new Upgrade("vasker din flyverdragt", 15943230.0, 25000.0) }),
-                new UpgradePath("Forbrug", new Upgrade[] { new Upgrade("1 gang om året", 0.0, 0.0),
-                        new Upgrade("2 gange om året", 10.0, 5.0), new Upgrade("4 gange om året", 20.0, 10.0),
-                        new Upgrade("1 gang om måneden", 40.0, 15.0), new Upgrade("2 gange om måneden", 80.0, 20.0),
-                        new Upgrade("3 gange om måneden", 160.0, 25.0), new Upgrade("1 gang om ugen", 320.0, 30.0),
-                        new Upgrade("2 gange om ugen", 640.0, 40.0), new Upgrade("3 gange om ugen", 1280.0, 50.0),
-                        new Upgrade("4 gange om ugen", 2560.0, 75.0), new Upgrade("5 gange om ugen", 5120.0, 100.0),
-                        new Upgrade("6 gange om ugen", 10240.0, 125.0), new Upgrade("1 gang om dagen", 20480.0, 175.0),
-                        new Upgrade("2 gange om dagen", 40960.0, 250.0),
-                        new Upgrade("4 gange om dagen", 81920.0, 300.0) }));
-
-        dock = new UpgradeRoom("Molen",
-                "Velkommen ved Molen! Bare smid alt dit plastikaffald direkte i vandet. Bare rolig! I havet "
-                        + "bliver det nedbrudt meget langsomt, men når først de store plastikstykker er blevet til små partikler, vil "
-                        + "de slå en masse fisk ihjel.",
-                new UpgradePath("Product",
-                        new Upgrade[] { new Upgrade("kaster brødkrummer i havnen", 0.0, 0.0),
-                                new Upgrade("kaster sugerør i havnen", 10.0, 20.0),
-                                new Upgrade("kaster slikpapir i havnen", 50.0, 80.0),
-                                new Upgrade("kaster plastikflasker i havnen", 300.0, 120.0),
-                                new Upgrade("kaster plastikposer i havnen", 1500.0, 200.0),
-                                new Upgrade("kaster actionman i havnen", 5000.0, 300.0),
-                                new Upgrade("kaster vandkander i havnen", 30000.0, 450.0),
-                                new Upgrade("kaster IKEA-kasser i havnen", 80000.0, 600.0),
-                                new Upgrade("kaster badeflamingo i havnen", 400000.0, 750.0),
-                                new Upgrade("kaster bildæk i havnen", 2000000.0, 900.0),
-                                new Upgrade("kaster presenning i havnen", 10000000.0, 1200.0),
-                                new Upgrade("kaster rutchebaner i havnen", 50000000.0, 1500.0),
-                                new Upgrade("kaster havetrampoliner i havnen", 25000000.0, 1750.0),
-                                new Upgrade("kaster kayaker i havnen", 100000000.0, 2000.0),
-                                new Upgrade("kaster havepools i havnen", 300000000.0, 2500.0) }),
-                new UpgradePath("Forbrug", new Upgrade[] { new Upgrade("1 gang om året", 50.0, 5.0),
-                        new Upgrade("2 gange om året", 250.0, 10.0), new Upgrade("1 gang i kvartalet", 1000.0, 20.0),
-                        new Upgrade("1 gang om måneden", 4000.0, 30.0),
-                        new Upgrade("2 gange om måneden", 16000.0, 40.0), new Upgrade("1 gang om ugen", 64000.0, 60.0),
-                        new Upgrade("2 gange om ugen", 256000.0, 90.0),
-                        new Upgrade("1 gang om dagen", 1000000.0, 150.0),
-                        new Upgrade("2 gange om dagen", 5000000.0, 250.0),
-                        new Upgrade("3 gange om dagen", 15000000.0, 400.0),
-                        new Upgrade("4 gange om dagen", 45000000.0, 900.0),
-                        new Upgrade("6 gange om dagen", 150000000.0, 2700.0),
-                        new Upgrade("1 gang i timen", 450000000.0, 3300.0),
-                        new Upgrade("1 gang i kvarteret", 1000000000.0, 8000.0),
-                        new Upgrade("hele tiden", 0.0, 0.0) }));
-
-        currentRoom = devilheadquater;
-
-    }
-
-    /**
      * Makes the game ready to play. Invokes the launch function from JavaFXM
      *
      * @param args
@@ -310,6 +184,180 @@ public class Game extends Application {
      *
      * @return current room description
      */
+    private void createRooms() {
+        devilheadquater = new DevilsRoom("Djævlens Hovedkvarter",
+                "Velkommen i Djævlens' hovedkvarter");
+
+        matas = new UpgradeRoom("Matas",
+                "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
+                        "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som " +
+                        "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
+                new UpgradePath("Product",
+                        new Upgrade[]{
+                                new Upgrade("svanemærkede produkter", 0.0, 5.0),
+                                new Upgrade("håndsæbe", 10.0, 10.0),
+                                new Upgrade("shampoo", 50.0, 15.0),
+                                new Upgrade("balsam", 250.0, 25.0),
+                                new Upgrade("face scrub cream", 1000.0, 35.0),
+                                new Upgrade("barberskum", 5000.0, 50.0),
+                                new Upgrade("mascara", 20000.0, 75.0),
+                                new Upgrade("foundation", 75000.0, 125.0),
+                                new Upgrade("lip gloss", 300000.0, 200.0),
+                                new Upgrade("clean laundry bod", 1000000.0, 300.0),
+                                new Upgrade("concealer", 4000000.0, 500.0),
+                                new Upgrade("footscrub", 8000000.0, 750.0),
+                                new Upgrade("self tan bronzing cream", 20000000.0, 1500.0),
+                                new Upgrade("glimmer", 50000000.0, 2500.0),
+                                new Upgrade("tandpasta", 100000000.0, 4000.0)
+                        }),
+                new UpgradePath("Forbrug",
+                        new Upgrade[]{
+                                new Upgrade("1 gang om året", 10.0, 10.0),
+                                new Upgrade("2 gange om året", 50.0, 15.0),
+                                new Upgrade("1 gang i kvartalet", 250.0, 25.0),
+                                new Upgrade("1 gang om måneden", 1000.0, 35.0),
+                                new Upgrade("2 gange om måneden", 5000.0, 50.0),
+                                new Upgrade("1 gang om ugen", 20000.0, 75.0),
+                                new Upgrade("2 gange om ugen", 75000.0, 125.0),
+                                new Upgrade("1 gang om dagen", 300000.0, 200.0),
+                                new Upgrade("2 gange om dagen", 1000000.0, 300.0),
+                                new Upgrade("3 gange om dagen", 4000000.0, 500.0),
+                                new Upgrade("4 gange om dagen", 9000000.0, 800.0),
+                                new Upgrade("6 gange om dagen", 20000000.0, 1750.0),
+                                new Upgrade("1 gang i timen", 75000000.0, 3000.0),
+                                new Upgrade("1 gang i kvarteret", 250000000.0, 6000.0),
+                                new Upgrade("hele tiden", 600000000.0, 9000.0)
+                        }));
+
+        cardealer = new UpgradeRoom("Bilforhandler",
+                "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt" +
+                        "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler" +
+                        "fra dækslitagen svæver med vinden til de store have.",
+                new UpgradePath("Product",
+                        new Upgrade[]{
+                                new Upgrade("går på bare fødder", 0.0, 0.0),
+                                new Upgrade("går i sneaks", 5.0, 10.0),
+                                new Upgrade("kører på skateboard", 30.0, 20.0),
+                                new Upgrade("kører på cykel", 150.0, 40.0),
+                                new Upgrade("bruger offentlig transport", 500.0, 80.0),
+                                new Upgrade("kører Volkswagen UP", 2500.0, 120.0),
+                                new Upgrade("kører Ford Focus", 12500.0, 150.0),
+                                new Upgrade("kører Mercedes CLA", 50000.0, 225.0),
+                                new Upgrade("kører Ferrari", 300000.0, 300.0),
+                                new Upgrade("kører Lamborghini", 1000000.0, 400.0),
+                                new Upgrade("kører lastbil", 5000000.0, 500.0),
+                                new Upgrade("kører monstertruck", 2500000.0, 600.0)
+                        }),
+                new UpgradePath("Forbrug",
+                        new Upgrade[]{
+                                new Upgrade("0 km om uge", 0.0, 0.0),
+                                new Upgrade("5 km om ugen", 50.0, 10.0),
+                                new Upgrade("10 km om ugen", 200.0, 20.0),
+                                new Upgrade("20 km om ugen", 800.0, 30.0),
+                                new Upgrade("40 km om ugen", 4000.0, 50.0),
+                                new Upgrade("60 km om ugen", 20000.0, 75.0),
+                                new Upgrade("80 km om ugen", 60000.0, 100.0),
+                                new Upgrade("100 km om ugen", 300000.0, 150.0),
+                                new Upgrade("125 km om ugen", 800000.0, 250.0),
+                                new Upgrade("150 km om ugen", 2500000.0, 500.0),
+                                new Upgrade("175 km om ugen", 7500000.0, 1000.0),
+                                new Upgrade("200 km om ugen", 15000000.0, 2000.0),
+                                new Upgrade("250 km om ugen", 35000000.0, 4000.0),
+                                new Upgrade("300 km om ugen", 70000000.0, 7500.0),
+                                new Upgrade("400 km om ugen", 200000000.0, 15000.0),
+                                new Upgrade("500 km om ugen", 350000000.0, 22500.0)
+                        }));
+
+        // Mangler Hvad der skal vaskes.
+        laundry = new UpgradeRoom("Vaskeriet",
+                "Velkommen til Vaskeriet! Find din smartphone frem og køb en masse syntetisk tøj fra " +
+                        "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som " +
+                        "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
+                new UpgradePath("Product",
+                        new Upgrade[]{
+                                new Upgrade("vasker dine fødder", 0.0, 3.0),
+                                new Upgrade("vasker dine sokker", 10.0, 6.0),
+                                new Upgrade("vasker dine underbukser", 30.0, 12.0),
+                                new Upgrade("vasker din hue", 90.0, 25.0),
+                                new Upgrade("vasker dine vanter", 270.0, 50.0),
+                                new Upgrade("vasker dit halstørklæde", 810.0, 100.0),
+                                new Upgrade("vasker din T-shirt", 2430.0, 150.0),
+                                new Upgrade("vasker dine langærmet T-shirt", 7290.0, 300.0),
+                                new Upgrade("vasker dine shorts", 21870.0, 500.0),
+                                new Upgrade("vasker dine lange bukser", 65610.0, 750.0),
+                                new Upgrade("vasker din trøje", 196830.0, 1250.0),
+                                new Upgrade("vasker dit kostume", 590490.0, 3000.0),
+                                new Upgrade("vasker din jakke", 1771470.0, 5000.0),
+                                new Upgrade("vasker dine skibukser", 5314410.0, 9000.0),
+                                new Upgrade("vasker din flyverdragt", 15943230.0, 13500.0)
+                        }),
+                new UpgradePath("Forbrug",
+                        new Upgrade[]{
+                                new Upgrade("1 gang om året", 0.0, 0.0),
+                                new Upgrade("2 gange om året", 10.0, 5.0),
+                                new Upgrade("4 gange om året", 20.0, 10.0),
+                                new Upgrade("1 gang om måneden", 40.0, 15.0),
+                                new Upgrade("2 gange om måneden", 80.0, 20.0),
+                                new Upgrade("3 gange om måneden", 160.0, 25.0),
+                                new Upgrade("1 gang om ugen", 320.0, 30.0),
+                                new Upgrade("2 gange om ugen", 640.0, 40.0),
+                                new Upgrade("3 gange om ugen", 1280.0, 50.0),
+                                new Upgrade("4 gange om ugen", 2560.0, 75.0),
+                                new Upgrade("5 gange om ugen", 5120.0, 100.0),
+                                new Upgrade("6 gange om ugen", 10240.0, 125.0),
+                                new Upgrade("1 gang om dagen", 20480.0, 175.0),
+                                new Upgrade("2 gange om dagen", 40960.0, 250.0),
+                                new Upgrade("4 gange om dagen", 81920.0, 300.0),
+                                new Upgrade("5 gange om dagen", 163840.0, 350.0),
+                                new Upgrade("hver anden time", 327680.0, 400.0),
+                                new Upgrade("hver time", 655360.0, 500.0)
+                        }));
+
+        dock = new UpgradeRoom("Molen",
+                "Velkommen ved Molen! Bare smid alt dit plastikaffald direkte i vandet. Bare rolig! I havet " +
+                        "bliver det nedbrudt meget langsomt, men når først de store plastikstykker er blevet til små partikler, vil " +
+                        "de slå en masse fisk ihjel.",
+                new UpgradePath("Product",
+                        new Upgrade[]{
+                                new Upgrade("kaster brødkrummer i havnen", 0.0, 0.0),
+                                new Upgrade("kaster sugerør i havnen", 10.0, 20.0),
+                                new Upgrade("kaster slikpapir i havnen", 50.0, 80.0),
+                                new Upgrade("kaster plastikflasker i havnen", 300.0, 120.0),
+                                new Upgrade("kaster plastikposer i havnen", 1500.0, 200.0),
+                                new Upgrade("kaster actionman i havnen", 5000.0, 300.0),
+                                new Upgrade("kaster vandkander i havnen", 30000.0, 450.0),
+                                new Upgrade("kaster IKEA-kasser i havnen", 80000.0, 600.0),
+                                new Upgrade("kaster badeflamingo i havnen", 400000.0, 750.0),
+                                new Upgrade("kaster bildæk i havnen", 2000000.0, 900.0),
+                                new Upgrade("kaster presenning i havnen", 10000000.0, 1200.0),
+                                new Upgrade("kaster rutchebaner i havnen", 50000000.0, 1500.0),
+                                new Upgrade("kaster havetrampoliner i havnen", 25000000.0, 1750.0),
+                                new Upgrade("kaster kayaker i havnen", 100000000.0, 2000.0),
+                                new Upgrade("kaster havepools i havnen", 300000000.0, 2500.0)
+                        }),
+                new UpgradePath("Forbrug",
+                        new Upgrade[]{
+                                new Upgrade("1 gang om året", 50.0, 5.0),
+                                new Upgrade("2 gange om året", 250.0, 10.0),
+                                new Upgrade("1 gang i kvartalet", 1000.0, 20.0),
+                                new Upgrade("1 gang om måneden", 4000.0, 30.0),
+                                new Upgrade("2 gange om måneden", 16000.0, 40.0),
+                                new Upgrade("1 gang om ugen", 64000.0, 60.0),
+                                new Upgrade("2 gange om ugen", 256000.0, 90.0),
+                                new Upgrade("1 gang om dagen", 1000000.0, 150.0),
+                                new Upgrade("2 gange om dagen", 5000000.0, 250.0),
+                                new Upgrade("3 gange om dagen", 15000000.0, 400.0),
+                                new Upgrade("4 gange om dagen", 45000000.0, 900.0),
+                                new Upgrade("6 gange om dagen", 150000000.0, 2700.0),
+                                new Upgrade("1 gang i timen", 350000000.0, 3300.0),
+                                new Upgrade("1 gang i kvarteret", 800000000.0, 8000.0),
+                                new Upgrade("hele tiden", 1234567890.0, 17500.0)
+                        }));
+
+        currentRoom = devilheadquater;
+
+    }
+
     public static String getRoomDescription() {
         return currentRoom.getRoomDescription();
     }
