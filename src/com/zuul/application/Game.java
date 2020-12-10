@@ -102,6 +102,7 @@ public class Game extends Application {
 
         // Change scene to scene 1
         changeScene("StartMenu");
+        updateStartScreenDescription();
     }
 
     /**
@@ -505,7 +506,6 @@ public class Game extends Application {
 
 
     public static void updateEndScreenUI() {
-
         String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
         String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
         String currentProductLaundry = Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
@@ -541,19 +541,15 @@ public class Game extends Application {
         String startDescription = "Velkommen til Djævlens' hovedkvarter. Djævlen lever af fiskesjæle. " +
                 "En af de mest effektive måder at slå fisk ihjel, er ved at forurene havene " +
                 "med mikroplast. De små plastikpartikler bliver optaget i havets fisk og " +
-                "lægger hele marine økosystemer øde. Djævlen mæsker sig på sit kontor og grådig som han er, " +
+                "lægger hele økosystemer øde. Djævlen mæsker sig på sit kontor og grådig som han er, " +
                 "har han udtænkt en plan, så han snart kan holde gilde for hele underverdenen. " +
-                "Han har nemlig opdaget, at menneske opfører sig meget forudsigeligt. De vil altid gøre det " +
-                "som andre mennesker gør og de vil altid have det som andre mennesker har.\n\n " +
+                "Han har nemlig opdaget, at mennesker opfører sig meget forudsigeligt. De vil altid gøre det " +
+                "som andre mennesker gør og de vil altid have det som andre mennesker har.\n\n" +
                 "Du er i ledtog med djævlen. Din opgave er at bidrage med så meget mikroplastforurening " +
                 "som overhovedet muligt. De andre mennesker vil gøre ligesom dig. For sådan er mennesker. " +
                 "Skynd dig at vask en masse syntetisk tøj, smid plastik i havnen, brænd gummi af i din store bil " +
-                "og brug en masser glimmer foran spejlet";
+                "og brug en masser glimmer foran spejlet!";
 
         Wrapper.setStartScreenDescription(startDescription);
     }
-
-
-
-
 }
