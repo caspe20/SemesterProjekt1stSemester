@@ -223,7 +223,7 @@ public class Wrapper {
      * Starts the game and starts the game timer.
      */
     public static void startGame() {
-        game.changeScene("UpgradeRoom");
+        // game.changeScene("UpgradeRoom"); // Den havde vist ingen funktion længere, da vi alligevel skifter til Devils Room på næste linje:
         changeRoomToDevil();
         // upgradeRoomController.goToDevil.setDisable(true);
         Game.startTimer();

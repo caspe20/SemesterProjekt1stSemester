@@ -16,10 +16,12 @@ import java.util.HashMap;
 public class Game extends Application {
     // Presentation layer's location
     String presentationLocation = "../presentation/";
+
     // Scene variables
     private static Stage primaryStage;
     public static HashMap<String, Scene> scenes = new HashMap<>();
     public static HashMap<String, Object> controllers = new HashMap<>();
+
     // Room structure variables
     private static Room currentRoom;
     private Room devilheadquater;
