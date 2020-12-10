@@ -86,7 +86,7 @@ public class Game extends Application {
         );
 
         // Change scene to scene 1
-        changeScene("EndScreen");
+        changeScene("StartMenu");
     }
 
     /**
