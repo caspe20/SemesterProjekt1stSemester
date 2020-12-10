@@ -6,6 +6,7 @@ import com.zuul.application.Upgrade;
 import com.zuul.application.rooms.DevilsRoom;
 import com.zuul.application.rooms.UpgradeRoom;
 import com.zuul.presentation.controllers.DevilsRoomController;
+import com.zuul.presentation.controllers.EndScreenController;
 import com.zuul.presentation.controllers.StartMenuController;
 import com.zuul.presentation.controllers.UpgradeRoomController;
 
@@ -14,37 +15,25 @@ public class Wrapper {
     private static UpgradeRoomController upgradeRoomController;
     private static StartMenuController startMenuController;
     private static DevilsRoomController devilsRoomController;
+    private static EndScreenController endScreenController;
     private static Game game;
 
-    /**
+    /*
      * Set variables
      */
 
     /**
-     * Stores the upgrade room controller as a static object for referencing
-     *
-     * @param con controller to set as upgrade room controller
+     * Sets all the controllers from the different FXML documents to their equal controller variables in the Wrapper
+     * @param startMenu Sets startMenuController
+     * @param devilsRoom Sets devilsRoomController
+     * @param upgradeRoom Sets upgradeRoomController
+     * @param endScreen Sets endScreenController
      */
-    public static void setUpgradeRoomController(UpgradeRoomController con) {
-        upgradeRoomController = con;
-    }
-
-    /**
-     * Stores the start menu controller as a static object for referencing
-     *
-     * @param con controller to set as start menu controller
-     */
-    public static void setStartMenuController(StartMenuController con) {
-        startMenuController = con;
-    }
-
-    /**
-     * Stores the devil room controller as a static object for referencing
-     *
-     * @param con controller to set as devil room controller
-     */
-    public static void setDevilsRoomController(DevilsRoomController con) {
-        devilsRoomController = con;
+    public static void setControllers(StartMenuController startMenu, DevilsRoomController devilsRoom, UpgradeRoomController upgradeRoom, EndScreenController endScreen) {
+        startMenuController = startMenu;
+        upgradeRoomController = upgradeRoom;
+        devilsRoomController = devilsRoom;
+        endScreenController = endScreen;
     }
 
     /**
@@ -56,7 +45,7 @@ public class Wrapper {
         Wrapper.game = game;
     }
 
-    /**
+    /*
      * update UI
      */
 
@@ -187,15 +176,10 @@ public class Wrapper {
      */
     private static void resetNavigationButtons() {
         upgradeRoomController.goToCarDealer.setMouseTransparent(false);
-        // upgradeRoomController.goToCarDealer.setDisable(false);
         upgradeRoomController.goToHarbour.setMouseTransparent(false);
-        // upgradeRoomController.goToHarbour.setDisable(false);
         upgradeRoomController.goToLaundry.setMouseTransparent(false);
-        // upgradeRoomController.goToLaundry.setDisable(false);
         upgradeRoomController.goToMatas.setMouseTransparent(false);
-        // upgradeRoomController.goToMatas.setDisable(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
-        // upgradeRoomController.goToDevil.setDisable(false);
 
         upgradeRoomController.goToCarDealer.setStyle(null);
         upgradeRoomController.goToHarbour.setStyle(null);
@@ -205,7 +189,7 @@ public class Wrapper {
         setDevilsRoomStats();
     }
 
-    /**
+    /*
      * Game button functions
      */
 
