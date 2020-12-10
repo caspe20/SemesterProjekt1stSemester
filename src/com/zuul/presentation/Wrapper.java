@@ -168,7 +168,7 @@ public class Wrapper {
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
                                           String label5, String label6, String label7, String label8) {
 
-        if (Game.currentRoom instanceof DevilsRoom) {
+        if (Game.getCurrentRoom() instanceof DevilsRoom) {
             devilsRoomController.matasProduction.setText(label1);
             devilsRoomController.matasUsage.setText(label2);
             devilsRoomController.carDealerProduction.setText(label3);
@@ -185,7 +185,7 @@ public class Wrapper {
     }
 
     public static void setDevilsRoomUserDescription(String userDescription) {
-        if (Game.currentRoom instanceof DevilsRoom) {
+        if (Game.getCurrentRoom() instanceof DevilsRoom) {
             devilsRoomController.userDescription.setText(userDescription);
         }
     }
@@ -227,8 +227,8 @@ public class Wrapper {
      * reflect this
      */
     public static void upgradeLvlUpdate1() {
-        if (Game.currentRoom instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
+        if (Game.getCurrentRoom() instanceof UpgradeRoom) {
+            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
             upgradeRoom.upgradePathProducts.performUpgrade();
             upgradeRoom.setCombinedProduction();
             GameStats.UpdatePlasticProduction();
@@ -241,8 +241,8 @@ public class Wrapper {
      * reflect this
      */
     public static void upgradeLvlUpdate2() {
-        if (Game.currentRoom instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.currentRoom;
+        if (Game.getCurrentRoom() instanceof UpgradeRoom) {
+            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
             upgradeRoom.upgradePathUsage.performUpgrade();
             upgradeRoom.setCombinedProduction();
             GameStats.UpdatePlasticProduction();
