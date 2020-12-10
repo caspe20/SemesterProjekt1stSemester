@@ -213,7 +213,7 @@ public class Game extends Application {
                                 new Upgrade("6 gange om dagen", 20000000.0, 1750.0),
                                 new Upgrade("1 gang i timen", 75000000.0, 3000.0),
                                 new Upgrade("1 gang i kvarteret", 250000000.0, 6000.0),
-                                new Upgrade("hele tiden", 0.0, 5.0)
+                                new Upgrade("hele tiden", 600000000.0, 9000.0)
                         }));
 
         cardealer = new UpgradeRoom("Bilforhandler",
@@ -251,7 +251,8 @@ public class Game extends Application {
                                 new Upgrade("200 km om ugen", 15000000.0, 2000.0),
                                 new Upgrade("250 km om ugen", 35000000.0, 4000.0),
                                 new Upgrade("300 km om ugen", 70000000.0, 7500.0),
-                                new Upgrade("400 km om ugen", 200000000.0, 15000.0)
+                                new Upgrade("400 km om ugen", 200000000.0, 15000.0),
+                                new Upgrade("500 km om ugen", 350000000.0, 22500.0)
                         }));
 
         // Mangler Hvad der skal vaskes.
@@ -273,9 +274,9 @@ public class Game extends Application {
                                 new Upgrade("vasker dine lange bukser", 65610.0, 750.0),
                                 new Upgrade("vasker din trøje", 196830.0, 1250.0),
                                 new Upgrade("vasker dit kostume", 590490.0, 3000.0),
-                                new Upgrade("vasker din jakke", 1771470.0, 6000.0),
-                                new Upgrade("vasker dine skibukser", 5314410.0, 10000.0),
-                                new Upgrade("vasker din flyverdragt", 15943230.0, 25000.0)
+                                new Upgrade("vasker din jakke", 1771470.0, 5000.0),
+                                new Upgrade("vasker dine skibukser", 5314410.0, 9000.0),
+                                new Upgrade("vasker din flyverdragt", 15943230.0, 13500.0)
                         }),
                 new UpgradePath("Forbrug",
                         new Upgrade[]{
@@ -293,7 +294,10 @@ public class Game extends Application {
                                 new Upgrade("6 gange om ugen", 10240.0, 125.0),
                                 new Upgrade("1 gang om dagen", 20480.0, 175.0),
                                 new Upgrade("2 gange om dagen", 40960.0, 250.0),
-                                new Upgrade("4 gange om dagen", 81920.0, 300.0)
+                                new Upgrade("4 gange om dagen", 81920.0, 300.0),
+                                new Upgrade("5 gange om dagen", 163840.0, 350.0),
+                                new Upgrade("hver anden time", 327680.0, 400.0),
+                                new Upgrade("hver time", 655360.0, 500.0)
                         }));
 
         dock = new UpgradeRoom("Molen",
@@ -332,9 +336,9 @@ public class Game extends Application {
                                 new Upgrade("3 gange om dagen", 15000000.0, 400.0),
                                 new Upgrade("4 gange om dagen", 45000000.0, 900.0),
                                 new Upgrade("6 gange om dagen", 150000000.0, 2700.0),
-                                new Upgrade("1 gang i timen", 450000000.0, 3300.0),
-                                new Upgrade("1 gang i kvarteret", 1000000000.0, 8000.0),
-                                new Upgrade("hele tiden", 0.0, 0.0)
+                                new Upgrade("1 gang i timen", 350000000.0, 3300.0),
+                                new Upgrade("1 gang i kvarteret", 800000000.0, 8000.0),
+                                new Upgrade("hele tiden", 1234567890.0, 17500.0)
                         }));
 
         currentRoom = devilheadquater;
