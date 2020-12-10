@@ -58,9 +58,22 @@
                   </ColorAdjust>
                </effect>
             </Circle>
-            <Pane layoutX="286.0" layoutY="105.0" prefHeight="96.0" prefWidth="445.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="288.0" layoutY="517.0" stroke="BLACK" strokeType="INSIDE" width="1034.0">
+               <effect>
+                  <ColorAdjust brightness="0.05" contrast="0.19" hue="0.79" saturation="-0.78">
+                     <input>
+                        <InnerShadow choke="0.61" color="#b89d21" height="31.88" radius="7.47" width="0.0">
+                           <input>
+                              <InnerShadow choke="0.62" color="#13ebc8" height="201.87" radius="49.9675" width="0.0" />
+                           </input>
+                        </InnerShadow>
+                     </input>
+                  </ColorAdjust>
+               </effect>
+            </Rectangle>
+            <Pane layoutX="282.0" layoutY="48.0" prefHeight="86.0" prefWidth="445.0">
                <children>
-                  <TextArea fx:id="roomDescription" editable="false" layoutX="-73.0" layoutY="125.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="246.0" prefWidth="589.0" text="Velkommen til Helvedet.....">
+                  <TextArea fx:id="roomDescription" editable="false" layoutX="-166.0" layoutY="114.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="435.0" prefWidth="793.0" text="Velkommen til Helvedet.....">
                      <font>
                         <Font name="Times New Roman Italic" size="24.0" />
                      </font>
@@ -89,20 +102,7 @@
                   </Label>
                </children>
             </Pane>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="288.0" layoutY="517.0" stroke="BLACK" strokeType="INSIDE" width="1034.0">
-               <effect>
-                  <ColorAdjust brightness="0.05" contrast="0.19" hue="0.79" saturation="-0.78">
-                     <input>
-                        <InnerShadow choke="0.61" color="#b89d21" height="31.88" radius="7.47" width="0.0">
-                           <input>
-                              <InnerShadow choke="0.62" color="#13ebc8" height="201.87" radius="49.9675" width="0.0" />
-                           </input>
-                        </InnerShadow>
-                     </input>
-                  </ColorAdjust>
-               </effect>
-            </Rectangle>
-            <Button fx:id="goToDevil" layoutX="304.0" layoutY="601.0" mnemonicParsing="false" onAction="#startGame" prefHeight="80.0" prefWidth="410.0" text="Start Spil">
+            <Button fx:id="goToDevil" layoutX="304.0" layoutY="640.0" mnemonicParsing="false" onAction="#startGame" prefHeight="80.0" prefWidth="410.0" text="Start Spil">
                <font>
                   <Font name="Times New Roman Bold Italic" size="45.0" />
                </font>
