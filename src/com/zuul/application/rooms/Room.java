@@ -16,13 +16,6 @@ public abstract class Room {
         exits = new HashMap<>();
     }
 
-    public void setExit(String direction, Room neighbor) {
-        exits.put(direction, neighbor);
-    }
-
-    public String getShortDescription() {
-        return description;
-    }
 
     public String getRoomDescription() {
         return description;
@@ -32,16 +25,4 @@ public abstract class Room {
         return roomName;
     }
 
-    protected String getExitString() {
-        String returnString = "Udgange:";
-        Set<String> keys = exits.keySet();
-        for (String exit : keys) {
-            returnString += " " + exit;
-        }
-        return returnString;
-    }
-
-    public Room getExit(String direction) {
-        return exits.get(direction);
-    }
 }
