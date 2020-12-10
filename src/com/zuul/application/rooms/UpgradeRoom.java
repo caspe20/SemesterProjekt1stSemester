@@ -25,7 +25,7 @@ public class UpgradeRoom extends Room {
     }
 
     public void setCombinedProduction() {
-        combinedProduction = upgradePathProducts.currentProduction * upgradePathUsage.currentProduction;
+        combinedProduction = upgradePathProducts.getCurrentProduction() * upgradePathUsage.getCurrentProduction();
     }
 
 

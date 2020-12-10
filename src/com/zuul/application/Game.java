@@ -17,11 +17,11 @@ public class Game extends Application {
     // Presentation layer's location
     String presentationLocation = "../presentation/";
     // Scene variables
-    public static Stage primaryStage;
+    private static Stage primaryStage;
     public static HashMap<String, Scene> scenes = new HashMap<>();
     public static HashMap<String, Object> controllers = new HashMap<>();
     // Room structure variables
-    public static Room currentRoom;
+    private static Room currentRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
     public static Timeline timeline;
@@ -45,6 +45,22 @@ public class Game extends Application {
         launch(args);
     }
 
+    public static Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    public static void setPrimaryStage(Stage primaryStage) {
+        Game.primaryStage = primaryStage;
+    }
+
+    public static Room getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public static void setCurrentRoom(Room currentRoom) {
+        Game.currentRoom = currentRoom;
+    }
+
     /**
      * Overwrites the standard start function for JavaFXML Make the game window and
      * load its assets (scenes and controllers)
@@ -54,7 +70,7 @@ public class Game extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Make window
-        Game.primaryStage = primaryStage;
+        Game.setPrimaryStage(primaryStage);
         primaryStage.setTitle("Fisk til Hades");
         primaryStage.show();
         primaryStage.setResizable(false);
@@ -119,7 +135,7 @@ public class Game extends Application {
      * @param scene String that denotes the scene and controller to change to
      */
     public static void changeScene(String scene) {
-        primaryStage.setScene(scenes.get(scene));
+        getPrimaryStage().setScene(scenes.get(scene));
     }
 
     /*
@@ -131,7 +147,7 @@ public class Game extends Application {
      */
     public static void calculateProgress() {
         double totalProgress = Math
-                .sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
+                .sin(0.5 * Math.PI * (1 - ((double) GameStats.getFishInOcean() / GameStats.getFishInOceanBeginning())));
         Wrapper.setProgressBar(totalProgress);
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
@@ -342,12 +358,12 @@ public class Game extends Application {
                                 new Upgrade("hele tiden", 1234567890.0, 17500.0)
                         }));
 
-        currentRoom = devilheadquater;
+        setCurrentRoom(devilheadquater);
 
     }
 
     public static String getRoomDescription() {
-        return currentRoom.getRoomDescription();
+        return getCurrentRoom().getRoomDescription();
     }
 
     /**
@@ -356,7 +372,7 @@ public class Game extends Application {
      * @return current room name
      */
     public static String getRoomName() {
-        return currentRoom.getRoomName();
+        return getCurrentRoom().getRoomName();
 
     }
 
@@ -364,7 +380,7 @@ public class Game extends Application {
      * Sets the current room to matas and updates rooms to reflect it
      */
     public void setRoomToMatas() {
-        currentRoom = matas;
+        setCurrentRoom(matas);
         // currentUpgradeRoom = matas;
         try {
             changeScene("UpgradeRoom");
@@ -377,7 +393,7 @@ public class Game extends Application {
      * Sets the current room to car dealer and updates rooms to reflect it
      */
     public void setRoomToCardealer() {
-        currentRoom = cardealer;
+        setCurrentRoom(cardealer);
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
@@ -389,7 +405,7 @@ public class Game extends Application {
      * Sets the current room to laundry and updates rooms to reflect it
      */
     public void setRoomToLaundry() {
-        currentRoom = laundry;
+        setCurrentRoom(laundry);
         // currentUpgradeRoom = laundry;
         try {
             changeScene("UpgradeRoom");
@@ -402,7 +418,7 @@ public class Game extends Application {
      * Sets the current room to dock and updates rooms to reflect it
      */
     public void setRoomToDock() {
-        currentRoom = dock;
+        setCurrentRoom(dock);
         // currentUpgradeRoom = dock;
         try {
             changeScene("UpgradeRoom");
@@ -415,7 +431,7 @@ public class Game extends Application {
      * Sets the current room to devil and updates rooms to reflect it
      */
     public void setRoomToDevil() {
-        currentRoom = devilheadquater;
+        setCurrentRoom(devilheadquater);
         try {
             changeScene("DevilRoom");
         } catch (Exception e) {
@@ -427,7 +443,7 @@ public class Game extends Application {
      * function for updating the upgrade UI.
      */
     public static void updateUpgradeUI() {
-        UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
+        UpgradeRoom UR = (UpgradeRoom) Game.getCurrentRoom();
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
         double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
         double usageCurrent = UR.getUpgradePathUsage().getCurrentProduction();
