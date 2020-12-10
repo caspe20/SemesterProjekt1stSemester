@@ -172,6 +172,7 @@ public class Wrapper {
         Game.updateDevilsRoomStats();
     }
 
+
     public static void updateDevilsRoomUserDescription() {
         Game.updateDevilsRoomUserDescription();
     }
@@ -198,10 +199,27 @@ public class Wrapper {
         }
     }
 
+    /**
+     * Sets and updates the UI for the start screen
+     */
+
+    public static void setStartScreenDescription(String startDescription) {
+        startMenuController.roomDescription.setWrapText(true);
+        startMenuController.roomDescription.setText(startDescription);
+    }
+
+
+    /**
+     * Sets and updates the UI for the end screen
+     */
+
     public static void setEndScreenUI(String userDescription) {
         endScreenController.userDescription.setWrapText(true);
         endScreenController.userDescription.setText(userDescription);
     }
+
+
+
 
 
 
