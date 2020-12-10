@@ -287,7 +287,8 @@ public class Wrapper {
     public static void changeRoomToMatas() {
         game.setRoomToMatas();
         resetNavigationButtons();
-        upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToMatas.setStyle("-fx-background-color: #ffbfa1;");
+        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToMatas.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -299,7 +300,8 @@ public class Wrapper {
     public static void changeRoomToCardealer() {
         game.setRoomToCardealer();
         resetNavigationButtons();
-        upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #ffbfa1;");
+        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToCarDealer.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -311,7 +313,8 @@ public class Wrapper {
     public static void changeRoomToLaundry() {
         game.setRoomToLaundry();
         resetNavigationButtons();
-        upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #ffbfa1;");
+        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToLaundry.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -323,7 +326,8 @@ public class Wrapper {
     public static void changeRoomToDock() {
         game.setRoomToDock();
         resetNavigationButtons();
-        upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #17B831;");
+        upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #ffbfa1;");
+        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToHarbour.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -335,7 +339,8 @@ public class Wrapper {
     public static void changeRoomToDevil() {
         game.setRoomToDevil();
         resetNavigationButtons();
-        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #9F1515;");
+        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #ffbfa1;");
+        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToDevil.setMouseTransparent(true);
         updateDevilsRoomUI();
     }
