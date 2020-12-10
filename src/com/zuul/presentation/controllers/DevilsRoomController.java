@@ -2,6 +2,7 @@ package com.zuul.presentation.controllers;
 
 import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
@@ -30,6 +31,16 @@ public class DevilsRoomController extends Controller {
 
     @FXML
     public TextArea userDescription;
+
+
+    @FXML
+    public Button goToMatas;
+    @FXML
+    public Button goToCarDealer;
+    @FXML
+    public Button goToLaundry;
+    @FXML
+    public Button goToHarbour;
 
 
     @FXML
