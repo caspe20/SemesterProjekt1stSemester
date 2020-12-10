@@ -154,31 +154,31 @@ public class Game extends Application {
         Wrapper.setProgressBar(totalProgress);
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Well, what do we have here? Fresh new meat that wishes to serve the master of the underworld? Well then, welcome to my domain, my faithful servant! I do not tolerate failure, now go get me the fish souls I need to end the world!");
+                    "Nå, hvad har vi så her? Nyt frisk kød der ønsker at tjene underverdenens hersker? Jamen, så velkommen til mit domæne, min trofaste tjener! Jeg tolererer ikke fiasko, så giv mig nu de fiskesjæle, jeg har brug for, for at få et hav uden liv!");
         } else if (0.01 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "You think you are good because you threw candy wrapper in the harbor once a year? Think again, pewny servant. You're just an amateur like everyone else! Come back when I see some proper progress. You disappoint me.");
+                    "Du synes, du er god, fordi du smed slikindpakning i havnen en gang om året? Tænk igen, lille  tjener. Du er bare en amatør som alle andre! Kom tilbage, når jeg ser nogle ordentlige fremskridt. Du skuffer mig.");
         } else if (1 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "I can see you have ambition in you, servant. Do you also vision the world as a dead place? Now, that's enough positive feedback. Waste more microplastics, you imbecill!");
+                    "Jeg kan se, at du har ambitioner, tjener. Ser du også verden som et dødt sted? Nu er det nok med positiv feedback. Spild mere mikroplast, din imbecil!");
         } else if (10 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "So you are actually making an effort killing all the fish? Hmm.. Yes.. This is good. Yes. Keep it up, I need more souls in my collection. Give me floating mountains of microplastics! I will not settle for less.");
+                    "Så du bestræber dig faktisk på at dræbe alle fiskene? Hmm .. Ja .. Det er godt. Ja. Fortsæt, jeg har brug for flere sjæle i min samling. Giv mig flydende bjerge af mikroplast! Jeg tolererer intet mindre.");
         } else if (25 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "I can see you are well on your way polluting the world's oceans! Your small sprinkles of microplastics eventually turn in to heaps of poisonous fish food. Keep up the good work, my servant!");
+                    "Jeg kan se, at du er godt på vej med at forurene verdens have! Dine små drys af mikroplast ender som tonsvis af giftig fiskemad. Fortsæt det gode arbejde, min tjener!");
         } else if (35 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "I suppose you're asking for a raise at this point? As long as you don't unionize with the other polluters, I'll give you a 0.1% raise and a goat? You deserve it! Do we have a deal? *spits in hand and goes for a shake*");
+                    "Jeg formoder, at du vil bede om en lønforhøjelse på dette tidspunkt? Så længe du ikke går med i forureningernes fagforening, giver jeg dig en forhøjelse på 0,1% og en ged. Du fortjener det! Har vi en aftale? * spytter i hånden og går ind for en shake *");
         } else if (50 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Why hello there, my hero of toxic waste! You are doing a fine job providing me with souls. Go get that toothpaste from Matas and show the fish you mean serious business!");
+                    "Jamen halløjsa, min helt af giftigt affald! Du gør et godt stykke arbejde, med at give mig sjæle. Køb nu den tandpasta fra Matas og vis fiskene, du mener serious business!");
         } else if (75 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Oh. My. God. You are doing work of wonders here! Half of the fish in the ocean have been killed, and all thanks to you. You're spreading microplastics like a maniac with your irresponsibility.  ");
+                    "Oh. My. God. Du gør underværker! Halvdelen af fiskene i havet er dræbt, og det er helt din fortjenste. Du spreder mikroplast som en galning med din uansvarlighed.");
         } else if (100 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "This is insane. There are only 25% fish left in the ocean, you outperform even the biggest of polluters. I bow to you, my servant!");
+                    "Dette er sindssygt. Der er kun 25% fisk tilbage i havet, du er bedre end selv de største af forurenerne. Jeg bøjer mig i støvet, min tjener!");
         } else {
             endTimer();
             changeScene("EndScreen");
