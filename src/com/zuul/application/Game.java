@@ -26,13 +26,10 @@ public class Game extends Application {
     public HashMap<String, Object> controllers = new HashMap<>();
     // Room structure variables
     public static Room currentRoom;
-    public static UpgradeRoom currentUpgradeRoom;
     private Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
-    // Name of the game
-    private final String gameName = "Hades' Manglende Fisk";
 
-    /**
+    /*
      * Game creation
      */
 
@@ -45,8 +42,7 @@ public class Game extends Application {
 
     /**
      * Makes the game ready to play. Invokes the launch function from JavaFXM
-     *
-     * @param args
+     * @param args main args
      */
     public static void main(String[] args) {
         launch(args);
@@ -55,15 +51,13 @@ public class Game extends Application {
     /**
      * Overwrites the standard start function for JavaFXML Make the game window and
      * load its assets (scenes and controllers)
-     *
-     * @param primaryStage FXML application calls start on startup with primarystage
-     *                     as argument.
+     * @param primaryStage FXML application calls start on startup with primary stage as argument.
      * @throws Exception
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
         // Make window
-        this.primaryStage = primaryStage;
+        Game.primaryStage = primaryStage;
         primaryStage.setTitle("Fisk til Hades");
         primaryStage.show();
         primaryStage.setResizable(false);
@@ -73,24 +67,26 @@ public class Game extends Application {
         FXMLLoader[] loader = new FXMLLoader[] {
                 new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
                 new FXMLLoader(getClass().getResource(presentationLocation + "DevilRoom.fxml")),
-                new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml")) };
+                new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml")),
+                new FXMLLoader(getClass().getResource(presentationLocation + "EndScreen.fxml"))
+        };
 
-        // Load controllers and scenes
-        // scenes["startMenu"]: scene(startmenu)
-        // scenes["DevilRoom"]: scene(devilsroom)
-        // scenes["Martins UI2"]: scene(martinUI)
+        // Load scenes into map
         scenes.put("StartMenu", new Scene(loader[0].load()));
         scenes.put("DevilRoom", new Scene(loader[1].load()));
         scenes.put("UpgradeRoom", new Scene(loader[2].load()));
-        // controller["startMenu"]: controller(startmenu)
-        // controller["DevilRoom"]: controller(devilsroom)
-        // controller["Martins UI2"]: controller(martinUI)
-        controllers.put("StartMenu", loader[0].getController());
-        controllers.put("DevilRoom", loader[1].getController());
-        controllers.put("UpgradeRoom", loader[2].getController());
+        scenes.put("EndScreen", new Scene(loader[3].load()));
+
+        // load controllers into wrapper
+        Wrapper.setControllers(
+                loader[0].getController(),
+                loader[1].getController(),
+                loader[2].getController(),
+                loader[3].getController()
+        );
 
         // Change scene to scene 1
-        changeScene("StartMenu");
+        changeScene("EndScreen");
     }
 
     /**
@@ -121,20 +117,10 @@ public class Game extends Application {
      * @param scene String that denotes the scene and controller to change to
      */
     public void changeScene(String scene) {
-        Controller controller = (Controller) controllers.get(scene);
-
-        // Change controllers to the valid type
-        if (controller instanceof StartMenuController) {
-            Wrapper.setStartMenuController((StartMenuController) controller);
-        } else if (controller instanceof DevilsRoomController) {
-            Wrapper.setDevilsRoomController((DevilsRoomController) controller);
-        } else {
-            Wrapper.setUpgradeRoomController((UpgradeRoomController) controller);
-        }
         primaryStage.setScene(scenes.get(scene));
     }
 
-    /**
+    /*
      * UI section
      */
 
@@ -145,7 +131,6 @@ public class Game extends Application {
         double totalProgress = Math
                 .sin(0.5 * Math.PI * (1 - ((double) GameStats.fishInOcean / GameStats.fishInOceanBeginning)));
         Wrapper.setProgressBar(totalProgress);
-        System.out.println(100 * totalProgress);
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
                     "Well, what do we have here? Fresh new meat that wishes to serve the master of the underworld? Well then, welcome to my domain, my faithful servant! I do not tolerate failure, now go get me the fish souls I need to end the world!");
@@ -381,6 +366,7 @@ public class Game extends Application {
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -389,10 +375,10 @@ public class Game extends Application {
      */
     public void setRoomToCardealer() {
         currentRoom = cardealer;
-        // currentUpgradeRoom = cardealer;
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -405,6 +391,7 @@ public class Game extends Application {
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -417,6 +404,7 @@ public class Game extends Application {
         try {
             changeScene("UpgradeRoom");
         } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -432,7 +420,9 @@ public class Game extends Application {
         }
     }
 
-
+    /**
+     * function for updating the upgrade UI.
+     */
     public static void updateUpgradeUI() {
         UpgradeRoom UR = (UpgradeRoom) Game.currentRoom;
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
@@ -486,7 +476,7 @@ public class Game extends Application {
         String currentUsageCardealer = Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-
+        
         String userDescription = ("➼ Du bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
                                     "➼ Du " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
                                     "➼ Du " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
