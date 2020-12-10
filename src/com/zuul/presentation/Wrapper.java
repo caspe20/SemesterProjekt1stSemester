@@ -190,10 +190,9 @@ public class Wrapper {
         }
     }
 
-
-
-    public static void setEndScreenUserDescription(String userDescription) {
-        endScreenController.endScreenDescription.setText(userDescription);
+    public static void updateEndScreenUI(String userDescription) {
+        endScreenController.userDescription.setWrapText(true);
+        endScreenController.userDescription.setText(userDescription);
     }
 
 
@@ -227,7 +226,7 @@ public class Wrapper {
         game.changeScene("UpgradeRoom");
         changeRoomToDevil();
         // upgradeRoomController.goToDevil.setDisable(true);
-        Game.StartTimer();
+        Game.startTimer();
     }
 
     /**
