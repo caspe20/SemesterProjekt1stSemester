@@ -6,11 +6,9 @@ import java.text.DecimalFormat;
 import java.util.HashMap;
 
 public class GameStats {
-    //public static long fishInOcean = 2000000000l;
-    public static long fishInOcean = 20l;
+    public static long fishInOcean = 2000000000l;
     public static long fishInOceanBeginning = fishInOcean;
-    //public static double currentFishSouls = 0;
-    public static double currentFishSouls = 10000000;
+    public static double currentFishSouls = 0;
     public static double plasticInOcean;
     public static double plasticProduction = 5;
     public static String gameProgress;
