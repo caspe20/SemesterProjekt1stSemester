@@ -101,23 +101,33 @@ public class Wrapper {
     /**
      * Function setting the description of the users of the current room
      *
-     * @param txt text to display in the user description
+     * @param userDescription text to display in the user description
      */
-    public static void setUserDescription(String txt) {
+    public static void setUserDescription(String userDescription) {
         upgradeRoomController.userDescription.setWrapText(true);
-        upgradeRoomController.userDescription.setText(txt);
+        upgradeRoomController.userDescription.setText(userDescription);
     }
 
     /**
      * updates the upgrade UI for the current scene.
      */
-    public static void updateUpgradeUI() {
-        Game.updateUpgradeUI();
+    public static void updateUpgradePanelUI() {
+        Game.updateUpgradePanelUI();
+    }
+
+    public static void updateUpgradeRoomDescription() {
+        Game.updateUpgradeRoomDescription();
+    }
+
+    public static void setUpgradeRoomDescription(String roomName, String roomDescription) {
+        upgradeRoomController.roomDescription.setWrapText(true);
+        upgradeRoomController.roomName.setText(roomName);
+        upgradeRoomController.roomDescription.setText(roomDescription);
     }
 
 
-    public static void setUpdateUpgradeUI(String button1, String button2, String label1, String label2,
-                                          String label3, String label4, String label5, String label6) {
+    public static void setUpgradePanelUI(String button1, String button2, String label1, String label2,
+                                         String label3, String label4, String label5, String label6) {
 
         // Formatting buttons
         upgradeRoomController.upgradeProductsButton.setDisable((button1.equals("Opgradering utilgængelig")));
@@ -140,10 +150,8 @@ public class Wrapper {
      * Updates the scene's UI, such that it reflects the games' current upgrade room
      */
     private static void updateUpgradeRoomUI() {
-        upgradeRoomController.roomDescription.setWrapText(true);
-        upgradeRoomController.roomDescription.setText(game.getRoomDescription());
-        upgradeRoomController.roomName.setText(game.getRoomName());
-        updateUpgradeUI();
+        updateUpgradePanelUI();
+        updateUpgradeRoomDescription();
     }
 
     /**
@@ -151,7 +159,6 @@ public class Wrapper {
      */
 
     private static void updateDevilsRoomUI() {
-        devilsRoomController.userDescription.setWrapText(true);
         updateDevilsRoomUserDescription();
         updateDevilsRoomStats();
     }
@@ -163,6 +170,10 @@ public class Wrapper {
 
     public static void updateDevilsRoomStats() {
         Game.updateDevilsRoomStats();
+    }
+
+    public static void updateDevilsRoomUserDescription() {
+        Game.updateDevilsRoomUserDescription();
     }
 
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
@@ -180,17 +191,14 @@ public class Wrapper {
         }
     }
 
-    public static void updateDevilsRoomUserDescription() {
-        Game.updateDevilsRoomUserDescription();
-    }
-
     public static void setDevilsRoomUserDescription(String userDescription) {
         if (Game.getCurrentRoom() instanceof DevilsRoom) {
+            devilsRoomController.userDescription.setWrapText(true);
             devilsRoomController.userDescription.setText(userDescription);
         }
     }
 
-    public static void updateEndScreenUI(String userDescription) {
+    public static void setEndScreenUI(String userDescription) {
         endScreenController.userDescription.setWrapText(true);
         endScreenController.userDescription.setText(userDescription);
     }
@@ -212,7 +220,6 @@ public class Wrapper {
         upgradeRoomController.goToLaundry.setStyle(null);
         upgradeRoomController.goToMatas.setStyle(null);
         upgradeRoomController.goToDevil.setStyle(null);
-
     }
 
     /*
@@ -223,9 +230,7 @@ public class Wrapper {
      * Starts the game and starts the game timer.
      */
     public static void startGame() {
-        // game.changeScene("UpgradeRoom"); // Den havde vist ingen funktion længere, da vi alligevel skifter til Devils Room på næste linje:
         changeRoomToDevil();
-        // upgradeRoomController.goToDevil.setDisable(true);
         Game.startTimer();
     }
 
@@ -239,7 +244,7 @@ public class Wrapper {
             upgradeRoom.upgradePathProducts.performUpgrade();
             upgradeRoom.setCombinedProduction();
             GameStats.updatePlasticProduction();
-            updateUpgradeUI();
+            updateUpgradePanelUI();
         }
     }
 
@@ -253,7 +258,7 @@ public class Wrapper {
             upgradeRoom.upgradePathUsage.performUpgrade();
             upgradeRoom.setCombinedProduction();
             GameStats.updatePlasticProduction();
-            updateUpgradeUI();
+            updateUpgradePanelUI();
         }
     }
 
@@ -265,7 +270,7 @@ public class Wrapper {
         game.setRoomToMatas();
         resetNavigationButtons();
         upgradeRoomController.goToMatas.setStyle("-fx-background-color: #17B831;");
-        //upgradeRoomController.goToMatas.setMouseTransparent(true);
+        upgradeRoomController.goToMatas.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
 

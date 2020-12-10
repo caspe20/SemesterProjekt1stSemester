@@ -359,9 +359,6 @@ public class Game extends Application {
                                 new Upgrade("1 gang i kvarteret", 800000000.0, 8000.0),
                                 new Upgrade("hele tiden", 1234567890.0, 17500.0)
                         }));
-
-        setCurrentRoom(devilheadquater);
-
     }
 
     public static String getRoomDescription() {
@@ -444,7 +441,7 @@ public class Game extends Application {
     /**
      * function for updating the upgrade UI.
      */
-    public static void updateUpgradeUI() {
+    public static void updateUpgradePanelUI() {
         UpgradeRoom UR = (UpgradeRoom) Game.getCurrentRoom();
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
         double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
@@ -470,7 +467,7 @@ public class Game extends Application {
         String label5 = UR.getUpgradePathUsage().getUpgradeTwoDescription();
         String label6 = upgradeUsagePollution;
 
-        Wrapper.setUpdateUpgradeUI(button1, button2, label1, label2, label3, label4, label5, label6);
+        Wrapper.setUpgradePanelUI(button1, button2, label1, label2, label3, label4, label5, label6);
     }
 
 
@@ -530,6 +527,16 @@ public class Game extends Application {
                 "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
                 "... " + currentProductDock + " " + currentUsageDock);
 
-        Wrapper.updateEndScreenUI(userDescription);
+        Wrapper.setEndScreenUI(userDescription);
     }
+
+     public static void updateUpgradeRoomDescription() {
+         String roomDescription = getRoomDescription();
+         String roomName = getRoomName();
+
+         Wrapper.setUpgradeRoomDescription(roomName, roomDescription);
+     }
+
+
+
 }
