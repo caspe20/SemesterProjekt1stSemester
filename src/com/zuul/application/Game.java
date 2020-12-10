@@ -476,7 +476,6 @@ public class Game extends Application {
         Wrapper.setDevilsRoomStats(label1, label2, label3, label4, label5, label6, label7, label8);
     }
 
-
     public static void updateDevilsRoomUserDescription() {
         String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
         String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
@@ -494,7 +493,9 @@ public class Game extends Application {
                                     "➼ Du " + currentProductDock + " " + currentUsageDock);
 
         Wrapper.setDevilsRoomUserDescription(userDescription);
-
     }
+
+
+
 
 }
