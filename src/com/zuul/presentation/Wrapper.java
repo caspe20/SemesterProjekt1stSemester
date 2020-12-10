@@ -190,6 +190,14 @@ public class Wrapper {
         }
     }
 
+
+
+    public static void setEndScreenUserDescription(String userDescription) {
+        endScreenController.endScreenDescription.setText(userDescription);
+    }
+
+
+
     /**
      * Resets all navigation buttons once they've been pressed
      */

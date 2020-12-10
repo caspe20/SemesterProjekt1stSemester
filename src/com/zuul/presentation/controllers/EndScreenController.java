@@ -7,7 +7,7 @@ import javafx.scene.control.TextArea;
 public class EndScreenController extends Controller {
 
     @FXML
-    public TextArea EndScreenDescription;
+    public TextArea endScreenDescription;
 
     @FXML
     public void EndGame(){
