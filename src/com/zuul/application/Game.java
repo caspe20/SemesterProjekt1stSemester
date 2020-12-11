@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
 import java.util.HashMap;
 
 public class Game extends Application {
@@ -569,13 +568,14 @@ public class Game extends Application {
         int yearsPlayed = GameStats.getYearsPlayed();
         int daysPlayed = GameStats.getDaysPlayed();
 
-        String userDescription = ("Tillykke! Vi brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
-                "på at slå alle fiskene ihjel med vores mikroplast" + "\n\n" +
+        String userDescription = ("Tillykke! Du brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
+                "på at slå alle fiskene ihjel sammen med alle dine medsammensvorne." + "\n\n" +
                 "Alle mennesker på jorden... " + "\n" +
                 "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
                 "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
                 "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                "... " + currentProductDock + " " + currentUsageDock);
+                "... " + currentProductDock + " " + currentUsageDock) + "\n\n" +
+                "Djævlen takker dig for din tjeneste!";
 
         Wrapper.setEndScreenUI(userDescription);
     }

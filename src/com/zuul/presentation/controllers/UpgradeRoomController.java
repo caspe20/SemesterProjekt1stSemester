@@ -1,6 +1,5 @@
 package com.zuul.presentation.controllers;
 
-// Import application layer
 import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
