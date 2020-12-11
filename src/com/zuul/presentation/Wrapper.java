@@ -96,7 +96,6 @@ public class Wrapper {
     /**
      * Updates the upgrade UI for the current scene.
      */
-
     public static void setUpgradeRoomDescription(String roomName, String roomDescription) {
         upgradeRoomController.roomDescription.setWrapText(true);
         upgradeRoomController.roomName.setText(roomName);
@@ -136,7 +135,6 @@ public class Wrapper {
     /**
      * Updates the scene's UI, such that it reflects the games' devil's room
      */
-
     private static void updateDevilsRoomUI() {
         Game.updateDevilsRoomUserDescription();
         Game.updateDevilsRoomStats();
@@ -146,7 +144,6 @@ public class Wrapper {
     /**
      * Sets the UI in devils room
      */
-
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
                                           String label5, String label6, String label7, String label8) {
         devilsRoomController.matasProduction.setText(label1);
@@ -174,7 +171,6 @@ public class Wrapper {
     /**
      * Sets the UI for the start screen
      */
-
     public static void setStartScreenDescription(String startDescription) {
         startMenuController.roomDescription.setWrapText(true);
         startMenuController.roomDescription.setText(startDescription);
@@ -183,7 +179,6 @@ public class Wrapper {
     /**
      * Sets the UI for the end screen
      */
-
     public static void setEndScreenUI(String userDescription) {
         endScreenController.userDescription.setWrapText(true);
         endScreenController.userDescription.setText(userDescription);

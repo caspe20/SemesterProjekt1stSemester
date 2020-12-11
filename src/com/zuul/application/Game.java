@@ -166,49 +166,49 @@ public class Game extends Application {
         Wrapper.setProgressBar(totalProgress);
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Nå, hvad har vi så her? Nyt frisk kød der ønsker at tjene underverdenens " +
+                    "\"Nå, hvad har vi så her? Nyt frisk kød der ønsker at tjene underverdenens " +
                             "hersker? Jamen, så velkommen til mit domæne, min trofaste tjener! " +
                             "Jeg tolererer ikke fiasko, så giv mig nu de fiskesjæle, jeg har brug " +
-                            "for, for at få et hav uden liv!");
+                            "for til mit gilde! Lad os tømme havet for fisk!\"");
         } else if (0.01 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Du synes, du er god, fordi du smed slikindpakning i havnen en gang om året? " +
+                    "\"Du synes, du er god, fordi du smed slikindpakning i havnen en gang om året? " +
                             "Tænk igen, lille  tjener. Du er bare en amatør som alle andre! Kom " +
-                            "tilbage, når jeg ser nogle ordentlige fremskridt. Du skuffer mig.");
+                            "tilbage, når jeg ser nogle ordentlige fremskridt. Du skuffer mig.\"");
         } else if (1 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jeg kan se, at du har ambitioner, tjener. Ser du også verden som et dødt sted? " +
-                            "Nu er det nok med positiv feedback. Spild mere mikroplast, din imbecil!");
+                    "\"Jeg kan se, at du har ambitioner, tjener. Ser du også verden som et dødt sted? " +
+                            "Nu er det nok med positiv feedback. Spild mere mikroplast, din imbecil!\"");
         } else if (10 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Så du bestræber dig faktisk på at dræbe alle fiskene? Hmm .. Ja .. Det er godt. " +
-                            "Ja. Fortsæt, jeg har brug for flere sjæle i min samling. Giv mig flydende " +
-                            "bjerge af mikroplast! Jeg tolererer intet mindre.");
+                    "\"Så du bestræber dig faktisk på at dræbe alle fiskene? Hmm .. Ja .. Det er godt. " +
+                            "Ja. Fortsæt, jeg har brug for flere fiskesjæle til mit gilde. Giv mig flydende " +
+                            "bjerge af mikroplast! Jeg tolererer intet mindre.\"");
         } else if (25 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jeg kan se, at du er godt på vej med at forurene verdens have! Dine små drys " +
+                    "\"Jeg kan se, at du er godt på vej med at forurene verdens have! Dine små drys " +
                             "af mikroplast ender som tonsvis af giftig fiskemad. Fortsæt det gode " +
-                            "arbejde, min tjener!");
+                            "arbejde, min tjener!\"");
         } else if (35 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jeg formoder, at du vil bede om en lønforhøjelse på dette tidspunkt? Så længe " +
-                            "du ikke går med i forureningernes fagforening, giver jeg dig en " +
-                            "forhøjelse på 0,1% og en ged. Du fortjener det! Har vi en aftale? " +
-                            "* spytter i hånden og går ind for en shake *");
+                    "\"Jeg formoder, at du vil bede om en lønforhøjelse på dette tidspunkt? Så længe " +
+                            "du ikke går med i FF (forurenernes fagforening), giver jeg dig en " +
+                            "forhøjelse på 0,1% og en ged. Du fortjener det! Har vi en aftale?\"" +
+                            "* Djævlen spytter i hånden og rækker hånden frem *");
         } else if (50 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jamen halløjsa, min helt af giftigt affald! Du gør et godt stykke arbejde, " +
-                            "med at give mig sjæle. Køb nu den tandpasta fra Matas og vis fiskene, " +
-                            "du mener serious business!");
+                    "\"Jamen halløjsa min trofaste tjener af giftigt affald! Du gør et godt stykke arbejde, " +
+                            "med at forsyne mig med endeløse mængder af fiskesjæle. Køb nu den tandpasta fra Matas og vis fiskene, " +
+                            "at du mener serious business!\"");
         } else if (75 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Oh. My. God. Du gør underværker! Halvdelen af fiskene i havet er dræbt, og " +
-                            "det er helt din fortjenste. Du spreder mikroplast som en galning med " +
-                            "din uansvarlighed.");
+                    "\"Oh. My. Lucifer. Du gør underværker! Over halvdelen af fiskene i havet er blevet dræbt, og " +
+                            "det er helt din fortjeneste. Du spreder mikroplast som en galning med " +
+                            "din uansvarlighed. Jeg elsker det!\"");
         } else if (100 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Dette er sindssygt. Der er kun 25% fisk tilbage i havet, du er bedre end " +
-                            "selv de største af forurenerne. Jeg bøjer mig i støvet, min tjener!");
+                    "\"Dette er sindssygt. Der er mindre end 25% fisk tilbage i havet. Du er værre end " +
+                            "selv de værste plastiksyndere. Men jeg vil have mere! ENDNU MERE!\"");
         } else {
             endTimer();
             changeScene("EndScreen");
@@ -224,7 +224,7 @@ public class Game extends Application {
     private void createRooms() {
         devilheadquater = new DevilsRoom("Djævlens Hovedkvarter",
                 "Velkommen til Djævlens Kontor. Her kan du besøge din chef og få en status på dit arbejde " +
-                        "med at udslette havets fisk.");
+                        "med at udslette alle havets fisk.");
 
         matas = new UpgradeRoom("Matas",
                 "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
@@ -268,7 +268,7 @@ public class Game extends Application {
                         }));
 
         cardealer = new UpgradeRoom("Bilforhandler",
-                "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt" +
+                "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt " +
                         "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler " +
                         "fra dækslitagen svæver med vinden til de store have.",
                 new UpgradePath("Product",
@@ -501,11 +501,11 @@ public class Game extends Application {
         // Check whether upgrade is available for either upgrade path
         if (productUpgrade > 0) {
             upgradeText1 = "Opgrader til næste Level for:";
-            upgradeProductsPollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent) - (productCurrent * usageCurrent)) + " tons mikroplastik";
+            upgradeProductsPollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent) - (productCurrent * usageCurrent)) + " tons mikroplastik per år";
         }
         if (usageUpgrade > 0) {
             upgradeText2 = "Opgrader til næste Level for:";
-            upgradeUsagePollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade) - (productCurrent * usageCurrent)) + " tons mikroplastik";
+            upgradeUsagePollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade) - (productCurrent * usageCurrent)) + " tons mikroplastik per år";
         }
 
         String button1 = UR.getUpgradePathProducts().getUpgradeButtonDescription();
@@ -544,11 +544,11 @@ public class Game extends Application {
         String currentUsageLaundry = laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageDock = dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
 
-        String userDescription = ("Alle mennesker på jorden... " + "\n" +
-                "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                "... " + currentProductDock + " " + currentUsageDock);
+        String userDescription = ("Alle mennesker på jorden: " + "\n" +
+                "➼ bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                "➼ " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                "➼ " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                "➼ " + currentProductDock + " " + currentUsageDock);
 
         Wrapper.setDevilsRoomUserDescription(userDescription);
     }
@@ -568,13 +568,13 @@ public class Game extends Application {
         int daysPlayed = GameStats.getDaysPlayed();
 
         String userDescription = ("Tillykke! Du brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
-                "på at slå alle fiskene ihjel sammen med dine medsammensvorne." + "\n\n" +
-                "Alle mennesker på jorden... " + "\n" +
-                "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                "... " + currentProductDock + " " + currentUsageDock) + "\n\n" +
-                "Djævlen takker dig for din tjeneste!";
+                "på at slå alle fiskene ihjel sammen med dine medsammensvorne. Havet er fyldt med mikroplastik." + "\n\n" +
+                "Alle mennesker på jorden: " + "\n" +
+                "➼ bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                "➼ " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                "➼ " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                "➼ " + currentProductDock + " " + currentUsageDock) + "\n\n" +
+                "Djævlen takker dig for din tjeneste! Du er fyret!";
 
         Wrapper.setEndScreenUI(userDescription);
     }
@@ -587,7 +587,7 @@ public class Game extends Application {
     }
 
     public static void updateStartScreenDescription() {
-        String startDescription = "Velkommen til Djævlens' hovedkvarter. Djævlen lever af fiskesjæle. " +
+        String startDescription = "Velkommen til Djævlens' Hovedkvarter. Djævlen lever af fiskesjæle. " +
                 "En af de mest effektive måder at slå fisk ihjel, er ved at forurene havene " +
                 "med mikroplast. De små plastikpartikler bliver optaget i havets fisk og " +
                 "lægger hele økosystemer øde. Djævlen mæsker sig på sit kontor og grådig som han er, " +

@@ -89,7 +89,7 @@ public class GameStats {
     }
 
     public static String getPlasticProduction() {
-        return convertToVerbal(plasticProduction) + " Tons";
+        return convertToVerbal(plasticProduction) + " tons";
     }
 
     public static String convertToVerbal(double count) {
