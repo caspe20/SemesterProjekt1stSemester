@@ -82,8 +82,6 @@ public class Game extends Application {
         primaryStage.setTitle("Fisk til Hades");
         primaryStage.show();
         primaryStage.setResizable(false);
-        // update wrapper
-        Wrapper.setGame(this);
         // Get loaders for each room
         FXMLLoader[] loader = new FXMLLoader[]{
                 new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
@@ -170,31 +168,49 @@ public class Game extends Application {
         Wrapper.setProgressBar(totalProgress);
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Nå, hvad har vi så her? Nyt frisk kød der ønsker at tjene underverdenens hersker? Jamen, så velkommen til mit domæne, min trofaste tjener! Jeg tolererer ikke fiasko, så giv mig nu de fiskesjæle, jeg har brug for, for at få et hav uden liv!");
+                    "Nå, hvad har vi så her? Nyt frisk kød der ønsker at tjene underverdenens " +
+                            "hersker? Jamen, så velkommen til mit domæne, min trofaste tjener! " +
+                            "Jeg tolererer ikke fiasko, så giv mig nu de fiskesjæle, jeg har brug " +
+                            "for, for at få et hav uden liv!");
         } else if (0.01 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Du synes, du er god, fordi du smed slikindpakning i havnen en gang om året? Tænk igen, lille  tjener. Du er bare en amatør som alle andre! Kom tilbage, når jeg ser nogle ordentlige fremskridt. Du skuffer mig.");
+                    "Du synes, du er god, fordi du smed slikindpakning i havnen en gang om året? " +
+                            "Tænk igen, lille  tjener. Du er bare en amatør som alle andre! Kom " +
+                            "tilbage, når jeg ser nogle ordentlige fremskridt. Du skuffer mig.");
         } else if (1 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jeg kan se, at du har ambitioner, tjener. Ser du også verden som et dødt sted? Nu er det nok med positiv feedback. Spild mere mikroplast, din imbecil!");
+                    "Jeg kan se, at du har ambitioner, tjener. Ser du også verden som et dødt sted? " +
+                            "Nu er det nok med positiv feedback. Spild mere mikroplast, din imbecil!");
         } else if (10 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Så du bestræber dig faktisk på at dræbe alle fiskene? Hmm .. Ja .. Det er godt. Ja. Fortsæt, jeg har brug for flere sjæle i min samling. Giv mig flydende bjerge af mikroplast! Jeg tolererer intet mindre.");
+                    "Så du bestræber dig faktisk på at dræbe alle fiskene? Hmm .. Ja .. Det er godt. " +
+                            "Ja. Fortsæt, jeg har brug for flere sjæle i min samling. Giv mig flydende " +
+                            "bjerge af mikroplast! Jeg tolererer intet mindre.");
         } else if (25 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jeg kan se, at du er godt på vej med at forurene verdens have! Dine små drys af mikroplast ender som tonsvis af giftig fiskemad. Fortsæt det gode arbejde, min tjener!");
+                    "Jeg kan se, at du er godt på vej med at forurene verdens have! Dine små drys " +
+                            "af mikroplast ender som tonsvis af giftig fiskemad. Fortsæt det gode " +
+                            "arbejde, min tjener!");
         } else if (35 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jeg formoder, at du vil bede om en lønforhøjelse på dette tidspunkt? Så længe du ikke går med i forureningernes fagforening, giver jeg dig en forhøjelse på 0,1% og en ged. Du fortjener det! Har vi en aftale? * spytter i hånden og går ind for en shake *");
+                    "Jeg formoder, at du vil bede om en lønforhøjelse på dette tidspunkt? Så længe " +
+                            "du ikke går med i forureningernes fagforening, giver jeg dig en " +
+                            "forhøjelse på 0,1% og en ged. Du fortjener det! Har vi en aftale? " +
+                            "* spytter i hånden og går ind for en shake *");
         } else if (50 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Jamen halløjsa, min helt af giftigt affald! Du gør et godt stykke arbejde, med at give mig sjæle. Køb nu den tandpasta fra Matas og vis fiskene, du mener serious business!");
+                    "Jamen halløjsa, min helt af giftigt affald! Du gør et godt stykke arbejde, " +
+                            "med at give mig sjæle. Køb nu den tandpasta fra Matas og vis fiskene, " +
+                            "du mener serious business!");
         } else if (75 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Oh. My. God. Du gør underværker! Halvdelen af fiskene i havet er dræbt, og det er helt din fortjenste. Du spreder mikroplast som en galning med din uansvarlighed.");
+                    "Oh. My. God. Du gør underværker! Halvdelen af fiskene i havet er dræbt, og " +
+                            "det er helt din fortjenste. Du spreder mikroplast som en galning med " +
+                            "din uansvarlighed.");
         } else if (100 > (int) (totalProgress * 100)) {
             Wrapper.setUserDescription(
-                    "Dette er sindssygt. Der er kun 25% fisk tilbage i havet, du er bedre end selv de største af forurenerne. Jeg bøjer mig i støvet, min tjener!");
+                    "Dette er sindssygt. Der er kun 25% fisk tilbage i havet, du er bedre end " +
+                            "selv de største af forurenerne. Jeg bøjer mig i støvet, min tjener!");
         } else {
             endTimer();
             changeScene("EndScreen");
@@ -255,7 +271,7 @@ public class Game extends Application {
 
         cardealer = new UpgradeRoom("Bilforhandler",
                 "Velkommen til Bilforhandleren! Her kan du udskifte dit køretøj. Vælg nu et rigtig tungt" +
-                        "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler" +
+                        "køretøj med mange hestekrafter og rigtig brede dæk. BRÆND GUMMI AF! Alle de fine plastikpartikler " +
                         "fra dækslitagen svæver med vinden til de store have.",
                 new UpgradePath("Product",
                         new Upgrade[]{
@@ -380,7 +396,7 @@ public class Game extends Application {
     }
 
     public static String getRoomDescription() {
-        return getCurrentRoom().getRoomDescription();
+        return currentRoom.getRoomDescription();
     }
 
     /**
@@ -389,7 +405,7 @@ public class Game extends Application {
      * @return current room name
      */
     public static String getRoomName() {
-        return getCurrentRoom().getRoomName();
+        return currentRoom.getRoomName();
 
     }
 
@@ -462,11 +478,13 @@ public class Game extends Application {
      * reflect this
      */
     public static void upgradeLvlUpdate1() {
-        UpgradeRoom upgradeRoom = (UpgradeRoom) getCurrentRoom();
-        upgradeRoom.upgradePathProducts.performUpgrade();
-        upgradeRoom.setCombinedProduction();
-        GameStats.updatePlasticProduction();
-        updateUpgradePanelUI();
+        if (currentRoom instanceof UpgradeRoom) {
+            UpgradeRoom upgradeRoom = (UpgradeRoom) currentRoom;
+            upgradeRoom.upgradePathProducts.performUpgrade();
+            upgradeRoom.setCombinedProduction();
+            GameStats.updatePlasticProduction();
+            updateUpgradePanelUI();
+        }
     }
 
     /**
@@ -474,11 +492,13 @@ public class Game extends Application {
      * reflect this
      */
     public static void upgradeLvlUpdate2() {
-        UpgradeRoom upgradeRoom = (UpgradeRoom) getCurrentRoom();
-        upgradeRoom.upgradePathUsage.performUpgrade();
-        upgradeRoom.setCombinedProduction();
-        GameStats.updatePlasticProduction();
-        updateUpgradePanelUI();
+        if (currentRoom instanceof UpgradeRoom) {
+            UpgradeRoom upgradeRoom = (UpgradeRoom) currentRoom;
+            upgradeRoom.upgradePathUsage.performUpgrade();
+            upgradeRoom.setCombinedProduction();
+            GameStats.updatePlasticProduction();
+            updateUpgradePanelUI();
+        }
     }
 
 
@@ -486,7 +506,7 @@ public class Game extends Application {
      * function for updating the upgrade UI.
      */
     public static void updateUpgradePanelUI() {
-        UpgradeRoom UR = (UpgradeRoom) getCurrentRoom();
+        UpgradeRoom UR = (UpgradeRoom) currentRoom;
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
         double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
         double usageCurrent = UR.getUpgradePathUsage().getCurrentProduction();

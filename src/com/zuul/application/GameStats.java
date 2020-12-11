@@ -1,7 +1,5 @@
 package com.zuul.application;
 
-import com.zuul.application.rooms.UpgradeRoom;
-
 public class GameStats {
     private static double fishInOcean = 2000000000d;
     private static double fishInOceanBeginning = fishInOcean;

@@ -1,6 +1,5 @@
 package com.zuul.application.rooms;
 
-import java.util.Set;
 import java.util.HashMap;
 
 //Vi benytter en abstrakt klasse, da vi aldrig er interesseret
