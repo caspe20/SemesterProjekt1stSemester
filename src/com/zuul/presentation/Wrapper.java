@@ -152,8 +152,8 @@ public class Wrapper {
      */
 
     private static void updateDevilsRoomUI() {
-        updateDevilsRoomUserDescription();
-        updateDevilsRoomStats();
+        Game.updateDevilsRoomUserDescription();
+        Game.updateDevilsRoomStats();
     }
 
 
@@ -161,14 +161,7 @@ public class Wrapper {
      * Sets and updates the UI in devils room
      */
 
-    public static void updateDevilsRoomStats() {
-        Game.updateDevilsRoomStats();
-    }
 
-
-    public static void updateDevilsRoomUserDescription() {
-        Game.updateDevilsRoomUserDescription();
-    }
 
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
                                           String label5, String label6, String label7, String label8) {
@@ -286,7 +279,7 @@ public class Wrapper {
      * available for that room
      */
     public static void changeRoomToMatas() {
-        game.setRoomToMatas();
+        Game.setRoomToMatas();
         resetNavigationButtons();
         upgradeRoomController.goToMatas.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
@@ -299,7 +292,7 @@ public class Wrapper {
      * are available for that room
      */
     public static void changeRoomToCardealer() {
-        game.setRoomToCardealer();
+        Game.setRoomToCardealer();
         resetNavigationButtons();
         upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToCarDealer.setStyle("-fx-color: #ffe1d4;");
@@ -312,7 +305,7 @@ public class Wrapper {
      * are available for that room
      */
     public static void changeRoomToLaundry() {
-        game.setRoomToLaundry();
+        Game.setRoomToLaundry();
         resetNavigationButtons();
         upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToLaundry.setStyle("-fx-color: #ffe1d4;");
@@ -325,7 +318,7 @@ public class Wrapper {
      * available for that room
      */
     public static void changeRoomToDock() {
-        game.setRoomToDock();
+        Game.setRoomToDock();
         resetNavigationButtons();
         upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToHarbour.setStyle("-fx-color: #ffe1d4;");
@@ -338,7 +331,7 @@ public class Wrapper {
      * are available for that room
      */
     public static void changeRoomToDevil() {
-        game.setRoomToDevil();
+        Game.setRoomToDevil();
         resetNavigationButtons();
         devilsRoomController.goToDevil.setStyle("-fx-background-color: #ffbfa1;");
         devilsRoomController.goToDevil.setStyle("-fx-color: #ffe1d4;");
