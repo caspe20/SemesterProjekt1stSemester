@@ -568,7 +568,7 @@ public class Game extends Application {
         int daysPlayed = GameStats.getDaysPlayed();
 
         String userDescription = ("Tillykke! Du brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
-                "på at slå alle fiskene ihjel sammen med alle dine medsammensvorne." + "\n\n" +
+                "på at slå alle fiskene ihjel sammen med dine medsammensvorne." + "\n\n" +
                 "Alle mennesker på jorden... " + "\n" +
                 "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
                 "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
