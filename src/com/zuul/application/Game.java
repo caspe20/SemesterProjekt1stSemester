@@ -134,7 +134,6 @@ public class Game extends Application {
         timeline.stop();
     }
 
-
     /**
      * Calls this function every game tick.
      */
@@ -230,7 +229,7 @@ public class Game extends Application {
         matas = new UpgradeRoom("Matas",
                 "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
                         "som er fyldt med den fineste mikroplast. Brug dine produkter så ofte som " +
-                        "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
+                        "muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk.",
                 new UpgradePath("Product",
                         new Upgrade[]{
                                 new Upgrade("svanemærkede produkter", 0.0, 5.0),
@@ -311,7 +310,7 @@ public class Game extends Application {
         laundry = new UpgradeRoom("Vaskeriet",
                 "Velkommen til Vaskeriet! Find din smartphone frem og køb en masse syntetisk tøj fra " +
                         "fjerne lande mens du venter på dit vasketøj. Husk ekspreslevering! Vask dit tøj så ofte som " +
-                        "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk",
+                        "overhovedet muligt, så al mikroplastikken kan blive skyllet ud i havet og udslette en masse fisk.",
                 new UpgradePath("Product",
                         new Upgrade[]{
                                 new Upgrade("vasker fødder", 0.0, 3.0),
@@ -393,7 +392,6 @@ public class Game extends Application {
                                 new Upgrade("hele tiden", 1234567890.0, 17500.0)
                         }));
     }
-
 
     /**
      * Sets the current room to matas and updates rooms to reflect it
@@ -486,7 +484,6 @@ public class Game extends Application {
         }
     }
 
-
     /**
      * function for updating the upgrade UI.
      */
@@ -518,7 +515,6 @@ public class Game extends Application {
 
         Wrapper.setUpgradePanelUI(button1, button2, label1, label2, label3, label4, label5, label6);
     }
-
 
     public static void updateDevilsRoomStats() {
         String label1 = "Production level: " + (matas.upgradePathProducts.getCurrentLevel() + 1);
@@ -552,7 +548,6 @@ public class Game extends Application {
 
         Wrapper.setDevilsRoomUserDescription(userDescription);
     }
-
 
     public static void updateEndScreenUI() {
         String currentProductMatas = matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();

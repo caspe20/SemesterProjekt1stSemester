@@ -7,7 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 
-public class DevilsRoomController extends Controller {
+public class DevilsRoomController {
 
     @FXML
     public Label time;
