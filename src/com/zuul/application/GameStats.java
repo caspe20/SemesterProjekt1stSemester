@@ -7,8 +7,7 @@ public class GameStats {
     private static double fishInOceanBeginning = fishInOcean;
     private static double currentFishSouls = 0;
     private static double plasticInOcean;
-    public static double plasticProduction = 5;
-    private static String gameProgress;
+    private static double plasticProduction = 5;
     private static double currentTurn = 0;
     private static final int currentYear = 2000;
 
@@ -46,33 +45,12 @@ public class GameStats {
         GameStats.plasticInOcean = plasticInOcean;
     }
 
-    public static String getGameProgress() {
-        return gameProgress;
-    }
-
-    public static void setGameProgress(String gameProgress) {
-        GameStats.gameProgress = gameProgress;
-    }
-
     public static double getCurrentTurn() {
         return currentTurn;
     }
 
     public static void setCurrentTurn(double currentTurn) {
         GameStats.currentTurn = currentTurn;
-    }
-
-    public static int getCurrentYear() {
-        return currentYear;
-    }
-
-    public String ProgressUpdate(String gameProgress) {
-        this.setGameProgress(gameProgress);
-        return gameProgress;
-    }
-
-    public static void fetchPlasticProduction(double currentTotalPlasticProduction) {
-        plasticProduction = currentTotalPlasticProduction;
     }
 
     private static void updatePlastic(double yr) {
@@ -84,8 +62,8 @@ public class GameStats {
     }
 
     private static void updateFish(double yr) {
-        setCurrentFishSouls(getCurrentFishSouls() + getPlasticInOcean() * yr);
-        setFishInOcean(getFishInOcean() - getPlasticInOcean() * yr);
+        setCurrentFishSouls(currentFishSouls + plasticInOcean * yr);
+        setFishInOcean(fishInOcean - plasticInOcean * yr);
         if (getFishInOcean() <= 0) {
             setFishInOcean(0);
         }
@@ -111,7 +89,7 @@ public class GameStats {
 
 
     public static String getFish() {
-        return convertToVerbal(getCurrentFishSouls()) + " sjæle";
+        return convertToVerbal(currentFishSouls) + " sjæle";
     }
 
     public static String getPlasticProduction() {
@@ -131,9 +109,9 @@ public class GameStats {
     public static String getPlastic() {
         String out = "";
         if (getPlasticInOcean() < 1) {
-            out = String.format("%.2f", getPlasticInOcean() * 1000) + " Kilo";
+            out = String.format("%.2f", plasticInOcean * 1000) + " Kilo";
         } else {
-            out = convertToVerbal(getPlasticInOcean()) + " Tons";
+            out = convertToVerbal(plasticInOcean) + " Tons";
         }
         return out;
     }

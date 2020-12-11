@@ -24,15 +24,6 @@ public class UpgradePath {
     }
 
     /**
-     * gets path name of the current upgrade path
-     * 
-     * @return path name
-     */
-    public String getPathName() {
-        return pathName;
-    }
-
-    /**
      * gets the current plastic production for the upgrade path
      * 
      * @return returns current plastic production
@@ -84,11 +75,19 @@ public class UpgradePath {
      * functional members
      */
 
+    /**
+     * Calculates the new currentProduction
+     * @return currentProduction
+     */
     public double calculateCurrentProduction() {
-        setCurrentProduction(upgrades[currentLevel].productionSpeed);
+        currentProduction = upgrades[currentLevel].productionSpeed;
         return currentProduction;
     }
 
+    /**
+     * performs an upgrade, and returns true if it was possible to do so.
+     * @return whether an upgrade could be made
+     */
     public boolean performUpgrade() {
         if (currentLevel < upgrades.length - 1) {
             if (GameStats.getCurrentFishSouls() >= upgrades[currentLevel + 1].upgradePrice) {
@@ -101,9 +100,5 @@ public class UpgradePath {
             }
         }
         return false;
-    }
-
-    public void setCurrentProduction(double currentProduction) {
-        this.currentProduction = currentProduction;
     }
 }
