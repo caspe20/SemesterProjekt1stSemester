@@ -1,12 +1,11 @@
 package com.zuul.presentation.controllers;
 
-// Import application layer
 import com.zuul.presentation.Wrapper;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 
-public class UpgradeRoomController extends Controller {
+public class UpgradeRoomController {
 
     @FXML
     public Label time;

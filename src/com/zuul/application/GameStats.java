@@ -67,7 +67,6 @@ public class GameStats {
         }
     }
 
-
     public static String getTime() {
         double year = currentYear + currentTurn;
         double day = (year % 1) * 365;
@@ -84,7 +83,6 @@ public class GameStats {
         double day = (year % 1) * 365;
         return (int) day;
     }
-
 
     public static String getFish() {
         return convertToVerbal(currentFishSouls) + " sjæle";

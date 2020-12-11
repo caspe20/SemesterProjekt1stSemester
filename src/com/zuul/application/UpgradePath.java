@@ -2,13 +2,11 @@ package com.zuul.application;
 
 public class UpgradePath {
 
-    // Attributes
     private Upgrade[] upgrades;
     private String pathName;
     private int currentLevel;
     private double currentProduction;
 
-    // Constructors
     public UpgradePath(String pathName, Upgrade[] upgrades) {
         this.upgrades = upgrades;
         this.pathName = pathName;
