@@ -563,7 +563,7 @@ public class Game extends Application {
                 "som andre mennesker gør og de vil altid have det som andre mennesker har.\n\n" +
                 "Du er i ledtog med djævlen. Din opgave er at bidrage med så meget mikroplastforurening " +
                 "som overhovedet muligt. De andre mennesker vil gøre ligesom dig. For sådan er mennesker. " +
-                "Skynd dig at vask en masse syntetisk tøj, smid plastik i havnen, brænd gummi af i din store bil " +
+                "Skynd dig at vaske en masse syntetisk tøj, smid plastik i havnen, brænd gummi af i din store bil " +
                 "og brug en masser glimmer foran spejlet!";
 
         Wrapper.setStartScreenDescription(startDescription);
