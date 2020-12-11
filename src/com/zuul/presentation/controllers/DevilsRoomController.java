@@ -17,20 +17,14 @@ public class DevilsRoomController extends Controller {
     public Label plastInSea;
     @FXML
     public Label fishSouls;
-
     @FXML
     public ProgressBar progressBar;
-
     @FXML
     public Label deadFish;
-
     @FXML
     public TextArea roomDescription;
-
     @FXML
     public TextArea userDescription;
-
-
     @FXML
     public Button goToMatas;
     @FXML
@@ -41,8 +35,6 @@ public class DevilsRoomController extends Controller {
     public Button goToHarbour;
     @FXML
     public Button goToDevil;
-
-
     @FXML
     public Label matasProduction;
     @FXML
@@ -79,5 +71,4 @@ public class DevilsRoomController extends Controller {
     void updateRoomToDock() {
         Wrapper.changeRoomToDock();
     }
-
 }

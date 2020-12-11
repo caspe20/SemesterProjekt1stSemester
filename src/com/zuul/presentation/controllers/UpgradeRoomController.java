@@ -73,7 +73,7 @@ public class UpgradeRoomController extends Controller {
     }
 
     @FXML
-    void updateRoomToDevil() throws Exception {
+    void updateRoomToDevil() {
         Wrapper.changeRoomToDevil();
     }
 

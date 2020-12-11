@@ -395,20 +395,6 @@ public class Game extends Application {
                         }));
     }
 
-    public static String getRoomDescription() {
-        return currentRoom.getRoomDescription();
-    }
-
-    /**
-     * gets the room name of the current room
-     *
-     * @return current room name
-     */
-    public static String getRoomName() {
-        return currentRoom.getRoomName();
-
-    }
-
 
     /**
      * Sets the current room to matas and updates rooms to reflect it
@@ -595,8 +581,8 @@ public class Game extends Application {
     }
 
     public static void updateUpgradeRoomDescription() {
-        String roomDescription = getRoomDescription();
-        String roomName = getRoomName();
+        String roomDescription = currentRoom.getRoomDescription();
+        String roomName = currentRoom.getRoomName();
 
         Wrapper.setUpgradeRoomDescription(roomName, roomDescription);
     }
