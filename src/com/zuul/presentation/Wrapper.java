@@ -1,13 +1,7 @@
 package com.zuul.presentation;
 
-import com.zuul.application.GameStats;
 import com.zuul.application.Game;
-import com.zuul.application.rooms.DevilsRoom;
-import com.zuul.application.rooms.UpgradeRoom;
-import com.zuul.presentation.controllers.DevilsRoomController;
-import com.zuul.presentation.controllers.EndScreenController;
-import com.zuul.presentation.controllers.StartMenuController;
-import com.zuul.presentation.controllers.UpgradeRoomController;
+import com.zuul.presentation.controllers.*;
 
 public class Wrapper {
 
@@ -15,7 +9,6 @@ public class Wrapper {
     private static StartMenuController startMenuController;
     private static DevilsRoomController devilsRoomController;
     private static EndScreenController endScreenController;
-    private static Game game;
 
     /*
      * Set variables
@@ -23,25 +16,17 @@ public class Wrapper {
 
     /**
      * Sets all the controllers from the different FXML documents to their equal controller variables in the Wrapper
-     * @param startMenu Sets startMenuController
-     * @param devilsRoom Sets devilsRoomController
+     *
+     * @param startMenu   Sets startMenuController
+     * @param devilsRoom  Sets devilsRoomController
      * @param upgradeRoom Sets upgradeRoomController
-     * @param endScreen Sets endScreenController
+     * @param endScreen   Sets endScreenController
      */
     public static void setControllers(StartMenuController startMenu, DevilsRoomController devilsRoom, UpgradeRoomController upgradeRoom, EndScreenController endScreen) {
         startMenuController = startMenu;
         upgradeRoomController = upgradeRoom;
         devilsRoomController = devilsRoom;
         endScreenController = endScreen;
-    }
-
-    /**
-     * Updates the static variable for the wrapper class for referencing.
-     *
-     * @param game the game to be stored
-     */
-    public static void setGame(Game game) {
-        Wrapper.game = game;
     }
 
     /*
@@ -164,30 +149,26 @@ public class Wrapper {
 
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
                                           String label5, String label6, String label7, String label8) {
-        if (Game.getCurrentRoom() instanceof DevilsRoom) {
-            devilsRoomController.matasProduction.setText(label1);
-            devilsRoomController.matasUsage.setText(label2);
-            devilsRoomController.carDealerProduction.setText(label3);
-            devilsRoomController.carDealerUsage.setText(label4);
-            devilsRoomController.laundryProduction.setText(label5);
-            devilsRoomController.laundryUsage.setText(label6);
-            devilsRoomController.harbourProduction.setText(label7);
-            devilsRoomController.harbourUsage.setText(label8);
-        }
+        devilsRoomController.matasProduction.setText(label1);
+        devilsRoomController.matasUsage.setText(label2);
+        devilsRoomController.carDealerProduction.setText(label3);
+        devilsRoomController.carDealerUsage.setText(label4);
+        devilsRoomController.laundryProduction.setText(label5);
+        devilsRoomController.laundryUsage.setText(label6);
+        devilsRoomController.harbourProduction.setText(label7);
+        devilsRoomController.harbourUsage.setText(label8);
+
     }
 
     public static void setDevilsRoomUserDescription(String userDescription) {
-        if (Game.getCurrentRoom() instanceof DevilsRoom) {
-            devilsRoomController.userDescription.setWrapText(true);
-            devilsRoomController.userDescription.setText(userDescription);
-        }
+        devilsRoomController.userDescription.setWrapText(true);
+        devilsRoomController.userDescription.setText(userDescription);
+
     }
 
     public static void setDevilsRoomDescription(String startDescription) {
-        if (Game.getCurrentRoom() instanceof DevilsRoom) {
-            devilsRoomController.roomDescription.setWrapText(true);
-            devilsRoomController.roomDescription.setText(startDescription);
-        }
+        devilsRoomController.roomDescription.setWrapText(true);
+        devilsRoomController.roomDescription.setText(startDescription);
     }
 
 
@@ -218,7 +199,7 @@ public class Wrapper {
         upgradeRoomController.goToLaundry.setMouseTransparent(false);
         upgradeRoomController.goToMatas.setMouseTransparent(false);
         upgradeRoomController.goToDevil.setMouseTransparent(false);
-      
+
         upgradeRoomController.goToCarDealer.setStyle(null);
         upgradeRoomController.goToHarbour.setStyle(null);
         upgradeRoomController.goToLaundry.setStyle(null);
@@ -243,9 +224,7 @@ public class Wrapper {
      * reflect this
      */
     public static void upgradeLvlUpdate1() {
-        if (Game.getCurrentRoom() instanceof UpgradeRoom) {
-            Game.upgradeLvlUpdate1();
-        }
+        Game.upgradeLvlUpdate1();
     }
 
     /**
@@ -253,9 +232,7 @@ public class Wrapper {
      * reflect this
      */
     public static void upgradeLvlUpdate2() {
-        if (Game.getCurrentRoom() instanceof UpgradeRoom) {
-            Game.upgradeLvlUpdate2();
-        }
+        Game.upgradeLvlUpdate2();
     }
 
     /**
