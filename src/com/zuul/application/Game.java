@@ -274,22 +274,22 @@ public class Game extends Application {
                         }),
                 new UpgradePath("Forbrug",
                         new Upgrade[]{
-                                new Upgrade("0 km om uge", 0.0, 0.0),
-                                new Upgrade("5 km om ugen", 50.0, 10.0),
-                                new Upgrade("10 km om ugen", 200.0, 20.0),
-                                new Upgrade("20 km om ugen", 800.0, 30.0),
-                                new Upgrade("40 km om ugen", 4000.0, 50.0),
-                                new Upgrade("60 km om ugen", 20000.0, 75.0),
-                                new Upgrade("80 km om ugen", 60000.0, 100.0),
-                                new Upgrade("100 km om ugen", 300000.0, 150.0),
-                                new Upgrade("125 km om ugen", 800000.0, 250.0),
-                                new Upgrade("150 km om ugen", 2500000.0, 500.0),
-                                new Upgrade("175 km om ugen", 7500000.0, 1000.0),
-                                new Upgrade("200 km om ugen", 15000000.0, 2000.0),
-                                new Upgrade("250 km om ugen", 35000000.0, 4000.0),
-                                new Upgrade("300 km om ugen", 70000000.0, 7500.0),
-                                new Upgrade("400 km om ugen", 200000000.0, 15000.0),
-                                new Upgrade("500 km om ugen", 350000000.0, 22500.0)
+                                new Upgrade("0 km om dagen", 0.0, 0.0),
+                                new Upgrade("5 km om dagen", 50.0, 10.0),
+                                new Upgrade("10 km om dagen", 200.0, 20.0),
+                                new Upgrade("20 km om dagen", 800.0, 30.0),
+                                new Upgrade("40 km om dagen", 4000.0, 50.0),
+                                new Upgrade("60 km om dagen", 20000.0, 75.0),
+                                new Upgrade("80 km om dagen", 60000.0, 100.0),
+                                new Upgrade("100 km om dagen", 300000.0, 150.0),
+                                new Upgrade("125 km om dagen", 800000.0, 250.0),
+                                new Upgrade("150 km om dagen", 2500000.0, 500.0),
+                                new Upgrade("175 km om dagen", 7500000.0, 1000.0),
+                                new Upgrade("200 km om dagen", 15000000.0, 2000.0),
+                                new Upgrade("250 km om dagen", 35000000.0, 4000.0),
+                                new Upgrade("300 km om dagen", 70000000.0, 7500.0),
+                                new Upgrade("400 km om dagen", 200000000.0, 15000.0),
+                                new Upgrade("500 km om dagen", 350000000.0, 22500.0)
                         }));
 
         // Mangler Hvad der skal vaskes.
