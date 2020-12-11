@@ -24,7 +24,7 @@ public class Game extends Application {
 
     // Room structure variables
     private static Room currentRoom;
-    private Room devilheadquater;
+    private static Room devilheadquater;
     public static UpgradeRoom matas, laundry, cardealer, dock;
     public static Timeline timeline;
 
@@ -380,7 +380,7 @@ public class Game extends Application {
     /**
      * Sets the current room to matas and updates rooms to reflect it
      */
-    public void setRoomToMatas() {
+    public static void setRoomToMatas() {
         setCurrentRoom(matas);
         // currentUpgradeRoom = matas;
         try {
@@ -393,7 +393,7 @@ public class Game extends Application {
     /**
      * Sets the current room to car dealer and updates rooms to reflect it
      */
-    public void setRoomToCardealer() {
+    public static void setRoomToCardealer() {
         setCurrentRoom(cardealer);
         try {
             changeScene("UpgradeRoom");
@@ -405,7 +405,7 @@ public class Game extends Application {
     /**
      * Sets the current room to laundry and updates rooms to reflect it
      */
-    public void setRoomToLaundry() {
+    public static void setRoomToLaundry() {
         setCurrentRoom(laundry);
         // currentUpgradeRoom = laundry;
         try {
@@ -418,7 +418,7 @@ public class Game extends Application {
     /**
      * Sets the current room to dock and updates rooms to reflect it
      */
-    public void setRoomToDock() {
+    public static void setRoomToDock() {
         setCurrentRoom(dock);
         // currentUpgradeRoom = dock;
         try {
@@ -431,7 +431,7 @@ public class Game extends Application {
     /**
      * Sets the current room to devil and updates rooms to reflect it
      */
-    public void setRoomToDevil() {
+    public static void setRoomToDevil() {
         setCurrentRoom(devilheadquater);
         try {
             changeScene("DevilRoom");
