@@ -597,7 +597,7 @@ public class Game extends Application {
                 "Du er i ledtog med djævlen. Din opgave er at bidrage med så meget mikroplastforurening " +
                 "som overhovedet muligt. De andre mennesker vil gøre ligesom dig. For sådan er mennesker. " +
                 "Skynd dig at vaske en masse syntetisk tøj, smid plastik i havnen, brænd gummi af i din store bil " +
-                "og brug en masser glimmer foran spejlet!";
+                "og brug en masse glimmer foran spejlet!";
 
         Wrapper.setStartScreenDescription(startDescription);
     }

@@ -78,7 +78,7 @@
                               <Image url="@../images/time.png" />
                            </image>
                         </ImageView>
-                        <Label layoutX="45.0" text="Mikroplast per dag" textFill="#ff8c00fc">
+                        <Label layoutX="45.0" text="Mikroplast per år" textFill="#ff8c00fc">
                            <effect>
                               <ColorAdjust brightness="0.18" contrast="0.5" hue="-1.0" saturation="0.93">
                                  <input>
