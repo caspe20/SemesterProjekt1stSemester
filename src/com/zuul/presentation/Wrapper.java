@@ -109,7 +109,7 @@ public class Wrapper {
     }
 
     /**
-     * updates the upgrade UI for the current scene.
+     * Updates the upgrade UI for the current scene.
      */
 
     public static void setUpgradeRoomDescription(String roomName, String roomDescription) {
@@ -154,18 +154,16 @@ public class Wrapper {
     private static void updateDevilsRoomUI() {
         Game.updateDevilsRoomUserDescription();
         Game.updateDevilsRoomStats();
+        Game.updateDevilsRoomDescription();
     }
 
 
     /**
-     * Sets and updates the UI in devils room
+     * Sets the UI in devils room
      */
-
-
 
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
                                           String label5, String label6, String label7, String label8) {
-
         if (Game.getCurrentRoom() instanceof DevilsRoom) {
             devilsRoomController.matasProduction.setText(label1);
             devilsRoomController.matasUsage.setText(label2);
@@ -194,7 +192,7 @@ public class Wrapper {
 
 
     /**
-     * Sets and updates the UI for the start screen
+     * Sets the UI for the start screen
      */
 
     public static void setStartScreenDescription(String startDescription) {
@@ -202,20 +200,14 @@ public class Wrapper {
         startMenuController.roomDescription.setText(startDescription);
     }
 
-
     /**
-     * Sets and updates the UI for the end screen
+     * Sets the UI for the end screen
      */
 
     public static void setEndScreenUI(String userDescription) {
         endScreenController.userDescription.setWrapText(true);
         endScreenController.userDescription.setText(userDescription);
     }
-
-
-
-
-
 
     /**
      * Resets all navigation buttons once they've been pressed
@@ -252,11 +244,7 @@ public class Wrapper {
      */
     public static void upgradeLvlUpdate1() {
         if (Game.getCurrentRoom() instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
-            upgradeRoom.upgradePathProducts.performUpgrade();
-            upgradeRoom.setCombinedProduction();
-            GameStats.updatePlasticProduction();
-            Game.updateUpgradePanelUI();
+            Game.upgradeLvlUpdate1();
         }
     }
 
@@ -266,11 +254,7 @@ public class Wrapper {
      */
     public static void upgradeLvlUpdate2() {
         if (Game.getCurrentRoom() instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
-            upgradeRoom.upgradePathUsage.performUpgrade();
-            upgradeRoom.setCombinedProduction();
-            GameStats.updatePlasticProduction();
-            Game.updateUpgradePanelUI();
+            Game.upgradeLvlUpdate2();
         }
     }
 
