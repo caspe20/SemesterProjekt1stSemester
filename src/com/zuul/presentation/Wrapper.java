@@ -103,7 +103,6 @@ public class Wrapper {
         upgradeRoomController.roomDescription.setText(roomDescription);
     }
 
-
     public static void setUpgradePanelUI(String button1, String button2, String label1, String label2,
                                          String label3, String label4, String label5, String label6) {
 
@@ -142,7 +141,6 @@ public class Wrapper {
         Game.updateDevilsRoomDescription();
     }
 
-
     /**
      * Sets the UI in devils room
      */
@@ -170,7 +168,6 @@ public class Wrapper {
         devilsRoomController.roomDescription.setWrapText(true);
         devilsRoomController.roomDescription.setText(startDescription);
     }
-
 
     /**
      * Sets the UI for the start screen

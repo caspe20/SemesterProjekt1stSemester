@@ -4,12 +4,10 @@ import com.zuul.application.UpgradePath;
 
 public class UpgradeRoom extends Room {
 
-    // Attributes
     public UpgradePath upgradePathProducts;
     public UpgradePath upgradePathUsage;
     public double combinedProduction;
 
-    // Constructors
     public UpgradeRoom(String roomName, String description, UpgradePath upgradePathProducts, UpgradePath upgradePathUsage) {
         super(roomName, description);
         this.upgradePathProducts = upgradePathProducts;

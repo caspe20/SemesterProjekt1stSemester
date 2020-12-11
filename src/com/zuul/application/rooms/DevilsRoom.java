@@ -6,5 +6,4 @@ public class DevilsRoom extends Room {
         super(roomName, description);
     }
 
-
 }

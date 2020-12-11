@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 
-public class StartMenuController extends Controller{
+public class StartMenuController {
 
     @FXML
     public Button goToDevil;
