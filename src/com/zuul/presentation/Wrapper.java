@@ -109,15 +109,8 @@ public class Wrapper {
     }
 
     /**
-     * updates the upgrade UI for the current scene.
+     * Updates the upgrade UI for the current scene.
      */
-    public static void updateUpgradePanelUI() {
-        Game.updateUpgradePanelUI();
-    }
-
-    public static void updateUpgradeRoomDescription() {
-        Game.updateUpgradeRoomDescription();
-    }
 
     public static void setUpgradeRoomDescription(String roomName, String roomDescription) {
         upgradeRoomController.roomDescription.setWrapText(true);
@@ -150,8 +143,8 @@ public class Wrapper {
      * Updates the scene's UI, such that it reflects the games' current upgrade room
      */
     private static void updateUpgradeRoomUI() {
-        updateUpgradePanelUI();
-        updateUpgradeRoomDescription();
+        Game.updateUpgradePanelUI();
+        Game.updateUpgradeRoomDescription();
     }
 
     /**
@@ -159,27 +152,18 @@ public class Wrapper {
      */
 
     private static void updateDevilsRoomUI() {
-        updateDevilsRoomUserDescription();
-        updateDevilsRoomStats();
+        Game.updateDevilsRoomUserDescription();
+        Game.updateDevilsRoomStats();
+        Game.updateDevilsRoomDescription();
     }
 
 
     /**
-     * Sets and updates the UI in devils room
+     * Sets the UI in devils room
      */
-
-    public static void updateDevilsRoomStats() {
-        Game.updateDevilsRoomStats();
-    }
-
-
-    public static void updateDevilsRoomUserDescription() {
-        Game.updateDevilsRoomUserDescription();
-    }
 
     public static void setDevilsRoomStats(String label1, String label2, String label3, String label4,
                                           String label5, String label6, String label7, String label8) {
-
         if (Game.getCurrentRoom() instanceof DevilsRoom) {
             devilsRoomController.matasProduction.setText(label1);
             devilsRoomController.matasUsage.setText(label2);
@@ -199,8 +183,16 @@ public class Wrapper {
         }
     }
 
+    public static void setDevilsRoomDescription(String startDescription) {
+        if (Game.getCurrentRoom() instanceof DevilsRoom) {
+            devilsRoomController.roomDescription.setWrapText(true);
+            devilsRoomController.roomDescription.setText(startDescription);
+        }
+    }
+
+
     /**
-     * Sets and updates the UI for the start screen
+     * Sets the UI for the start screen
      */
 
     public static void setStartScreenDescription(String startDescription) {
@@ -208,20 +200,14 @@ public class Wrapper {
         startMenuController.roomDescription.setText(startDescription);
     }
 
-
     /**
-     * Sets and updates the UI for the end screen
+     * Sets the UI for the end screen
      */
 
     public static void setEndScreenUI(String userDescription) {
         endScreenController.userDescription.setWrapText(true);
         endScreenController.userDescription.setText(userDescription);
     }
-
-
-
-
-
 
     /**
      * Resets all navigation buttons once they've been pressed
@@ -258,11 +244,7 @@ public class Wrapper {
      */
     public static void upgradeLvlUpdate1() {
         if (Game.getCurrentRoom() instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
-            upgradeRoom.upgradePathProducts.performUpgrade();
-            upgradeRoom.setCombinedProduction();
-            GameStats.updatePlasticProduction();
-            updateUpgradePanelUI();
+            Game.upgradeLvlUpdate1();
         }
     }
 
@@ -272,11 +254,7 @@ public class Wrapper {
      */
     public static void upgradeLvlUpdate2() {
         if (Game.getCurrentRoom() instanceof UpgradeRoom) {
-            UpgradeRoom upgradeRoom = (UpgradeRoom) Game.getCurrentRoom();
-            upgradeRoom.upgradePathUsage.performUpgrade();
-            upgradeRoom.setCombinedProduction();
-            GameStats.updatePlasticProduction();
-            updateUpgradePanelUI();
+            Game.upgradeLvlUpdate2();
         }
     }
 
@@ -285,7 +263,7 @@ public class Wrapper {
      * available for that room
      */
     public static void changeRoomToMatas() {
-        game.setRoomToMatas();
+        Game.setRoomToMatas();
         resetNavigationButtons();
         upgradeRoomController.goToMatas.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
@@ -298,7 +276,7 @@ public class Wrapper {
      * are available for that room
      */
     public static void changeRoomToCardealer() {
-        game.setRoomToCardealer();
+        Game.setRoomToCardealer();
         resetNavigationButtons();
         upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToCarDealer.setStyle("-fx-color: #ffe1d4;");
@@ -311,7 +289,7 @@ public class Wrapper {
      * are available for that room
      */
     public static void changeRoomToLaundry() {
-        game.setRoomToLaundry();
+        Game.setRoomToLaundry();
         resetNavigationButtons();
         upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToLaundry.setStyle("-fx-color: #ffe1d4;");
@@ -324,7 +302,7 @@ public class Wrapper {
      * available for that room
      */
     public static void changeRoomToDock() {
-        game.setRoomToDock();
+        Game.setRoomToDock();
         resetNavigationButtons();
         upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #ffbfa1;");
         upgradeRoomController.goToHarbour.setStyle("-fx-color: #ffe1d4;");
@@ -337,7 +315,7 @@ public class Wrapper {
      * are available for that room
      */
     public static void changeRoomToDevil() {
-        game.setRoomToDevil();
+        Game.setRoomToDevil();
         resetNavigationButtons();
         devilsRoomController.goToDevil.setStyle("-fx-background-color: #ffbfa1;");
         devilsRoomController.goToDevil.setStyle("-fx-color: #ffe1d4;");
