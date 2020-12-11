@@ -9,7 +9,6 @@ public class StartMenuController extends Controller{
 
     @FXML
     public Button goToDevil;
-
     @FXML
     public TextArea roomDescription;
 
