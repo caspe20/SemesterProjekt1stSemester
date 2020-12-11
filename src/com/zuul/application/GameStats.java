@@ -105,9 +105,9 @@ public class GameStats {
     public static String getPlastic() {
         String out = "";
         if (getPlasticInOcean() < 1) {
-            out = String.format("%.2f", plasticInOcean * 1000) + " Kilo";
+            out = String.format("%.2f", plasticInOcean * 1000) + " kilo";
         } else {
-            out = convertToVerbal(plasticInOcean) + " Tons";
+            out = convertToVerbal(plasticInOcean) + " tons";
         }
         return out;
     }
