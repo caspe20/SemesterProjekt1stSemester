@@ -301,7 +301,7 @@ public class Wrapper {
         game.setRoomToCardealer();
         resetNavigationButtons();
         upgradeRoomController.goToCarDealer.setStyle("-fx-background-color: #ffbfa1;");
-        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
+        upgradeRoomController.goToCarDealer.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToCarDealer.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -314,7 +314,7 @@ public class Wrapper {
         game.setRoomToLaundry();
         resetNavigationButtons();
         upgradeRoomController.goToLaundry.setStyle("-fx-background-color: #ffbfa1;");
-        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
+        upgradeRoomController.goToLaundry.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToLaundry.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -327,7 +327,7 @@ public class Wrapper {
         game.setRoomToDock();
         resetNavigationButtons();
         upgradeRoomController.goToHarbour.setStyle("-fx-background-color: #ffbfa1;");
-        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
+        upgradeRoomController.goToHarbour.setStyle("-fx-color: #ffe1d4;");
         upgradeRoomController.goToHarbour.setMouseTransparent(true);
         updateUpgradeRoomUI();
     }
@@ -339,15 +339,9 @@ public class Wrapper {
     public static void changeRoomToDevil() {
         game.setRoomToDevil();
         resetNavigationButtons();
-        upgradeRoomController.goToDevil.setStyle("-fx-background-color: #ffbfa1;");
-        upgradeRoomController.goToMatas.setStyle("-fx-color: #ffe1d4;");
-        upgradeRoomController.goToDevil.setMouseTransparent(true);
+        devilsRoomController.goToDevil.setStyle("-fx-background-color: #ffbfa1;");
+        devilsRoomController.goToDevil.setStyle("-fx-color: #ffe1d4;");
+        devilsRoomController.goToDevil.setMouseTransparent(true);
         updateDevilsRoomUI();
     }
-
-
-    
-
-
-
 }

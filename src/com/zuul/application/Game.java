@@ -2,6 +2,10 @@ package com.zuul.application;
 
 import com.zuul.application.rooms.*;
 import com.zuul.presentation.Wrapper;
+import com.zuul.presentation.controllers.DevilsRoomController;
+import com.zuul.presentation.controllers.EndScreenController;
+import com.zuul.presentation.controllers.StartMenuController;
+import com.zuul.presentation.controllers.UpgradeRoomController;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -41,6 +45,7 @@ public class Game extends Application {
 
     /**
      * Makes the game ready to play. Invokes the launch function from JavaFXM
+     *
      * @param args main args
      */
     public static void main(String[] args) {
@@ -66,6 +71,7 @@ public class Game extends Application {
     /**
      * Overwrites the standard start function for JavaFXML Make the game window and
      * load its assets (scenes and controllers)
+     *
      * @param primaryStage FXML application calls start on startup with primary stage as argument.
      * @throws Exception
      */
@@ -79,7 +85,7 @@ public class Game extends Application {
         // update wrapper
         Wrapper.setGame(this);
         // Get loaders for each room
-        FXMLLoader[] loader = new FXMLLoader[] {
+        FXMLLoader[] loader = new FXMLLoader[]{
                 new FXMLLoader(getClass().getResource(presentationLocation + "StartMenu.fxml")),
                 new FXMLLoader(getClass().getResource(presentationLocation + "DevilRoom.fxml")),
                 new FXMLLoader(getClass().getResource(presentationLocation + "UpgradeRoom.fxml")),
@@ -92,17 +98,27 @@ public class Game extends Application {
         scenes.put("UpgradeRoom", new Scene(loader[2].load()));
         scenes.put("EndScreen", new Scene(loader[3].load()));
 
-        // load controllers into wrapper
-        Wrapper.setControllers(
-                loader[0].getController(),
-                loader[1].getController(),
-                loader[2].getController(),
-                loader[3].getController()
-        );
+        // Set controllers
+        controllers.put("StartMenu", loader[0].getController());
+        controllers.put("DevilRoom", loader[1].getController());
+        controllers.put("UpgradeRoom", loader[2].getController());
+        controllers.put("EndScreen", loader[3].getController());
+
+        updateWrapperControllers();
 
         // Change scene to scene 1
         changeScene("StartMenu");
         updateStartScreenDescription();
+    }
+
+    public static void updateWrapperControllers() {
+        // load controllers into wrapper
+        Wrapper.setControllers(
+                (StartMenuController) controllers.get("StartMenu"),
+                (DevilsRoomController) controllers.get("DevilRoom"),
+                (UpgradeRoomController) controllers.get("UpgradeRoom"),
+                (EndScreenController) controllers.get("EndScreen")
+        );
     }
 
     /**
@@ -111,8 +127,8 @@ public class Game extends Application {
      */
     public static void startTimer() {
         timeline = new Timeline(new KeyFrame(Duration.millis(50), ae -> gameTick())); // Creates tick every 50
-                                                                                               // miliseconds or ca. 20
-                                                                                               // ticks a second
+        // miliseconds or ca. 20
+        // ticks a second
         timeline.setCycleCount(Animation.INDEFINITE);
         timeline.play();
     }
@@ -139,6 +155,7 @@ public class Game extends Application {
      */
     public static void changeScene(String scene) {
         getPrimaryStage().setScene(scenes.get(scene));
+        updateWrapperControllers();
     }
 
     /*
@@ -149,8 +166,7 @@ public class Game extends Application {
      * Calculates the progressbar and sends the information to the view
      */
     public static void calculateProgress() {
-        double totalProgress = Math
-                .sin(0.5 * Math.PI * (1 - ((double) GameStats.getFishInOcean() / GameStats.getFishInOceanBeginning())));
+        double totalProgress = Math.sin(0.5 * Math.PI * (1 - ((double) GameStats.getFishInOcean() / GameStats.getFishInOceanBeginning())));
         Wrapper.setProgressBar(totalProgress);
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
@@ -453,10 +469,10 @@ public class Game extends Application {
 
         // Check whether upgrade is available for either upgrade path
         if (productUpgrade > 0) {
-            upgradeProductsPollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent)-(productCurrent * usageCurrent)) + " tons mikroplastik";
+            upgradeProductsPollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent) - (productCurrent * usageCurrent)) + " tons mikroplastik";
         }
         if (usageUpgrade > 0) {
-            upgradeUsagePollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade)-(productCurrent * usageCurrent)) + " tons mikroplastik";
+            upgradeUsagePollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade) - (productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
         String button1 = UR.getUpgradePathProducts().getUpgradeButtonDescription();
@@ -495,11 +511,11 @@ public class Game extends Application {
         String currentUsageCardealer = Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
         String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        
+
         String userDescription = ("➼ Vi bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                                    "➼ Vi " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                                    "➼ Vi " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                                    "➼ Vi " + currentProductDock + " " + currentUsageDock);
+                "➼ Vi " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                "➼ Vi " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                "➼ Vi " + currentProductDock + " " + currentUsageDock);
 
         Wrapper.setDevilsRoomUserDescription(userDescription);
     }
@@ -530,12 +546,12 @@ public class Game extends Application {
         Wrapper.setEndScreenUI(userDescription);
     }
 
-     public static void updateUpgradeRoomDescription() {
-         String roomDescription = getRoomDescription();
-         String roomName = getRoomName();
+    public static void updateUpgradeRoomDescription() {
+        String roomDescription = getRoomDescription();
+        String roomName = getRoomName();
 
-         Wrapper.setUpgradeRoomDescription(roomName, roomDescription);
-     }
+        Wrapper.setUpgradeRoomDescription(roomName, roomDescription);
+    }
 
     public static void updateStartScreenDescription() {
         String startDescription = "Velkommen til Djævlens' hovedkvarter. Djævlen lever af fiskesjæle. " +
