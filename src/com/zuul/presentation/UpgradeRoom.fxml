@@ -256,7 +256,7 @@
                         </Label>
                         <Label fx:id="upgradeProducts2Pollution" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år" textFill="DARKORANGE">
                            <font>
-                              <Font name="Times New Roman Bold" size="19.0" />
+                              <Font name="Times New Roman Italic" size="15.0" />
                            </font>
                            <effect>
                               <ColorAdjust brightness="0.18" contrast="0.5" hue="-1.0" saturation="0.93">
@@ -339,7 +339,7 @@
                         </Label>
                         <Label fx:id="upgradeUsage2Pollution" layoutX="3.0" layoutY="150.0" prefHeight="31.0" prefWidth="247.0" text="10 Tons plastik/år" textFill="DARKORANGE">
                            <font>
-                              <Font name="Times New Roman Bold" size="19.0" />
+                              <Font name="Times New Roman Italic" size="15.0" />
                            </font>
                            <effect>
                               <ColorAdjust brightness="0.18" contrast="0.5" hue="-1.0" saturation="0.93">
@@ -404,7 +404,7 @@
                   </Label>
                </children>
             </Pane>
-            <Label fx:id="deadFish" layoutX="364.0" layoutY="738.0" prefHeight="28.0" prefWidth="290.0" text="0% Af fiskene i havet er døde">
+            <Label fx:id="deadFish" layoutX="430.0" layoutY="739.0" prefHeight="28.0" prefWidth="290.0" text="0% Af fiskene i havet er døde">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>

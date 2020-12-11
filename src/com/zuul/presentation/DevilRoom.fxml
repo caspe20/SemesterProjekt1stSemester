@@ -275,7 +275,7 @@
                   </Button>
                </children>
             </Pane>
-            <Label fx:id="deadFish" layoutX="364.0" layoutY="738.0" prefHeight="28.0" prefWidth="290.0" text="0% Af fiskene i havet er døde">
+            <Label fx:id="deadFish" layoutX="430.0" layoutY="739.0" prefHeight="28.0" prefWidth="290.0" text="0% Af fiskene i havet er døde">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
