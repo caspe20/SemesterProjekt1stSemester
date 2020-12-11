@@ -111,13 +111,6 @@ public class Wrapper {
     /**
      * updates the upgrade UI for the current scene.
      */
-    public static void updateUpgradePanelUI() {
-        Game.updateUpgradePanelUI();
-    }
-
-    public static void updateUpgradeRoomDescription() {
-        Game.updateUpgradeRoomDescription();
-    }
 
     public static void setUpgradeRoomDescription(String roomName, String roomDescription) {
         upgradeRoomController.roomDescription.setWrapText(true);
@@ -150,8 +143,8 @@ public class Wrapper {
      * Updates the scene's UI, such that it reflects the games' current upgrade room
      */
     private static void updateUpgradeRoomUI() {
-        updateUpgradePanelUI();
-        updateUpgradeRoomDescription();
+        Game.updateUpgradePanelUI();
+        Game.updateUpgradeRoomDescription();
     }
 
     /**
@@ -198,6 +191,14 @@ public class Wrapper {
             devilsRoomController.userDescription.setText(userDescription);
         }
     }
+
+    public static void setDevilsRoomDescription(String startDescription) {
+        if (Game.getCurrentRoom() instanceof DevilsRoom) {
+            devilsRoomController.roomDescription.setWrapText(true);
+            devilsRoomController.roomDescription.setText(startDescription);
+        }
+    }
+
 
     /**
      * Sets and updates the UI for the start screen
@@ -262,7 +263,7 @@ public class Wrapper {
             upgradeRoom.upgradePathProducts.performUpgrade();
             upgradeRoom.setCombinedProduction();
             GameStats.updatePlasticProduction();
-            updateUpgradePanelUI();
+            Game.updateUpgradePanelUI();
         }
     }
 
@@ -276,7 +277,7 @@ public class Wrapper {
             upgradeRoom.upgradePathUsage.performUpgrade();
             upgradeRoom.setCombinedProduction();
             GameStats.updatePlasticProduction();
-            updateUpgradePanelUI();
+            Game.updateUpgradePanelUI();
         }
     }
 

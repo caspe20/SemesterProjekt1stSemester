@@ -209,7 +209,8 @@ public class Game extends Application {
      */
     private void createRooms() {
         devilheadquater = new DevilsRoom("Djævlens Hovedkvarter",
-                "Velkommen i Djævlens' hovedkvarter");
+                "Velkommen til Djævlens Kontor. Her kan du besøge din chef og få en status på dit arbejde " +
+                        "med at udslette havets fisk.");
 
         matas = new UpgradeRoom("Matas",
                 "Velkommen til Matas! Her kan du købe en masse forskellige produkter " +
@@ -568,4 +569,23 @@ public class Game extends Application {
 
         Wrapper.setStartScreenDescription(startDescription);
     }
+
+    public static void updateDevilsRoomDescription() {
+        String startDescription = "Velkommen til Djævlens' hovedkvarter. Djævlen lever af fiskesjæle. " +
+                "En af de mest effektive måder at slå fisk ihjel, er ved at forurene havene " +
+                "med mikroplast. De små plastikpartikler bliver optaget i havets fisk og " +
+                "lægger hele økosystemer øde. Djævlen mæsker sig på sit kontor og grådig som han er, " +
+                "har han udtænkt en plan, så han snart kan holde gilde for hele underverdenen. " +
+                "Han har nemlig opdaget, at mennesker opfører sig meget forudsigeligt. De vil altid gøre det " +
+                "som andre mennesker gør og de vil altid have det som andre mennesker har.\n\n" +
+                "Du er i ledtog med djævlen. Din opgave er at bidrage med så meget mikroplastforurening " +
+                "som overhovedet muligt. De andre mennesker vil gøre ligesom dig. For sådan er mennesker. " +
+                "Skynd dig at vaske en masse syntetisk tøj, smid plastik i havnen, brænd gummi af i din store bil " +
+                "og brug en masser glimmer foran spejlet!";
+
+        Wrapper.setDevilsRoomDescription(startDescription);
+    }
+
+
+
 }
