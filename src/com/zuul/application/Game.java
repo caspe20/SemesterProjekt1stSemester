@@ -499,12 +499,16 @@ public class Game extends Application {
         double usageUpgrade = UR.getUpgradePathUsage().getUpgradeProduction();
         String upgradeProductsPollution = "";
         String upgradeUsagePollution = "";
+        String upgradeText1 = "";
+        String upgradeText2 = "";
 
         // Check whether upgrade is available for either upgrade path
         if (productUpgrade > 0) {
+            upgradeText1 = "Opgrader til næste Level for:";
             upgradeProductsPollution = "+ " + String.format("%.0f", (productUpgrade * usageCurrent) - (productCurrent * usageCurrent)) + " tons mikroplastik";
         }
         if (usageUpgrade > 0) {
+            upgradeText2 = "Opgrader til næste Level for:";
             upgradeUsagePollution = "+ " + String.format("%.0f", (productCurrent * usageUpgrade) - (productCurrent * usageCurrent)) + " tons mikroplastik";
         }
 
@@ -517,7 +521,7 @@ public class Game extends Application {
         String label5 = UR.getUpgradePathUsage().getUpgradeTwoDescription();
         String label6 = upgradeUsagePollution;
 
-        Wrapper.setUpgradePanelUI(button1, button2, label1, label2, label3, label4, label5, label6);
+        Wrapper.setUpgradePanelUI(button1, button2, label1, label2, label3, label4, label5, label6, upgradeText1, upgradeText2);
     }
 
 

@@ -3,7 +3,7 @@ package com.zuul.application;
 public class GameStats {
     private static double fishInOcean = 2000000000d;
     private static double fishInOceanBeginning = fishInOcean;
-    private static double currentFishSouls = 0;
+    private static double currentFishSouls = 2000000000;
     private static double plasticInOcean;
     private static double plasticProduction = 5;
     private static double currentTurn = 0;

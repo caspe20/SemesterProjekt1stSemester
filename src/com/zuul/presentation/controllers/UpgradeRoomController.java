@@ -53,9 +53,9 @@ public class UpgradeRoomController extends Controller {
     @FXML
     public Button goToDevil;
     @FXML
-    public Pane UpgradeProductArrow;
+    public Label upgradeText1;
     @FXML
-    public Pane UpgradeUsageArrow;
+    public Label upgradeText2;
 
     @FXML
     void updateRoomToMatas() {
