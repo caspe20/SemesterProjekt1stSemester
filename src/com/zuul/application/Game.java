@@ -393,6 +393,7 @@ public class Game extends Application {
 
     }
 
+
     /**
      * Sets the current room to matas and updates rooms to reflect it
      */
@@ -457,10 +458,35 @@ public class Game extends Application {
     }
 
     /**
+     * Upgrades the first upgradable item in the current room and updates the UI to
+     * reflect this
+     */
+    public static void upgradeLvlUpdate1() {
+        UpgradeRoom upgradeRoom = (UpgradeRoom) getCurrentRoom();
+        upgradeRoom.upgradePathProducts.performUpgrade();
+        upgradeRoom.setCombinedProduction();
+        GameStats.updatePlasticProduction();
+        updateUpgradePanelUI();
+    }
+
+    /**
+     * upgrade the second upgradable item in the current room and updates the UI to
+     * reflect this
+     */
+    public static void upgradeLvlUpdate2() {
+        UpgradeRoom upgradeRoom = (UpgradeRoom) getCurrentRoom();
+        upgradeRoom.upgradePathUsage.performUpgrade();
+        upgradeRoom.setCombinedProduction();
+        GameStats.updatePlasticProduction();
+        updateUpgradePanelUI();
+    }
+
+
+    /**
      * function for updating the upgrade UI.
      */
     public static void updateUpgradePanelUI() {
-        UpgradeRoom UR = (UpgradeRoom) Game.getCurrentRoom();
+        UpgradeRoom UR = (UpgradeRoom) getCurrentRoom();
         double productCurrent = UR.getUpgradePathProducts().getCurrentProduction();
         double productUpgrade = UR.getUpgradePathProducts().getUpgradeProduction();
         double usageCurrent = UR.getUpgradePathUsage().getCurrentProduction();
@@ -490,55 +516,56 @@ public class Game extends Application {
 
 
     public static void updateDevilsRoomStats() {
-        String label1 = "Production level: " + (Game.matas.upgradePathProducts.getCurrentLevel() + 1);
-        String label2 = "Usage level: " + (Game.matas.upgradePathUsage.getCurrentLevel() + 1);
-        String label3 = "Production level: " + (Game.cardealer.upgradePathProducts.getCurrentLevel() + 1);
-        String label4 = "Usage level: " + (Game.cardealer.upgradePathUsage.getCurrentLevel() + 1);
-        String label5 = "Production level: " + (Game.laundry.upgradePathProducts.getCurrentLevel() + 1);
-        String label6 = "Usage level: " + (Game.laundry.upgradePathUsage.getCurrentLevel() + 1);
-        String label7 = "Production level: " + (Game.dock.upgradePathProducts.getCurrentLevel() + 1);
-        String label8 = "Usage level: " + (Game.dock.upgradePathUsage.getCurrentLevel() + 1);
+        String label1 = "Production level: " + (matas.upgradePathProducts.getCurrentLevel() + 1);
+        String label2 = "Usage level: " + (matas.upgradePathUsage.getCurrentLevel() + 1);
+        String label3 = "Production level: " + (cardealer.upgradePathProducts.getCurrentLevel() + 1);
+        String label4 = "Usage level: " + (cardealer.upgradePathUsage.getCurrentLevel() + 1);
+        String label5 = "Production level: " + (laundry.upgradePathProducts.getCurrentLevel() + 1);
+        String label6 = "Usage level: " + (laundry.upgradePathUsage.getCurrentLevel() + 1);
+        String label7 = "Production level: " + (dock.upgradePathProducts.getCurrentLevel() + 1);
+        String label8 = "Usage level: " + (dock.upgradePathUsage.getCurrentLevel() + 1);
 
         Wrapper.setDevilsRoomStats(label1, label2, label3, label4, label5, label6, label7, label8);
     }
 
     public static void updateDevilsRoomUserDescription() {
-        String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
-        String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
-        String currentProductLaundry = Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
-        String currentProductDock = Game.dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductMatas = matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductCardealer = cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductLaundry = laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductDock = dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()].getUpgradeName();
 
-        String currentUsageMatas = Game.matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        String currentUsageCardealer = Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageMatas = matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageCardealer = cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageLaundry = laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageDock = dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
 
-        String userDescription = ("➼ Vi bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
-                "➼ Vi " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
-                "➼ Vi " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
-                "➼ Vi " + currentProductDock + " " + currentUsageDock);
+        String userDescription = ("Alle mennesker på jorden... " + "\n" +
+                "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
+                "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
+                "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
+                "... " + currentProductDock + " " + currentUsageDock);
 
         Wrapper.setDevilsRoomUserDescription(userDescription);
     }
 
 
     public static void updateEndScreenUI() {
-        String currentProductMatas = Game.matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
-        String currentProductCardealer = Game.cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
-        String currentProductLaundry = Game.laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
-        String currentProductDock = Game.dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductMatas = matas.upgradePathProducts.getUpgrades()[Game.matas.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductCardealer = cardealer.upgradePathProducts.getUpgrades()[Game.cardealer.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductLaundry = laundry.upgradePathProducts.getUpgrades()[Game.laundry.upgradePathProducts.getCurrentLevel()].getUpgradeName();
+        String currentProductDock = dock.upgradePathProducts.getUpgrades()[Game.dock.upgradePathProducts.getCurrentLevel()].getUpgradeName();
 
-        String currentUsageMatas = Game.matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        String currentUsageCardealer = Game.cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        String currentUsageLaundry = Game.laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
-        String currentUsageDock = Game.dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageMatas = matas.upgradePathUsage.getUpgrades()[Game.matas.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageCardealer = cardealer.upgradePathUsage.getUpgrades()[Game.cardealer.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageLaundry = laundry.upgradePathUsage.getUpgrades()[Game.laundry.upgradePathUsage.getCurrentLevel()].getUpgradeName();
+        String currentUsageDock = dock.upgradePathUsage.getUpgrades()[Game.dock.upgradePathUsage.getCurrentLevel()].getUpgradeName();
 
         int yearsPlayed = GameStats.getYearsPlayed();
         int daysPlayed = GameStats.getDaysPlayed();
 
         String userDescription = ("Tillykke! Vi brugte " + yearsPlayed + " år og " + daysPlayed + " dage " +
                 "på at slå alle fiskene ihjel med vores mikroplast" + "\n\n" +
-                "Alle os mennesker på jorden... " + "\n" +
+                "Alle mennesker på jorden... " + "\n" +
                 "... bruger " + currentProductMatas + " " + currentUsageMatas + "\n" +
                 "... " + currentProductCardealer + " " + currentUsageCardealer + "\n" +
                 "... " + currentProductLaundry + " " + currentUsageLaundry + "\n" +
@@ -571,21 +598,10 @@ public class Game extends Application {
     }
 
     public static void updateDevilsRoomDescription() {
-        String startDescription = "Velkommen til Djævlens' hovedkvarter. Djævlen lever af fiskesjæle. " +
-                "En af de mest effektive måder at slå fisk ihjel, er ved at forurene havene " +
-                "med mikroplast. De små plastikpartikler bliver optaget i havets fisk og " +
-                "lægger hele økosystemer øde. Djævlen mæsker sig på sit kontor og grådig som han er, " +
-                "har han udtænkt en plan, så han snart kan holde gilde for hele underverdenen. " +
-                "Han har nemlig opdaget, at mennesker opfører sig meget forudsigeligt. De vil altid gøre det " +
-                "som andre mennesker gør og de vil altid have det som andre mennesker har.\n\n" +
-                "Du er i ledtog med djævlen. Din opgave er at bidrage med så meget mikroplastforurening " +
-                "som overhovedet muligt. De andre mennesker vil gøre ligesom dig. For sådan er mennesker. " +
-                "Skynd dig at vaske en masse syntetisk tøj, smid plastik i havnen, brænd gummi af i din store bil " +
-                "og brug en masser glimmer foran spejlet!";
+        String startDescription = devilheadquater.getRoomDescription();
 
         Wrapper.setDevilsRoomDescription(startDescription);
     }
-
 
 
 }
