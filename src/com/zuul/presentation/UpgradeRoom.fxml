@@ -372,7 +372,7 @@
                         </Pane>
                      </children>
                   </Pane>
-                  <Label contentDisplay="CENTER" layoutX="24.0" layoutY="308.0" prefHeight="28.0" prefWidth="220.0" text="Opgrader til næste Level for:" textAlignment="RIGHT" textFill="#ff6300">
+                  <Label fx:id="upgradeText1" contentDisplay="CENTER" layoutX="24.0" layoutY="308.0" prefHeight="28.0" prefWidth="220.0" text="Opgrader til næste Level for:" textAlignment="RIGHT" textFill="#ff6300">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>
@@ -397,7 +397,7 @@
                         </LinearGradient>
                      </textFill>
                   </Button>
-                  <Label contentDisplay="CENTER" layoutX="24.0" layoutY="627.0" prefHeight="28.0" prefWidth="220.0" text="Opgrader til næste Level for:" textAlignment="RIGHT" textFill="#ff6300">
+                  <Label fx:id="upgradeText2" contentDisplay="CENTER" layoutX="24.0" layoutY="627.0" prefHeight="28.0" prefWidth="220.0" text="Opgrader til næste Level for:" textAlignment="RIGHT" textFill="#ff6300">
                      <font>
                         <Font name="Times New Roman Bold" size="17.0" />
                      </font>

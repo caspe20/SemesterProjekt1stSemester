@@ -104,7 +104,7 @@ public class Wrapper {
     }
 
     public static void setUpgradePanelUI(String button1, String button2, String label1, String label2,
-                                         String label3, String label4, String label5, String label6) {
+                                         String label3, String label4, String label5, String label6, String label7, String label8) {
 
         // Formatting buttons
         upgradeRoomController.upgradeProductsButton.setDisable((button1.equals("Opgradering utilgængelig")));
@@ -121,6 +121,8 @@ public class Wrapper {
         upgradeRoomController.upgradeUsage1.setText(label4);
         upgradeRoomController.upgradeUsage2.setText(label5);
         upgradeRoomController.upgradeUsage2Pollution.setText(label6);
+        upgradeRoomController.upgradeText1.setText(label7);
+        upgradeRoomController.upgradeText2.setText(label8);
     }
 
     /**
