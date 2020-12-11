@@ -149,8 +149,9 @@ public class Game extends Application {
      */
     public static void calculateProgress() {
         double totalProgress = Math
-                .sin(0.5 * Math.PI * (1 - ((double) GameStats.getFishInOcean() / GameStats.getFishInOceanBeginning())));
+                .sin(0.5 * Math.PI * (1 - ((double) GameStats.getFishInOcean() / (double)GameStats.getFishInOceanBeginning())));
         Wrapper.setProgressBar(totalProgress);
+        System.out.println(GameStats.getFishInOcean()+"/"+GameStats.getFishInOceanBeginning());
         if (0.001 > (totalProgress * 100)) {
             Wrapper.setUserDescription(
                     "Well, what do we have here? Fresh new meat that wishes to serve the master of the underworld? Well then, welcome to my domain, my faithful servant! I do not tolerate failure, now go get me the fish souls I need to end the world!");

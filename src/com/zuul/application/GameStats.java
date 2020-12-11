@@ -3,8 +3,8 @@ package com.zuul.application;
 import com.zuul.application.rooms.UpgradeRoom;
 
 public class GameStats {
-    private static long fishInOcean = 2000000000l;
-    private static long fishInOceanBeginning = getFishInOcean();
+    private static double fishInOcean = 2000000000;
+    private static double fishInOceanBeginning = fishInOcean;
     private static double currentFishSouls = 0;
     private static double plasticInOcean;
     public static double plasticProduction = 5;
@@ -19,7 +19,7 @@ public class GameStats {
         updateFish(yr);
     }
 
-    public static long getFishInOcean() {
+    public static double getFishInOcean() {
         return fishInOcean;
     }
 
@@ -27,7 +27,7 @@ public class GameStats {
         GameStats.fishInOcean = fishInOcean;
     }
 
-    public static long getFishInOceanBeginning() {
+    public static double getFishInOceanBeginning() {
         return fishInOceanBeginning;
     }
 
@@ -77,7 +77,7 @@ public class GameStats {
     }
 
     private static void updatePlastic(double yr) {
-        setPlasticInOcean(getPlasticInOcean() + plasticProduction * yr);
+        setPlasticInOcean(plasticInOcean + plasticProduction * yr);
     }
 
     public static void updatePlasticProduction() {
@@ -85,8 +85,8 @@ public class GameStats {
     }
 
     private static void updateFish(double yr) {
-        setCurrentFishSouls(getCurrentFishSouls() + getPlasticInOcean() * yr);
-        setFishInOcean((long)getFishInOcean() - (long)getPlasticInOcean() * (long)yr);
+        currentFishSouls = currentFishSouls + plasticInOcean * yr;
+        fishInOcean = fishInOcean - plasticInOcean * yr;
         if (getFishInOcean() <= 0) {
             setFishInOcean(0);
         }
