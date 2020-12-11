@@ -25,5 +25,5 @@ For at kunne køre programmet og spille spillet skal din IDE være sat op med Ja
 
 ## Konfigurer applikationen i IntelliJ 2020.3.0
 1. Følg trin ``1 - 4`` i IntelliJ2020.2.3 delen.
-2. Click på <kbd>modify options</kbd> og i menuen tilvælg <kbd>VM options</kbd>.
+2. Click på <kbd>Modify options</kbd> og i menuen tilvælg <kbd>VM options</kbd>.
 3. Følg trin ``5 - 7`` i IntelliJ2020.2.3 delen.
