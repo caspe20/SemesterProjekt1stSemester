@@ -9,8 +9,6 @@ import javafx.scene.control.TextArea;
 
 public class DevilsRoomController extends Controller {
 
-
-
     @FXML
     public Label time;
     @FXML
@@ -41,6 +39,8 @@ public class DevilsRoomController extends Controller {
     public Button goToLaundry;
     @FXML
     public Button goToHarbour;
+    @FXML
+    public Button goToDevil;
 
 
     @FXML

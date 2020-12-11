@@ -3,13 +3,12 @@ package com.zuul.application;
 import com.zuul.application.rooms.UpgradeRoom;
 
 public class GameStats {
-    private static long fishInOcean = 2000000000l;
-    private static long fishInOceanBeginning = getFishInOcean();
+    private static double fishInOcean = 2000000000d;
+    private static double fishInOceanBeginning = fishInOcean;
     private static double currentFishSouls = 0;
     private static double plasticInOcean;
     public static double plasticProduction = 5;
     private static String gameProgress;
-    private UpgradeRoom[] upgradeRoom;
     private static double currentTurn = 0;
     private static final int currentYear = 2000;
 
@@ -19,15 +18,15 @@ public class GameStats {
         updateFish(yr);
     }
 
-    public static long getFishInOcean() {
+    public static double getFishInOcean() {
         return fishInOcean;
     }
 
-    public static void setFishInOcean(long fishInOcean) {
+    public static void setFishInOcean(double fishInOcean) {
         GameStats.fishInOcean = fishInOcean;
     }
 
-    public static long getFishInOceanBeginning() {
+    public static double getFishInOceanBeginning() {
         return fishInOceanBeginning;
     }
 
@@ -86,7 +85,7 @@ public class GameStats {
 
     private static void updateFish(double yr) {
         setCurrentFishSouls(getCurrentFishSouls() + getPlasticInOcean() * yr);
-        setFishInOcean((long)getFishInOcean() - (long)getPlasticInOcean() * (long)yr);
+        setFishInOcean(getFishInOcean() - getPlasticInOcean() * yr);
         if (getFishInOcean() <= 0) {
             setFishInOcean(0);
         }
@@ -96,27 +95,26 @@ public class GameStats {
     public static String getTime() {
         double year = currentYear + currentTurn;
         double day = (year % 1) * 365;
-        String out = "år " + (int)Math.floor(year) + " dag " + String.format("%.0f",day);
+        String out = "år " + (int) Math.floor(year) + " dag " + String.format("%.0f", day);
         return out;
     }
 
     public static int getYearsPlayed() {
-        return (int)currentTurn;
+        return (int) currentTurn;
     }
 
     public static int getDaysPlayed() {
         double year = currentYear + currentTurn;
         double day = (year % 1) * 365;
-        return (int)day;
+        return (int) day;
     }
-
 
 
     public static String getFish() {
         return convertToVerbal(getCurrentFishSouls()) + " sjæle";
     }
 
-    public static String getPlasticProduction(){
+    public static String getPlasticProduction() {
         return convertToVerbal(plasticProduction) + " Tons";
     }
 
@@ -126,7 +124,7 @@ public class GameStats {
         } else if (count < 1000000) {
             return String.format("%.2f", count / 1000) + "K";
         } else {
-            return String.format("%.2f", count/1000000) + "M";
+            return String.format("%.2f", count / 1000000) + "M";
         }
     }
 
@@ -134,7 +132,7 @@ public class GameStats {
         String out = "";
         if (getPlasticInOcean() < 1) {
             out = String.format("%.2f", getPlasticInOcean() * 1000) + " Kilo";
-        } else{
+        } else {
             out = convertToVerbal(getPlasticInOcean()) + " Tons";
         }
         return out;
