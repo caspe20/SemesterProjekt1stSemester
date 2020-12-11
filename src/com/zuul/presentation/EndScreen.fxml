@@ -26,9 +26,9 @@
       <RowConstraints />
    </rowConstraints>
    <children>
-      <Pane blendMode="SRC_ATOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0">
+      <Pane blendMode="SRC_ATOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="770.0" prefWidth="1150.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="609.0" layoutX="-118.0" layoutY="-93.0" stroke="BLACK" strokeType="INSIDE" width="1288.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="609.0" layoutX="-118.0" layoutY="-93.0" stroke="BLACK" strokeType="INSIDE" width="1416.0">
                <effect>
                   <ColorAdjust brightness="0.47" contrast="0.71" hue="0.73" saturation="-0.86">
                      <input>
@@ -58,7 +58,7 @@
                   </ColorAdjust>
                </effect>
             </Circle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="288.0" layoutY="517.0" stroke="BLACK" strokeType="INSIDE" width="1034.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="288.0" layoutY="517.0" stroke="BLACK" strokeType="INSIDE" width="1167.0">
                <effect>
                   <ColorAdjust brightness="0.05" contrast="0.19" hue="0.79" saturation="-0.78">
                      <input>
@@ -73,22 +73,7 @@
             </Rectangle>
             <Pane layoutX="286.0" layoutY="105.0" prefHeight="96.0" prefWidth="445.0">
                <children>
-                  <TextArea fx:id="userDescription" editable="false" layoutX="-161.0" layoutY="125.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="366.0" prefWidth="766.0" text="Du har fået folk på jorden til at:&#10;køre 100km i monstertrucks pr år">
-                     <font>
-                        <Font name="Times New Roman Italic" size="24.0" />
-                     </font>
-                     <effect>
-                        <InnerShadow choke="0.61" color="#00dcff" height="5.0" radius="2.0" width="5.0">
-                           <input>
-                              <ColorAdjust brightness="0.4" contrast="0.24" hue="-0.15" saturation="0.02" />
-                           </input>
-                        </InnerShadow>
-                     </effect>
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </TextArea>
-                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="-118.0" layoutY="-19.0" prefHeight="106.0" prefWidth="680.0" text="DU HAR VUNDET!" textAlignment="CENTER" textFill="#3f00ff">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="-49.0" layoutY="-24.0" prefHeight="106.0" prefWidth="680.0" text="DU HAR VUNDET!" textAlignment="CENTER" textFill="#3f00ff">
                      <font>
                         <Font name="Georgia Bold" size="67.0" />
                      </font>
@@ -102,7 +87,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="EndGameButton" layoutX="312.0" layoutY="647.0" mnemonicParsing="false" onMousePressed="#endGame" prefHeight="80.0" prefWidth="410.0" text="Afslut Spillet">
+            <Button fx:id="EndGameButton" layoutX="370.0" layoutY="650.0" mnemonicParsing="false" onMousePressed="#endGame" prefHeight="80.0" prefWidth="410.0" text="Afslut Spillet">
                <font>
                   <Font name="Times New Roman Bold Italic" size="45.0" />
                </font>
@@ -125,6 +110,21 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <TextArea fx:id="userDescription" editable="false" layoutX="201.0" layoutY="240.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="366.0" prefWidth="766.0" text="Du har fået folk på jorden til at:&#10;køre 100km i monstertrucks pr år">
+               <font>
+                  <Font name="Times New Roman Italic" size="24.0" />
+               </font>
+               <effect>
+                  <InnerShadow choke="0.61" color="#00dcff" height="5.0" radius="2.0" width="5.0">
+                     <input>
+                        <ColorAdjust brightness="0.4" contrast="0.24" hue="-0.15" saturation="0.02" />
+                     </input>
+                  </InnerShadow>
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="DEFAULT" />
+               </cursor>
+            </TextArea>
          </children>
          <effect>
             <Blend />
